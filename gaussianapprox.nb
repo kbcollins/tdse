@@ -1,0 +1,58 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1376,         48]
+NotebookOptionsPosition[      1027,         34]
+NotebookOutlinePosition[      1425,         50]
+CellTagsIndexPosition[      1382,         47]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g", "[", 
+   RowBox[{"x_", ",", "\[Sigma]_", ",", "\[Beta]_"}], "]"}], ":=", 
+  RowBox[{"Exp", "[", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"x", "-", "\[Beta]"}], ")"}], "^", "2"}]}], "/", 
+    RowBox[{"\[Sigma]", "^", "2"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.846506904282064*^9, 3.846506938113351*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"e186a480-3f51-4b57-945e-383e2b7cf659"]
+},
+WindowSize->{808, 911},
+WindowMargins->{{345, Automatic}, {41, Automatic}},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ee930f51-aade-4f85-9831-23943fd5cfed"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 465, 12, 60, "Input",ExpressionUUID->"e186a480-3f51-4b57-945e-383e2b7cf659"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
