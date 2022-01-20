@@ -94,33 +94,46 @@ def proplam(thisamat, thisamattrue, proplammat):
         lambmat[j, :] = thisamat[j, :] - thisamattrue[j, :] + proplammat @ lambmat[j + 1, :]
     return lambmat
 
-    # these functions compute the gradient WFT the Gaussian coefficients
-    @njit
-    def gradhelp(specprdt, statesprdt):
-        alldmat = np.zeros((ng, m, m), dtype=np.complex128)
-        expspec = np.exp(-1j * dt * specprdt)
-        mask = np.zeros((m, m), dtype=np.complex128)
-        for ii in range(m):
-            for jj in range(m):
-                if np.abs(specprdt[ii] - specprdt[jj]) < 1e-8:
-                    mask[ii, ii] = expspec[ii]
-                else:
-                    mask[ii, jj] = (expspec[ii] - expspec[jj]) / (-1j * dt * (specprdt[ii] - specprdt[jj]))
-        for iii in range(ng):
-            thisA = statesprdt.conj().T @ gradgvmat[iii] @ statesprdt
-            qmat = thisA * mask
-            alldmat[iii, :, :] = -1j * dt * statesprdt @ qmat @ statesprdt.conj().T
-        return alldmat
+# this function computes the Lagrangian given a set of Gaussian coefficients
+def justlag(cffprdt, thisamattrue, thisainit):
+    global glbspecprdt, glbstatesprdt, glbamatprdt, glblambmat
+    global glbproplammat
+    # propagate ainit with cffprdt
+    glbspecprdt, glbstatesprdt, glbamatprdt, glbproplammat = propa(gvmat(cffprdt), thisainit)
+    # propagate lambmat with glbamatprdt
+    glblambmat = proplam(glbamatprdt, thisamattrue, glbproplammat)
+    # compute residual
+    resid = glbamatprdt - thisamattrue
+    lag = 0.5 * np.real(np.sum(np.conj(resid) * resid))
+    return lag
 
-    def justgrad(_):
-        global glbspecprdt, glbstatesprdt, glbamatprdt, glblambmat
-        global glballdmat, glbderivamat
-        glbderivamat = np.zeros((2 * m - 1, m, m), dtype=np.complex128)
-        # compute alldmat
-        glballdmat = gradhelp(glbspecprdt, glbstatesprdt)
-        # compute all entries of the gradient at once
-        gradients = np.real(np.einsum('ij,ajk,ik->a', np.conj(glblambmat[1:, :]), glballdmat, glbamatprdt[:-1, :]))
-        return gradients
+# these functions compute the gradient WFT the Gaussian coefficients
+@njit
+def gradhelp(specprdt, statesprdt):
+    alldmat = np.zeros((ng, m, m), dtype=np.complex128)
+    expspec = np.exp(-1j * dt * specprdt)
+    mask = np.zeros((m, m), dtype=np.complex128)
+    for ii in range(m):
+        for jj in range(m):
+            if np.abs(specprdt[ii] - specprdt[jj]) < 1e-8:
+                mask[ii, ii] = expspec[ii]
+            else:
+                mask[ii, jj] = (expspec[ii] - expspec[jj]) / (-1j * dt * (specprdt[ii] - specprdt[jj]))
+    for iii in range(ng):
+        thisA = statesprdt.conj().T @ gradgvmat[iii] @ statesprdt
+        qmat = thisA * mask
+        alldmat[iii, :, :] = -1j * dt * statesprdt @ qmat @ statesprdt.conj().T
+    return alldmat
+
+def justgrad(_):
+    global glbspecprdt, glbstatesprdt, glbamatprdt, glblambmat
+    global glballdmat, glbderivamat
+    glbderivamat = np.zeros((2 * m - 1, m, m), dtype=np.complex128)
+    # compute alldmat
+    glballdmat = gradhelp(glbspecprdt, glbstatesprdt)
+    # compute all entries of the gradient at once
+    gradients = np.real(np.einsum('ij,ajk,ik->a', np.conj(glblambmat[1:, :]), glballdmat, glbamatprdt[:-1, :]))
+    return gradients
 
 # loop for evaluating many different values of alpha
 for alpha in [0.1, 0.2, 0.26, 0.3, 0.35, 0.4, 0.5, 0.8, 1, 1.5, 2, 3]:
@@ -152,19 +165,6 @@ for alpha in [0.1, 0.2, 0.26, 0.3, 0.35, 0.4, 0.5, 0.8, 1, 1.5, 2, 3]:
     spectrue, statestrue, amattrue, _ = propa(gvmat(cfftrue), ainit)
     # transform amattrue to real space
     psimattrue = amattrue @ convmat
-
-    # this function computes the Lagrangian given a set of Gaussian coefficients
-    def justlag(cffprdt, thisamattrue, thisainit):
-        global glbspecprdt, glbstatesprdt, glbamatprdt, glblambmat
-        global glbproplammat
-        # propagate ainit with cffprdt
-        glbspecprdt, glbstatesprdt, glbamatprdt, glbproplammat = propa(gvmat(cffprdt), thisainit)
-        # propagate lambmat with glbamatprdt
-        glblambmat = proplam(glbamatprdt, thisamattrue, glbproplammat)
-        # compute residual
-        resid = glbamatprdt - thisamattrue
-        lag = 0.5 * np.real(np.sum(np.conj(resid) * resid))
-        return lag
 
 
 
