@@ -114,9 +114,9 @@ def proplam(thisamat, thisamattrue, proplammat):
 def justlag(cffprdt, thisamattrue, thisainit):
     global glbspecprdt, glbstatesprdt, glbamatprdt, glblambmat
     global glbproplammat
-    # propagate inita with cffprdt
+    # propagate inita with cffobjecfn
     glbspecprdt, glbstatesprdt, glbamatprdt, glbproplammat = propa(gvmat(cffprdt), thisainit)
-    # propagate lambmat with glbamatprdt
+    # propagate lambmat with glbamat
     glblambmat = proplam(glbamatprdt, thisamattrue, glbproplammat)
     # compute residual
     resid = glbamatprdt - thisamattrue
@@ -182,9 +182,9 @@ for alpha in np.linspace(0.06, 0.1836, 30):
     # compute the true Gaussian coefficents from the true potential
     cfftrue = nl.inv(gmat) @ v(xg)
 
-    # computes amattrue using inita and the true potential
+    # computes amattruetrain using inita and the true potential
     spectrue, statestrue, amattrue, _ = propa(gvmat(cfftrue), ainit)
-    # transform amattrue to real space
+    # transform amattruetrain to real space
     psimattrue = amattrue @ convmat
 
     # let the user know what's happening
