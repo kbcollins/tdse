@@ -90,7 +90,7 @@ xvec = np.linspace(-radius, radius, nx)
 nvec = np.arange(-nfb, nfb+1) # nvec=-nfb,...,0,...,nfb
 convmat = np.exp(1j * np.pi * np.outer(nvec, xvec) / radius) / np.sqrt(2 * radius)
 # compute true potential
-vchoice = 2
+vchoice = 1
 vtrue = v(x=xvec, choice=vchoice)
 # generate initial a state
 inita = gen_inita(bounda=-radius, boundb=radius, choice=0)
