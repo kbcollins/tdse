@@ -104,9 +104,12 @@ rndvtrue = []
 rndvtrain = []
 rndprop = []
 
+# set how far past the training data to propagate
+ntextra=500
+
 for i in range(5):
     # set number of Gaussian basis
-    ng = 16 + 2**(2 * i)
+    ng = 2**(3 + i)  # 16 + 2**(2 * i)
     ngvec.append(ng)
 
     # vector of Gaussian basis centers in real space
@@ -280,9 +283,11 @@ for i in range(5):
 
     # plot the objective's history
     plt.plot(glbobjechist)
-    plt.title(f'Last {objechistlen} Values of the Objective')
+    plt.title(f'Last {objechistlen} Values of the Objective. NGB={ng}')
     plt.ylabel('Magnitude')
-    plt.show()
+    # plt.show()
+    plt.savefig(f'./tdse-adj-kbc-gauss-script-results/objective{ng}.pdf')
+    plt.clf()
 
     # results
     # Relative norm difference of predicted theta to true theta
@@ -299,15 +304,15 @@ for i in range(5):
     plt.plot(xvec[trim:-trim], vformprdc[trim:-trim], color='red', label='Learned')
     plt.plot(xvec[trim:-trim], vtruerecon[trim:-trim], color='blue', label='Training')
     plt.plot(xvec[trim:-trim], vtrue[trim:-trim], color='black', label='True')
-    plt.title('Potentials')
+    plt.title(f'Potentials. NGB={ng}')
     plt.xlabel('Position')
     plt.ylabel('Magnitude of Potential')
     plt.legend()
-    plt.show()
+    # plt.show()
+    plt.savefig(f'./tdse-adj-kbc-gauss-script-results/potentials{ng}.pdf')
+    plt.clf()
 
     # test propagation
-    # set how far past the training data to propagate
-    ntextra=500
     # compute the true propagation from the true potential
     _, _, amattruetest = propa(gbcff=gbcfftrue, initapropa=inita, dtpropa=dt, ntpropa=nt+ntextra)
     # transform amattruetest to real space
@@ -323,45 +328,57 @@ for i in range(5):
     plt.plot(xvec, np.abs(psimatformprdc[-1]) ** 2, 'r', label='Predicted')
     plt.plot(xvec, np.abs(psimattruetest[-1]) ** 2, 'k', label='Test')
     plt.legend()
-    plt.title('Probability Density of the Final State')
+    plt.title(f'Probability Density of the Final State. NGB={ng}')
     plt.xlabel('Position')
     plt.ylabel('Probability')
-    plt.show()
+    # plt.show()
+    plt.savefig(f'./tdse-adj-kbc-gauss-script-results/prop{ng}.pdf')
+    plt.clf()
 
 # plot computational time as a function of the number of basis
 plt.plot(ngvec, comptime)
 plt.title('Computational Time as a Function of Basis')
 plt.xlabel('Number of Basis')
 plt.ylabel('Time (sec)')
-plt.show()
+# plt.show()
+plt.savefig('./tdse-adj-kbc-gauss-script-results/comp-time.pdf')
+plt.clf()
 
 # plot condition number as a function of the number of basis
 plt.plot(ngvec, condnum)
-plt.title('Condiation Number as a Function of Basis')
+plt.title('Condition Number as a Function of Basis')
 plt.xlabel('Number of Basis')
 plt.ylabel('Magnitude')
-plt.show()
+# plt.show()
+plt.savefig('./tdse-adj-kbc-gauss-script-results/condition.pdf')
+plt.clf()
 
 # plot relative norm difference of theta
 plt.plot(ngvec, rndtheta)
 plt.title('Relative Norm Difference of Theta as a Function of Basis')
 plt.xlabel('Number of Basis')
 plt.ylabel('Magnitude')
-plt.show()
+# plt.show()
+plt.savefig('./tdse-adj-kbc-gauss-script-results/diff-theta.pdf')
+plt.clf()
 
 # plot relative norm difference of potential WRT truth
 plt.plot(ngvec, rndvtrue)
 plt.title('Relative Norm Difference of the Potential WRT Truth as a Function of Basis')
 plt.xlabel('Number of Basis')
 plt.ylabel('Magnitude')
-plt.show()
+# plt.show()
+plt.savefig('./tdse-adj-kbc-gauss-script-results/diff-truth.pdf')
+plt.clf()
 
 # plot relative norm difference of potential WRT training potential
 plt.plot(ngvec, rndvtrain)
 plt.title('Relative Norm Difference of the Potential WRT Training as a Function of Basis')
 plt.xlabel('Number of Basis')
 plt.ylabel('Magnitude')
-plt.show()
+# plt.show()
+plt.savefig('./tdse-adj-kbc-gauss-script-results/diff-train.pdf')
+plt.clf()
 
 # plot relative norm difference of the propagated wave function
 # WRT truth
@@ -369,4 +386,6 @@ plt.plot(ngvec, rndprop)
 plt.title('Relative Norm Difference of Propagation WRT Truth as a Function of Basis')
 plt.xlabel('Number of Basis')
 plt.ylabel('Magnitude')
-plt.show()
+# plt.show()
+plt.savefig('./tdse-adj-kbc-gauss-script-results/diff-prop.pdf')
+plt.clf()
