@@ -186,6 +186,7 @@ alpha = 1.0
 errorvec = []
 hvec = []
 
+#
 # loop for investigating order of accuracy
 # error as a function of h
 # for loop sets the number of Gaussian basis
