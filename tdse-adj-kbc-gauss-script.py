@@ -80,14 +80,14 @@ print('Initializing computational variables.')
 
 # set number of Fourier basis
 nfb = 128
-# set radius of spatial domain
+# set L of spatial domain
 radius = 16
 # create vector of real space points for plotting
 nx = 1024
 xvec = np.linspace(-radius, radius, nx)
 # matrix to convert Fourier basis coefficients
 # into real space values
-nvec = np.arange(-nfb, nfb+1) # nvec=-nfb,...,0,...,nfb
+nvec = np.arange(-nfb, nfb+1) # nfbvec=-nfb,...,0,...,nfb
 convmat = np.exp(1j * np.pi * np.outer(nvec, xvec) / radius) / np.sqrt(2 * radius)
 # compute true potential
 vchoice = 1
