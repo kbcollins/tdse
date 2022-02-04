@@ -192,7 +192,7 @@ hvec = []
 # for loop sets the number of Gaussian basis
 for ng in 2**(4 + np.arange(10)):
     # vector of Gaussian basis centers in real space
-    gsscntrs, thish = np.linspace(-L, L, ng, retstep=True)
+    gsscntrs, thish = np.linspace(-L, L, 2 * ng + 1, retstep=True)
     hvec.append(thish)
 
     # form matrix for deriving Gaussian basis coefficients
