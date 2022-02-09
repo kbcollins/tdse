@@ -78,7 +78,7 @@ def v(x, choice=0):
 #     vraw = np.zeros(nfb+1, dtype=np.complex128)
 #     for thisn in range(nfb+1):
 #         def integ(x):
-#             return (2 * radius) ** (-0.5) * np.exp(-1j * np.pi * thisn * x / radius) * normpsi0(x)
+#             return (2 * L) ** (-0.5) * np.exp(-1j * np.pi * thisn * x / L) * normpsi0(x)
 #         def rinteg(x):
 #             return np.real(integ(x))
 #         def iinteg(x):
@@ -93,7 +93,7 @@ vchoice = 1
 vtrue = v(x=xvec, choice=vchoice)
 
 # generate initial a state
-# inita = gen_inita(bounda=-radius, boundb=radius, choice=0)
+# inita = gen_inita(bounda=-L, boundb=L, choice=0)
 
 # code for propagating system given a potential matrix in the Fourier basis
 # and some initial state
@@ -238,7 +238,7 @@ for ng in 2**(4 + np.arange(10)):
     #     return toeplitz(r=row, c=column)
 
     # computes amattruetrain using inita and the true potential
-    # spectrue, statestrue, amattrue, _ = propa(gvmat(cfftrue), ainit)
+    # spectrue, statestrue, amattrue, _ = propa(gvmat(cfst), ainit)
     # transform amattruetrain to real space
     # psimattrue = amattrue @ fbconvmat
 
