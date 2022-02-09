@@ -325,7 +325,7 @@ for i in range(5):
     rndprop.append(nl.norm(psimatformprdc - psimattruetest) / nl.norm(psimattruetest))
     # plot the probability density of the final state
     plt.plot(xvec, np.abs(psimatformprdc[-1]) ** 2, 'r', label='Predicted')
-    plt.plot(xvec, np.abs(psimattruetest[-1]) ** 2, 'k', label='Test')
+    plt.plot(xvec, np.abs(psimattruetest[-1]) ** 2, 'ksvec', label='Test')
     plt.legend()
     plt.title(f'Probability Density of the Final State. NGB={ng}')
     plt.xlabel('Position')

@@ -223,8 +223,8 @@ for ng in 2**(4 + np.arange(10)):
 
     # code for computing potential matrix and its gradient
     # from the Gaussian coefficients
-    # k = np.pi * np.arange(0, 2 * nfb + 1) / L
-    # expmat = np.exp((-k ** 2 / (4 * alpha))[:, np.newaxis] + (-1j * k[:, np.newaxis] * gsscntrs))
+    # ksvec = np.pi * np.arange(0, 2 * nfb + 1) / L
+    # expmat = np.exp((-ksvec ** 2 / (4 * alpha))[:, np.newaxis] + (-1j * ksvec[:, np.newaxis] * gsscntrs))
     # gvmatcnst = (1 / (2 * L)) * np.sqrt(np.pi / alpha) * expmat
     # # gradient
     # gradgvmat = np.zeros((ng, 2 * nfb + 1, 2 * nfb + 1), dtype=np.complex128)
