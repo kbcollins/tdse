@@ -198,7 +198,7 @@ for i in range(5):
 
     # define objective function
     def objecfn(cffobjecfn):
-        global glbobjechist, glbitercnt
+        global glbobjhis, glbitrcnt
         global glbspec, glbstates, glbamat, glblammat
         # propagate initial state with cffobjecfn
         glbspec, glbstates, glbamat = propa(gbcff=cffobjecfn,
@@ -266,9 +266,9 @@ for i in range(5):
     # set the size of the objective's history
     objechistlen = 50
     # create the objective's history
-    glbobjechist = np.zeros(objechistlen)
+    glbobjhis = np.zeros(objechistlen)
     # initialize variable for counting the number of iterations
-    glbitercnt = 0
+    glbitrcnt = 0
 
     print('Optimizing.')
     # get system time before optimizing
@@ -282,7 +282,7 @@ for i in range(5):
     print(f'Optimization took {comptime[-1]} seconds.')
 
     # plot the objective's history
-    plt.plot(glbobjechist)
+    plt.plot(glbobjhis)
     plt.title(f'Last {objechistlen} Values of the Objective. NGB={ng}')
     plt.ylabel('Magnitude')
     # plt.show()

@@ -98,7 +98,7 @@ vtrue = v(x=xvec, choice=vchoice)
 # code for propagating system given a potential matrix in the Fourier basis
 # and some initial state
 # number of elements for toeplitz representation
-# m = 2*nfb + 1
+# ntoep = 2*nfb + 1
 # set the time step size for propagating
 # dt = 0.01
 # set the number of steps to propagate "a" vector in time
@@ -150,11 +150,11 @@ vtrue = v(x=xvec, choice=vchoice)
 
 # these functions compute the gradient WFT the Gaussian coefficients
 # def gradhelp(specprdt, statesprdt):
-#     alldmat = np.zeros((ng, m, m), dtype=np.complex128)
+#     alldmat = np.zeros((ng, ntoep, ntoep), dtype=np.complex128)
 #     expspec = np.exp(-1j * dt * specprdt)
-#     mask = np.zeros((m, m), dtype=np.complex128)
-#     for ii in range(m):
-#         for jj in range(m):
+#     mask = np.zeros((ntoep, ntoep), dtype=np.complex128)
+#     for ii in range(ntoep):
+#         for jj in range(ntoep):
 #             if np.abs(specprdt[ii] - specprdt[jj]) < 1e-8:
 #                 mask[ii, ii] = expspec[ii]
 #             else:
@@ -169,7 +169,7 @@ vtrue = v(x=xvec, choice=vchoice)
 # def justgrad(*_):
 #     global glbspecprdt, glbstatesprdt, glbamatprdt, glblambmat
 #     global glballdmat, glbderivamat
-#     glbderivamat = np.zeros((2 * m - 1, m, m), dtype=np.complex128)
+#     glbderivamat = np.zeros((2 * ntoep - 1, ntoep, ntoep), dtype=np.complex128)
 #     # compute alldmat
 #     glballdmat = gradhelp(glbspecprdt, glbstatesprdt)
 #     # compute all entries of the gradient at once
@@ -238,15 +238,15 @@ for ng in 2**(4 + np.arange(10)):
     #     return toeplitz(r=row, c=column)
 
     # computes amattruetrain using inita and the true potential
-    # spectrue, statestrue, amattrue, _ = propa(gvmat(cfst), ainit)
+    # spctru, sttstru, amattru, _ = propa(gvmat(cfstru), ainit)
     # transform amattruetrain to real space
-    # psimattrue = amattrue @ fbconvmat
+    # psimattru = amattru @ fbconvmat
 
     # let the user know what's happening
     # print(f'Minimizing... alpha={alpha}')
     # compute the predicted coefficients
     # rsltform = so.minimize(justlag, cffform, jac=justgrad, method='BFGS',
-    #                        args=(amattrue, ainit),
+    #                        args=(amattru, ainit),
     #                        options={'disp': True, 'maxiter': 100}).x
 
     # use learned coefficients to compute predicted potential
