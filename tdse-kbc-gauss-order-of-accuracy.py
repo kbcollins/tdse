@@ -93,16 +93,16 @@ vchoice = 1
 vtrue = v(x=xvec, choice=vchoice)
 
 # generate initial a state
-# inita = gen_inita(bounda=-L, boundb=L, choice=0)
+# initavec = gen_inita(bounda=-L, boundb=L, choice=0)
 
 # code for propagating system given a potential matrix in the Fourier basis
 # and some initial state
 # number of elements for toeplitz representation
-# ntoep = 2*nfb + 1
+# ntoerep = 2*nfb + 1
 # set the time step size for propagating
 # dt = 0.01
 # set the number of steps to propagate "a" vector in time
-# nt = 200
+# nts = 200
 # construct kinetic matrix, this remains constant
 # kmat = np.diag(np.arange(-nfb, nfb+1) ** 2 * np.pi ** 2 / (2 * L ** 2))
 
@@ -117,9 +117,9 @@ vtrue = v(x=xvec, choice=vchoice)
 #     propamat = statescff @ np.diag(np.exp(-1j * speccff * dt)) @ np.conj(statescff.T)
 #     proplammat = statescff @ np.diag(np.exp(1j * speccff * dt)) @ np.conj(statescff.T)
 #     # propagate vector, i.e., solve forward problem
-#     amatcff = np.zeros((nt + 1, 2 * nfb + 1), dtype=np.complex128)
+#     amatcff = np.zeros((nts + 1, 2 * nfb + 1), dtype=np.complex128)
 #     amatcff[0, :] = np.copy(thisinita)
-#     for j in range(nt):
+#     for j in range(nts):
 #         amatcff[j + 1, :] = propamat @ amatcff[j, :]
 #     return speccff, statescff, amatcff, proplammat
 
@@ -127,9 +127,9 @@ vtrue = v(x=xvec, choice=vchoice)
 # this code propagates the lambda vector backward in time,
 # i.e., solves the adjoint problem
 # def proplam(thisamat, thisamattrue, proplammat):
-#     lambmat = np.zeros((nt + 1, 2 * nfb + 1), dtype=np.complex128)
-#     lambmat[nt, :] = thisamat[nt, :] - thisamattrue[nt, :]
-#     for j in range(nt - 1, 0, -1):
+#     lambmat = np.zeros((nts + 1, 2 * nfb + 1), dtype=np.complex128)
+#     lambmat[nts, :] = thisamat[nts, :] - thisamattrue[nts, :]
+#     for j in range(nts - 1, 0, -1):
 #         lambmat[j, :] = thisamat[j, :] - thisamattrue[j, :] + proplammat @ lambmat[j + 1, :]
 #     return lambmat
 
@@ -138,7 +138,7 @@ vtrue = v(x=xvec, choice=vchoice)
 # def justlag(cffprdt, thisamattrue, thisainit):
 #     global glbspecprdt, glbstatesprdt, glbamatprdt, glblambmat
 #     global glbproplammat
-#     # propagate inita with cffobjecfn
+#     # propagate initavec with cffobjecfn
 #     glbspecprdt, glbstatesprdt, glbamatprdt, glbproplammat = propa(gvmat(cffprdt), thisainit)
 #     # propagate lambmat with glbamat
 #     glblambmat = proplam(glbamatprdt, thisamattrue, glbproplammat)
@@ -150,11 +150,11 @@ vtrue = v(x=xvec, choice=vchoice)
 
 # these functions compute the gradient WFT the Gaussian coefficients
 # def gradhelp(specprdt, statesprdt):
-#     alldmat = np.zeros((ng, ntoep, ntoep), dtype=np.complex128)
+#     alldmat = np.zeros((ng, ntoerep, ntoerep), dtype=np.complex128)
 #     expspec = np.exp(-1j * dt * specprdt)
-#     mask = np.zeros((ntoep, ntoep), dtype=np.complex128)
-#     for ii in range(ntoep):
-#         for jj in range(ntoep):
+#     mask = np.zeros((ntoerep, ntoerep), dtype=np.complex128)
+#     for ii in range(ntoerep):
+#         for jj in range(ntoerep):
 #             if np.abs(specprdt[ii] - specprdt[jj]) < 1e-8:
 #                 mask[ii, ii] = expspec[ii]
 #             else:
@@ -169,7 +169,7 @@ vtrue = v(x=xvec, choice=vchoice)
 # def justgrad(*_):
 #     global glbspecprdt, glbstatesprdt, glbamatprdt, glblambmat
 #     global glballdmat, glbderivamat
-#     glbderivamat = np.zeros((2 * ntoep - 1, ntoep, ntoep), dtype=np.complex128)
+#     glbderivamat = np.zeros((2 * ntoerep - 1, ntoerep, ntoerep), dtype=np.complex128)
 #     # compute alldmat
 #     glballdmat = gradhelp(glbspecprdt, glbstatesprdt)
 #     # compute all entries of the gradient at once
@@ -237,7 +237,7 @@ for ng in 2**(4 + np.arange(10)):
     #     row = column.conj()
     #     return toeplitz(r=row, c=column)
 
-    # computes amattruetrain using inita and the true potential
+    # computes amattruetrain using initavec and the true potential
     # spctru, sttstru, amattru, _ = propa(gvmat(cfstru), ainit)
     # transform amattruetrain to real space
     # psimattru = amattru @ fbconvmat
@@ -255,7 +255,7 @@ for ng in 2**(4 + np.arange(10)):
     # plot result
     # trim = 25
     # plt.plot(xvec[trim:-trim], vformprdc[trim:-trim], color='red', label='Prediction')
-    # plt.plot(xvec[trim:-trim], vtrue[trim:-trim], color='black', label='True')
+    # plt.plot(xvec[trim:-trim], vxtru[trim:-trim], color='black', label='True')
     # plt.text(0, 4, f'alpha={alpha}', color='black')
     # plt.xlabel('x')
     # plt.ylabel('v(x)')
