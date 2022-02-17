@@ -93,7 +93,7 @@ vchoice = 1
 vtrue = v(x=xvec, choice=vchoice)
 
 # generate initial a state
-# initavec = gen_inita(bounda=-L, boundb=L, choice=0)
+# inita = gen_inita(bounda=-L, boundb=L, choice=0)
 
 # code for propagating system given a potential matrix in the Fourier basis
 # and some initial state
@@ -102,7 +102,7 @@ vtrue = v(x=xvec, choice=vchoice)
 # set the time step size for propagating
 # dt = 0.01
 # set the number of steps to propagate "a" vector in time
-# nts = 200
+# nt = 200
 # construct kinetic matrix, this remains constant
 # kmat = np.diag(np.arange(-nfb, nfb+1) ** 2 * np.pi ** 2 / (2 * L ** 2))
 
@@ -117,9 +117,9 @@ vtrue = v(x=xvec, choice=vchoice)
 #     propamat = statescff @ np.diag(np.exp(-1j * speccff * dt)) @ np.conj(statescff.T)
 #     proplammat = statescff @ np.diag(np.exp(1j * speccff * dt)) @ np.conj(statescff.T)
 #     # propagate vector, i.e., solve forward problem
-#     amatcff = np.zeros((nts + 1, 2 * nfb + 1), dtype=np.complex128)
+#     amatcff = np.zeros((nt + 1, 2 * nfb + 1), dtype=np.complex128)
 #     amatcff[0, :] = np.copy(thisinita)
-#     for j in range(nts):
+#     for j in range(nt):
 #         amatcff[j + 1, :] = propamat @ amatcff[j, :]
 #     return speccff, statescff, amatcff, proplammat
 
@@ -127,9 +127,9 @@ vtrue = v(x=xvec, choice=vchoice)
 # this code propagates the lambda vector backward in time,
 # i.e., solves the adjoint problem
 # def proplam(thisamat, thisamattrue, proplammat):
-#     lambmat = np.zeros((nts + 1, 2 * nfb + 1), dtype=np.complex128)
-#     lambmat[nts, :] = thisamat[nts, :] - thisamattrue[nts, :]
-#     for j in range(nts - 1, 0, -1):
+#     lambmat = np.zeros((nt + 1, 2 * nfb + 1), dtype=np.complex128)
+#     lambmat[nt, :] = thisamat[nt, :] - thisamattrue[nt, :]
+#     for j in range(nt - 1, 0, -1):
 #         lambmat[j, :] = thisamat[j, :] - thisamattrue[j, :] + proplammat @ lambmat[j + 1, :]
 #     return lambmat
 
@@ -138,7 +138,7 @@ vtrue = v(x=xvec, choice=vchoice)
 # def justlag(cffprdt, thisamattrue, thisainit):
 #     global glbspecprdt, glbstatesprdt, glbamatprdt, glblambmat
 #     global glbproplammat
-#     # propagate initavec with cffobjecfn
+#     # propagate inita with cffobjecfn
 #     glbspecprdt, glbstatesprdt, glbamatprdt, glbproplammat = propa(gvmat(cffprdt), thisainit)
 #     # propagate lambmat with glbamat
 #     glblambmat = proplam(glbamatprdt, thisamattrue, glbproplammat)
@@ -237,7 +237,7 @@ for ng in 2**(4 + np.arange(10)):
     #     row = column.conj()
     #     return toeplitz(r=row, c=column)
 
-    # computes amattruetrain using initavec and the true potential
+    # computes amattruetrain using inita and the true potential
     # spctru, sttstru, amattru, _ = propa(gvmat(cfstru), ainit)
     # transform amattruetrain to real space
     # psimattru = amattru @ fbconvmat
