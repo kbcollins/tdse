@@ -25,7 +25,7 @@ xvec = np.linspace(-L, L, nx)
 
 # construct matrix to convert Fourier basis coefficients
 # into real space values
-nfbvec = np.arange(-nfb, nfb + 1)  # nfbvec=-nfb,...,0,...,nfb
+nfbvec = np.arange(-nfb, nfb + 1)  # nfbvec=-nF,...,0,...,nF
 fbconvmat = np.exp(1j * np.pi * np.outer(nfbvec, xvec) / L) / np.sqrt(2 * L)
 
 
@@ -75,8 +75,8 @@ def v(x, choice=0):
 #         return psi0(x)/norm
 #
 #     # transform to Fourier basis
-#     vraw = np.zeros(nfb+1, dtype=np.complex128)
-#     for thisn in range(nfb+1):
+#     vraw = np.zeros(nF+1, dtype=np.complex128)
+#     for thisn in range(nF+1):
 #         def integ(x):
 #             return (2 * L) ** (-0.5) * np.exp(-1j * np.pi * thisn * x / L) * normpsi0(x)
 #         def rinteg(x):
@@ -98,13 +98,13 @@ vtrue = v(x=xvec, choice=vchoice)
 # code for propagating system given a potential matrix in the Fourier basis
 # and some initial state
 # number of elements for toeplitz representation
-# ntoerep = 2*nfb + 1
+# ntoerep = 2*nF + 1
 # set the time step size for propagating
 # dt = 0.01
 # set the number of steps to propagate "a" vector in time
 # nt = 200
 # construct kinetic matrix, this remains constant
-# kmat = np.diag(np.arange(-nfb, nfb+1) ** 2 * np.pi ** 2 / (2 * L ** 2))
+# kmat = np.diag(np.arange(-nF, nF+1) ** 2 * np.pi ** 2 / (2 * L ** 2))
 
 
 # propgation function
@@ -117,7 +117,7 @@ vtrue = v(x=xvec, choice=vchoice)
 #     propamat = statescff @ np.diag(np.exp(-1j * speccff * dt)) @ np.conj(statescff.T)
 #     proplammat = statescff @ np.diag(np.exp(1j * speccff * dt)) @ np.conj(statescff.T)
 #     # propagate vector, i.e., solve forward problem
-#     amatcff = np.zeros((nt + 1, 2 * nfb + 1), dtype=np.complex128)
+#     amatcff = np.zeros((nt + 1, 2 * nF + 1), dtype=np.complex128)
 #     amatcff[0, :] = np.copy(thisinita)
 #     for j in range(nt):
 #         amatcff[j + 1, :] = propamat @ amatcff[j, :]
@@ -127,7 +127,7 @@ vtrue = v(x=xvec, choice=vchoice)
 # this code propagates the lambda vector backward in time,
 # i.e., solves the adjoint problem
 # def proplam(thisamat, thisamattrue, proplammat):
-#     lambmat = np.zeros((nt + 1, 2 * nfb + 1), dtype=np.complex128)
+#     lambmat = np.zeros((nt + 1, 2 * nF + 1), dtype=np.complex128)
 #     lambmat[nt, :] = thisamat[nt, :] - thisamattrue[nt, :]
 #     for j in range(nt - 1, 0, -1):
 #         lambmat[j, :] = thisamat[j, :] - thisamattrue[j, :] + proplammat @ lambmat[j + 1, :]
@@ -223,11 +223,11 @@ for ng in 2**(4 + np.arange(10)):
 
     # code for computing potential matrix and its gradient
     # from the Gaussian coefficients
-    # ksvec = np.pi * np.arange(0, 2 * nfb + 1) / L
+    # ksvec = np.pi * np.arange(0, 2 * nF + 1) / L
     # expmat = np.exp((-ksvec ** 2 / (4 * alpha))[:, np.newaxis] + (-1j * ksvec[:, np.newaxis] * gsscntrs))
     # gvmatcnst = (1 / (2 * L)) * np.sqrt(np.pi / alpha) * expmat
     # # gradient
-    # gradgvmat = np.zeros((ng, 2 * nfb + 1, 2 * nfb + 1), dtype=np.complex128)
+    # gradgvmat = np.zeros((ng, 2 * nF + 1, 2 * nF + 1), dtype=np.complex128)
     # for i in range(ng):
     #     gradgvmat[i, :] = toeplitz(gvmatcnst.T[i].conj(), gvmatcnst.T[i])
 
@@ -255,7 +255,7 @@ for ng in 2**(4 + np.arange(10)):
     # plot result
     # trim = 25
     # plt.plot(xvec[trim:-trim], vformprdc[trim:-trim], color='red', label='Prediction')
-    # plt.plot(xvec[trim:-trim], vxtru[trim:-trim], color='black', label='True')
+    # plt.plot(xvec[trim:-trim], Vxvec[trim:-trim], color='black', label='True')
     # plt.text(0, 4, f'alpha={alpha}', color='black')
     # plt.xlabel('x')
     # plt.ylabel('v(x)')
