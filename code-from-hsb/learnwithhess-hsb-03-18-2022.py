@@ -109,6 +109,9 @@ for j in range(nsteps):
 
 Xind, Yind = np.meshgrid(np.arange(2*(2*nmax+1)-1),np.arange(2*(2*nmax+1)-1))
 indices = np.stack([Xind.flatten(), Yind.flatten()]).T
+
+# used for constructing Toeplitz matrix from a vector setup
+# like jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
 m = 2*nmax+1
 n = 2*nmax+1
 a = np.array((-1)*np.arange(0,m)).reshape(m,1) 
