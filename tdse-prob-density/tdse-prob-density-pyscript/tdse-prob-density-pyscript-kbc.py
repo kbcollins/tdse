@@ -15,7 +15,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
 
 ###############################################################
-# forward problem
+# computational parameters
 ###############################################################
 
 # size of spatial domain
@@ -34,11 +34,16 @@ numfour = 32
 numtoepelms = 2 * numfour + 1
 
 # set time-step size
-dt = 1e-3  # 1e-2
+dt = 1e-2  # 1e-2
 
 # set number of time steps
 # trajectory length = numts + 1
-numts = 200  # 20
+numts = 20  # 20
+
+
+###############################################################
+# forward problem
+###############################################################
 
 # vector of Fourier mode indices
 # fournvec = -numfour,...,0,...,numfour
