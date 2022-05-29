@@ -40,6 +40,8 @@ dt = 1e-2  # 1e-2
 # trajectory length = numts + 1
 numts = 20  # 20
 
+print('Computational parameters set.')
+
 
 ###############################################################
 # forward problem
@@ -187,6 +189,12 @@ for thisa0 in a0vec:
 
 amattruevec = jnp.array(amattruevec)
 
+print('Done with forward problem.')
+
+###############################################################
+# inverse problem
+###############################################################
+
 # make |\psi(t)|^2 training data from amattruevec
 betamatvec = []
 for thisamattrue in amattruevec:
@@ -197,11 +205,6 @@ for thisamattrue in amattruevec:
     betamatvec.append(jnp.array(tempbetamat))
 
 betamatvec = jnp.array(betamatvec) / jnp.sqrt(2 * L)
-
-
-###############################################################
-# inverse problem
-###############################################################
 
 # Toeplitz indexing matrix, used for constructing Toeplitz matrix
 # from a vector setup like:
