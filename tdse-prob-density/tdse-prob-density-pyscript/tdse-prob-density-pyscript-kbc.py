@@ -206,6 +206,8 @@ for thisamattrue in amattruevec:
 
 betamatvec = jnp.array(betamatvec) / jnp.sqrt(2 * L)
 
+print('Training data generated.')
+
 # Toeplitz indexing matrix, used for constructing Toeplitz matrix
 # from a vector setup like:
 # jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
