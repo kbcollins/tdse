@@ -1,0 +1,64 @@
+/home/kcollins9/data/tdse/tdse-prob-density/tdse-prob-density-pyscript/jax-test
+
+     active environment : work052022
+    active env location : /home/kcollins9/miniforge3/envs/work052022
+            shell level : 2
+       user config file : /home/kcollins9/.condarc
+ populated config files : /home/kcollins9/miniforge3/.condarc
+          conda version : 4.12.0
+    conda-build version : not installed
+         python version : 3.9.10.final.0
+       virtual packages : __cuda=11.7=0
+                          __linux=4.18.0=0
+                          __glibc=2.28=0
+                          __unix=0=0
+                          __archspec=1=x86_64
+       base environment : /home/kcollins9/miniforge3  (writable)
+      conda av data dir : /home/kcollins9/miniforge3/etc/conda
+  conda av metadata url : None
+           channel URLs : https://conda.anaconda.org/conda-forge/linux-64
+                          https://conda.anaconda.org/conda-forge/noarch
+          package cache : /home/kcollins9/miniforge3/pkgs
+                          /home/kcollins9/.conda/pkgs
+       envs directories : /home/kcollins9/miniforge3/envs
+                          /home/kcollins9/.conda/envs
+               platform : linux-64
+             user-agent : conda/4.12.0 requests/2.27.1 CPython/3.9.10 Linux/4.18.0-372.9.1.el8.x86_64 rhel/8.6 glibc/2.28
+                UID:GID : 100159:100010
+             netrc file : None
+           offline mode : False
+
+# conda environments:
+#
+base                     /home/kcollins9/miniforge3
+work052022            *  /home/kcollins9/miniforge3/envs/work052022
+
+sys.version: 3.9.10 | packaged by conda-forge | (main...
+sys.prefix: /home/kcollins9/miniforge3
+sys.executable: /home/kcollins9/miniforge3/bin/python
+conda location: /home/kcollins9/miniforge3/lib/python3.9/site-packages/conda
+conda-build: None
+conda-env: /home/kcollins9/miniforge3/bin/conda-env
+user site dirs: 
+
+CIO_TEST: <not set>
+CONDA_DEFAULT_ENV: work052022
+CONDA_EXE: /home/kcollins9/miniforge3/bin/conda
+CONDA_PREFIX: /home/kcollins9/miniforge3/envs/work052022
+CONDA_PREFIX_1: /home/kcollins9/miniforge3
+CONDA_PROMPT_MODIFIER: (work052022) 
+CONDA_PYTHON_EXE: /home/kcollins9/miniforge3/bin/python
+CONDA_ROOT: /home/kcollins9/miniforge3
+CONDA_SHLVL: 2
+CURL_CA_BUNDLE: <not set>
+MANPATH: /usr/share/lmod/lmod/share/man:
+MODULEPATH: /etc/scl/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/opt/modulefiles
+PATH: /home/kcollins9/miniforge3/envs/work052022/bin:/home/kcollins9/miniforge3/condabin:/home/kcollins9/.local/bin:/home/kcollins9/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+REQUESTS_CA_BUNDLE: <not set>
+SSL_CERT_FILE: <not set>
+
+sqfn: [ 1.  9. 49.]
+gradsqfn:
+[[ 2.  0.  0.]
+ [ 0.  6.  0.]
+ [ 0.  0. 14.]]
