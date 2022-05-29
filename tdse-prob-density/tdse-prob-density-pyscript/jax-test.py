@@ -4,10 +4,10 @@ import jax.numpy as jnp
 def sqfn(x):
     return x**2
 
-gradsqfn = jax.grad(sqfn)
+jacosqfn = jax.jacobian(sqfn)
 
-vec = jnp.array([1, 3, 7])
+vec = jnp.array([1.0, 3.0, 7.0])
 
 print('sqfn:', sqfn(vec))
 
-print('gradsqfn:', gradsqfn(vec))
+print('gradsqfn:', jacosqfn(vec), sep='\n')
