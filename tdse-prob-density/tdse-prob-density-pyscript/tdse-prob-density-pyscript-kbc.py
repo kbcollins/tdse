@@ -421,9 +421,7 @@ plt.xlabel('x')
 plt.title('True Potential vs. Learned Potential')
 plt.legend()
 # plt.show()
-thisfname = outputdir + '/true_vs_learned_potential'
-print('thisfname')
-plt.savefig(thisfname, format='pdf')
+plt.savefig(outputdir + '/true_vs_learned_potential.pdf', format='pdf')
 
 # plot shifted learned potential
 zeroindex = len(xvec) // 2
@@ -435,7 +433,7 @@ plt.xlabel('x')
 plt.title('True Potential vs. Shifted Learned Potential')
 plt.legend()
 # plt.show()
-# plt.savefig(outputdir + '/shifted_true_vs_learned_potential', format('pdf'))
+plt.savefig(outputdir + '/shifted_true_vs_learned_potential.pdf', format='pdf')
 
 print('l2 error of shifted adj potential:', nl.norm(jnp.real(adjvlearnrec) + adjdiff - vxvec), sep='\n')
 print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125]), sep='\n')
