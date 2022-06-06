@@ -18,6 +18,9 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 # computational parameters
 ###############################################################
 
+# file path to output directory
+outputdir = '/home/kcollins9/data/tdse/tdse-prob-density/tdse-prob-density-pyscript/tdse-prob-density-pyscript-kbc-output'
+
 # size of spatial domain
 L = 15.0
 
@@ -417,7 +420,8 @@ plt.plot(xvec, jnp.real(vinitrec), label='init')
 plt.xlabel('x')
 plt.title('True Potential vs. Learned Potential')
 plt.legend()
-plt.show()
+# plt.show()
+plt.savefig(outputdir + '/true_vs_learned_potential', format('pdf'))
 
 # plot shifted learned potential
 zeroindex = len(xvec) // 2
@@ -428,7 +432,8 @@ plt.plot(xvec, jnp.real(vinitrec), label='init')
 plt.xlabel('x')
 plt.title('True Potential vs. Shifted Learned Potential')
 plt.legend()
-plt.show()
+# plt.show()
+plt.savefig(outputdir + '/shifted_true_vs_learned_potential', format('pdf'))
 
 print('l2 error of shifted adj potential:', nl.norm(jnp.real(adjvlearnrec) + adjdiff - vxvec), sep='\n')
 print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125]), sep='\n')
