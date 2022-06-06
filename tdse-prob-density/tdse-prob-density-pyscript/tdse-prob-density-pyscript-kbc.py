@@ -423,7 +423,7 @@ plt.legend()
 # plt.show()
 thisfname = outputdir + '/true_vs_learned_potential'
 print('thisfname')
-plt.savefig(thisfname, format('pdf'))
+plt.savefig(thisfname, format='pdf')
 
 # plot shifted learned potential
 zeroindex = len(xvec) // 2
