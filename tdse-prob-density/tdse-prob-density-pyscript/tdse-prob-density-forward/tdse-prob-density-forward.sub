@@ -1,0 +1,9 @@
+#!/bin/env sbatch
+#SBATCH -p gpu
+#SBATCH --gres=gpu:2
+#SBATCH --job-name=tdse-prob-density-pyscript-kbc
+#SBATCH --output=./tdse-prob-density-forward.out
+#SBATCH --error=./tdse-prob-density-forward.err
+#SBATCH --time=00:30:00
+
+python tdse-prob-density-forward-kbc.py 0
