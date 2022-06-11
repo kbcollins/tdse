@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env sbatch
 #SBATCH -p gpu
 #SBATCH --gres=gpu:2
 #SBATCH --job-name=tdse-prob-density-pyscript-kbc
