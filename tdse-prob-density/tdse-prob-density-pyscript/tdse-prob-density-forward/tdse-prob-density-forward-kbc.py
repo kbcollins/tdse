@@ -19,6 +19,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 # file path to output directory
 outputdir = pathlib.Path()
 outputdir = outputdir / f'v{sys.argv[1]}'
+print('Output directory:', outputdir)
 
 # size of spatial domain
 L = 15.0
