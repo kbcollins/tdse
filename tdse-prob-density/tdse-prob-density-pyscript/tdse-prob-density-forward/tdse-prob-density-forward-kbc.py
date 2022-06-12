@@ -16,9 +16,13 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 # computational parameters
 ###############################################################
 
+# get arguments from command line
+cmdlinearg = sys.argv[1]
+print('Command line argument:', cmdlinearg)
+
 # file path to output directory
 outputdir = pathlib.Path()
-outputdir = outputdir / f'v{sys.argv[1]}'
+outputdir = outputdir / f'v{cmdlinearg}'
 print('Output directory:', outputdir)
 
 # size of spatial domain
@@ -30,6 +34,7 @@ numx = 1025
 # real space grid points (for plotting)
 xvec = np.linspace(-L, L, numx)
 np.save(outputdir/'xvec', xvec)
+print('xvec saved.')
 
 # number of Fourier basis functions
 numfour = 32
