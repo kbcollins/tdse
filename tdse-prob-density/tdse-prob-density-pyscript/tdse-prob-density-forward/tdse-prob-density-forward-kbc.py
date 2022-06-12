@@ -17,7 +17,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 ###############################################################
 
 # get arguments from command line
-cmdlinearg = sys.argv[1]
+cmdlinearg = int(sys.argv[1])
 print('type(cmdlinearg)', type(cmdlinearg))
 print('Command line argument:', cmdlinearg)
 
