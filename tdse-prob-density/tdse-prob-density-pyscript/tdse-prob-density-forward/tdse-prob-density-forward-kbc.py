@@ -66,15 +66,15 @@ fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 np.save(outputdir/'fourtox', fourtox)
 
 # define true potential (for generating training data)
-if sys.argv[1] == 0:
+if cmdlinearg == 0:
     def v(z):
         # harmonic oscillator potential (should be exact for Chebyshev)
         return 0.5 * z**2
-elif sys.argv[1] == 1:
+elif cmdlinearg == 1:
     def v(z):
         # symmetric double well potential
         return 2.5e-3 * (z ** 2 - 25) ** 2
-elif sys.argv[1] == 2:
+elif cmdlinearg == 2:
     def v(z):
         # asymmetric double well potential
         c0 = 4.35
@@ -89,19 +89,19 @@ elif sys.argv[1] == 2:
         c9 = 1.65e-8
         x = z + 0.8
         return 0.5 * (c0 + c1 * x + c2 * x ** 2 + c3 * x ** 3 + c4 * x ** 4 + c5 * x ** 5 + c6 * x ** 6 + c7 * x ** 7 + c8 * x ** 8 + c9 * x ** 9)
-elif sys.argv[1] == 3:
+elif cmdlinearg == 3:
     def v(z):
         # non-polynomial potentials
         return np.sin(0.4 * z - 1)
-elif sys.argv[1] == 4:
+elif cmdlinearg == 4:
     def v(z):
         # non-polynomial potentials
         return np.sin((0.5 * z) ** 2)
-elif sys.argv[1] == 5:
+elif cmdlinearg == 5:
     def v(z):
         # non-polynomial potentials
         return 15 * (-np.cos(z) + np.sin((0.5 * z) ** 2 - 0.2 * z))
-elif sys.argv[1] == 6:
+elif cmdlinearg == 6:
     def v(z):
         # soft coulomb potential
         return -1 / np.sqrt(z ** 2 + 0.25)
