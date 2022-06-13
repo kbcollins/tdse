@@ -16,7 +16,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 # computational parameters
 ###############################################################
 
-# get arguments from command line
+# get selection of potential as argument from command line
 cmdlinearg = int(sys.argv[1])
 print('type(cmdlinearg)', type(cmdlinearg))
 print('Command line argument:', cmdlinearg)
