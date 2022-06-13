@@ -2,7 +2,7 @@
 #SBATCH --partition=gpu
 #SBATCH --gpus=1
 #SBATCH --job-name=kbc-forward
-#SBATCH --time=00:05:00
+#SBATCH --time=00:30:00
 
 python tdse-prob-density-inverse-kbc.py ./v0
 
