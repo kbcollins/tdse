@@ -32,6 +32,8 @@ amattruevec = np.load(cwddir / 'amattruevec.npy')
 
 L, numx, numfour, dt, numts = np.load(cwddir / 'cmpenv.npy')
 numx = int(numx)
+numfour = int(numfour)
+numts = int(numts)
 
 fourtox = np.load(cwddir / 'fourtox.npy')
 vtoeptrue = np.load(cwddir / 'vtoeptrue.npy')
@@ -58,7 +60,7 @@ kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2)
 # inverse problem
 ###############################################################
 
-print('Starting inverse problem')
+print('Starting inverse problem.')
 
 # make |\psi(t)|^2 training data from amattruevec
 betamatvec = []
