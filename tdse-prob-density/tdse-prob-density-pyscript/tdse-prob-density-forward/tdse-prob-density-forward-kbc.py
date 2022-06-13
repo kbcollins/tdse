@@ -71,6 +71,7 @@ fournvec = np.arange(-numfour, numfour + 1)
 # matrix for converting Fourier representation to real space
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 np.save(outputdir/'fourtox', fourtox)
+print('fourtox saved.')
 
 # define true potential (for generating training data)
 if cmdlinearg == 0:
@@ -130,6 +131,9 @@ for thisfourn in range(numtoepelms):
     vtoeptrue.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
 
 vtoeptrue = jnp.array(vtoeptrue)
+np.save(outputdir/'vtoeptrue', vtoeptrue)
+print('vtoeptrue saved.')
+
 vmattrue = sl.toeplitz(r=vtoeptrue, c=np.conj(vtoeptrue))
 
 # define initial state functions
@@ -204,6 +208,7 @@ for thispsi0fn in psi0fnvec:
     normpsi0recxvec.append(tempa0 @ fourtox)
 
 np.save(outputdir/'a0vec', a0vec)
+print('a0vec saved.')
 
 # make kinetic operator in the Fourier representation
 # (this is constant for a given system)
@@ -232,5 +237,6 @@ for thisa0 in a0vec:
 
 amattruevec = jnp.array(amattruevec)
 np.save(outputdir/'amattruevec', amattruevec)
+print('amattruevec saved.')
 
 print('Done with forward problem.')

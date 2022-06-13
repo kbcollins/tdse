@@ -27,14 +27,10 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 # # number of real space grid points (for plotting)
 # numx = 1025
 #
-# # real space grid points (for plotting)
-# xvec = np.linspace(-L, L, numx)
 #
 # # number of Fourier basis functions
 # numfour = 32
 #
-# # number of Toeplitz elements in the Fourier representation
-# numtoepelms = 2 * numfour + 1
 #
 # # set time-step size
 # dt = 1e-2  # 1e-2
@@ -194,8 +190,9 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 #
 # print('Done with forward problem.')
 
+
 ###############################################################
-# inverse problem
+# set up computational environment
 ###############################################################
 
 # get selection of potential as argument from command line
@@ -208,10 +205,32 @@ print('Input directory:', inputdir)
 outputdir = pathlib.Path() / inputdir.name
 print('Output directory:', outputdir)
 
+# load saved variable
 a0vec = np.load(inputdir / 'a0vec.npy')
 amattruevec = np.load(inputdir / 'amattruevec.npy')
+L, numx, numfour, dt, numts = np.load(inputdir / 'cmpenv.npy')
 fourtox = np.load(inputdir / 'fourtox.npy')
-xvec = np.load(inputdir / 'xvec.npy')
+vtoeptrue = np.load(inputdir / 'vtoeptrue.npy')
+
+
+###############################################################
+# recreate variables from loaded data
+###############################################################
+
+# real space grid points (for plotting)
+xvec = np.linspace(-L, L, numx)
+
+# number of Toeplitz elements in the Fourier representation
+numtoepelms = 2 * numfour + 1
+
+# make kinetic operator in the Fourier representation
+# (this is constant for a given system)
+kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2))
+
+
+###############################################################
+# inverse problem
+###############################################################
 
 # make |\psi(t)|^2 training data from amattruevec
 betamatvec = []
