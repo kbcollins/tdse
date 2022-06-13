@@ -29,7 +29,10 @@ print('Current working directory:', cwddir)
 # load saved variable
 a0vec = np.load(cwddir / 'a0vec.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
+
 L, numx, numfour, dt, numts = np.load(cwddir / 'cmpenv.npy')
+numx = int(numx)
+
 fourtox = np.load(cwddir / 'fourtox.npy')
 vtoeptrue = np.load(cwddir / 'vtoeptrue.npy')
 vxvec = np.load(cwddir / 'vxvec.npy')
