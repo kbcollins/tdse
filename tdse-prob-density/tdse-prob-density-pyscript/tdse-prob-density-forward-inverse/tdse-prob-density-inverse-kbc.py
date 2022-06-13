@@ -19,7 +19,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 ###############################################################
 
 # get selection of potential as argument from command line
-cmdlinearg = int(sys.argv[1])
+cmdlinearg = sys.argv[1]
 print('Command line argument:', cmdlinearg)
 
 # set directory path
