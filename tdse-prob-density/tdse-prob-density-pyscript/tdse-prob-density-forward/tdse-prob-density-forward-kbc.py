@@ -55,7 +55,7 @@ numts = 20  # 20
 
 print('Computational parameters set.')
 
-cmpenv = [L, numx, xvec, numfour, numtoepelms, dt, numts]
+cmpenv = [L, numx, numfour, dt, numts]
 np.save(outputdir/'cmpenv', cmpenv)
 print('Computational environment variables saved.')
 
