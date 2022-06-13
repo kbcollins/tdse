@@ -7,5 +7,5 @@
 for i in {0..6}
 do
 #	echo $i
-	python tdse-prob-density-inverse-kbc.py ./'v$i'
+	python tdse-prob-density-inverse-kbc.py ./v$i
 done
