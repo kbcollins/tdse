@@ -20,9 +20,9 @@ print('type(cmdlinearg)', type(cmdlinearg))
 print('Command line argument:', cmdlinearg)
 
 # file path to output directory
-outputdir = pathlib.Path()
-outputdir = outputdir / f'v{cmdlinearg}'
-print('Output directory:', outputdir)
+cwddir = pathlib.Path()
+cwddir = cwddir / f'v{cmdlinearg}'
+print('Current working directory:', cwddir)
 
 
 ###############################################################
@@ -37,7 +37,7 @@ numx = 1025
 
 # real space grid points (for plotting)
 xvec = np.linspace(-L, L, numx)
-# np.save(outputdir/'xvec', xvec)
+# np.save(cwddir/'xvec', xvec)
 # print('xvec saved.')
 
 # number of Fourier basis functions
@@ -56,7 +56,7 @@ numts = 20  # 20
 print('Computational parameters set.')
 
 cmpenv = [L, numx, numfour, dt, numts]
-np.save(outputdir/'cmpenv', cmpenv)
+np.save(cwddir / 'cmpenv', cmpenv)
 print('Computational environment variables saved.')
 
 
@@ -70,7 +70,7 @@ fournvec = np.arange(-numfour, numfour + 1)
 
 # matrix for converting Fourier representation to real space
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
-np.save(outputdir/'fourtox', fourtox)
+np.save(cwddir / 'fourtox', fourtox)
 print('fourtox saved.')
 
 # define true potential (for generating training data)
@@ -118,6 +118,8 @@ else:
 
 # true potential on real space grid (for plotting)
 vxvec = v(xvec)
+np.save(cwddir / 'vxvec', vxvec)
+print('vxvec saved.')
 
 # compute the potential operator matrix, vmat
 vtoeptrue = []
@@ -131,7 +133,7 @@ for thisfourn in range(numtoepelms):
     vtoeptrue.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
 
 vtoeptrue = jnp.array(vtoeptrue)
-np.save(outputdir/'vtoeptrue', vtoeptrue)
+np.save(cwddir / 'vtoeptrue', vtoeptrue)
 print('vtoeptrue saved.')
 
 vmattrue = sl.toeplitz(r=vtoeptrue, c=np.conj(vtoeptrue))
@@ -207,7 +209,7 @@ for thispsi0fn in psi0fnvec:
     normpsi0xvec.append(tempnormpsi0x)
     normpsi0recxvec.append(tempa0 @ fourtox)
 
-np.save(outputdir/'a0vec', a0vec)
+np.save(cwddir / 'a0vec', a0vec)
 print('a0vec saved.')
 
 # make kinetic operator in the Fourier representation
@@ -236,7 +238,7 @@ for thisa0 in a0vec:
     amattruevec.append(tempamat)
 
 amattruevec = jnp.array(amattruevec)
-np.save(outputdir/'amattruevec', amattruevec)
+np.save(cwddir / 'amattruevec', amattruevec)
 print('amattruevec saved.')
 
 print('Done with forward problem.')
