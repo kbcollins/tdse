@@ -7,6 +7,5 @@
 for i in {0..6}
 do
 #	echo $i
-	mkdir -p v$i
-	python tdse-prob-density-forward-kbc.py $i
+	python tdse-prob-density-inverse-kbc.py ./'v$i'
 done
