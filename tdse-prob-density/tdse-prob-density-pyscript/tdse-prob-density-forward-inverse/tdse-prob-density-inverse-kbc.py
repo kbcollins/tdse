@@ -81,7 +81,7 @@ print('Training data generated.')
 aa = (-1) * np.arange(0, numtoepelms).reshape(numtoepelms, 1)
 bb = [np.arange(numtoepelms - 1, 2 * numtoepelms - 1)]
 toepindxmat = np.array(aa + bb)
-print(toepindxmat.shape)
+# print(toepindxmat.shape)
 
 # define objective function
 def ampsqobject(theta):
@@ -285,7 +285,7 @@ plt.xlabel('x')
 plt.title('True Potential vs. Learned Potential')
 plt.legend()
 # plt.show()
-plt.savefig(cwddir + '/graph_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_true_vs_learned_potential.pdf', format='pdf')
 
 # plot shifted learned potential
 zeroindex = len(xvec) // 2
@@ -297,7 +297,7 @@ plt.xlabel('x')
 plt.title('True Potential vs. Shifted Learned Potential')
 plt.legend()
 # plt.show()
-plt.savefig(cwddir + '/graph_shifted_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_shifted_true_vs_learned_potential.pdf', format='pdf')
 
 print('l2 error of shifted adj potential:', nl.norm(jnp.real(adjvlearnrec) + adjdiff - vxvec), sep='\n')
 print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125]), sep='\n')
