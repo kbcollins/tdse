@@ -208,7 +208,10 @@ print('Input directory:', inputdir)
 outputdir = pathlib.Path() / inputdir.name
 print('Output directory:', outputdir)
 
-np.load
+a0vec = np.load(inputdir / 'a0vec.npy')
+amattruevec = np.load(inputdir / 'amattruevec.npy')
+fourtox = np.load(inputdir / 'fourtox.npy')
+xvec = np.load(inputdir / 'xvec.npy')
 
 # make |\psi(t)|^2 training data from amattruevec
 betamatvec = []

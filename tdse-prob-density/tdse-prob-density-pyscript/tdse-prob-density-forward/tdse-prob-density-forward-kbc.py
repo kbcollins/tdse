@@ -13,8 +13,6 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
 
 ###############################################################
-# computational parameters
-###############################################################
 
 # get selection of potential as argument from command line
 cmdlinearg = int(sys.argv[1])
@@ -26,6 +24,11 @@ outputdir = pathlib.Path()
 outputdir = outputdir / f'v{cmdlinearg}'
 print('Output directory:', outputdir)
 
+
+###############################################################
+# computational parameters
+###############################################################
+
 # size of spatial domain
 L = 15.0
 
@@ -34,8 +37,8 @@ numx = 1025
 
 # real space grid points (for plotting)
 xvec = np.linspace(-L, L, numx)
-np.save(outputdir/'xvec', xvec)
-print('xvec saved.')
+# np.save(outputdir/'xvec', xvec)
+# print('xvec saved.')
 
 # number of Fourier basis functions
 numfour = 32
@@ -51,6 +54,10 @@ dt = 1e-2  # 1e-2
 numts = 20  # 20
 
 print('Computational parameters set.')
+
+cmpenv = [L, numx, xvec, numfour, numtoepelms, dt, numts]
+np.save(outputdir/'cmpenv', cmpenv)
+print('Computational environment variables saved.')
 
 
 ###############################################################
