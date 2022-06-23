@@ -372,8 +372,8 @@ amatlearnedvec = jnp.array(amatlearnedvec)
 for i in range(len(amattruevec)):
     psiTlearned = amatlearnedvec[i] @ fourtox
     psiTtrue = amattruevec[i] @ fourtox
-    plt.plot(xvec, jnp.real(psiTlearned @ fourtox), '.-', label='learned')
-    plt.plot(xvec, jnp.real(psiTtrue @ fourtox), label='truth')
+    plt.plot(xvec, jnp.real(psiTlearned), '.-', label='learned')
+    plt.plot(xvec, jnp.real(psiTtrue), label='truth')
     plt.xlabel('x')
     plt.title('Real Part of Final State - Learned vs. Truth')
     plt.legend()
