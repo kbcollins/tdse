@@ -370,8 +370,8 @@ amatlearnedvec = jnp.array(amatlearnedvec)
 # plot of real part of last state of system propagated with learned potential vs.
 # last state of amat
 for i in range(len(amattruevec)):
-    psiTlearned = amatlearnedvec[i] @ fourtox
-    psiTtrue = amattruevec[i] @ fourtox
+    psiTlearned = amatlearnedvec[i, -1] @ fourtox
+    psiTtrue = amattruevec[i, -1] @ fourtox
     plt.plot(xvec, jnp.real(psiTlearned), '.-', label='learned')
     plt.plot(xvec, jnp.real(psiTtrue), label='truth')
     plt.xlabel('x')
