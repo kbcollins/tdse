@@ -309,7 +309,7 @@ rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-
 
 
 ###############################################################
-# Results
+# make plot of learned potential
 ###############################################################
 
 # transform learned theta (i.e., vhatmat) to real space potential
@@ -330,3 +330,53 @@ plt.savefig(cwddir / 'graph_learned_potential.pdf', format='pdf')
 
 # eventually want to compare snapshot of evolution against evolution generated
 # from learned potential
+
+
+###############################################################
+# propagate a0 with learned potential
+###############################################################
+
+# first recombine learned theta into vector of complex values
+vtoeplearnedR = rsltadjthetarnd[:numtoepelms]
+vtoeplearnedI = jnp.concatenate((jnp.array([0.0]), rsltadjthetarnd[numtoepelms:]))
+vtoeplearned = vtoeplearnedR + 1j * vtoeplearnedI
+
+# construct vmatlearned from complex toeplitz vector
+vmatlearned = jnp.concatenate([jnp.flipud(jnp.conj(vtoeplearned)), vtoeplearned[1:]])[toepindxmat]
+
+# Hamiltonian operator with true potential
+# in the Fourier representation
+hmatlearned = kmat + vmatlearned
+
+# eigen-decomposition of the Hamiltonian matrix
+spclearned, sttlearned = jnl.eigh(hmatlearned)
+
+# compute propagator matrix
+propalearned = sttlearned @ jnp.diag(jnp.exp(-1j * spclearned * dt)) @ sttlearned.conj().T
+
+# propagate system starting from initial "a" state
+# using the Hamiltonian constructed from the true potential
+# (used for generating training data)
+amatlearnedvec = []
+for thisa0 in a0vec:
+    tempamat = [thisa0.copy()]
+    for i in range(numts):
+        tempamat.append(propalearned @ tempamat[-1])
+
+    amatlearnedvec.append(tempamat)
+
+amatlearnedvec = jnp.array(amatlearnedvec)
+
+# plot of real part of last state of system propagated with learned potential vs.
+# last state of amat
+for i in range(len(amattruevec)):
+    psiTlearned = amatlearnedvec[i] @ fourtox
+    psiTtrue = amattruevec[i] @ fourtox
+    plt.plot(xvec, jnp.real(psiTlearned @ fourtox), '.-', label='learned')
+    plt.plot(xvec, jnp.real(psiTtrue @ fourtox), label='truth')
+    plt.xlabel('x')
+    plt.title('Real Part of Final State - Learned vs. Truth')
+    plt.legend()
+    # plt.show()
+    plt.savefig(cwddir / 'graph_real_part_last_state_learned_vs_truth.pdf', format='pdf')
+    plt.close()
