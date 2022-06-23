@@ -368,6 +368,8 @@ for thisa0 in a0vec:
 
 amatlearnedvec = jnp.array(amatlearnedvec)
 
+print('L2 error of amat:', nl.norm(amattruevec - amatlearnedvec, axis=1))
+
 # plot of real part of last state of system propagated with learned potential vs.
 # last state of amat
 for i in range(len(amattruevec)):
