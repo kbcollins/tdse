@@ -327,6 +327,7 @@ plt.title('Learned Potential')
 plt.legend()
 # plt.show()
 plt.savefig(cwddir / 'graph_learned_potential.pdf', format='pdf')
+plt.close()
 
 # eventually want to compare snapshot of evolution against evolution generated
 # from learned potential
@@ -378,5 +379,5 @@ for i in range(len(amattruevec)):
     plt.title('Real Part of Final State - Learned vs. Truth')
     plt.legend()
     # plt.show()
-    plt.savefig(cwddir / 'graph_real_part_last_state_learned_vs_truth.pdf', format='pdf')
+    plt.savefig(cwddir / f'graph_real_part_last_state_learned_vs_truth_{i}.pdf', format='pdf')
     plt.close()
