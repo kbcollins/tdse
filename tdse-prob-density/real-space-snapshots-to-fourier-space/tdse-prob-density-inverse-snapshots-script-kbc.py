@@ -153,7 +153,7 @@ def ampsqobject(theta):
 # initialize theta with random coefficients close to zero
 seed = 1234  # set to None for random initialization
 # thetarnd = 0.001 * np.random.default_rng(seed).normal(size=thetatrue.shape)
-thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numfour)
+thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms)
 thetarnd = jnp.array(thetarnd)
 
 # transform init theta (i.e., initvhatmat) to real space potential
@@ -161,6 +161,8 @@ vtoepinitR = thetarnd[:numtoepelms]
 vtoepinitI = jnp.concatenate((jnp.array([0.0]), thetarnd[numtoepelms:]))
 vtoepinit = vtoepinitR + 1j * vtoepinitI
 vinitfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(vtoepinit[1:(numfour + 1)])), vtoepinit[:(numfour + 1)]])
+print('Shape vinitfour:', vinitfour.shape)
+print('Shape fourtox:', fourtox.shape)
 vinitrec = vinitfour @ fourtox
 
 
