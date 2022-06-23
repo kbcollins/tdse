@@ -1,7 +1,6 @@
 import sys
 import pathlib
 import numpy as np
-import numpy.linalg as nl
 import scipy.optimize as so
 import matplotlib.pyplot as plt
 import jax
@@ -40,10 +39,6 @@ numts = int(numts)
 a0vec = np.load(cwddir / 'a0vec.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
 
-# fourtox = np.load(cwddir / 'fourtox.npy')
-# vtoeptrue = np.load(cwddir / 'vtoeptrue.npy')
-# vxvec = np.load(cwddir / 'vxvec.npy')
-
 print('Computational environment loaded.')
 
 
@@ -71,12 +66,11 @@ kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2)
 
 
 ###############################################################
-# inverse problem
+# make |\psi(t)|^2 training data from amattruevec
 ###############################################################
 
 print('Starting inverse problem.')
 
-# make |\psi(t)|^2 training data from amattruevec
 betamatvec = []
 for thisamattrue in amattruevec:
     tempbetamat = []
@@ -89,15 +83,23 @@ betamatvec = jnp.array(betamatvec) / jnp.sqrt(2 * L)
 
 print('Training data generated.')
 
-# Toeplitz indexing matrix, used for constructing Toeplitz matrix
-# from a vector setup like:
-# jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
+
+###############################################################
+# make Toeplitz indexing matrix
+###############################################################
+
+# use toepindexmat to construct Toeplitz matrix from a vector
+# of the form jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
 aa = (-1) * np.arange(0, numtoepelms).reshape(numtoepelms, 1)
 bb = [np.arange(numtoepelms - 1, 2 * numtoepelms - 1)]
 toepindxmat = np.array(aa + bb)
 # print(toepindxmat.shape)
 
+
+###############################################################
 # define objective function
+###############################################################
+
 def ampsqobject(theta):
     # theta is a vector containing the concatenation
     # of the real and imaginary parts of vmat
@@ -141,13 +143,12 @@ def ampsqobject(theta):
     return rtnobj
 
 
+###############################################################
+# theta
+###############################################################
+
 # true potential in the form of theta (for testing purposes)
 # thetatrue = jnp.concatenate((jnp.real(vtoeptrue), jnp.imag(vtoeptrue[1:])))
-
-# jit ampsqobject
-jitampsqobject = jax.jit(ampsqobject)
-# complie and test jitampsqobject
-# print(jitampsqobject(thetatrue))
 
 # initialize theta with random coefficients close to zero
 seed = 1234  # set to None for random initialization
@@ -161,6 +162,11 @@ vtoepinitI = jnp.concatenate((jnp.array([0.0]), thetarnd[numtoepelms:]))
 vtoepinit = vtoepinitR + 1j * vtoepinitI
 vinitfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(vtoepinit[1:(numfour + 1)])), vtoepinit[:(numfour + 1)]])
 vinitrec = vinitfour @ fourtox
+
+
+###############################################################
+# adjoint method for computing gradient
+###############################################################
 
 # function for generating M and P matrix (used in adjoint method)
 def mk_M_and_P(avec):
@@ -277,13 +283,32 @@ def adjgrads(theta):
     return gradients
 
 
-# jist adjgrads
+###############################################################
+# jit ampsqobject and adjgrads
+###############################################################
+
+# jit ampsqobject
+jitampsqobject = jax.jit(ampsqobject)
+# complie jitampsqobject
+print(jitampsqobject(thetarnd))
+
+# jit adjgrads
 jitadjgrads = jax.jit(adjgrads)
-# compile and test jitadjgrads
-# print(nl.norm(jitadjgrads(thetatrue)))
+# compile jitadjgrads
+print(nl.norm(jitadjgrads(thetarnd)))
+
+
+###############################################################
+# start learning
+###############################################################
 
 # start optimization (i.e., learning theta)
 rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
+
+
+###############################################################
+# Results
+###############################################################
 
 # transform learned theta (i.e., vhatmat) to real space potential
 adjvtoeplearnR = rsltadjthetarnd[:numtoepelms]
@@ -292,28 +317,14 @@ adjvtoeplearn = adjvtoeplearnR + 1j * adjvtoeplearnI
 adjvlearnfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(adjvtoeplearn[1:(numfour + 1)])), adjvtoeplearn[:(numfour + 1)]])
 adjvlearnrec = adjvlearnfour @ fourtox
 
-# plot learned potential vs true potential
+# plot learned potential
 plt.plot(xvec, jnp.real(adjvlearnrec), '.-', label='adj')
-# plt.plot(xvec, vxvec, label='truth')
 plt.plot(xvec, jnp.real(vinitrec), label='init')
 plt.xlabel('x')
-plt.title('True Potential vs. Learned Potential')
+plt.title('Learned Potential')
 plt.legend()
 # plt.show()
 plt.savefig(cwddir / 'graph_true_vs_learned_potential.pdf', format='pdf')
 
-# plot shifted learned potential
-zeroindex = len(xvec) // 2
-# adjdiff = np.abs(vxvec[zeroindex] - jnp.real(adjvlearnrec)[zeroindex])
-# plt.plot(xvec, jnp.real(adjvlearnrec) + adjdiff, '.-', label='adj')
-# plt.plot(xvec, vxvec, label='truth')
-plt.plot(xvec, jnp.real(vinitrec), label='init')
-plt.xlabel('x')
-plt.title('True Potential vs. Shifted Learned Potential')
-plt.legend()
-# plt.show()
-plt.savefig(cwddir / 'graph_shifted_true_vs_learned_potential.pdf', format='pdf')
-
-# print('l2 error of shifted adj potential:', nl.norm(jnp.real(adjvlearnrec) + adjdiff - vxvec), sep='\n')
-# print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125]), sep='\n')
-# print('l-inf error of shifted and trimmed adj potential:', np.mean(np.abs(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125])), sep='\n')
+# eventually want to compare snapshot of evolution against evolution generated
+# from learned potential

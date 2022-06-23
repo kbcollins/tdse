@@ -13,6 +13,8 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
 
 ###############################################################
+# set directory where results will be saved
+###############################################################
 
 # get selection of potential as argument from command line
 cmdlinearg = int(sys.argv[1])
@@ -26,7 +28,7 @@ print('Current working directory:', cwddir)
 
 
 ###############################################################
-# computational parameters
+# set computational parameters
 ###############################################################
 
 # size of spatial domain
@@ -57,11 +59,11 @@ print('Computational parameters set.')
 
 cmpenv = [L, numx, numfour, dt, numts]
 np.save(cwddir / 'cmpenv', cmpenv)
-print('Computational environment variables saved.')
+print('Computational parameters saved.')
 
 
 ###############################################################
-# forward problem
+# utility variables
 ###############################################################
 
 # vector of Fourier mode indices
@@ -69,9 +71,15 @@ print('Computational environment variables saved.')
 fournvec = np.arange(-numfour, numfour + 1)
 
 # matrix for converting Fourier representation to real space
+# use like realspacevec = fourspacevec @ fourtox
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
-np.save(cwddir / 'fourtox', fourtox)
-print('fourtox saved.')
+# np.save(cwddir / 'fourtox', fourtox)
+# print('fourtox saved.')
+
+
+###############################################################
+# forward problem
+###############################################################
 
 # define true potential (for generating training data)
 if cmdlinearg == 0:

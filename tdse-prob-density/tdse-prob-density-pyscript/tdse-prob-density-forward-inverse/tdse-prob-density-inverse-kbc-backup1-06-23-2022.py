@@ -15,7 +15,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
 
 ###############################################################
-# set directory to load data from
+# set up computational environment
 ###############################################################
 
 # get path to directory containing amat from command line
@@ -26,24 +26,18 @@ print('Command line argument:', cmdlinearg)
 cwddir = pathlib.Path(cmdlinearg)
 print('Current working directory:', cwddir)
 
-
-###############################################################
-# load computational environment
-###############################################################
+# load saved variable
+a0vec = np.load(cwddir / 'a0vec.npy')
+amattruevec = np.load(cwddir / 'amattruevec.npy')
 
 L, numx, numfour, dt, numts = np.load(cwddir / 'cmpenv.npy')
 numx = int(numx)
 numfour = int(numfour)
 numts = int(numts)
 
-# load state variables
-a0vec = np.load(cwddir / 'a0vec.npy')
-amattruevec = np.load(cwddir / 'amattruevec.npy')
-
-# fourtox = np.load(cwddir / 'fourtox.npy')
-# vtoeptrue = np.load(cwddir / 'vtoeptrue.npy')
-# vxvec = np.load(cwddir / 'vxvec.npy')
-
+fourtox = np.load(cwddir / 'fourtox.npy')
+vtoeptrue = np.load(cwddir / 'vtoeptrue.npy')
+vxvec = np.load(cwddir / 'vxvec.npy')
 print('Computational environment loaded.')
 
 
@@ -53,14 +47,6 @@ print('Computational environment loaded.')
 
 # real space grid points (for plotting)
 xvec = np.linspace(-L, L, numx)
-
-# vector of Fourier mode indices
-# fournvec = -numfour,...,0,...,numfour
-fournvec = np.arange(-numfour, numfour + 1)
-
-# matrix for converting Fourier representation to real space
-# use like realspacevec = fourspacevec @ fourtox
-fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 
 # number of Toeplitz elements in the Fourier representation
 numtoepelms = 2 * numfour + 1
@@ -142,17 +128,16 @@ def ampsqobject(theta):
 
 
 # true potential in the form of theta (for testing purposes)
-# thetatrue = jnp.concatenate((jnp.real(vtoeptrue), jnp.imag(vtoeptrue[1:])))
+thetatrue = jnp.concatenate((jnp.real(vtoeptrue), jnp.imag(vtoeptrue[1:])))
 
 # jit ampsqobject
 jitampsqobject = jax.jit(ampsqobject)
 # complie and test jitampsqobject
-# print(jitampsqobject(thetatrue))
+print(jitampsqobject(thetatrue))
 
 # initialize theta with random coefficients close to zero
 seed = 1234  # set to None for random initialization
-# thetarnd = 0.001 * np.random.default_rng(seed).normal(size=thetatrue.shape)
-thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numfour)
+thetarnd = 0.001 * np.random.default_rng(seed).normal(size=thetatrue.shape)
 thetarnd = jnp.array(thetarnd)
 
 # transform init theta (i.e., initvhatmat) to real space potential
@@ -280,7 +265,7 @@ def adjgrads(theta):
 # jist adjgrads
 jitadjgrads = jax.jit(adjgrads)
 # compile and test jitadjgrads
-# print(nl.norm(jitadjgrads(thetatrue)))
+print(nl.norm(jitadjgrads(thetatrue)))
 
 # start optimization (i.e., learning theta)
 rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
@@ -294,7 +279,7 @@ adjvlearnrec = adjvlearnfour @ fourtox
 
 # plot learned potential vs true potential
 plt.plot(xvec, jnp.real(adjvlearnrec), '.-', label='adj')
-# plt.plot(xvec, vxvec, label='truth')
+plt.plot(xvec, vxvec, label='truth')
 plt.plot(xvec, jnp.real(vinitrec), label='init')
 plt.xlabel('x')
 plt.title('True Potential vs. Learned Potential')
@@ -304,9 +289,9 @@ plt.savefig(cwddir / 'graph_true_vs_learned_potential.pdf', format='pdf')
 
 # plot shifted learned potential
 zeroindex = len(xvec) // 2
-# adjdiff = np.abs(vxvec[zeroindex] - jnp.real(adjvlearnrec)[zeroindex])
-# plt.plot(xvec, jnp.real(adjvlearnrec) + adjdiff, '.-', label='adj')
-# plt.plot(xvec, vxvec, label='truth')
+adjdiff = np.abs(vxvec[zeroindex] - jnp.real(adjvlearnrec)[zeroindex])
+plt.plot(xvec, jnp.real(adjvlearnrec) + adjdiff, '.-', label='adj')
+plt.plot(xvec, vxvec, label='truth')
 plt.plot(xvec, jnp.real(vinitrec), label='init')
 plt.xlabel('x')
 plt.title('True Potential vs. Shifted Learned Potential')
@@ -314,6 +299,6 @@ plt.legend()
 # plt.show()
 plt.savefig(cwddir / 'graph_shifted_true_vs_learned_potential.pdf', format='pdf')
 
-# print('l2 error of shifted adj potential:', nl.norm(jnp.real(adjvlearnrec) + adjdiff - vxvec), sep='\n')
-# print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125]), sep='\n')
-# print('l-inf error of shifted and trimmed adj potential:', np.mean(np.abs(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125])), sep='\n')
+print('l2 error of shifted adj potential:', nl.norm(jnp.real(adjvlearnrec) + adjdiff - vxvec), sep='\n')
+print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125]), sep='\n')
+print('l-inf error of shifted and trimmed adj potential:', np.mean(np.abs(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125])), sep='\n')
