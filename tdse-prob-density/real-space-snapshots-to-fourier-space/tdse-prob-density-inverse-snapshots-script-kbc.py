@@ -324,7 +324,7 @@ plt.xlabel('x')
 plt.title('Learned Potential')
 plt.legend()
 # plt.show()
-plt.savefig(cwddir / 'graph_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_learned_potential.pdf', format='pdf')
 
 # eventually want to compare snapshot of evolution against evolution generated
 # from learned potential
