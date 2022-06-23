@@ -1,6 +1,7 @@
 import sys
 import pathlib
 import numpy as np
+import numpy.linalg as nl
 import scipy.optimize as so
 import matplotlib.pyplot as plt
 import jax
@@ -161,8 +162,8 @@ vtoepinitR = thetarnd[:numtoepelms]
 vtoepinitI = jnp.concatenate((jnp.array([0.0]), thetarnd[numtoepelms:]))
 vtoepinit = vtoepinitR + 1j * vtoepinitI
 vinitfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(vtoepinit[1:(numfour + 1)])), vtoepinit[:(numfour + 1)]])
-print('Shape vinitfour:', vinitfour.shape)
-print('Shape fourtox:', fourtox.shape)
+# print('Shape vinitfour:', vinitfour.shape)
+# print('Shape fourtox:', fourtox.shape)
 vinitrec = vinitfour @ fourtox
 
 
@@ -292,12 +293,12 @@ def adjgrads(theta):
 # jit ampsqobject
 jitampsqobject = jax.jit(ampsqobject)
 # complie jitampsqobject
-print(jitampsqobject(thetarnd))
+print('jitampsqobject(thetarnd) =', jitampsqobject(thetarnd))
 
 # jit adjgrads
 jitadjgrads = jax.jit(adjgrads)
 # compile jitadjgrads
-print(nl.norm(jitadjgrads(thetarnd)))
+print('nl.norm(jitadjgrads(thetarnd)) =', nl.norm(jitadjgrads(thetarnd)))
 
 
 ###############################################################
