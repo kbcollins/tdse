@@ -19,7 +19,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 ###############################################################
 
 # file path to output directory
-outputdir = '/home/kcollins9/data/tdse/tdse-prob-density/tdse-prob-density-pyscript/tdse-prob-density-pyscript-kbc-output'
+outputdir = '/home/kcollins9/data/tdse/tdse-amp-squared/tdse-amp-squared-pyscript/tdse-amp-squared-pyscript-kbc-output'
 
 # size of spatial domain
 L = 15.0
