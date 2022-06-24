@@ -39,7 +39,7 @@ xvec = np.linspace(-L, L, numx)
 numfour = 32  # 32
 
 # set time-step size
-dt = 1e-5  # 1e-2
+dt = 1e-4  # 1e-5  # 1e-2
 
 # set number of time steps
 # trajectory length is numts + 1 (initial state + numts steps)
