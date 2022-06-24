@@ -305,7 +305,7 @@ print('nl.norm(jitadjgrads(thetarnd)) =', nl.norm(jitadjgrads(thetarnd)))
 ###############################################################
 
 # start optimization (i.e., learning theta)
-rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 2000, 'disp': True, 'gtol': 1e-15}).x
+rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
 
 
 ###############################################################
