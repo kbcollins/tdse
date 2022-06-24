@@ -43,7 +43,7 @@ dt = 1e-4  # 1e-5  # 1e-2
 
 # set number of time steps
 # trajectory length is numts + 1 (initial state + numts steps)
-numts = 20  # 20
+numts = 100  # 20
 
 print('Computational parameters set.')
 
