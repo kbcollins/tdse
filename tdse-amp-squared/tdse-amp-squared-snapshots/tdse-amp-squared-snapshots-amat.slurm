@@ -6,4 +6,4 @@
 
 #	echo $i
 mkdir -p gausswavepacket
-python tdse-amat-from-snapshots-script-kbc.py ./gausswavepacket
+python tdse-amp-squared-snapshots-amat-script-kbc.py ./gausswavepacket

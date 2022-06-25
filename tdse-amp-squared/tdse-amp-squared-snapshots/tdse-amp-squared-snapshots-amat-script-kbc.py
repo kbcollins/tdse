@@ -3,7 +3,6 @@ import pathlib
 import numpy as np
 import scipy.integrate as si
 import jax.numpy as jnp
-import jax.numpy.linalg as jnl
 from jax.config import config
 config.update("jax_enable_x64", True)
 
@@ -12,7 +11,7 @@ config.update("jax_enable_x64", True)
 # set directory where results will be saved
 ###############################################################
 
-# get path to directory containing amat from command line
+# get path to directory to store amat from command line
 cmdlinearg = sys.argv[1]
 print('Command line argument:', cmdlinearg)
 
