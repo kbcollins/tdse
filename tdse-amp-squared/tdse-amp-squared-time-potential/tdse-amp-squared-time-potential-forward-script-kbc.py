@@ -46,7 +46,7 @@ dt = 1e-2  # 1e-2
 
 # set number of time steps
 # trajectory length is numts + 1 (initial state + numts steps)
-numts = 21  # 20
+numts = 20
 
 tvec = np.arange(0, numts) * dt
 
