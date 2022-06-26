@@ -378,7 +378,7 @@ for i in range(numsec):
     # jac(x, *args) -> array_like, shape (n,)
     # where x is an array with shape (n,) and args is a tuple with the fixed
     # parameters.
-    #
+
     thisresult = so.minimize(fun=ampsqobject, x0=thetarnd, args=(thisbetamatvec), jac=adjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
     # thisresult = so.minimize(fun=jitampsqobject, x0=thetarnd, args=(thisbetamatvec), jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
     thetavec.append(thisresult)
