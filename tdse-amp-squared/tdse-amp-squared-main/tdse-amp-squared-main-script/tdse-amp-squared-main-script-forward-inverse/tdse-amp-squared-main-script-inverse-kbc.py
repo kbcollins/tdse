@@ -233,8 +233,9 @@ def adjgrads(theta):
         thisrhomat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
         thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
 
+        # propagate system starting from thisa0vec state
         for i in range(numts):
-            # propagate the system one time-step
+            # propagate the system one time-step and store the result
             thisahatmat.append(propahat @ thisahatmat[-1])
 
             # calculate the amp^2

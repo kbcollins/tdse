@@ -256,19 +256,17 @@ def adjgrads(theta, thisbetamatvec):
     lammatvec = []
     for r in range(thisbetamatvec.shape[0]):
         # propagate system starting from initial "a" state
-        # thisahatmat = [thisbetamatvec[r, 0].copy()]
-        thisahat = thisbetamatvec[r, 0].copy()
-        thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
-        # thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
+        thisahatmat = [thisbetamatvec[r, 0].copy()]
+        thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
         thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
 
         # propagate system starting from thisa0vec state
-        for _ in range(len(thisbetamatvec[r]) - 1):
-            # propagate the system one time-step
-            thisahat = (propahat @ thisahat)
+        for i in range(len(thisbetamatvec[r]) - 1):
+            # propagate the system one time-step and store the result
+            thisahatmat.append(propahat @ thisahatmat[-1])
 
             # calculate the amp^2
-            thisbetahatmat.append(jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L))
+            thisbetahatmat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
 
             # compute \betahat^r - \beta^r
             thiserr = thisbetahatmat[-1] - thisbetamatvec[r, i+1]
