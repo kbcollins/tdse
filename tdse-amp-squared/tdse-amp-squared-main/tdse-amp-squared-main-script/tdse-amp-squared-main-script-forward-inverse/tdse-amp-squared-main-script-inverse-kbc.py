@@ -37,7 +37,7 @@ numfour = int(numfour)
 numts = int(numts)
 
 # load state variables
-a0vec = np.load(cwddir / 'a0vec.npy')
+# a0vec = np.load(cwddir / 'a0vec.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
 
 # fourtox = np.load(cwddir / 'fourtox.npy')
@@ -65,6 +65,10 @@ fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 # number of Toeplitz elements in the Fourier representation
 numtoepelms = 2 * numfour + 1
 
+# construct initial state vector
+a0vec = amattruevec[:, 0]
+print('Shape a0vec:', a0vec.shape)
+
 # make kinetic operator in the Fourier representation
 # (this is constant for a given system)
 kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2))
@@ -89,6 +93,11 @@ betamatvec = jnp.array(betamatvec) / jnp.sqrt(2 * L)
 
 print('Training data generated.')
 
+
+###############################################################
+# Toeplitz indexing matrix
+###############################################################
+
 # Toeplitz indexing matrix, used for constructing Toeplitz matrix
 # from a vector setup like:
 # jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
@@ -96,6 +105,32 @@ aa = (-1) * np.arange(0, numtoepelms).reshape(numtoepelms, 1)
 bb = [np.arange(numtoepelms - 1, 2 * numtoepelms - 1)]
 toepindxmat = np.array(aa + bb)
 # print(toepindxmat.shape)
+
+
+###############################################################
+# theta
+###############################################################
+
+# true potential in the form of theta (for testing purposes)
+# thetatrue = jnp.concatenate((jnp.real(vtoeptrue), jnp.imag(vtoeptrue[1:])))
+
+# initialize theta with random coefficients close to zero
+seed = 1234  # set to None for random initialization
+# thetarnd = 0.001 * np.random.default_rng(seed).normal(size=thetatrue.shape)
+thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
+thetarnd = jnp.array(thetarnd)
+
+# transform init theta (i.e., initvhatmat) to real space potential
+vtoepinitR = thetarnd[:numtoepelms]
+vtoepinitI = jnp.concatenate((jnp.array([0.0]), thetarnd[numtoepelms:]))
+vtoepinit = vtoepinitR + 1j * vtoepinitI
+vinitfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(vtoepinit[1:(numfour + 1)])), vtoepinit[:(numfour + 1)]])
+vinitrec = vinitfour @ fourtox
+
+
+###############################################################
+# define objective function
+###############################################################
 
 # define objective function
 def ampsqobject(theta):
@@ -140,27 +175,15 @@ def ampsqobject(theta):
 
     return rtnobj
 
-
-# true potential in the form of theta (for testing purposes)
-# thetatrue = jnp.concatenate((jnp.real(vtoeptrue), jnp.imag(vtoeptrue[1:])))
-
 # jit ampsqobject
 jitampsqobject = jax.jit(ampsqobject)
 # complie and test jitampsqobject
 # print(jitampsqobject(thetatrue))
 
-# initialize theta with random coefficients close to zero
-seed = 1234  # set to None for random initialization
-# thetarnd = 0.001 * np.random.default_rng(seed).normal(size=thetatrue.shape)
-thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
-thetarnd = jnp.array(thetarnd)
 
-# transform init theta (i.e., initvhatmat) to real space potential
-vtoepinitR = thetarnd[:numtoepelms]
-vtoepinitI = jnp.concatenate((jnp.array([0.0]), thetarnd[numtoepelms:]))
-vtoepinit = vtoepinitR + 1j * vtoepinitI
-vinitfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(vtoepinit[1:(numfour + 1)])), vtoepinit[:(numfour + 1)]])
-vinitrec = vinitfour @ fourtox
+###############################################################
+# adjoint method for computing gradient
+###############################################################
 
 # function for generating M and P matrix (used in adjoint method)
 def mk_M_and_P(avec):
@@ -282,8 +305,18 @@ jitadjgrads = jax.jit(adjgrads)
 # compile and test jitadjgrads
 # print(nl.norm(jitadjgrads(thetatrue)))
 
+
+###############################################################
+# learn theta
+###############################################################
+
 # start optimization (i.e., learning theta)
 rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
+
+
+###############################################################
+# results
+###############################################################
 
 # transform learned theta (i.e., vhatmat) to real space potential
 adjvtoeplearnR = rsltadjthetarnd[:numtoepelms]

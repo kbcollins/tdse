@@ -37,7 +37,6 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 ###############################################################
 
 
-
 ###############################################################
 # set directory to load data from
 ###############################################################
@@ -85,6 +84,7 @@ fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 # number of Toeplitz elements in the Fourier representation
 numtoepelms = 2 * numfour + 1
 
+# construct initial state vector
 a0vec = amattruevec[:, 0]
 print('Shape a0vec:', a0vec.shape)
 
