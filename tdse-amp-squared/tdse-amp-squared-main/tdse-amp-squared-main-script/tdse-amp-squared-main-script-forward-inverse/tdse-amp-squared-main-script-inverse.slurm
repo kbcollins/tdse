@@ -4,7 +4,7 @@
 #SBATCH --job-name=kbc-inverse
 #SBATCH --time=00:30:00
 
-python tdse-amp-squared-main-inverse-kbc.py ./v0
+python tdse-amp-squared-main-script-inverse-kbc.py ./v0
 
 #for i in {0..6}
 #do
