@@ -141,8 +141,8 @@ for thisfourn in range(numtoepelms):
     vtoeptrue.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
 
 vtoeptrue = jnp.array(vtoeptrue)
-np.save(cwddir / 'vtoeptrue', vtoeptrue)
-print('vtoeptrue saved.')
+# np.save(cwddir / 'vtoeptrue', vtoeptrue)
+# print('vtoeptrue saved.')
 
 vmattrue = sl.toeplitz(r=vtoeptrue, c=np.conj(vtoeptrue))
 
@@ -217,8 +217,8 @@ for thispsi0fn in psi0fnvec:
     normpsi0xvec.append(tempnormpsi0x)
     normpsi0recxvec.append(tempa0 @ fourtox)
 
-np.save(cwddir / 'a0vec', a0vec)
-print('a0vec saved.')
+# np.save(cwddir / 'a0vec', a0vec)
+# print('a0vec saved.')
 
 # make kinetic operator in the Fourier representation
 # (this is constant for a given system)
