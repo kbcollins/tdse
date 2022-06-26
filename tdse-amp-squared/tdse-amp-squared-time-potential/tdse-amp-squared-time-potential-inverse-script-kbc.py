@@ -187,6 +187,7 @@ def ampsqobject(theta, thisa0vec, thisbetamatvec):
         thisahat = thisa0vec[r].copy()
         thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
 
+        print('len(thisbetamatvec[r] =', len(thisbetamatvec[r]))
         # propagate system starting from initial "a" state
         for _ in range(len(thisbetamatvec[r])):
             # propagate the system one time-step
