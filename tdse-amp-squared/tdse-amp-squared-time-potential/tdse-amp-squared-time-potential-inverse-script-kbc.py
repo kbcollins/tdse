@@ -361,7 +361,7 @@ def adjgradswrap(theta, thisbetamatvec):
 numsec = 3
 print('numsec =', numsec)
 
-seclen = (betamatvec.shape[1] - 1) // numsec
+seclen = (betamatvec.shape[1]) // numsec
 print('Shape betamatvec:', betamatvec.shape)
 print('seclen =', seclen)
 
@@ -369,8 +369,8 @@ thisavec = a0vec.copy()
 thetavec = []
 
 for i in range(numsec):
-    print(f'{i * seclen}:{(i + 1) * seclen}')
-    # thisbetamatvec = betamatvec[:, i*seclen:(i + 1)*seclen]
+    print(f'Starting section {i * seclen}:{(i + 1) * seclen}.')
+    thisbetamatvec = betamatvec[:, i*seclen:(i + 1)*seclen]
 
     # optimize (i.e., learning theta)
     #
@@ -393,8 +393,8 @@ for i in range(numsec):
     # where x is an array with shape (n,) and args is a tuple with the fixed
     # parameters.
     #
-    # thisresult = so.minimize(fun=ampsqobjectwrap, x0=thetarnd, args=(thisbetamatvec), jac=adjgradswrap, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
-    # thetavec.append(thisresult)
+    thisresult = so.minimize(fun=ampsqobjectwrap, x0=thetarnd, args=(thisbetamatvec), jac=adjgradswrap, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+    thetavec.append(thisresult)
 
 
     ###############################################################
@@ -402,21 +402,21 @@ for i in range(numsec):
     ###############################################################
 
     # transform learned theta (i.e., vhatmat) to real space potential
-    # adjvtoeplearnR = rsltadjthetarnd[:numtoepelms]
-    # adjvtoeplearnI = jnp.concatenate((jnp.array([0.0]), rsltadjthetarnd[numtoepelms:]))
-    # adjvtoeplearn = adjvtoeplearnR + 1j * adjvtoeplearnI
-    # adjvlearnfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(adjvtoeplearn[1:(numfour + 1)])), adjvtoeplearn[:(numfour + 1)]])
-    # adjvlearnrec = adjvlearnfour @ fourtox
+    adjvtoeplearnR = thetavec[-1][:numtoepelms]
+    adjvtoeplearnI = jnp.concatenate((jnp.array([0.0]), thetavec[-1][numtoepelms:]))
+    adjvtoeplearn = adjvtoeplearnR + 1j * adjvtoeplearnI
+    adjvlearnfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(adjvtoeplearn[1:(numfour + 1)])), adjvtoeplearn[:(numfour + 1)]])
+    adjvlearnrec = adjvlearnfour @ fourtox
 
     # plot learned potential
-    # plt.plot(xvec, jnp.real(adjvlearnrec), '.-', label='adj')
+    plt.plot(xvec, jnp.real(adjvlearnrec), '.-', label=f'v{i}')
     # plt.plot(xvec, jnp.real(vinitrec), label='init')
-    # plt.xlabel('x')
-    # plt.title('Learned Potential')
-    # plt.legend()
-    # # plt.show()
-    # plt.savefig(cwddir / 'graph_learned_potential.pdf', format='pdf')
-    # plt.close()
+    plt.xlabel('x')
+    plt.title('Learned Potential')
+    plt.legend()
+    # plt.show()
+    plt.savefig(cwddir / 'graph_learned_potential.pdf', format='pdf')
+    plt.close()
 
     # eventually want to compare snapshot of evolution against evolution generated
     # from learned potential
