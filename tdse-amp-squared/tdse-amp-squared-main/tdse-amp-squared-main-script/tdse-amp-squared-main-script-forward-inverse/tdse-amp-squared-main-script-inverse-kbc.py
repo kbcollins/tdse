@@ -160,7 +160,7 @@ def ampsqobject(theta):
     # for r in range(len(a0vec)):
     for r in range(betamatvec.shape[0]):
         # thisahat = a0vec[r].copy()
-        thisahat = betamatvec[r, 0].copy()
+        thisahat = amattruevec[r, 0].copy()
         thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
 
         # propagate system starting from initial "a" state
@@ -234,7 +234,7 @@ def adjgrads(theta):
     for r in range(betamatvec.shape[0]):
         # propagate system starting from initial "a" state
         # thisahatmat = [a0vec[r].copy()]
-        thisahatmat = [betamatvec[r, 0].copy()]
+        thisahatmat = [amattruevec[r, 0].copy()]
         thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
         # thisrhomat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
         thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
@@ -323,8 +323,8 @@ jitadjgrads = jax.jit(adjgrads)
 ###############################################################
 
 # start optimization (i.e., learning theta)
-# rsltadjthetarnd = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
-rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
+rsltadjthetarnd = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+# rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
 
 
 ###############################################################
