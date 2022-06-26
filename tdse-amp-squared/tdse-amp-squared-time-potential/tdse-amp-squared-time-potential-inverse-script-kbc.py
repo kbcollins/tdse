@@ -417,7 +417,7 @@ for i in range(numsec):
     plt.title('Learned Potential')
     plt.legend()
     # plt.show()
-    plt.savefig(cwddir / 'graph_learned_potential.pdf', format='pdf')
+    plt.savefig(cwddir / f'graph_learned_potential_{i}.pdf', format='pdf')
     plt.close()
 
     # eventually want to compare snapshot of evolution against evolution generated
