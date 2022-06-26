@@ -151,7 +151,7 @@ vinitrec = vinitfour @ fourtox
 # define objective function
 ###############################################################
 
-def ampsqobject(theta, thisbetamatvec):
+def ampsqobject(theta, thisa0vec, thisbetamatvec):
     ###############################################################
     # this function assumes the potential, represented by theta,
     # is static for the entirety of the propagation.
@@ -184,12 +184,12 @@ def ampsqobject(theta, thisbetamatvec):
     # forward propagation loop
     rtnobj = 0.0
     for r in range(thisbetamatvec.shape[0]):
-        thisahat = thisbetamatvec[r, 0].copy()
+        thisahat = thisa0vec[r].copy()
         thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
 
         # print('len(thisbetamatvec[r] =', len(thisbetamatvec[r]))
         # propagate system starting from initial "a" state
-        for _ in range(len(thisbetamatvec[r]) - 1):
+        for _ in range(thisbetamatvec.shape[1] - 1):
             # propagate the system one time-step
             thisahat = propahat @ thisahat
             # calculate the amp^2
@@ -230,7 +230,7 @@ def mk_M_and_P(avec):
 jit_mk_M_and_P = jax.jit(mk_M_and_P)
 
 # function for computing gradients using the adjoint method
-def adjgrads(theta, thisbetamatvec):
+def adjgrads(theta, thisa0vec, thisbetamatvec):
     # to use theta we need to first recombine the real
     # and imaginary parts into a vector of complex values
     vtoephatR = theta[:numtoepelms]
@@ -256,7 +256,7 @@ def adjgrads(theta, thisbetamatvec):
     lammatvec = []
     for r in range(thisbetamatvec.shape[0]):
         # propagate system starting from initial "a" state
-        thisahatmat = [thisbetamatvec[r, 0].copy()]
+        thisahatmat = [thisa0vec[r].copy()]
         thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
         thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
 
@@ -355,6 +355,7 @@ thetavec = []
 for i in range(numsec):
     print(f'Starting section {i * seclen}:{(i + 1) * seclen}.')
     thisbetamatvec = betamatvec[:, i*seclen:(i + 1)*seclen]
+    thisa0vec = amattruevec[:, i*seclen]
 
     print('L2 error thisbetamatvec:', nl.norm(betamatvec - thisbetamatvec))
 
@@ -379,7 +380,7 @@ for i in range(numsec):
     # where x is an array with shape (n,) and args is a tuple with the fixed
     # parameters.
 
-    thisresult = so.minimize(fun=ampsqobject, x0=thetarnd, args=(thisbetamatvec), jac=adjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+    thisresult = so.minimize(fun=ampsqobject, x0=thetarnd, args=(thisa0vec, thisbetamatvec), jac=adjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
     # thisresult = so.minimize(fun=jitampsqobject, x0=thetarnd, args=(thisbetamatvec), jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
     thetavec.append(thisresult)
 
