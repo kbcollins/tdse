@@ -61,7 +61,7 @@ numfour = int(numfour)
 numts = int(numts)
 
 # load state variables
-a0vec = np.load(cwddir / 'a0vec.npy')
+# a0vec = np.load(cwddir / 'a0vec.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
 
 print('Computational environment loaded.')
@@ -84,6 +84,9 @@ fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 
 # number of Toeplitz elements in the Fourier representation
 numtoepelms = 2 * numfour + 1
+
+a0vec = amattruevec[:, 0]
+print('Shape a0vec:', a0vec.shape)
 
 # make kinetic operator in the Fourier representation
 # (this is constant for a given system)
