@@ -151,7 +151,7 @@ vinitrec = vinitfour @ fourtox
 # define objective function
 ###############################################################
 
-def ampsqobject(theta, thisa0vec, thisbetamatvec):
+def ampsqobject(theta, thisbetamatvec):
     ###############################################################
     # this function assumes the potential, represented by theta,
     # is static for the entirety of the propagation.
@@ -181,10 +181,10 @@ def ampsqobject(theta, thisa0vec, thisbetamatvec):
     # compute propagator matrix
     propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
 
+    # forward propagation loop
     rtnobj = 0.0
-    rtnavec = []
-    for r in range(len(thisa0vec)):
-        thisahat = thisa0vec[r].copy()
+    for r in range(thisbetamatvec.shape[0]):
+        thisahat = thisbetamatvec[r, 0].copy()
         thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
 
         # print('len(thisbetamatvec[r] =', len(thisbetamatvec[r]))
@@ -195,34 +195,17 @@ def ampsqobject(theta, thisa0vec, thisbetamatvec):
             # calculate the amp^2
             thisbetahatmat.append(jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L))
 
-        # store the last final a-state
-        rtnavec.append(thisahat)
-
         # compute objective functions
         tempresid = jnp.array(thisbetahatmat) - thisbetamatvec[r]
         thisobj = 0.5 * jnp.sum(jnp.abs(tempresid)**2)
         rtnobj += thisobj
 
-    return rtnobj, rtnavec
+    return rtnobj
 
 # jit ampsqobject
 jitampsqobject = jax.jit(ampsqobject)
 # compile jitampsqobject
 # print('jitampsqobject(thetarnd) =', jitampsqobject(thetarnd, a0vec, betamatvec[:, :1]))
-
-def ampsqobjectwrap(theta, thisbetamatvec):
-    ###############################################################
-    # this function is needed because we need the avec returned by
-    # ampsqobject but the objective function used by
-    # scipy.optimize.minimize is only allowed to return the objective
-    # also jit functions (I believe) cannot update variables outside
-    # of their scope
-    ###############################################################
-
-    global thisavec
-    rtnobj, thisavec = jitampsqobject(theta, thisavec, thisbetamatvec)
-
-    return rtnobj
 
 
 ###############################################################
@@ -247,7 +230,7 @@ def mk_M_and_P(avec):
 jit_mk_M_and_P = jax.jit(mk_M_and_P)
 
 # function for computing gradients using the adjoint method
-def adjgrads(theta, thisa0vec, thisbetamatvec):
+def adjgrads(theta, thisbetamatvec):
     # to use theta we need to first recombine the real
     # and imaginary parts into a vector of complex values
     vtoephatR = theta[:numtoepelms]
@@ -268,24 +251,25 @@ def adjgrads(theta, thisa0vec, thisbetamatvec):
     propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
     proplam = jnp.transpose(jnp.conjugate(propahat))
 
-    # forward propagation
+    # forward propagation loop
     ahatmatvec = []
     lammatvec = []
-    for r in range(len(thisa0vec)):
+    for r in range(thisbetamatvec.shape[0]):
         # propagate system starting from initial "a" state
-        thisahatmat = [thisa0vec[r].copy()]
-        thisrhomat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
+        thisahatmat = [thisbetamatvec[r, 0].copy()]
+        thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
         thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
 
-        for i in range(numts):
+        # propagate system starting from thisa0vec state
+        for _ in range(len(thisbetamatvec[r]) - 1):
             # propagate the system one time-step
-            thisahatmat.append(propahat @ thisahatmat[-1])
+            thisahat = (propahat @ thisahat)
 
             # calculate the amp^2
-            thisrhomat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
+            thisbetahatmat.append(jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L))
 
-            # compute \rho^r - \beta^r
-            thiserr = thisrhomat[-1] - thisbetamatvec[r, i+1]
+            # compute \betahat^r - \beta^r
+            thiserr = thisbetahatmat[-1] - thisbetamatvec[r, i+1]
 
             # compute M and P matrix for lambda mat
             thisMmat, thisPmat = jit_mk_M_and_P(thisahatmat[-1])
@@ -295,6 +279,7 @@ def adjgrads(theta, thisa0vec, thisbetamatvec):
             # + \overline{( P^r )^\dagger * ( \rho^r - \beta^r )} ]
             thispartlammat.append((thisMmat.conj().T @ thiserr + (thisPmat.conj().T @ thiserr).conj()) / jnp.sqrt(2 * L))
 
+        # store compute ahatmat
         ahatmatvec.append(jnp.array(thisahatmat))
 
         # build lammat backwards then flip at the end
@@ -348,9 +333,6 @@ jitadjgrads = jax.jit(adjgrads)
 # compile jitadjgrads
 # print('nl.norm(jitadjgrads(thetarnd)) =', nl.norm(jitadjgrads(thetarnd)))
 
-def adjgradswrap(theta, thisbetamatvec):
-    return jitadjgrads(theta, thisavec, thisbetamatvec)
-
 
 ###############################################################
 # learning loop
@@ -395,7 +377,7 @@ for i in range(numsec):
     # where x is an array with shape (n,) and args is a tuple with the fixed
     # parameters.
     #
-    thisresult = so.minimize(fun=ampsqobjectwrap, x0=thetarnd, args=(thisbetamatvec), jac=adjgradswrap, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+    thisresult = so.minimize(fun=jitampsqobject, x0=thetarnd, args=(thisbetamatvec), jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
     thetavec.append(thisresult)
 
 

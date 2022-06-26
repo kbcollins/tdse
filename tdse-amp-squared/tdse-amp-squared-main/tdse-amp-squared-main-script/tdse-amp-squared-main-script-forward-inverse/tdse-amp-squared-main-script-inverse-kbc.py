@@ -162,7 +162,7 @@ def ampsqobject(theta):
         thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
 
         # propagate system starting from initial "a" state
-        for i in range(numts):
+        for _ in range(numts):
             # propagate the system one time-step
             thisahat = (propahat @ thisahat)
             # calculate the amp^2
