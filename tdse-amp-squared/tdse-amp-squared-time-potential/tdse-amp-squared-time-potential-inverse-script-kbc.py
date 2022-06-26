@@ -85,8 +85,8 @@ fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 numtoepelms = 2 * numfour + 1
 
 # construct initial state vector
-a0vec = amattruevec[:, 0]
-print('Shape a0vec:', a0vec.shape)
+# a0vec = amattruevec[:, 0]
+# print('Shape a0vec:', a0vec.shape)
 
 # make kinetic operator in the Fourier representation
 # (this is constant for a given system)
@@ -191,7 +191,7 @@ def ampsqobject(theta, thisbetamatvec):
         # propagate system starting from initial "a" state
         for _ in range(len(thisbetamatvec[r]) - 1):
             # propagate the system one time-step
-            thisahat = (propahat @ thisahat)
+            thisahat = propahat @ thisahat
             # calculate the amp^2
             thisbetahatmat.append(jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L))
 
@@ -261,7 +261,7 @@ def adjgrads(theta, thisbetamatvec):
         thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
 
         # propagate system starting from thisa0vec state
-        for i in range(len(thisbetamatvec[r]) - 1):
+        for i in range(thisbetamatvec.shape[1] - 1):
             # propagate the system one time-step and store the result
             thisahatmat.append(propahat @ thisahatmat[-1])
 
@@ -328,6 +328,7 @@ def adjgrads(theta, thisbetamatvec):
 
     return gradients
 
+
 # jit adjgrads
 jitadjgrads = jax.jit(adjgrads)
 # compile jitadjgrads
@@ -349,12 +350,13 @@ seclen = (betamatvec.shape[1]) // numsec
 print('Shape betamatvec:', betamatvec.shape)
 print('seclen =', seclen)
 
-thisavec = a0vec.copy()
 thetavec = []
 
 for i in range(numsec):
     print(f'Starting section {i * seclen}:{(i + 1) * seclen}.')
     thisbetamatvec = betamatvec[:, i*seclen:(i + 1)*seclen]
+
+    print('L2 error thisbetamatvec:', nl.norm(betamatvec - thisbetamatvec))
 
     # optimize (i.e., learning theta)
     #

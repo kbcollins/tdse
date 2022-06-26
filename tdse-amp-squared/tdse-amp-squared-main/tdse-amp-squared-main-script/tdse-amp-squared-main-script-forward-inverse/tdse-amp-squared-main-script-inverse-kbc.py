@@ -66,8 +66,8 @@ fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 numtoepelms = 2 * numfour + 1
 
 # construct initial state vector
-a0vec = amattruevec[:, 0]
-print('Shape a0vec:', a0vec.shape)
+# a0vec = amattruevec[:, 0]
+# print('Shape a0vec:', a0vec.shape)
 
 # make kinetic operator in the Fourier representation
 # (this is constant for a given system)
@@ -75,12 +75,11 @@ kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2)
 
 
 ###############################################################
-# inverse problem
+# make |\psi(t)|^2 training data from amattruevec
 ###############################################################
 
 print('Starting inverse problem.')
 
-# make |\psi(t)|^2 training data from amattruevec
 betamatvec = []
 for thisamattrue in amattruevec:
     tempbetamat = []
@@ -156,15 +155,19 @@ def ampsqobject(theta):
     # compute propagator matrix
     propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
 
+    # forward propagation loop
     rtnobj = 0.0
-    for r in range(len(a0vec)):
-        thisahat = a0vec[r].copy()
+    # for r in range(len(a0vec)):
+    for r in range(betamatvec.shape[0]):
+        # thisahat = a0vec[r].copy()
+        thisahat = betamatvec[r, 0].copy()
         thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
 
         # propagate system starting from initial "a" state
-        for _ in range(numts):
+        # for _ in range(numts):
+        for _ in range(betamatvec.shape[1] - 1):
             # propagate the system one time-step
-            thisahat = (propahat @ thisahat)
+            thisahat = propahat @ thisahat
             # calculate the amp^2
             thisbetahatmat.append(jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L))
 
@@ -227,22 +230,29 @@ def adjgrads(theta):
     # forward propagation
     ahatmatvec = []
     lammatvec = []
-    for r in range(len(a0vec)):
+    # for r in range(len(a0vec)):
+    for r in range(betamatvec.shape[0]):
         # propagate system starting from initial "a" state
-        thisahatmat = [a0vec[r].copy()]
-        thisrhomat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
+        # thisahatmat = [a0vec[r].copy()]
+        thisahatmat = [betamatvec[r, 0].copy()]
+        thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
+        # thisrhomat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
         thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
 
         # propagate system starting from thisa0vec state
-        for i in range(numts):
+        # for i in range(numts):
+        for i in range(betamatvec.shape[1] - 1):
             # propagate the system one time-step and store the result
             thisahatmat.append(propahat @ thisahatmat[-1])
 
             # calculate the amp^2
-            thisrhomat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
+            thisbetahatmat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
+            # thisrhomat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
 
             # compute \rho^r - \beta^r
-            thiserr = thisrhomat[-1] - betamatvec[r, i+1]
+            # compute \betahat^r - \beta^r
+            thiserr = thisbetahatmat[-1] - betamatvec[r, i+1]
+            # thiserr = thisrhomat[-1] - betamatvec[r, i+1]
 
             # compute M and P matrix for lambda mat
             thisMmat, thisPmat = jit_mk_M_and_P(thisahatmat[-1])
@@ -252,6 +262,7 @@ def adjgrads(theta):
             # + \overline{( P^r )^\dagger * ( \rho^r - \beta^r )} ]
             thispartlammat.append((thisMmat.conj().T @ thiserr + (thisPmat.conj().T @ thiserr).conj()) / jnp.sqrt(2 * L))
 
+        # store compute ahatmat
         ahatmatvec.append(jnp.array(thisahatmat))
 
         # build lammat backwards then flip at the end
@@ -312,7 +323,8 @@ jitadjgrads = jax.jit(adjgrads)
 ###############################################################
 
 # start optimization (i.e., learning theta)
-rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
+rsltadjthetarnd = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+# rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
 
 
 ###############################################################
