@@ -218,7 +218,8 @@ def ampsqobjectwrap(theta, thisbetamatvec):
     # of their scope
     ###############################################################
 
-    rtnobj, thisavec = jitampsqobject
+    global thisavec
+    rtnobj, thisavec = jitampsqobject(theta, thisavec, thisbetamatvec)
 
     return rtnobj
 
