@@ -360,7 +360,7 @@ def adjgradswrap(theta, thisbetamatvec):
 #    static potential
 ###############################################################
 
-numsec = 3
+numsec = 1
 print('numsec =', numsec)
 
 seclen = (betamatvec.shape[1]) // numsec
