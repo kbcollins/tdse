@@ -6,4 +6,4 @@
 
 #	echo $i
 mkdir -p timepotential
-python tdse-amp-squared-snapshots-time-potential-script-kbc.py ./timepotential
+python tdse-amp-squared-time-potential-forward-script-kbc.py ./timepotential
