@@ -357,8 +357,6 @@ for i in range(numsec):
     thisbetamatvec = betamatvec[:, i*seclen:(i + 1)*seclen]
     thisa0vec = amattruevec[:, i*seclen]
 
-    print('L2 error thisbetamatvec:', nl.norm(betamatvec - thisbetamatvec))
-
     # optimize (i.e., learning theta)
     #
     # fun: callable - the objective function to be minimized.
