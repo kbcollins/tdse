@@ -46,7 +46,7 @@ dt = 1e-2  # 1e-2
 
 # set number of time steps
 # trajectory length is numts + 1 (initial state + numts steps)
-numts = 20
+numts = 200  # 20
 
 tvec = np.arange(0, numts) * dt
 
@@ -77,11 +77,11 @@ print('Shape fourtox:', fourtox.shape)
 
 # start with a simple time dependent potential, one which is static
 # for a set duration, but no two periods have the same potential
-
+lensec = numts // 3
 def v(t):
-    if t < 7 * dt:
+    if t < lensec * dt:
         return lambda z: 5.0 * (z + 8.0)**2
-    elif t < 14 * dt:
+    elif t < 2*lensec * dt:
         def rtnfn(z):
             # print(len(z))
             if type(z) == float:
