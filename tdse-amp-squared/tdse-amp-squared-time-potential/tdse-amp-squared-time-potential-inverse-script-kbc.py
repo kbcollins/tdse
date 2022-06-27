@@ -282,6 +282,9 @@ def adjgrads(theta, thisa0vec, thisbetamatvec):
         # store compute ahatmat
         ahatmatvec.append(jnp.array(thisahatmat))
 
+        print('thisbetamatvec.shape[1] =', thisbetamatvec.shape[1])
+        print('len(thispartlammat) =', len(thispartlammat))
+
         # build lammat backwards then flip at the end
         thislammat = [thispartlammat[-1]]
         for i in range(2, thisbetamatvec.shape[1] + 2):
