@@ -343,7 +343,7 @@ jitadjgrads = jax.jit(adjgrads)
 #    static potential
 ###############################################################
 
-numsec = 1
+numsec = 3
 print('numsec =', numsec)
 
 seclen = (betamatvec.shape[1]) // numsec
