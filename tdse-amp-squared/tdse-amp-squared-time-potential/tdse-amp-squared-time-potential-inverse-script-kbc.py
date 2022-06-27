@@ -327,9 +327,9 @@ def adjgrads(theta, thisa0vec, thisbetamatvec):
     alldmat = jnp.vstack([alldmatreal, alldmatimag])
 
     # compute all entries of the gradient at once
-    print('len(lammatvec) =', len(lammatvec))
+    print('Shape lammatvec[0]:', lammatvec[0].shape)
     print('Shape alldmat:', alldmat.shape)
-    print('len(ahatmatvec) =', len(ahatmatvec))
+    print('Shape ahatmatvec[0]:', ahatmatvec[0].shape)
     gradients = jnp.real(jnp.einsum('bij,ajk,bik->a', jnp.conj(lammatvec[:, 1:]), alldmat, ahatmatvec[:, :-1]))
 
     return gradients
