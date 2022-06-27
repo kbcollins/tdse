@@ -46,7 +46,7 @@ dt = 1e-2  # 1e-2
 
 # set number of time steps
 # trajectory length is numts + 1 (initial state + numts steps)
-numts = 200  # 20
+numts = 60  # 20
 
 tvec = np.arange(0, numts) * dt
 
@@ -177,7 +177,7 @@ def mka0(psi0fn):
 #########################################################
 
 # pick initial un-normalized wave functions
-psi0fnvec = [psi0_0]  # [psi0_0, psi0_1, psi0_2, psi0_3]  # [psi0_0, psi0_1, psi0_2, psi0_3, psi0_4, psi0_5]
+psi0fnvec = [psi0_0, psi0_1, psi0_2, psi0_3]  # [psi0_0, psi0_1, psi0_2, psi0_3, psi0_4, psi0_5]
 
 a0vec = []
 normpsi0xvec = []
