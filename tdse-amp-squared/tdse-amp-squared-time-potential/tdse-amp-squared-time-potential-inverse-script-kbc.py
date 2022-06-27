@@ -287,7 +287,7 @@ def adjgrads(theta, thisa0vec, thisbetamatvec):
 
         # build lammat backwards then flip at the end
         thislammat = [thispartlammat[-1]]
-        for i in range(2, thisbetamatvec.shape[1]):
+        for i in range(1, thisbetamatvec.shape[1]):
             thislammat.append(thispartlammat[-i] + proplam @ thislammat[-1])
 
         lammatvec.append(jnp.flipud(jnp.array(thislammat)))
