@@ -363,8 +363,9 @@ plt.savefig(cwddir / 'graph_shifted_true_vs_learned_potential.pdf', format='pdf'
 plt.close()
 
 trim = np.where(xvec >= -10)  # 125
-print('Shape trim:', trim.shape)
-print('trim =', trim[0, 0])
+print('trim type:', type(trim))
+print('len trim:', len(trim))
+print('trim =', trim[0][0])
 
 print('l2 error of shifted adj potential:', nl.norm(jnp.real(adjvlearnrec) + adjdiff - vxvec), sep='\n')
 print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[trim:-trim] + adjdiff - vxvec[trim:-trim]), sep='\n')
