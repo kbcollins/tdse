@@ -2,7 +2,7 @@
 #SBATCH --partition=gpu
 #SBATCH --gpus=1
 #SBATCH --job-name=kbc-inverse
-#SBATCH --time=00:30:00
+#SBATCH --time=00:35:00
 
 #python tdse-amp-squared-main-script-inverse-kbc.py ./v0
 

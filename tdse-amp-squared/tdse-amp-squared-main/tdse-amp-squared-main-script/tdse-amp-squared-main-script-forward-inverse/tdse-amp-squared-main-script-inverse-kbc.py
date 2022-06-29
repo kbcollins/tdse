@@ -1,9 +1,7 @@
 import sys
 import pathlib
 import numpy as np
-import numpy.linalg as nl
 import scipy.optimize as so
-import matplotlib.pyplot as plt
 import jax
 import jax.numpy as jnp
 import jax.numpy.linalg as jnl
@@ -326,48 +324,5 @@ jitadjgrads = jax.jit(adjgrads)
 rsltadjthetarnd = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
 # rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
 
-
-###############################################################
-# results
-###############################################################
-
-# transform learned theta (i.e., vhatmat) to real space potential
-adjvtoeplearnR = rsltadjthetarnd[:numtoepelms]
-adjvtoeplearnI = jnp.concatenate((jnp.array([0.0]), rsltadjthetarnd[numtoepelms:]))
-adjvtoeplearn = adjvtoeplearnR + 1j * adjvtoeplearnI
-adjvlearnfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(adjvtoeplearn[1:(numfour + 1)])), adjvtoeplearn[:(numfour + 1)]])
-adjvlearnrec = adjvlearnfour @ fourtox
-
-# plot learned potential vs true potential
-plt.plot(xvec, jnp.real(adjvlearnrec), '.-', label='adj')
-plt.plot(xvec, vxvec, label='truth')
-# plt.plot(xvec, jnp.real(vinitrec), label='init')
-plt.xlabel('x')
-plt.title('True Potential vs. Learned Potential')
-plt.legend()
-# plt.show()
-plt.savefig(cwddir / 'graph_true_vs_learned_potential.pdf', format='pdf')
-plt.close()
-
-# plot shifted learned potential
-zeroindex = len(xvec) // 2
-adjdiff = np.abs(vxvec[zeroindex] - jnp.real(adjvlearnrec)[zeroindex])
-plt.plot(xvec, jnp.real(adjvlearnrec) + adjdiff, '.-', label='adj')
-plt.plot(xvec, vxvec, label='truth')
-# plt.plot(xvec, jnp.real(vinitrec), label='init')
-plt.xlabel('x')
-plt.title('True Potential vs. Shifted Learned Potential')
-plt.legend()
-# plt.show()
-plt.savefig(cwddir / 'graph_shifted_true_vs_learned_potential.pdf', format='pdf')
-plt.close()
-
-trim = np.where(xvec >= -10)  # 125
-print('trim type:', type(trim))
-print('len trim:', len(trim))
-trim = trim[0][0]
-print('trim =', trim)
-
-print('l2 error of shifted adj potential:', nl.norm(jnp.real(adjvlearnrec) + adjdiff - vxvec), sep='\n')
-print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[trim:-trim] + adjdiff - vxvec[trim:-trim]), sep='\n')
-print('l-inf error of shifted and trimmed adj potential:', np.mean(np.abs(jnp.real(adjvlearnrec)[trim:-trim] + adjdiff - vxvec[trim:-trim])), sep='\n')
+np.save(cwddir / 'rsltadjthetarnd', rsltadjthetarnd)
+print('rsltadjthetarnd saved.')

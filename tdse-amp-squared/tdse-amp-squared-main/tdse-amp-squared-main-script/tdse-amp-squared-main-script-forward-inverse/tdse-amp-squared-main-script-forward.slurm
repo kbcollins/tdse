@@ -2,7 +2,7 @@
 #SBATCH --partition=gpu
 #SBATCH --gpus=1
 #SBATCH --job-name=kbc-forward
-#SBATCH --time=00:05:00
+#SBATCH --time=00:35:00
 
 #mkdir -p v0
 #python tdse-amp-squared-main-script-forward-kbc.py 0
