@@ -341,7 +341,7 @@ adjvlearnrec = adjvlearnfour @ fourtox
 # plot learned potential vs true potential
 plt.plot(xvec, jnp.real(adjvlearnrec), '.-', label='adj')
 plt.plot(xvec, vxvec, label='truth')
-plt.plot(xvec, jnp.real(vinitrec), label='init')
+# plt.plot(xvec, jnp.real(vinitrec), label='init')
 plt.xlabel('x')
 plt.title('True Potential vs. Learned Potential')
 plt.legend()
@@ -354,7 +354,7 @@ zeroindex = len(xvec) // 2
 adjdiff = np.abs(vxvec[zeroindex] - jnp.real(adjvlearnrec)[zeroindex])
 plt.plot(xvec, jnp.real(adjvlearnrec) + adjdiff, '.-', label='adj')
 plt.plot(xvec, vxvec, label='truth')
-plt.plot(xvec, jnp.real(vinitrec), label='init')
+# plt.plot(xvec, jnp.real(vinitrec), label='init')
 plt.xlabel('x')
 plt.title('True Potential vs. Shifted Learned Potential')
 plt.legend()
@@ -362,6 +362,9 @@ plt.legend()
 plt.savefig(cwddir / 'graph_shifted_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
 
+trim = np.where(xvec >= -10)  # 125
+print('trim =', trim)
+
 print('l2 error of shifted adj potential:', nl.norm(jnp.real(adjvlearnrec) + adjdiff - vxvec), sep='\n')
-print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125]), sep='\n')
-print('l-inf error of shifted and trimmed adj potential:', np.mean(np.abs(jnp.real(adjvlearnrec)[125:-125] + adjdiff - vxvec[125:-125])), sep='\n')
+print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[trim:-trim] + adjdiff - vxvec[trim:-trim]), sep='\n')
+print('l-inf error of shifted and trimmed adj potential:', np.mean(np.abs(jnp.real(adjvlearnrec)[trim:-trim] + adjdiff - vxvec[trim:-trim])), sep='\n')
