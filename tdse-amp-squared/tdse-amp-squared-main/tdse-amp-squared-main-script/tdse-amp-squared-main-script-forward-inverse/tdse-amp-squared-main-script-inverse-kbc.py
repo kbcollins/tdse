@@ -117,12 +117,8 @@ seed = 1234  # set to None for random initialization
 thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
 thetarnd = jnp.array(thetarnd)
 
-# transform init theta (i.e., initvhatmat) to real space potential
-vtoepinitR = thetarnd[:numtoepelms]
-vtoepinitI = jnp.concatenate((jnp.array([0.0]), thetarnd[numtoepelms:]))
-vtoepinit = vtoepinitR + 1j * vtoepinitI
-vinitfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(vtoepinit[1:(numfour + 1)])), vtoepinit[:(numfour + 1)]])
-vinitrec = vinitfour @ fourtox
+np.save(cwddir / 'thetarnd', thetarnd)
+print('thetarnd saved.')
 
 
 ###############################################################

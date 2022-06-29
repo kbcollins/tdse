@@ -44,6 +44,9 @@ amattruevec = np.load(cwddir / 'amattruevec.npy')
 # vtoeptrue = np.load(cwddir / 'vtoeptrue.npy')
 vxvec = np.load(cwddir / 'vxvec.npy')
 
+# load initial theta
+thetarnd = np.load(cwddir / 'thetarnd.npy')
+
 # load learned theta
 rsltadjthetarnd = np.load(cwddir / 'rsltadjthetarnd.npy')
 
@@ -78,19 +81,39 @@ kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2)
 
 
 ###############################################################
+# function to transform theta (i.e., vhatmat) to real space
+# potential
+###############################################################
+
+def thetatoreal(theta):
+    adjvtoeplearnR = rsltadjthetarnd[:numtoepelms]
+    adjvtoeplearnI = jnp.concatenate((jnp.array([0.0]), rsltadjthetarnd[numtoepelms:]))
+    adjvtoeplearn = adjvtoeplearnR + 1j * adjvtoeplearnI
+    adjvlearnfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(adjvtoeplearn[1:(numfour + 1)])), adjvtoeplearn[:(numfour + 1)]])
+    adjvlearnrec = adjvlearnfour @ fourtox
+    return adjvlearnrec
+
+
+# transform init theta (i.e., initvhatmat) to real space potential
+vtoepinitR = thetarnd[:numtoepelms]
+vtoepinitI = jnp.concatenate((jnp.array([0.0]), thetarnd[numtoepelms:]))
+vtoepinit = vtoepinitR + 1j * vtoepinitI
+vinitfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(vtoepinit[1:(numfour + 1)])), vtoepinit[:(numfour + 1)]])
+vinitrec = vinitfour @ fourtox
+
+###############################################################
 # transform learned theta (i.e., vhatmat) to real space potential
 ###############################################################
 
-adjvtoeplearnR = rsltadjthetarnd[:numtoepelms]
-adjvtoeplearnI = jnp.concatenate((jnp.array([0.0]), rsltadjthetarnd[numtoepelms:]))
-adjvtoeplearn = adjvtoeplearnR + 1j * adjvtoeplearnI
-adjvlearnfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(adjvtoeplearn[1:(numfour + 1)])), adjvtoeplearn[:(numfour + 1)]])
-adjvlearnrec = adjvlearnfour @ fourtox
-
-
-###############################################################
-# transform learned theta (i.e., vhatmat) to real space potential
-###############################################################
+# plot learned potential vs initial potential
+plt.plot(xvec, jnp.real(adjvlearnrec), '.-', label='learned')
+plt.plot(xvec, jnp.real(vinitrec), label='initial')
+plt.xlabel('x')
+plt.title('True Potential vs. Learned Potential')
+plt.legend()
+# plt.show()
+plt.savefig(cwddir / 'graph_true_vs_learned_potential.pdf', format='pdf')
+plt.close()
 
 # plot learned potential vs true potential
 plt.plot(xvec, jnp.real(adjvlearnrec), '.-', label='adj')
