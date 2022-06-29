@@ -11,5 +11,5 @@ for i in {0..6}
 do
 #	echo $i
 	mkdir -p v$i
-	python tdse-prob-density-forward-kbc.py $i
+	python tdse-amp-squared-main-script-forward-kbc.py $i
 done
