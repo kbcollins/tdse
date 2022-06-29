@@ -365,7 +365,8 @@ plt.close()
 trim = np.where(xvec >= -10)  # 125
 print('trim type:', type(trim))
 print('len trim:', len(trim))
-print('trim =', trim[0][0])
+trim = trim[0][0]
+print('trim =', trim)
 
 print('l2 error of shifted adj potential:', nl.norm(jnp.real(adjvlearnrec) + adjdiff - vxvec), sep='\n')
 print('l2 error of shifted and trimmed adj potential:', nl.norm(jnp.real(adjvlearnrec)[trim:-trim] + adjdiff - vxvec[trim:-trim]), sep='\n')
