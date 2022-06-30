@@ -343,7 +343,8 @@ for i in range(numitrs):
     # start optimizing (i.e., learning)
     thisresult = so.minimize(fun=jitampsqobject,
                              x0=thetarnd, jac=jitadjgrads,
-                             tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+                             tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
+                             # tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
 
     # get real space potential from learned theta
     thisvlearnrec = thetatoreal(thisresult)
@@ -357,6 +358,19 @@ for i in range(numitrs):
 
     trimshiftl2err.append(nl.norm(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]))
     trimshiftlinferr.append(np.mean(np.abs(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])))
+
+    if len(trimshiftl2err) == 1:
+        # initialize thetabest and trimshiftl2errbest
+        trimshiftl2errbest = trimshiftl2err[-1]
+        thetabest = thisresult
+    else:
+        if trimshiftl2errbest > trimshiftl2err[-1]:
+            trimshiftl2errbest = trimshiftl2err[-1]
+            thetabest = thisresult
+
+
+np.save(cwddir / 'thetabest', thetabest)
+print('thetabest saved.')
 
 print('Mean rawl2err:', np.mean(rawl2err))
 print('Minumum of rawl2err:', np.amin(rawl2err))
