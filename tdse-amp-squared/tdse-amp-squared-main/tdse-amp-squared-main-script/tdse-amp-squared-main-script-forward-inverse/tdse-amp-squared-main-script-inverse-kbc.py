@@ -57,7 +57,7 @@ xvec = np.linspace(-L, L, numx)
 fournvec = np.arange(-numfour, numfour + 1)
 
 # matrix for converting Fourier representation to real space
-# use like realspacevec = fourspacevec @ fourtox
+# used like realspacevec = fourspacevec @ fourtox
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 
 # number of Toeplitz elements in the Fourier representation
