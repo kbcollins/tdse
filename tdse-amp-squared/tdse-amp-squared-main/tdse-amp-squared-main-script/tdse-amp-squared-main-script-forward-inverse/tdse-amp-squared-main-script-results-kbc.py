@@ -74,8 +74,7 @@ kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2)
 
 
 ###############################################################
-# function to transform theta (i.e., vhatmat) to real space
-# potential
+# function for transforming theta to a real space potential
 ###############################################################
 
 def thetatoreal(theta):
@@ -120,9 +119,12 @@ plt.savefig(cwddir / 'graph_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
 
 # shifted learned potential vs true potential
-zeroindex = np.where(xvec == 0)[0][0]
+# zeroindex = np.where(xvec == 0)[0][0]
 # zeroindex = len(xvec) // 2
-shift = vxvec[zeroindex] - jnp.real(vlearnrec)[zeroindex]
+midpointindex = numx // 2
+print('midpointindex =', midpointindex)
+# shift = vxvec[zeroindex] - jnp.real(vlearnrec)[zeroindex]
+shift = vxvec[midpointindex] - jnp.real(vlearnrec)[midpointindex]
 print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + shift - vxvec), sep='\n')
 print('l-inf error of shifted learned potential:', np.mean(np.abs(jnp.real(vlearnrec) + shift - vxvec)), sep='\n')
 plt.plot(xvec, jnp.real(vlearnrec) + shift, '.-', label='Learned')
@@ -135,10 +137,7 @@ plt.savefig(cwddir / 'graph_shifted_true_vs_learned_potential.pdf', format='pdf'
 plt.close()
 
 # Shifted and trimmed learned potential vs true potential
-trim = np.where(xvec >= -10)  # 125
-# print('trim type:', type(trim))
-# print('len trim:', len(trim))
-trim = trim[0][0]
+trim = np.where(xvec >= -10)[0][0]  # 125
 print('trim =', trim)
 print('l2 error of shifted and trimmed learned potential:', nl.norm(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]), sep='\n')
 print('l-inf error of shifted and trimmed learned potential:', np.mean(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])), sep='\n')

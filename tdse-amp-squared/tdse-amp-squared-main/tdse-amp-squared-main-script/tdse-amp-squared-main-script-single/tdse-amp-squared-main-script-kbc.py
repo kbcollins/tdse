@@ -266,9 +266,9 @@ def ampsqobject(theta):
 # true potential in the form of theta (for testing purposes)
 thetatrue = jnp.concatenate((jnp.real(vtoeptrue), jnp.imag(vtoeptrue[1:])))
 
-# jit ampsqobject
+# jit ampsquaredobjective
 jitampsqobject = jax.jit(ampsqobject)
-# complie and test jitampsqobject
+# complie and test jitampsquaredobjective
 print(jitampsqobject(thetatrue))
 
 # initialize theta with random coefficients close to zero

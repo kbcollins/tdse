@@ -202,10 +202,10 @@ def ampsqobject(theta, thisa0vec, thisbetamatvec):
 
     return rtnobj
 
-# jit ampsqobject
+# jit ampsquaredobjective
 jitampsqobject = jax.jit(ampsqobject)
-# compile jitampsqobject
-# print('jitampsqobject(thetarnd) =', jitampsqobject(thetarnd, a0vec, betamatvec[:, :1]))
+# compile jitampsquaredobjective
+# print('jitampsquaredobjective(thetarnd) =', jitampsquaredobjective(thetarnd, a0vec, betamatvec[:, :1]))
 
 
 ###############################################################
@@ -385,7 +385,7 @@ for i in range(numsec):
     # parameters.
 
     thisresult = so.minimize(fun=ampsqobject, x0=thetarnd, args=(thisa0vec, thisbetamatvec), jac=adjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
-    # thisresult = so.minimize(fun=jitampsqobject, x0=thetarnd, args=(thisbetamatvec), jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+    # thisresult = so.minimize(fun=jitampsquaredobjective, x0=thetarnd, args=(thisbetamatvec), jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
     thetavec.append(thisresult)
 
 

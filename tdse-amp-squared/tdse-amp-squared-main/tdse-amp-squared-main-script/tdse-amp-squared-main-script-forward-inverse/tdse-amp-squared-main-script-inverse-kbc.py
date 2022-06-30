@@ -172,10 +172,10 @@ def ampsqobject(theta):
 
     return rtnobj
 
-# jit ampsqobject
+# jit ampsquaredobjective
 jitampsqobject = jax.jit(ampsqobject)
-# complie and test jitampsqobject
-# print(jitampsqobject(thetatrue))
+# complie and test jitampsquaredobjective
+# print(jitampsquaredobjective(thetatrue))
 
 
 ###############################################################
@@ -318,7 +318,7 @@ jitadjgrads = jax.jit(adjgrads)
 
 # start optimization (i.e., learning theta)
 rsltadjthetarnd = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
-# rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
+# rsltadjthetarnd = so.minimize(jitampsquaredobjective, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
 
 np.save(cwddir / 'rsltadjthetarnd', rsltadjthetarnd)
 print('rsltadjthetarnd saved.')

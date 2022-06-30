@@ -37,8 +37,12 @@ numfour = int(numfour)
 numts = int(numts)
 
 # load state variables
-a0vec = np.load(cwddir / 'a0vec.npy')
+# a0vec = np.load(cwddir / 'a0vec.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
+
+# fourtox = np.load(cwddir / 'fourtox.npy')
+# vtoeptrue = np.load(cwddir / 'vtoeptrue.npy')
+vxvec = np.load(cwddir / 'vxvec.npy')
 
 print('Computational environment loaded.')
 
@@ -55,11 +59,15 @@ xvec = np.linspace(-L, L, numx)
 fournvec = np.arange(-numfour, numfour + 1)
 
 # matrix for converting Fourier representation to real space
-# use like realspacevec = fourspacevec @ fourtox
+# used like realspacevec = fourspacevec @ fourtox
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 
 # number of Toeplitz elements in the Fourier representation
 numtoepelms = 2 * numfour + 1
+
+# construct initial state vector
+# a0vec = amattruevec[:, 0]
+# print('Shape a0vec:', a0vec.shape)
 
 # make kinetic operator in the Fourier representation
 # (this is constant for a given system)
@@ -86,11 +94,12 @@ print('Training data generated.')
 
 
 ###############################################################
-# make Toeplitz indexing matrix
+# Toeplitz indexing matrix
 ###############################################################
 
-# use toepindexmat to construct Toeplitz matrix from a vector
-# of the form jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
+# Toeplitz indexing matrix, used for constructing Toeplitz matrix
+# from a vector setup like:
+# jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
 aa = (-1) * np.arange(0, numtoepelms).reshape(numtoepelms, 1)
 bb = [np.arange(numtoepelms - 1, 2 * numtoepelms - 1)]
 toepindxmat = np.array(aa + bb)
@@ -101,6 +110,7 @@ toepindxmat = np.array(aa + bb)
 # define objective function
 ###############################################################
 
+# define objective function
 def ampsqobject(theta):
     # theta is a vector containing the concatenation
     # of the real and imaginary parts of vmat
@@ -124,15 +134,19 @@ def ampsqobject(theta):
     # compute propagator matrix
     propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
 
+    # forward propagation loop
     rtnobj = 0.0
-    for r in range(len(a0vec)):
-        thisahat = a0vec[r].copy()
+    # for r in range(len(a0vec)):
+    for r in range(betamatvec.shape[0]):
+        # thisahat = a0vec[r].copy()
+        thisahat = amattruevec[r, 0].copy()
         thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
 
         # propagate system starting from initial "a" state
-        for i in range(numts):
+        # for _ in range(numts):
+        for _ in range(betamatvec.shape[1] - 1):
             # propagate the system one time-step
-            thisahat = (propahat @ thisahat)
+            thisahat = propahat @ thisahat
             # calculate the amp^2
             thisbetahatmat.append(jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L))
 
@@ -143,27 +157,10 @@ def ampsqobject(theta):
 
     return rtnobj
 
-
-###############################################################
-# theta
-###############################################################
-
-# true potential in the form of theta (for testing purposes)
-# thetatrue = jnp.concatenate((jnp.real(vtoeptrue), jnp.imag(vtoeptrue[1:])))
-
-# initialize theta with random coefficients close to zero
-seed = 1234  # set to None for random initialization
-thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
-thetarnd = jnp.array(thetarnd)
-
-# transform init theta (i.e., initvhatmat) to real space potential
-vtoepinitR = thetarnd[:numtoepelms]
-vtoepinitI = jnp.concatenate((jnp.array([0.0]), thetarnd[numtoepelms:]))
-vtoepinit = vtoepinitR + 1j * vtoepinitI
-vinitfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(vtoepinit[1:(numfour + 1)])), vtoepinit[:(numfour + 1)]])
-# print('Shape vinitfour:', vinitfour.shape)
-# print('Shape fourtox:', fourtox.shape)
-vinitrec = vinitfour @ fourtox
+# jit ampsquaredobjective
+jitampsqobject = jax.jit(ampsqobject)
+# complie and test jitampsquaredobjective
+# print(jitampsquaredobjective(thetatrue))
 
 
 ###############################################################
@@ -212,21 +209,29 @@ def adjgrads(theta):
     # forward propagation
     ahatmatvec = []
     lammatvec = []
-    for r in range(len(a0vec)):
+    # for r in range(len(a0vec)):
+    for r in range(betamatvec.shape[0]):
         # propagate system starting from initial "a" state
-        thisahatmat = [a0vec[r].copy()]
-        thisrhomat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
+        # thisahatmat = [a0vec[r].copy()]
+        thisahatmat = [amattruevec[r, 0].copy()]
+        thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
+        # thisrhomat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
         thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
 
-        for i in range(numts):
-            # propagate the system one time-step
+        # propagate system starting from thisa0vec state
+        # for i in range(numts):
+        for i in range(betamatvec.shape[1] - 1):
+            # propagate the system one time-step and store the result
             thisahatmat.append(propahat @ thisahatmat[-1])
 
             # calculate the amp^2
-            thisrhomat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
+            thisbetahatmat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
+            # thisrhomat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
 
             # compute \rho^r - \beta^r
-            thiserr = thisrhomat[-1] - betamatvec[r, i+1]
+            # compute \betahat^r - \beta^r
+            thiserr = thisbetahatmat[-1] - betamatvec[r, i+1]
+            # thiserr = thisrhomat[-1] - betamatvec[r, i+1]
 
             # compute M and P matrix for lambda mat
             thisMmat, thisPmat = jit_mk_M_and_P(thisahatmat[-1])
@@ -236,6 +241,7 @@ def adjgrads(theta):
             # + \overline{( P^r )^\dagger * ( \rho^r - \beta^r )} ]
             thispartlammat.append((thisMmat.conj().T @ thiserr + (thisPmat.conj().T @ thiserr).conj()) / jnp.sqrt(2 * L))
 
+        # store compute ahatmat
         ahatmatvec.append(jnp.array(thisahatmat))
 
         # build lammat backwards then flip at the end
@@ -285,101 +291,117 @@ def adjgrads(theta):
     return gradients
 
 
-###############################################################
-# jit ampsquaredobjective and adjgrads
-###############################################################
-
-# jit ampsquaredobjective
-jitampsqobject = jax.jit(ampsqobject)
-# complie jitampsquaredobjective
-print('jitampsquaredobjective(thetarnd) =', jitampsqobject(thetarnd))
-
-# jit adjgrads
+# jist adjgrads
 jitadjgrads = jax.jit(adjgrads)
-# compile jitadjgrads
-print('nl.norm(jitadjgrads(thetarnd)) =', nl.norm(jitadjgrads(thetarnd)))
+# compile and test jitadjgrads
+# print(nl.norm(jitadjgrads(thetatrue)))
 
 
 ###############################################################
-# start learning
+# function for transforming theta to a real space potential
 ###############################################################
 
-# start optimization (i.e., learning theta)
-rsltadjthetarnd = so.minimize(jitampsqobject, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+def thetatoreal(theta):
+    thetaR = theta[:numtoepelms]
+    thetaI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
+    thetacomplex = thetaR + 1j * thetaI
+    potentialfourier = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(thetacomplex[1:(numfour + 1)])), thetacomplex[:(numfour + 1)]])
+    potentialreal = potentialfourier @ fourtox
+    return potentialreal
 
 
 ###############################################################
-# make plot of learned potential
+# Convergence test
+#   Initialize theta and learn the true potential 200 times.
+#   For each iteration, store the l2 and l-inf errors.
+#   - Save plot of the errors.
+#   - Compute the average of errors.
+#   - Compute the distribution of the errors around their mean.
 ###############################################################
 
-# transform learned theta (i.e., vhatmat) to real space potential
-adjvtoeplearnR = rsltadjthetarnd[:numtoepelms]
-adjvtoeplearnI = jnp.concatenate((jnp.array([0.0]), rsltadjthetarnd[numtoepelms:]))
-adjvtoeplearn = adjvtoeplearnR + 1j * adjvtoeplearnI
-adjvlearnfour = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(adjvtoeplearn[1:(numfour + 1)])), adjvtoeplearn[:(numfour + 1)]])
-adjvlearnrec = adjvlearnfour @ fourtox
+numitrs = 200
+midpointindex = numx // 2
+print('midpointindex =', midpointindex)
+trim = np.where(xvec >= -10)[0][0]  # 125
+print('trim =', trim)
 
-# plot learned potential
-plt.plot(xvec, jnp.real(adjvlearnrec), '.-', label='adj')
-plt.plot(xvec, jnp.real(vinitrec), label='init')
-plt.xlabel('x')
-plt.title('Learned Potential')
+rawl2err = []
+rawlinferr = []
+shiftl2err = []
+shiftlinferr = []
+trimshiftl2err = []
+trimshiftlinferr = []
+for i in range(numitrs):
+    if i // 10 == 0:
+        print(f'{i} of {numitrs}')
+
+    # initialize theta with random coefficients close to zero
+    seed = None  # set to None for random initialization
+    thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
+    thetarnd = jnp.array(thetarnd)
+
+    # start optimizing (i.e., learning)
+    thisresult = so.minimize(fun=jitampsqobject,
+                             x0=thetarnd, jac=jitadjgrads,
+                             tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+
+    # get real space potential from learned theta
+    thisvlearnrec = thetatoreal(thisresult)
+
+    rawl2err.append(nl.norm(jnp.real(thisvlearnrec) - vxvec))
+    rawlinferr.append(np.mean(np.abs(jnp.real(thisvlearnrec) - vxvec)))
+
+    shift = vxvec[midpointindex] - jnp.real(thisvlearnrec)[midpointindex]
+    shiftl2err.append(nl.norm(jnp.real(thisvlearnrec) + shift - vxvec))
+    shiftlinferr.append(np.mean(np.abs(jnp.real(thisvlearnrec) + shift - vxvec)))
+
+    trimshiftl2err.append(nl.norm(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]))
+    trimshiftlinferr.append(np.mean(np.abs(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])))
+
+print('Mean rawl2err:', np.mean(rawl2err))
+print('Minumum of rawl2err:', np.amin(rawl2err))
+print('Maximum of rawl2err:', np.amax(rawl2err))
+print('Average deviation of rawl2err:', np.mean(np.abs(np.subtract(rawl2err, np.mean(rawl2err)))))
+
+print('Mean rawlinferr:', np.mean(rawlinferr))
+print('Minumum of rawlinferr:', np.amin(rawlinferr))
+print('Maximum of rawlinferr:', np.amax(rawlinferr))
+print('Average deviation of rawlinferr:', np.mean(np.abs(np.subtract(rawlinferr, np.mean(rawlinferr)))))
+
+print('Mean shiftl2err:', np.mean(shiftl2err))
+print('Minumum of shiftl2err:', np.amin(shiftl2err))
+print('Maximum of shiftl2err:', np.amax(shiftl2err))
+print('Average deviation of shiftl2err:', np.mean(np.abs(np.subtract(shiftl2err, np.mean(shiftl2err)))))
+
+print('Mean shiftlinferr:', np.mean(shiftlinferr))
+print('Minumum of shiftlinferr:', np.amin(shiftlinferr))
+print('Maximum of shiftlinferr:', np.amax(shiftlinferr))
+print('Average deviation of shiftlinferr:', np.mean(np.abs(np.subtract(shiftlinferr, np.mean(shiftlinferr)))))
+
+print('Mean trimshiftl2err:', np.mean(trimshiftl2err))
+print('Minumum of trimshiftl2err:', np.amin(trimshiftl2err))
+print('Maximum of trimshiftl2err:', np.amax(trimshiftl2err))
+print('Average deviation of trimshiftl2err:', np.mean(np.abs(np.subtract(trimshiftl2err, np.mean(trimshiftl2err)))))
+
+print('Mean trimshiftlinferr:', np.mean(trimshiftlinferr))
+print('Minumum of trimshiftlinferr:', np.amin(trimshiftlinferr))
+print('Maximum of trimshiftlinferr:', np.amax(trimshiftlinferr))
+print('Average deviation of trimshiftlinferr:', np.mean(np.abs(np.subtract(trimshiftlinferr, np.mean(trimshiftlinferr)))))
+
+plt.plot(rawl2err, label='rawl2err')
+plt.plot(shiftl2err, label='shiftl2err')
+plt.plot(trimshiftl2err, label='trimshiftl2err')
+plt.title('l2 Error')
+plt.xlabel('Trial Number')
 plt.legend()
-# plt.show()
-plt.savefig(cwddir / 'graph_learned_potential.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_l2_error.pdf', format='pdf')
 plt.close()
 
-# eventually want to compare snapshot of evolution against evolution generated
-# from learned potential
-
-
-###############################################################
-# propagate a0 with learned potential
-###############################################################
-
-# first recombine learned theta into vector of complex values
-vtoeplearnedR = rsltadjthetarnd[:numtoepelms]
-vtoeplearnedI = jnp.concatenate((jnp.array([0.0]), rsltadjthetarnd[numtoepelms:]))
-vtoeplearned = vtoeplearnedR + 1j * vtoeplearnedI
-
-# construct vmatlearned from complex toeplitz vector
-vmatlearned = jnp.concatenate([jnp.flipud(jnp.conj(vtoeplearned)), vtoeplearned[1:]])[toepindxmat]
-
-# Hamiltonian operator with true potential
-# in the Fourier representation
-hmatlearned = kmat + vmatlearned
-
-# eigen-decomposition of the Hamiltonian matrix
-spclearned, sttlearned = jnl.eigh(hmatlearned)
-
-# compute propagator matrix
-propalearned = sttlearned @ jnp.diag(jnp.exp(-1j * spclearned * dt)) @ sttlearned.conj().T
-
-# propagate system starting from initial "a" state
-# using the Hamiltonian constructed from the true potential
-# (used for generating training data)
-amatlearnedvec = []
-for thisa0 in a0vec:
-    tempamat = [thisa0.copy()]
-    for i in range(numts):
-        tempamat.append(propalearned @ tempamat[-1])
-
-    amatlearnedvec.append(tempamat)
-
-amatlearnedvec = jnp.array(amatlearnedvec)
-
-print('L2 error of amat:', nl.norm(amattruevec - amatlearnedvec, axis=0))
-
-# plot of real part of last state of system propagated with learned potential vs.
-# last state of amat
-for i in range(len(amattruevec)):
-    psiTlearned = amatlearnedvec[i, -1] @ fourtox
-    psiTtrue = amattruevec[i, -1] @ fourtox
-    plt.plot(xvec, jnp.real(psiTlearned), '.-', label='learned')
-    plt.plot(xvec, jnp.real(psiTtrue), label='truth')
-    plt.xlabel('x')
-    plt.title('Real Part of Final State - Learned vs. Truth')
-    plt.legend()
-    # plt.show()
-    plt.savefig(cwddir / f'graph_real_part_last_state_learned_vs_truth_{i}.pdf', format='pdf')
-    plt.close()
+plt.plot(rawl2err, label='rawlinferr')
+plt.plot(shiftl2err, label='shiftlinferr')
+plt.plot(trimshiftl2err, label='trimshiftlinferr')
+plt.title('l-infinite Error')
+plt.xlabel('Trial Number')
+plt.legend()
+plt.savefig(cwddir / 'graph_l-infinite_error.pdf', format='pdf')
+plt.close()
