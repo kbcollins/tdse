@@ -217,8 +217,8 @@ for thispsi0fn in psi0fnvec:
     normpsi0xvec.append(tempnormpsi0x)
     normpsi0recxvec.append(tempa0 @ fourtox)
 
-# np.save(cwddir / 'a0vec', a0vec)
-# print('a0vec saved.')
+np.save(cwddir / 'a0vec', a0vec)
+print('a0vec saved.')
 
 # make kinetic operator in the Fourier representation
 # (this is constant for a given system)
@@ -233,6 +233,8 @@ spctrue, stttrue = jnl.eigh(hmattrue)
 
 # compute propagator matrix
 propatrue = stttrue @ jnp.diag(jnp.exp(-1j * spctrue * dt)) @ stttrue.conj().T
+np.save(cwddir / 'propatrue', propatrue)
+print('propatrue saved.')
 
 # propagate system starting from initial "a" state
 # using the Hamiltonian constructed from the true potential

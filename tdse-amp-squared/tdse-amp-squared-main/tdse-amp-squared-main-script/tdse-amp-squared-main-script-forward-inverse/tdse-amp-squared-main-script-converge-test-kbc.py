@@ -319,7 +319,7 @@ def thetatoreal(theta):
 #   - Compute the distribution of the errors around their mean.
 ###############################################################
 
-numitrs = 200
+numitrs = 50  # 200
 midpointindex = numx // 2
 print('midpointindex =', midpointindex)
 trim = np.where(xvec >= -10)[0][0]  # 125
@@ -332,7 +332,7 @@ shiftlinferr = []
 trimshiftl2err = []
 trimshiftlinferr = []
 for i in range(numitrs):
-    if i // 10 == 0:
+    if i % 10 == 0:
         print(f'{i} of {numitrs}')
 
     # initialize theta with random coefficients close to zero
