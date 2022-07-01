@@ -55,6 +55,8 @@ print('Computational environment loaded.')
 
 # real space grid points (for plotting)
 xvec = np.linspace(-L, L, numx)
+trim = np.where(xvec >= -10)[0][0]  # 125
+print('trim =', trim)
 
 # vector of Fourier mode indices
 # fournvec = -numfour,...,0,...,numfour
@@ -215,4 +217,25 @@ for i in range(a0vec.shape[0]):
     plt.legend()
 
 plt.savefig(cwddir / 'graph_step-wise_l2_error_psimat_progation.pdf', format='pdf')
+plt.close()
+
+print('l2 error of trimmed psihatmatvecbestv:', nl.norm(psimattruevec[:,:,-trim:trim] - psihatmatvecbestv[:,:,-trim:trim]), sep='\n')
+print('l-inf error of trimmed psihatmatvecbestv:', np.amax(np.abs(psimattruevec[:,:,-trim:trim] - psihatmatvecbestv[:,:,-trim:trim])), sep='\n')
+print('l2 error of trimmed psihatmatvecbestprop:', nl.norm(psimattruevec[:,:,-trim:trim] - psihatmatvecbestprop[:,:,-trim:trim]), sep='\n')
+print('l-inf error of trimmed psihatmatvecbestprop:', np.amax(np.abs(psimattruevec[:,:,-trim:trim] - psihatmatvecbestprop[:,:,-trim:trim])), sep='\n')
+
+triml2errpsihatmatvecbestvstep = nl.norm(psimattruevec[:,:,-trim:trim] - psihatmatvecbestv[:,:,-trim:trim], axis=2)
+print('Shape l2errpsihatmatvecbestvstep:', triml2errpsihatmatvecbestvstep.shape)
+triml2errpsihatmatvecbestpropstep = nl.norm(psimattruevec[:,:,-trim:trim] - psihatmatvecbestprop[:,:,-trim:trim], axis=2)
+print('Shape stepl2errpsihatmatvec:', triml2errpsihatmatvecbestpropstep.shape)
+
+for i in range(a0vec.shape[0]):
+    plt.plot(proptimesteps, triml2errpsihatmatvecbestvstep[i], label=f'best v {i}')
+    plt.plot(proptimesteps, triml2errpsihatmatvecbestpropstep[i], label=f'best propagation {i}')
+    plt.title('Step-Wise l2 Error of Propagations - Trimmed Real Space')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Error')
+    plt.legend()
+
+plt.savefig(cwddir / 'graph_step-wise_l2_error_psimat_progation_trim.pdf', format='pdf')
 plt.close()
