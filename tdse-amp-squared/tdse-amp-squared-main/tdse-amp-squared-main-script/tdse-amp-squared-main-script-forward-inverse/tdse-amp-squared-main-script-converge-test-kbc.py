@@ -374,7 +374,6 @@ for i in range(numitrs):
 
     ahatmatl2err = nl.norm(np.subtract(amattruevec, ahatmatvec))
 
-    print('i =', i, 'prop')
     if i == 0:
         print('initializing ahatmatl2errbest and thetabestprop')
         ahatmatl2errbest = ahatmatl2err
@@ -407,7 +406,6 @@ for i in range(numitrs):
     trimshiftl2err.append(nl.norm(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]))
     trimshiftlinferr.append(np.mean(np.abs(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])))
 
-    print('i =', i, 'v')
     if i == 0:
         print('initializing trimshiftl2errbest and thetabestv')
         trimshiftl2errbest = trimshiftl2err[-1]
@@ -463,9 +461,9 @@ plt.legend()
 plt.savefig(cwddir / 'graph_l2_error.pdf', format='pdf')
 plt.close()
 
-plt.plot(rawl2err, label='rawlinferr')
-plt.plot(shiftl2err, label='shiftlinferr')
-plt.plot(trimshiftl2err, label='trimshiftlinferr')
+plt.plot(rawlinferr, label='rawlinferr')
+plt.plot(shiftlinferr, label='shiftlinferr')
+plt.plot(trimshiftlinferr, label='trimshiftlinferr')
 plt.title('l-infinite Error')
 plt.xlabel('Trial Number')
 plt.legend()
