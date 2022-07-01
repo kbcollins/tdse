@@ -2,11 +2,7 @@ import sys
 import pathlib
 import numpy as np
 import numpy.linalg as nl
-import scipy.optimize as so
-import matplotlib.pyplot as plt
-import jax
 import jax.numpy as jnp
-import jax.numpy.linalg as jnl
 from jax.config import config
 config.update("jax_enable_x64", True)
 
