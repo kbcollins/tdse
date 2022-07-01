@@ -219,6 +219,10 @@ for i in range(a0vec.shape[0]):
 plt.savefig(cwddir / 'graph_step-wise_l2_error_psimat_progation.pdf', format='pdf')
 plt.close()
 
+print('Shape psimattruevec:', psimattruevec.shape)
+print('Shape psihatmatvecbestv:', psihatmatvecbestv.shape)
+print('Shape psihatmatvecbestprop:', psihatmatvecbestprop.shape)
+
 print('l2 error of trimmed psihatmatvecbestv:', nl.norm(psimattruevec[:,:,-trim:trim] - psihatmatvecbestv[:,:,-trim:trim]), sep='\n')
 print('l-inf error of trimmed psihatmatvecbestv:', np.amax(np.abs(psimattruevec[:,:,-trim:trim] - psihatmatvecbestv[:,:,-trim:trim])), sep='\n')
 print('l2 error of trimmed psihatmatvecbestprop:', nl.norm(psimattruevec[:,:,-trim:trim] - psihatmatvecbestprop[:,:,-trim:trim]), sep='\n')
