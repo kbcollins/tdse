@@ -422,6 +422,8 @@ print('thetabestprop saved.')
 np.save(cwddir / 'thetabestv', thetabestv)
 print('thetabestv saved.')
 
+print('l2 error of thetabestprop:', nl.norm(thetabestprop - thetabestv))
+
 print('Mean rawl2err:', np.mean(rawl2err))
 print('Minumum of rawl2err:', np.amin(rawl2err))
 print('Maximum of rawl2err:', np.amax(rawl2err))
