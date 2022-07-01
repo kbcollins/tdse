@@ -138,7 +138,7 @@ propbestprop = thetatopropmat(thetabestprop)
 
 # set multiplier of numts
 tsmultiplier = 1
-proptimesteps = np.arange(int(numts * tsmultiplier) + 1) * dt
+proptimesteps = np.arange(int(numts * tsmultiplier)) * dt
 print('Final time for propagation:', proptimesteps[-1])
 
 # propagate system starting from initial "a" state
@@ -176,6 +176,10 @@ print('l-inf error of ahatmatvecbestprop:', np.amax(np.abs(amattruevec - ahatmat
 
 l2errahatmatvecbestvstep = nl.norm(amattruevec - ahatmatvecbestv, axis=2)
 l2errahatmatvecbestpropstep = nl.norm(amattruevec - ahatmatvecbestprop, axis=2)
+print('Shape l2errahatmatvecbestvstep:', l2errahatmatvecbestvstep.shape)
+print('Shape l2errahatmatvecbestpropstep:', l2errahatmatvecbestpropstep.shape)
+
+print('Shape proptimesteps:', proptimesteps.shape)
 print('Shape l2errahatmatvecbestvstep:', l2errahatmatvecbestvstep.shape)
 print('Shape l2errahatmatvecbestpropstep:', l2errahatmatvecbestpropstep.shape)
 
