@@ -375,7 +375,7 @@ for i in range(numitrs):
     ahatmatl2err = nl.norm(np.subtract(amattruevec, ahatmatvec))
 
     if i == 0:
-        # initialize ahatmatl2errbest
+        print('initializing ahatmatl2errbest')
         ahatmatl2errbest = ahatmatl2err
         thetabestprop = thisresult
     else:
@@ -414,6 +414,7 @@ for i in range(numitrs):
         if trimshiftl2errbest > trimshiftl2err[-1]:
             trimshiftl2errbest = trimshiftl2err[-1]
             thetabestv = thisresult
+
 
 np.save(cwddir / 'thetabestprop', thetabestprop)
 print('thetabestprop saved.')
