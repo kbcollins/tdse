@@ -88,89 +88,48 @@ kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2)
 ###############################################################
 
 # set multiplier of numts
-tsmultiplier = 5
+tsmultiplier = 0.5
 
 # propagate system starting from initial "a" state
 # using the Hamiltonian constructed from the true potential
 # (used for generating training data)
 amattruevec = []
-amatlearnedvec = []
+ahatmatvec = []
 for thisa0 in a0vec:
     tempamattrue = [thisa0.copy()]
     tempamatlearned = [thisa0.copy()]
-    for i in range(numts * tsmultiplier):
+    for i in range(int(numts * tsmultiplier)):
         tempamattrue.append(propatrue @ tempamattrue[-1])
         tempamatlearned.append(propatrue @ tempamatlearned[-1])
 
     amattruevec.append(tempamattrue)
-    amatlearnedvec.append(tempamatlearned)
-
-amattruevec = jnp.array(amattruevec)
-psimattruevec = amattruevec @ fourtox
-amatlearnedvec = jnp.array(amatlearnedvec)
-psimatlearnedvec = amatlearnedvec @ fourtox
-
-print('Done with propagation.')
+    ahatmatvec.append(tempamatlearned)
 
 
 ###############################################################
 # results
 ###############################################################
 
-numitrs = 200
-midpointindex = numx // 2
-print('midpointindex =', midpointindex)
-trim = np.where(xvec >= -10)[0][0]  # 125
-print('trim =', trim)
+amattruevec = jnp.array(amattruevec)
+ahatmatvec = jnp.array(ahatmatvec)
 
+print('l2 error of ahatmatvec:', nl.norm(amattruevec - ahatmatvec), sep='\n')
+print('l-inf error of ahatmatvec:', np.amax(np.abs(amattruevec - ahatmatvec)), sep='\n')
 
-np.save(cwddir / 'thetabest', thetabest)
-print('thetabest saved.')
+stepl2errahatmatvec = nl.norm(amattruevec - ahatmatvec, axis=2)
+print('Shape stepl2errahatmatvec:', stepl2errahatmatvec.shape)
 
-print('Mean rawl2err:', np.mean(rawl2err))
-print('Minumum of rawl2err:', np.amin(rawl2err))
-print('Maximum of rawl2err:', np.amax(rawl2err))
-print('Average deviation of rawl2err:', np.mean(np.abs(np.subtract(rawl2err, np.mean(rawl2err)))))
+# plt.title('l-infinite Error')
+# plt.xlabel('Trial Number')
+# plt.legend()
+# plt.savefig(cwddir / 'graph_l-infinite_error.pdf', format='pdf')
+# plt.close()
 
-print('Mean rawlinferr:', np.mean(rawlinferr))
-print('Minumum of rawlinferr:', np.amin(rawlinferr))
-print('Maximum of rawlinferr:', np.amax(rawlinferr))
-print('Average deviation of rawlinferr:', np.mean(np.abs(np.subtract(rawlinferr, np.mean(rawlinferr)))))
+psimattruevec = amattruevec @ fourtox
+psihatmatvec = ahatmatvec @ fourtox
 
-print('Mean shiftl2err:', np.mean(shiftl2err))
-print('Minumum of shiftl2err:', np.amin(shiftl2err))
-print('Maximum of shiftl2err:', np.amax(shiftl2err))
-print('Average deviation of shiftl2err:', np.mean(np.abs(np.subtract(shiftl2err, np.mean(shiftl2err)))))
+print('l2 error of psihatmatvec:', nl.norm(psimattruevec - psihatmatvec), sep='\n')
+print('l-inf error of ahatmatvec:', np.amax(np.abs(psimattruevec - psihatmatvec)), sep='\n')
 
-print('Mean shiftlinferr:', np.mean(shiftlinferr))
-print('Minumum of shiftlinferr:', np.amin(shiftlinferr))
-print('Maximum of shiftlinferr:', np.amax(shiftlinferr))
-print('Average deviation of shiftlinferr:', np.mean(np.abs(np.subtract(shiftlinferr, np.mean(shiftlinferr)))))
-
-print('Mean trimshiftl2err:', np.mean(trimshiftl2err))
-print('Minumum of trimshiftl2err:', np.amin(trimshiftl2err))
-print('Maximum of trimshiftl2err:', np.amax(trimshiftl2err))
-print('Average deviation of trimshiftl2err:', np.mean(np.abs(np.subtract(trimshiftl2err, np.mean(trimshiftl2err)))))
-
-print('Mean trimshiftlinferr:', np.mean(trimshiftlinferr))
-print('Minumum of trimshiftlinferr:', np.amin(trimshiftlinferr))
-print('Maximum of trimshiftlinferr:', np.amax(trimshiftlinferr))
-print('Average deviation of trimshiftlinferr:', np.mean(np.abs(np.subtract(trimshiftlinferr, np.mean(trimshiftlinferr)))))
-
-plt.plot(rawl2err, label='rawl2err')
-plt.plot(shiftl2err, label='shiftl2err')
-plt.plot(trimshiftl2err, label='trimshiftl2err')
-plt.title('l2 Error')
-plt.xlabel('Trial Number')
-plt.legend()
-plt.savefig(cwddir / 'graph_l2_error.pdf', format='pdf')
-plt.close()
-
-plt.plot(rawl2err, label='rawlinferr')
-plt.plot(shiftl2err, label='shiftlinferr')
-plt.plot(trimshiftl2err, label='trimshiftlinferr')
-plt.title('l-infinite Error')
-plt.xlabel('Trial Number')
-plt.legend()
-plt.savefig(cwddir / 'graph_l-infinite_error.pdf', format='pdf')
-plt.close()
+stepl2errpsihatmatvec = nl.norm(psimattruevec - psihatmatvec, axis=2)
+print('Shape stepl2errahatmatvec:', stepl2errpsihatmatvec.shape)
