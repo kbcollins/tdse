@@ -138,7 +138,7 @@ propbestprop = thetatopropmat(thetabestprop)
 
 # set multiplier of numts
 tsmultiplier = 1
-proptimesteps = np.arange(int(numts * tsmultiplier))
+proptimesteps = np.arange(int(numts * tsmultiplier)) * dt
 print('Final time for propagation:', proptimesteps[-1])
 
 # propagate system starting from initial "a" state
@@ -151,7 +151,7 @@ for thisa0 in a0vec:
     tempamattrue = [thisa0.copy()]
     tempahatmatvecbestv = [thisa0.copy()]
     tempahatmatvecbestprop = [thisa0.copy()]
-    for i in proptimesteps:
+    for _ in proptimesteps:
         tempamattrue.append(propatrue @ tempamattrue[-1])
         tempahatmatvecbestv.append(propbestv @ tempahatmatvecbestv[-1])
         tempahatmatvecbestprop.append(propbestprop @ tempahatmatvecbestprop[-1])
@@ -179,13 +179,15 @@ l2errahatmatvecbestpropstep = nl.norm(amattruevec - ahatmatvecbestprop, axis=2)
 print('Shape l2errahatmatvecbestvstep:', l2errahatmatvecbestvstep.shape)
 print('Shape l2errahatmatvecbestpropstep:', l2errahatmatvecbestpropstep.shape)
 
-plt.plot(proptimesteps, l2errahatmatvecbestvstep, label='best v')
-plt.plot(proptimesteps, l2errahatmatvecbestpropstep, label='best propagation')
-plt.title('Step-Wise l2 Error of Propagations - Fourier Space')
-plt.xlabel('Time (s)')
-plt.ylabel('Error')
-plt.legend()
-plt.savefig(cwddir / 'graph_step-wise_l2_error_progation.pdf', format='pdf')
+for i in range(a0vec.shape[0]):
+    plt.plot(proptimesteps, l2errahatmatvecbestvstep[i], label=f'best v {i}')
+    plt.plot(proptimesteps, l2errahatmatvecbestpropstep[i], label=f'best propagation {i}')
+    plt.title('Step-Wise l2 Error of Propagations - Fourier Space')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Error')
+    plt.legend()
+
+plt.savefig(cwddir / 'graph_step-wise_l2_error_amat_progation.pdf', format='pdf')
 plt.close()
 
 psimattruevec = amattruevec @ fourtox
@@ -202,11 +204,13 @@ print('Shape l2errpsihatmatvecbestvstep:', l2errpsihatmatvecbestvstep.shape)
 l2errpsihatmatvecbestpropstep = nl.norm(psimattruevec - psihatmatvecbestprop, axis=2)
 print('Shape stepl2errpsihatmatvec:', l2errpsihatmatvecbestpropstep.shape)
 
-plt.plot(proptimesteps, l2errpsihatmatvecbestvstep, label='best v')
-plt.plot(proptimesteps, l2errpsihatmatvecbestpropstep, label='best propagation')
-plt.title('Step-Wise l2 Error of Propagations - Real Space')
-plt.xlabel('Time (s)')
-plt.ylabel('Error')
-plt.legend()
-plt.savefig(cwddir / 'graph_step-wise_l2_error_progation.pdf', format='pdf')
+for i in range(a0vec.shape[0]):
+    plt.plot(proptimesteps, l2errpsihatmatvecbestvstep[i], label=f'best v {i}')
+    plt.plot(proptimesteps, l2errpsihatmatvecbestpropstep[i], label=f'best propagation {i}')
+    plt.title('Step-Wise l2 Error of Propagations - Real Space')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Error')
+    plt.legend()
+
+plt.savefig(cwddir / 'graph_step-wise_l2_error_psimat_progation.pdf', format='pdf')
 plt.close()
