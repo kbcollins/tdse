@@ -375,8 +375,7 @@ for i in range(numitrs):
     ahatmatl2err = nl.norm(np.subtract(amattruevec, ahatmatvec))
 
     if i == 0:
-        print('initializing ahatmatl2errbest')
-        #
+        print('initializing ahatmatl2errbest and thetabestprop')
         ahatmatl2errbest = ahatmatl2err
         thetabestprop = thisresult
     else:
@@ -408,7 +407,7 @@ for i in range(numitrs):
     trimshiftlinferr.append(np.mean(np.abs(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])))
 
     if i == 0:
-        # initialize thetabest and trimshiftl2errbest
+        print('initializing trimshiftl2errbest and thetabestv')
         trimshiftl2errbest = trimshiftl2err[-1]
         thetabestv = thisresult
     else:
