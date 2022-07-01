@@ -376,6 +376,7 @@ for i in range(numitrs):
 
     if i == 0:
         print('initializing ahatmatl2errbest')
+        #
         ahatmatl2errbest = ahatmatl2err
         thetabestprop = thisresult
     else:
