@@ -343,7 +343,7 @@ for i in range(numitrs):
     # start optimizing (i.e., learning)
     thisresult = so.minimize(fun=jitampsqobject,
                              x0=thetarnd, jac=jitadjgrads,
-                             tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
+                             tol=1e-12, options={'maxiter': 1000, 'disp': False, 'gtol': 1e-15}).x
                              # tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
 
     # get real space potential from learned theta
