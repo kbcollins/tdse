@@ -151,7 +151,7 @@ for thisa0 in a0vec:
     tempamattrue = [thisa0.copy()]
     tempahatmatvecbestv = [thisa0.copy()]
     tempahatmatvecbestprop = [thisa0.copy()]
-    for _ in proptimesteps:
+    for _ in range(proptimesteps.shape[0] - 1):
         tempamattrue.append(propatrue @ tempamattrue[-1])
         tempahatmatvecbestv.append(propbestv @ tempahatmatvecbestv[-1])
         tempahatmatvecbestprop.append(propbestprop @ tempahatmatvecbestprop[-1])
@@ -176,8 +176,6 @@ print('l-inf error of ahatmatvecbestprop:', np.amax(np.abs(amattruevec - ahatmat
 
 l2errahatmatvecbestvstep = nl.norm(amattruevec - ahatmatvecbestv, axis=2)
 l2errahatmatvecbestpropstep = nl.norm(amattruevec - ahatmatvecbestprop, axis=2)
-print('Shape l2errahatmatvecbestvstep:', l2errahatmatvecbestvstep.shape)
-print('Shape l2errahatmatvecbestpropstep:', l2errahatmatvecbestpropstep.shape)
 
 print('Shape proptimesteps:', proptimesteps.shape)
 print('Shape l2errahatmatvecbestvstep:', l2errahatmatvecbestvstep.shape)
