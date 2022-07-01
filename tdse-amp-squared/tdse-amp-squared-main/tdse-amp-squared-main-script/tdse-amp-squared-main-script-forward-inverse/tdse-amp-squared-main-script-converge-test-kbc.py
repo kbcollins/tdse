@@ -37,7 +37,8 @@ numfour = int(numfour)
 numts = int(numts)
 
 # load state variables
-# a0vec = np.load(cwddir / 'a0vec.npy')
+a0vec = np.load(cwddir / 'a0vec.npy')
+propatrue = np.load(cwddir / 'propatrue.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
 
 # fourtox = np.load(cwddir / 'fourtox.npy')
@@ -319,7 +320,7 @@ def thetatoreal(theta):
 #   - Compute the distribution of the errors around their mean.
 ###############################################################
 
-numitrs = 50  # 200
+numitrs = 20  # 200
 midpointindex = numx // 2
 print('midpointindex =', midpointindex)
 trim = np.where(xvec >= -10)[0][0]  # 125
@@ -346,6 +347,52 @@ for i in range(numitrs):
                              tol=1e-12, options={'maxiter': 1000, 'disp': False, 'gtol': 1e-15}).x
                              # tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
 
+    #################################################
+    # propagate a0vec using the learned potential and
+    # compare ahatmat to amat
+    #   - these results are closer to what is
+    #     available for real world problems, but
+    #     would permit potentials which are not equal
+    #     to the true potential
+    #################################################
+
+    # propagate starting from states stored in a0vec
+    amattruevec = []
+    ahatmatvec = []
+    for thisa0 in a0vec:
+        tempamat = [thisa0.copy()]
+        tempahatmat = [thisa0.copy()]
+        for i in range(numts):
+            tempamat.append(propatrue @ tempamat[-1])
+            tempahatmat.append(propatrue @ tempahatmat[-1])
+
+        amattruevec.append(tempamat)
+        ahatmatvec.append(tempahatmat)
+
+    # amattruevec = jnp.array(amattruevec)
+    # ahatmatvec = jnp.array(ahatmatvec)
+
+    ahatmatl2err = nl.norm(np.subtract(amattruevec, ahatmatvec))
+
+    if i == 0:
+        # initialize ahatmatl2errbest
+        ahatmatl2errbest = ahatmatl2err
+        thetabestprop = thisresult
+    else:
+        if ahatmatl2errbest > ahatmatl2err:
+            ahatmatl2errbest = ahatmatl2err
+            thetabestprop = thisresult
+
+
+    #################################################
+    # learned potential vs. true potential
+    #   - these results do a better job evaluate how
+    #     well the method learns the true potential,
+    #     but it is unrealistic because if you already
+    #     know the true potential, you don't need a
+    #     method to find it
+    #################################################
+
     # get real space potential from learned theta
     thisvlearnrec = thetatoreal(thisresult)
 
@@ -359,18 +406,20 @@ for i in range(numitrs):
     trimshiftl2err.append(nl.norm(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]))
     trimshiftlinferr.append(np.mean(np.abs(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])))
 
-    if len(trimshiftl2err) == 1:
+    if i == 0:
         # initialize thetabest and trimshiftl2errbest
         trimshiftl2errbest = trimshiftl2err[-1]
-        thetabest = thisresult
+        thetabestv = thisresult
     else:
         if trimshiftl2errbest > trimshiftl2err[-1]:
             trimshiftl2errbest = trimshiftl2err[-1]
-            thetabest = thisresult
+            thetabestv = thisresult
 
+np.save(cwddir / 'thetabestprop', thetabestprop)
+print('thetabestprop saved.')
 
-np.save(cwddir / 'thetabest', thetabest)
-print('thetabest saved.')
+np.save(cwddir / 'thetabestv', thetabestv)
+print('thetabestv saved.')
 
 print('Mean rawl2err:', np.mean(rawl2err))
 print('Minumum of rawl2err:', np.amin(rawl2err))
