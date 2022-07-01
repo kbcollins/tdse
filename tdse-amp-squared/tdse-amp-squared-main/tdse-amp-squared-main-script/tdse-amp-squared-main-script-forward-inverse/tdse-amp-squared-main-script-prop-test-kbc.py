@@ -138,7 +138,7 @@ propbestprop = thetatopropmat(thetabestprop)
 
 # set multiplier of numts
 tsmultiplier = 1
-proptimesteps = np.arange(int(numts * tsmultiplier)) * dt
+proptimesteps = np.arange(int(numts * tsmultiplier) + 1) * dt
 print('Final time for propagation:', proptimesteps[-1])
 
 # propagate system starting from initial "a" state
