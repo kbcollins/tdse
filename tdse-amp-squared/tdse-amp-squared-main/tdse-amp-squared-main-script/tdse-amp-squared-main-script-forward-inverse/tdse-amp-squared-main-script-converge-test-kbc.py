@@ -362,7 +362,7 @@ for i in range(numitrs):
     for thisa0 in a0vec:
         tempamat = [thisa0.copy()]
         tempahatmat = [thisa0.copy()]
-        for i in range(numts):
+        for _ in range(numts):
             tempamat.append(propatrue @ tempamat[-1])
             tempahatmat.append(propatrue @ tempahatmat[-1])
 
