@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --partition=gpu
 #SBATCH --gpus=1
-#SBATCH --job-name=kbc-converge
-#SBATCH --output='out-converge'
+#SBATCH --job-name=kbc-converge-test
+#SBATCH --output='out-converge-test'
 #SBATCH --time=02:00:00
 
 
