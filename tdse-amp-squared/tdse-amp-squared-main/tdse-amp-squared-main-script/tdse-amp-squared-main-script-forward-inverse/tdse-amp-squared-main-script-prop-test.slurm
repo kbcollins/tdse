@@ -1,7 +1,8 @@
 #!/bin/bash
 #SBATCH --partition=gpu
 #SBATCH --gpus=1
-#SBATCH --job-name=kbc-propagate
+#SBATCH --job-name=kbc-prop-test
+#SBATCH --output='out-prop-test'
 #SBATCH --time=02:00:00
 
 

@@ -1,7 +1,9 @@
 import sys
 import pathlib
 import numpy as np
+import numpy.linalg as nl
 import scipy.optimize as so
+import matplotlib.pyplot as plt
 import jax
 import jax.numpy as jnp
 import jax.numpy.linalg as jnl
@@ -50,6 +52,13 @@ amattruevec = np.load(cwddir / 'amattruevec.npy')
 vxvec = np.load(cwddir / 'vxvec.npy')
 
 print('Computational environment loaded.')
+# print computational environment variables to stdout
+print('L =', L)
+print('numx =', numx)
+print('numfour =', numfour)
+print('numts =', numts)
+print('dt =', dt)
+print('Number of a0 states:', amattruevec.shape[0])
 
 
 ###############################################################
@@ -120,7 +129,8 @@ toepindxmat = np.array(aa + bb)
 
 # initialize theta with random coefficients close to zero
 seed = 1234  # set to None for random initialization
-# thetarnd = 0.001 * np.random.default_rng(seed).normal(size=thetatrue.shape)
+print('seed =', seed)
+
 thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
 thetarnd = jnp.array(thetarnd)
 
@@ -134,9 +144,11 @@ print('thetarnd saved.')
 
 # define objective function
 def ampsqobject(theta):
+    ###############################################################
     # theta is a vector containing the concatenation
     # of the real and imaginary parts of vmat
     # its size should be 2 * numtoepelms - 1 = 4 * numfour + 1
+    ###############################################################
 
     # to use theta we need to first recombine the real
     # and imaginary parts into a vector of complex values
@@ -329,3 +341,74 @@ rsltadjthetarnd = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, 
 
 np.save(cwddir / 'rsltadjthetarnd', rsltadjthetarnd)
 print('rsltadjthetarnd saved.')
+
+
+###############################################################
+# function for transforming theta to a real space potential
+###############################################################
+
+def thetatoreal(theta):
+    thetaR = theta[:numtoepelms]
+    thetaI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
+    thetacomplex = thetaR + 1j * thetaI
+    potentialfourier = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(thetacomplex[1:(numfour + 1)])), thetacomplex[:(numfour + 1)]])
+    potentialreal = potentialfourier @ fourtox
+    return potentialreal
+
+# transform init theta to real space potentials
+vinitrec = thetatoreal(thetarnd)
+
+# transform learned theta to real space potential
+vlearnrec = thetatoreal(rsltadjthetarnd)
+
+
+###############################################################
+# results
+###############################################################
+
+# learned potential vs initial potential
+plt.plot(xvec, jnp.real(vlearnrec), '.-', label='Learned')
+plt.plot(xvec, jnp.real(vinitrec), label='Initial')
+plt.xlabel('x')
+plt.title('Learned vs. Initial Potentials')
+plt.legend()
+# plt.show()
+plt.savefig(cwddir / 'graph_inverse_learned_vs_initial_potential.pdf', format='pdf')
+plt.close()
+
+# learned potential vs true potential
+print('l2 error of learned potential:', nl.norm(jnp.real(vlearnrec) - vxvec), sep='\n')
+print('l-inf error of learned potential:', np.mean(np.abs(jnp.real(vlearnrec) - vxvec)), sep='\n')
+plt.plot(xvec, jnp.real(vlearnrec), '.-', label='Learned')
+plt.plot(xvec, vxvec, label='True')
+plt.xlabel('x')
+plt.title('Learned vs. True Potentials')
+plt.legend()
+# plt.show()
+plt.savefig(cwddir / 'graph_inverse_true_vs_learned_potential.pdf', format='pdf')
+plt.close()
+
+# shifted learned potential vs true potential
+# zeroindex = np.where(xvec == 0)[0][0]
+# zeroindex = len(xvec) // 2
+midpointindex = numx // 2
+print('midpointindex =', midpointindex)
+# shift = vxvec[zeroindex] - jnp.real(vlearnrec)[zeroindex]
+shift = vxvec[midpointindex] - jnp.real(vlearnrec)[midpointindex]
+print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + shift - vxvec), sep='\n')
+print('l-inf error of shifted learned potential:', np.mean(np.abs(jnp.real(vlearnrec) + shift - vxvec)), sep='\n')
+plt.plot(xvec, jnp.real(vlearnrec) + shift, '.-', label='Learned')
+plt.plot(xvec, vxvec, label='True')
+plt.xlabel('x')
+plt.title('Shifted Learned Potential vs. True Potential')
+plt.legend()
+# plt.show()
+plt.savefig(cwddir / 'graph_inverse_shifted_true_vs_learned_potential.pdf', format='pdf')
+plt.close()
+
+# Shifted and trimmed learned potential vs true potential
+trim = np.where(xvec >= -10)[0][0]  # 125
+print('trim =', trim)
+print('l2 error of shifted and trimmed learned potential:', nl.norm(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]), sep='\n')
+print('l-inf error of shifted and trimmed learned potential:', np.mean(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])), sep='\n')
+
