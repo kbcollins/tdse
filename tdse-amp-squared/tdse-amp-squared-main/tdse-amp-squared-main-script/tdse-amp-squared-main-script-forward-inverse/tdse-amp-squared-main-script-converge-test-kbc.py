@@ -387,7 +387,7 @@ for i in range(numitrs):
     #################################################
 
     # compute propagator from thisresult
-    propahat = thetatopropmat
+    thispropahat = thetatopropmat(thisresult)
 
     # propagate starting from a0vec states
     amattruevec = []
@@ -397,7 +397,7 @@ for i in range(numitrs):
         tempahatmat = [thisa0.copy()]
         for _ in range(numts):
             tempamat.append(propatrue @ tempamat[-1])
-            tempahatmat.append(propahat @ tempahatmat[-1])
+            tempahatmat.append(thispropahat @ tempahatmat[-1])
 
         amattruevec.append(tempamat)
         ahatmatvec.append(tempahatmat)
