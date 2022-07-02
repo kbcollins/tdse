@@ -1,0 +1,273 @@
+-------CONVERGE TEST-------
+Command line argument: ./v0
+Current working directory: v0
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 0.0
+Mean rawl2err: 1277.191865997458
+Minumum of rawl2err: 1214.5390596372877
+Maximum of rawl2err: 1411.5576466736843
+Average deviation of rawl2err: 58.26956847303175
+Mean rawlinferr: 37.54100555427533
+Minumum of rawlinferr: 37.50205288507466
+Maximum of rawlinferr: 37.600693415928085
+Average deviation of rawlinferr: 0.02711756178893978
+Mean shiftl2err: 418.82334554087447
+Minumum of shiftl2err: 179.9869564743524
+Maximum of shiftl2err: 803.3763843669066
+Average deviation of shiftl2err: 173.53357774889028
+Mean shiftlinferr: 5.035466700349277
+Minumum of shiftlinferr: 1.64440075670794
+Maximum of shiftlinferr: 9.925077245647035
+Average deviation of shiftlinferr: 2.019458209253493
+Mean trimshiftl2err: 22.716772967070884
+Minumum of trimshiftl2err: 9.0697923808806
+Maximum of trimshiftl2err: 59.44190915951883
+Average deviation of trimshiftl2err: 7.551331020188682
+Mean trimshiftlinferr: 0.7030431826463888
+Minumum of trimshiftlinferr: 0.28503061944329205
+Maximum of trimshiftlinferr: 1.8369434197478152
+Average deviation of trimshiftlinferr: 0.23589488370519382
+-------CONVERGE TEST-------
+Command line argument: ./v1
+Current working directory: v1
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 1.6818905655589114
+Mean rawl2err: 801.8834028777216
+Minumum of rawl2err: 798.9821370553839
+Maximum of rawl2err: 803.2006037792956
+Average deviation of rawl2err: 0.9105032106610679
+Mean rawlinferr: 17.547916054118666
+Minumum of rawlinferr: 17.54436544906792
+Maximum of rawlinferr: 17.55564743898567
+Average deviation of rawlinferr: 0.002570806770268064
+Mean shiftl2err: 593.7839791908715
+Minumum of shiftl2err: 589.7021949668522
+Maximum of shiftl2err: 595.6320278825254
+Average deviation of shiftl2err: 1.2794923561072096
+Mean shiftlinferr: 6.6331995569055575
+Minumum of shiftlinferr: 6.575474862712514
+Maximum of shiftlinferr: 6.663532856582275
+Average deviation of shiftlinferr: 0.024712476382619242
+Mean trimshiftl2err: 33.25020389514611
+Minumum of trimshiftl2err: 31.00880935341258
+Maximum of trimshiftl2err: 33.93916535092768
+Average deviation of trimshiftl2err: 0.5394117593631336
+Mean trimshiftlinferr: 1.040236349647046
+Minumum of trimshiftlinferr: 0.9711422346540727
+Maximum of trimshiftlinferr: 1.0616714425916827
+Average deviation of trimshiftlinferr: 0.016607306083447997
+-------CONVERGE TEST-------
+Command line argument: ./v2
+Current working directory: v2
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 0.8728926614573486
+Mean rawl2err: 1711.58639481859
+Minumum of rawl2err: 1703.7477059823493
+Maximum of rawl2err: 1717.1394557470492
+Average deviation of rawl2err: 2.4448185363465766
+Mean rawlinferr: 23.342022810261245
+Minumum of rawlinferr: 23.335740106582264
+Maximum of rawlinferr: 23.34690558566134
+Average deviation of rawlinferr: 0.0028849863315629776
+Mean shiftl2err: 1588.2365097897455
+Minumum of shiftl2err: 1580.643537224784
+Maximum of shiftl2err: 1594.2660458746288
+Average deviation of shiftl2err: 2.5003586998079412
+Mean shiftlinferr: 13.40807210639124
+Minumum of shiftlinferr: 13.27985242426271
+Maximum of shiftlinferr: 13.521310966883089
+Average deviation of shiftlinferr: 0.04705894806534037
+Mean trimshiftl2err: 37.87773253621206
+Minumum of trimshiftl2err: 34.91019520953855
+Maximum of trimshiftl2err: 41.02779776283497
+Average deviation of trimshiftl2err: 1.0681833024450587
+Mean trimshiftlinferr: 1.2068854971237943
+Minumum of trimshiftlinferr: 1.1367508798653787
+Maximum of trimshiftlinferr: 1.280900462058104
+Average deviation of trimshiftlinferr: 0.027629179047999008
+-------CONVERGE TEST-------
+Command line argument: ./v3
+Current working directory: v3
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 0.004929499840841767
+Mean rawl2err: 1.3224098780338764
+Minumum of rawl2err: 1.282929512793279
+Maximum of rawl2err: 1.3694675321681866
+Average deviation of rawl2err: 0.021229923907574187
+Mean rawlinferr: 0.040062772392222654
+Minumum of rawlinferr: 0.038781699226961036
+Maximum of rawlinferr: 0.04158688225214516
+Average deviation of rawlinferr: 0.0006884194029037185
+Mean shiftl2err: 0.412530620535607
+Minumum of shiftl2err: 0.41246118939457876
+Maximum of shiftl2err: 0.4128125143363169
+Average deviation of shiftl2err: 6.405000972642683e-05
+Mean shiftlinferr: 0.003927720422852538
+Minumum of shiftlinferr: 0.0038890354750163543
+Maximum of shiftlinferr: 0.004014274636965385
+Average deviation of shiftlinferr: 2.9678552523291655e-05
+Mean trimshiftl2err: 0.03712005356418932
+Minumum of trimshiftl2err: 0.036121896454808816
+Maximum of trimshiftl2err: 0.03941874284511907
+Average deviation of trimshiftl2err: 0.0007852737043520363
+Mean trimshiftlinferr: 0.001244504530391224
+Minumum of trimshiftlinferr: 0.0012116096632576814
+Maximum of trimshiftlinferr: 0.0013180740491297342
+Average deviation of trimshiftlinferr: 2.552298683491394e-05
+-------CONVERGE TEST-------
+Command line argument: ./v4
+Current working directory: v4
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 0.007623419996144092
+Mean rawl2err: 4.580392065253506
+Minumum of rawl2err: 4.555522155421496
+Maximum of rawl2err: 4.6101364063115104
+Average deviation of rawl2err: 0.011652447364362661
+Mean rawlinferr: 0.10013275431981503
+Minumum of rawlinferr: 0.09874682556950308
+Maximum of rawlinferr: 0.1013922888705446
+Average deviation of rawlinferr: 0.0006002106334958609
+Mean shiftl2err: 3.9552709390782566
+Minumum of shiftl2err: 3.9544555002799835
+Maximum of shiftl2err: 3.9560424166009716
+Average deviation of shiftl2err: 0.0003199625567035458
+Mean shiftlinferr: 0.06587751571934654
+Minumum of shiftlinferr: 0.06584228379305558
+Maximum of shiftlinferr: 0.06596217357466136
+Average deviation of shiftlinferr: 2.0971582936261253e-05
+Mean trimshiftl2err: 0.9583269518887363
+Minumum of trimshiftl2err: 0.9556187573848763
+Maximum of trimshiftl2err: 0.9669515892024733
+Average deviation of trimshiftl2err: 0.001806747042839213
+Mean trimshiftlinferr: 0.029520472863895274
+Minumum of trimshiftlinferr: 0.029437484563060192
+Maximum of trimshiftlinferr: 0.029787672317656604
+Average deviation of trimshiftlinferr: 5.589072811803403e-05
+-------CONVERGE TEST-------
+Command line argument: ./v5
+Current working directory: v5
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 0.01174755665104172
+Mean rawl2err: 89.17078893325588
+Minumum of rawl2err: 89.0866396325458
+Maximum of rawl2err: 89.24302390294358
+Average deviation of rawl2err: 0.02582337674208972
+Mean rawlinferr: 1.4941540491915397
+Minumum of rawlinferr: 1.4916989285215314
+Maximum of rawlinferr: 1.4958567186800815
+Average deviation of rawlinferr: 0.0008093842710307442
+Mean shiftl2err: 87.24836162414445
+Minumum of shiftl2err: 87.17093089237925
+Maximum of shiftl2err: 87.31621174701421
+Average deviation of shiftl2err: 0.026524001726913583
+Mean shiftlinferr: 1.3033164720688564
+Minumum of shiftlinferr: 1.3020954798103657
+Maximum of shiftlinferr: 1.306514999816461
+Average deviation of shiftlinferr: 0.0008961743143448331
+Mean trimshiftl2err: 14.395057090176412
+Minumum of trimshiftl2err: 14.340787545886993
+Maximum of trimshiftl2err: 14.499028630192278
+Average deviation of trimshiftl2err: 0.021871073729671585
+Mean trimshiftlinferr: 0.45679491644100134
+Minumum of trimshiftlinferr: 0.4548912200470364
+Maximum of trimshiftlinferr: 0.4609775746744314
+Average deviation of trimshiftlinferr: 0.0009324399790239357
+-------CONVERGE TEST-------
+Command line argument: ./v6
+Current working directory: v6
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 0.002732144904276019
+Mean rawl2err: 8.738722838834935
+Minumum of rawl2err: 8.667549033298886
+Maximum of rawl2err: 8.794375012237545
+Average deviation of rawl2err: 0.027384196754305368
+Mean rawlinferr: 0.2729188066428608
+Minumum of rawlinferr: 0.27069545618746893
+Maximum of rawlinferr: 0.2746573151370852
+Average deviation of rawlinferr: 0.000855455921274495
+Mean shiftl2err: 0.8121189907239461
+Minumum of shiftl2err: 0.8114372502988678
+Maximum of shiftl2err: 0.8154049717592985
+Average deviation of shiftl2err: 0.0006411104958933434
+Mean shiftlinferr: 0.025008341420817266
+Minumum of shiftlinferr: 0.024986929901975256
+Maximum of shiftlinferr: 0.025110642391229315
+Average deviation of shiftlinferr: 2.006354068213381e-05
+Mean trimshiftl2err: 0.6667720920448502
+Minumum of trimshiftl2err: 0.6663439930755999
+Maximum of trimshiftl2err: 0.6679620874599151
+Average deviation of trimshiftl2err: 0.00033180353725464906
+Mean trimshiftlinferr: 0.0249891652241627
+Minumum of trimshiftlinferr: 0.02497297886258946
+Maximum of trimshiftlinferr: 0.025033930494989587
+Average deviation of trimshiftlinferr: 1.2516288458260492e-05
