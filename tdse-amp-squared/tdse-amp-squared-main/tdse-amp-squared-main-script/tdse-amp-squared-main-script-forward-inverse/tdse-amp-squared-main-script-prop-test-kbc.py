@@ -54,6 +54,13 @@ thetabestv = np.load(cwddir / 'thetabestv.npy')
 thetabestprop = np.load(cwddir / 'thetabestprop.npy')
 
 print('Computational environment loaded.')
+# print computational environment variables to stdout
+print('L =', L)
+print('numx =', numx)
+print('numfour =', numfour)
+print('numts =', numts)
+print('dt =', dt)
+print('Number of a0 states:', a0vec.shape[0])
 
 
 ###############################################################
@@ -198,7 +205,7 @@ for i in range(a0vec.shape[0]):
     plt.ylabel('Error')
     plt.legend()
 
-plt.savefig(cwddir / 'graph_step-wise_l2_error_amat_progation.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_prop-test_step-wise_l2_error_amat_progation.pdf', format='pdf')
 plt.close()
 
 psimattruevec = amattruevec @ fourtox
@@ -223,15 +230,15 @@ for i in range(a0vec.shape[0]):
     plt.ylabel('Error')
     plt.legend()
 
-plt.savefig(cwddir / 'graph_step-wise_l2_error_psimat_progation.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_prop-test_step-wise_l2_error_psimat_progation.pdf', format='pdf')
 plt.close()
 
-print('Shape psimattruevec:', psimattruevec.shape)
-print('Shape psihatmatvecbestv:', psihatmatvecbestv.shape)
-print('Shape psihatmatvecbestprop:', psihatmatvecbestprop.shape)
-print('Shape psimattruevec[:,:,trim:-trim]:', psimattruevec[:,:,trim:-trim].shape)
-print('Shape psihatmatvecbestv[:,:,trim:-trim]:', psihatmatvecbestv[:,:,trim:-trim].shape)
-print('Shape psihatmatvecbestprop[:,:,trim:-trim]:', psihatmatvecbestprop[:,:,trim:-trim].shape)
+# print('Shape psimattruevec:', psimattruevec.shape)
+# print('Shape psihatmatvecbestv:', psihatmatvecbestv.shape)
+# print('Shape psihatmatvecbestprop:', psihatmatvecbestprop.shape)
+# print('Shape psimattruevec[:,:,trim:-trim]:', psimattruevec[:,:,trim:-trim].shape)
+# print('Shape psihatmatvecbestv[:,:,trim:-trim]:', psihatmatvecbestv[:,:,trim:-trim].shape)
+# print('Shape psihatmatvecbestprop[:,:,trim:-trim]:', psihatmatvecbestprop[:,:,trim:-trim].shape)
 
 print('l2 error of trimmed psihatmatvecbestv:', nl.norm(psimattruevec[:,:,trim:-trim] - psihatmatvecbestv[:,:,trim:-trim]), sep='\n')
 print('l-inf error of trimmed psihatmatvecbestv:', np.amax(np.abs(psimattruevec[:,:,trim:-trim] - psihatmatvecbestv[:,:,trim:-trim])), sep='\n')
@@ -251,5 +258,5 @@ for i in range(a0vec.shape[0]):
     plt.ylabel('Error')
     plt.legend()
 
-plt.savefig(cwddir / 'graph_step-wise_l2_error_psimat_progation_trim.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_prop-test_step-wise_l2_error_psimat_progation_trim.pdf', format='pdf')
 plt.close()

@@ -2,6 +2,7 @@
 #SBATCH --partition=gpu
 #SBATCH --gpus=1
 #SBATCH --job-name=kbc-converge
+#SBATCH --output='out-converge'
 #SBATCH --time=02:00:00
 
 

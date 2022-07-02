@@ -39,9 +39,11 @@ print('Current working directory:', cwddir)
 
 # size of spatial domain
 L = 15.0
+print('L =', L)
 
 # number of real space grid points (for plotting)
 numx = 1025
+print('numx =', numx)
 
 # real space grid points (for plotting)
 xvec = np.linspace(-L, L, numx)
@@ -49,19 +51,22 @@ xvec = np.linspace(-L, L, numx)
 # print('xvec saved.')
 
 # number of Fourier basis functions
-numfour = 32
+numfour = 64  # 32
+print('numfour =', numfour)
 
 # number of Toeplitz elements in the Fourier representation
 numtoepelms = 2 * numfour + 1
 
-# set time-step size
-dt = 1e-2  # 1e-2
-
 # set number of time steps
 # trajectory length = numts + 1
 numts = 20  # 20
+print('numts =', numts)
 
-print('Computational parameters set.')
+# set time-step size
+dt = 1e-2  # 1e-2
+print('dt =', dt)
+
+# print('Computational parameters set.')
 
 cmpenv = [L, numx, numfour, dt, numts]
 np.save(cwddir / 'cmpenv', cmpenv)
@@ -147,8 +152,8 @@ for thisfourn in range(numtoepelms):
     vtoeptrue.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
 
 vtoeptrue = jnp.array(vtoeptrue)
-# np.save(cwddir / 'vtoeptrue', vtoeptrue)
-# print('vtoeptrue saved.')
+np.save(cwddir / 'vtoeptrue', vtoeptrue)
+print('vtoeptrue saved.')
 
 vmattrue = sl.toeplitz(r=vtoeptrue, c=np.conj(vtoeptrue))
 
@@ -212,6 +217,7 @@ def mka0(psi0fn):
 # generate initial state vector
 # pick initial un-normalized wave functions
 psi0fnvec = [psi0_0, psi0_1, psi0_2, psi0_3]  # [psi0_0, psi0_1, psi0_2, psi0_3, psi0_4, psi0_5]
+print('Number of a0 states:', len(psi0fnvec))
 
 # run mka0
 a0vec = []

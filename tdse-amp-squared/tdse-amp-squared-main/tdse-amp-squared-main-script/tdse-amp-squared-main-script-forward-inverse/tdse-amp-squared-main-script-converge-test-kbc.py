@@ -54,6 +54,13 @@ vxvec = np.load(cwddir / 'vxvec.npy')
 vxrange = np.amax(vxvec) - np.amin(vxvec)
 
 print('Computational environment loaded.')
+# print computational environment variables to stdout
+print('L =', L)
+print('numx =', numx)
+print('numfour =', numfour)
+print('numts =', numts)
+print('dt =', dt)
+print('Number of a0 states:', a0vec.shape[0])
 
 
 ###############################################################
@@ -508,7 +515,7 @@ plt.title(f'l2 Error of the Learned Potentials - {numitrs} Initializations')
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_l2_error_all.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_converge-test_l2_error_all.pdf', format='pdf')
 plt.close()
 
 plt.plot(rawl2err, label='rawl2err')
@@ -516,7 +523,7 @@ plt.title(f'l2 Error of the Raw Learned Potentials - {numitrs} Initializations')
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_l2_error_rawl2err.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_converge-test_l2_error_rawl2err.pdf', format='pdf')
 plt.close()
 
 plt.plot(shiftl2err, label='shiftl2err')
@@ -524,7 +531,7 @@ plt.title(f'l2 Error of the Shifted Learned Potentials - {numitrs} Initializatio
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_l2_error_shiftl2err.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_converge-test_l2_error_shiftl2err.pdf', format='pdf')
 plt.close()
 
 plt.plot(trimshiftl2err, label='trimshiftl2err')
@@ -532,7 +539,7 @@ plt.title(f'l2 Error of Trimmed and Shifted\nLearned Potentials - {numitrs} Init
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_l2_error_trimshiftl2err.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_converge-test_l2_error_trimshiftl2err.pdf', format='pdf')
 plt.close()
 
 plt.plot(rawlinferr, label='rawlinferr')
@@ -542,7 +549,7 @@ plt.title(f'l-infinite Error of the Learned Potentials - {numitrs} Initializatio
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_l-infinite_error_all.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_converge-test_l-infinite_error_all.pdf', format='pdf')
 plt.close()
 
 plt.plot(rawlinferr, label='rawlinferr')
@@ -550,7 +557,7 @@ plt.title(f'l-infinite Error of the Raw Learned Potentials - {numitrs} Initializ
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_l-infinite_error_rawlinferr.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_converge-test_l-infinite_error_rawlinferr.pdf', format='pdf')
 plt.close()
 
 plt.plot(shiftlinferr, label='shiftlinferr')
@@ -558,7 +565,7 @@ plt.title(f'l-infinite Error of the Shifted Learned Potentials - {numitrs} Initi
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_l-infinite_error_rawlinferr.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_converge-test_l-infinite_error_shiftlinferr.pdf', format='pdf')
 plt.close()
 
 plt.plot(trimshiftlinferr, label='trimshiftlinferr')
@@ -566,5 +573,5 @@ plt.title(f'l-infinite Error of the Trimmed and Shifted\nLearned Potentials - {n
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_l-infinite_error_rawlinferr.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_converge-test_l-infinite_error_trimshiftlinferr.pdf', format='pdf')
 plt.close()
