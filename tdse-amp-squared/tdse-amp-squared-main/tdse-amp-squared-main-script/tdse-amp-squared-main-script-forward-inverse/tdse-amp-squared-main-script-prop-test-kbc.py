@@ -192,7 +192,7 @@ print('Shape l2errahatmatvecbestpropstep:', l2errahatmatvecbestpropstep.shape)
 
 for i in range(a0vec.shape[0]):
     plt.plot(proptimesteps, l2errahatmatvecbestvstep[i], label=f'best v {i}')
-    plt.plot(proptimesteps, l2errahatmatvecbestpropstep[i], label=f'best propagation {i}')
+    plt.plot(proptimesteps, l2errahatmatvecbestpropstep[i], label=f'best prop {i}')
     plt.title('Step-Wise l2 Error of Propagations - Fourier Space')
     plt.xlabel('Time (s)')
     plt.ylabel('Error')
@@ -217,7 +217,7 @@ print('Shape stepl2errpsihatmatvec:', l2errpsihatmatvecbestpropstep.shape)
 
 for i in range(a0vec.shape[0]):
     plt.plot(proptimesteps, l2errpsihatmatvecbestvstep[i], label=f'best v {i}')
-    plt.plot(proptimesteps, l2errpsihatmatvecbestpropstep[i], label=f'best propagation {i}')
+    plt.plot(proptimesteps, l2errpsihatmatvecbestpropstep[i], label=f'best prop {i}')
     plt.title('Step-Wise l2 Error of Propagations - Real Space')
     plt.xlabel('Time (s)')
     plt.ylabel('Error')
@@ -245,7 +245,7 @@ print('Shape stepl2errpsihatmatvec:', triml2errpsihatmatvecbestpropstep.shape)
 
 for i in range(a0vec.shape[0]):
     plt.plot(proptimesteps, triml2errpsihatmatvecbestvstep[i], label=f'best v {i}')
-    plt.plot(proptimesteps, triml2errpsihatmatvecbestpropstep[i], label=f'best propagation {i}')
+    plt.plot(proptimesteps, triml2errpsihatmatvecbestpropstep[i], label=f'best prop {i}')
     plt.title('Step-Wise l2 Error of Propagations - Trimmed Real Space')
     plt.xlabel('Time (s)')
     plt.ylabel('Error')
