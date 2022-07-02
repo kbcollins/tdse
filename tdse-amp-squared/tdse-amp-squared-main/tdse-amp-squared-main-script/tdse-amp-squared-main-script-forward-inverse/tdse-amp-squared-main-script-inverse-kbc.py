@@ -12,6 +12,7 @@ config.update("jax_enable_x64", True)
 
 import os
 os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
+os.environ['XLA_PYTHON_CLIENT_MEM_FRACTION']=0.87
 
 
 ###############################################################
@@ -377,8 +378,6 @@ plt.savefig(cwddir / 'graph_inverse_learned_vs_initial_potential.pdf', format='p
 plt.close()
 
 # learned potential vs true potential
-print('l2 error of learned potential:', nl.norm(jnp.real(vlearnrec) - vxvec), sep='\n')
-print('l-inf error of learned potential:', np.mean(np.abs(jnp.real(vlearnrec) - vxvec)), sep='\n')
 plt.plot(xvec, jnp.real(vlearnrec), '.-', label='Learned')
 plt.plot(xvec, vxvec, label='True')
 plt.xlabel('x')
@@ -389,14 +388,10 @@ plt.savefig(cwddir / 'graph_inverse_true_vs_learned_potential.pdf', format='pdf'
 plt.close()
 
 # shifted learned potential vs true potential
-# zeroindex = np.where(xvec == 0)[0][0]
-# zeroindex = len(xvec) // 2
 midpointindex = numx // 2
 print('midpointindex =', midpointindex)
-# shift = vxvec[zeroindex] - jnp.real(vlearnrec)[zeroindex]
 shift = vxvec[midpointindex] - jnp.real(vlearnrec)[midpointindex]
-print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + shift - vxvec), sep='\n')
-print('l-inf error of shifted learned potential:', np.mean(np.abs(jnp.real(vlearnrec) + shift - vxvec)), sep='\n')
+
 plt.plot(xvec, jnp.real(vlearnrec) + shift, '.-', label='Learned')
 plt.plot(xvec, vxvec, label='True')
 plt.xlabel('x')
@@ -406,9 +401,17 @@ plt.legend()
 plt.savefig(cwddir / 'graph_inverse_shifted_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
 
-# Shifted and trimmed learned potential vs true potential
+# set trim to L=10
 trim = np.where(xvec >= -10)[0][0]  # 125
 print('trim =', trim)
+
+# calculate and return l2 error
+print('l2 error of learned potential:', nl.norm(jnp.real(vlearnrec) - vxvec), sep='\n')
+print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + shift - vxvec), sep='\n')
 print('l2 error of shifted and trimmed learned potential:', nl.norm(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]), sep='\n')
+
+# calculate and return l2 error
+print('l-inf error of learned potential:', np.mean(np.abs(jnp.real(vlearnrec) - vxvec)), sep='\n')
+print('l-inf error of shifted learned potential:', np.mean(np.abs(jnp.real(vlearnrec) + shift - vxvec)), sep='\n')
 print('l-inf error of shifted and trimmed learned potential:', np.mean(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])), sep='\n')
 
