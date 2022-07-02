@@ -312,6 +312,36 @@ def thetatoreal(theta):
 
 
 ###############################################################
+# Function for computing the propagator matrix given some theta
+#   - theta is a vector containing the concatenation
+#     of the real and imaginary parts of vmat
+#   - theta should contain 2 * numtoepelms - 1
+#     = 4 * numfour + 1 elements
+###############################################################
+
+def thetatopropmat(theta):
+    # to use theta we need to first recombine the real
+    # and imaginary parts into a vector of complex values
+    vtoephatR = theta[:numtoepelms]
+    vtoephatI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
+    vtoephat = vtoephatR + 1j * vtoephatI
+
+    # construct vmathat from complex toeplitz vector
+    vmathat = jnp.concatenate([jnp.flipud(jnp.conj(vtoephat)), vtoephat[1:]])[toepindxmat]
+
+    # Construct Hamiltonian matrix
+    hmathat = kmat + vmathat
+
+    # eigen-decomposition of the Hamiltonian matrix
+    spchat, stthat = jnl.eigh(hmathat)
+
+    # compute propagator matrix
+    propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
+
+    return propahat
+
+
+###############################################################
 # Convergence test
 #   Initialize theta and learn the true potential 200 times.
 #   For each iteration, store the l2 and l-inf errors.
@@ -356,7 +386,10 @@ for i in range(numitrs):
     #     to the true potential
     #################################################
 
-    # propagate starting from states stored in a0vec
+    # compute propagator from thisresult
+    propahat = thetatopropmat
+
+    # propagate starting from a0vec states
     amattruevec = []
     ahatmatvec = []
     for thisa0 in a0vec:
@@ -364,7 +397,7 @@ for i in range(numitrs):
         tempahatmat = [thisa0.copy()]
         for _ in range(numts):
             tempamat.append(propatrue @ tempamat[-1])
-            tempahatmat.append(propatrue @ tempahatmat[-1])
+            tempahatmat.append(propahat @ tempahatmat[-1])
 
         amattruevec.append(tempamat)
         ahatmatvec.append(tempahatmat)
@@ -457,17 +490,67 @@ print('Average deviation of trimshiftlinferr:', np.mean(np.abs(np.subtract(trims
 plt.plot(rawl2err, label='rawl2err')
 plt.plot(shiftl2err, label='shiftl2err')
 plt.plot(trimshiftl2err, label='trimshiftl2err')
-plt.title('l2 Error')
+plt.title(f'l2 Error - {numitrs} Initializations')
 plt.xlabel('Trial Number')
+plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_l2_error.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_l2_error_all.pdf', format='pdf')
+plt.close()
+
+plt.plot(rawl2err, label='rawl2err')
+plt.title(f'l2 Error of rawl2err - {numitrs} Initializations')
+plt.xlabel('Trial Number')
+plt.ylabel('Error')
+plt.legend()
+plt.savefig(cwddir / 'graph_l2_error_rawl2err.pdf', format='pdf')
+plt.close()
+
+plt.plot(shiftl2err, label='shiftl2err')
+plt.title(f'l2 Error of shiftl2err - {numitrs} Initializations')
+plt.xlabel('Trial Number')
+plt.ylabel('Error')
+plt.legend()
+plt.savefig(cwddir / 'graph_l2_error_shiftl2err.pdf', format='pdf')
+plt.close()
+
+plt.plot(trimshiftl2err, label='trimshiftl2err')
+plt.title(f'l2 Error of trimshiftl2err - {numitrs} Initializations')
+plt.xlabel('Trial Number')
+plt.ylabel('Error')
+plt.legend()
+plt.savefig(cwddir / 'graph_l2_error_trimshiftl2err.pdf', format='pdf')
 plt.close()
 
 plt.plot(rawlinferr, label='rawlinferr')
 plt.plot(shiftlinferr, label='shiftlinferr')
 plt.plot(trimshiftlinferr, label='trimshiftlinferr')
-plt.title('l-infinite Error')
+plt.title(f'l-infinite Error - {numitrs} Initializations')
 plt.xlabel('Trial Number')
+plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_l-infinite_error.pdf', format='pdf')
+plt.savefig(cwddir / 'graph_l-infinite_error_all.pdf', format='pdf')
+plt.close()
+
+plt.plot(rawlinferr, label='rawlinferr')
+plt.title(f'l-infinite Error of rawlinferr - {numitrs} Initializations')
+plt.xlabel('Trial Number')
+plt.ylabel('Error')
+plt.legend()
+plt.savefig(cwddir / 'graph_l-infinite_error_rawlinferr.pdf', format='pdf')
+plt.close()
+
+plt.plot(shiftlinferr, label='shiftlinferr')
+plt.title(f'l-infinite Error of rawlinferr - {numitrs} Initializations')
+plt.xlabel('Trial Number')
+plt.ylabel('Error')
+plt.legend()
+plt.savefig(cwddir / 'graph_l-infinite_error_rawlinferr.pdf', format='pdf')
+plt.close()
+
+plt.plot(trimshiftlinferr, label='trimshiftlinferr')
+plt.title(f'l-infinite Error of rawlinferr - {numitrs} Initializations')
+plt.xlabel('Trial Number')
+plt.ylabel('Error')
+plt.legend()
+plt.savefig(cwddir / 'graph_l-infinite_error_rawlinferr.pdf', format='pdf')
 plt.close()
