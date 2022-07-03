@@ -413,6 +413,8 @@ thetanamevec = ['thetarnduniform',
 # results
 ###############################################################
 
+vxshiftedvec = []
+
 for i in range(len(thetavec)):
     thistheta = thetavec[i]
     thisthetaname = thetanamevec[i]
@@ -449,7 +451,7 @@ for i in range(len(thetavec)):
     plt.title(f'Learned vs. True Potentials - {thisthetaname}')
     plt.legend()
     # plt.show()
-    plt.savefig(cwddir / f'graph_init-test_{thisthetaname}_true_vs_learned_potential.pdf', format='pdf')
+    plt.savefig(cwddir / f'graph_init-test_{thisthetaname}_learned_vs_true_potential.pdf', format='pdf')
     plt.close()
 
     # shifted learned potential vs true potential
@@ -457,13 +459,15 @@ for i in range(len(thetavec)):
     print('midpointindex =', midpointindex)
     shift = vxvec[midpointindex] - jnp.real(thislearnedv)[midpointindex]
 
-    plt.plot(xvec, jnp.real(thislearnedv) + shift, '.-', label='Learned')
+    vxshiftedvec.append(jnp.real(thislearnedv) + shift)
+
+    plt.plot(xvec, vxshiftedvec[-1], '.-', label='Learned')
     plt.plot(xvec, vxvec, label='True')
     plt.xlabel('x')
     plt.title(f'Shifted Learned Potential vs. True Potential - {thisthetaname}')
     plt.legend()
     # plt.show()
-    plt.savefig(cwddir / f'graph_init-test_{thisthetaname}_shifted_true_vs_learned_potential.pdf', format='pdf')
+    plt.savefig(cwddir / f'graph_init-test_{thisthetaname}_shifted_learned_vs_true_potential.pdf', format='pdf')
     plt.close()
 
     # set trim to L=10
@@ -481,3 +485,15 @@ for i in range(len(thetavec)):
     print(f'{thisthetaname} - l-inf error of shifted and trimmed potential:', np.mean(np.abs(jnp.real(thislearnedv)[trim:-trim] + shift - vxvec[trim:-trim])), sep='\n')
     print('') # print a blank line
 
+for i in range(len(thetavec)):
+    thisvxshifted = thisvxshifted[i]
+    thisthetaname = thetanamevec[i]
+    plt.plot(xvec, thisvxshifted, '.-', label=thisthetaname)
+
+plt.plot(xvec, vxvec, label='True')
+plt.xlabel('x')
+plt.title(f'Shifted Learned Potential vs. True Potential - {thisthetaname}')
+plt.legend()
+# plt.show()
+plt.savefig(cwddir / f'graph_init-test_all_shifted_vs_true_potential.pdf', format='pdf')
+plt.close()
