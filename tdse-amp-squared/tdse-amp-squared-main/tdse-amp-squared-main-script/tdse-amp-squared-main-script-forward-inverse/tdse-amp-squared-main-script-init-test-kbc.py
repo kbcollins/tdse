@@ -406,7 +406,7 @@ thetanamevec = ['thetarnduniform',
 # results
 ###############################################################
 
-for i in len(thetavec):
+for i in range(len(thetavec)):
     thistheta = thetavec[i]
     thisthetaname = thetanamevec[i]
 
