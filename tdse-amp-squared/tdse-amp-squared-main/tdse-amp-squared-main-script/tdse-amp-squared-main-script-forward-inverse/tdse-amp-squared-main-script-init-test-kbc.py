@@ -18,7 +18,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 # identify script on stdout
 ###############################################################
 
-print('-------INVERSE-------')
+print('-------INIT TEST-------')
 
 
 ###############################################################
@@ -118,24 +118,6 @@ aa = (-1) * np.arange(0, numtoepelms).reshape(numtoepelms, 1)
 bb = [np.arange(numtoepelms - 1, 2 * numtoepelms - 1)]
 toepindxmat = np.array(aa + bb)
 # print(toepindxmat.shape)
-
-
-###############################################################
-# theta
-###############################################################
-
-# true potential in the form of theta (for testing purposes)
-# thetatrue = jnp.concatenate((jnp.real(vtoeptrue), jnp.imag(vtoeptrue[1:])))
-
-# initialize theta with random coefficients close to zero
-seed = 1234  # set to None for random initialization
-print('seed =', seed)
-
-thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
-thetarnd = jnp.array(thetarnd)
-
-np.save(cwddir / 'thetarnd', thetarnd)
-print('thetarnd saved.')
 
 
 ###############################################################
@@ -332,18 +314,6 @@ jitadjgrads = jax.jit(adjgrads)
 
 
 ###############################################################
-# learn theta
-###############################################################
-
-# start optimization (i.e., learning theta)
-rsltadjthetarnd = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
-# rsltadjthetarnd = so.minimize(jitampsquaredobjective, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
-
-np.save(cwddir / 'rsltadjthetarnd', rsltadjthetarnd)
-print('rsltadjthetarnd saved.')
-
-
-###############################################################
 # function for transforming theta to a real space potential
 ###############################################################
 
@@ -355,62 +325,152 @@ def thetatoreal(theta):
     potentialreal = potentialfourier @ fourtox
     return potentialreal
 
-# transform init theta to real space potentials
-vinitrec = thetatoreal(thetarnd)
 
-# transform learned theta to real space potential
-vlearnrec = thetatoreal(rsltadjthetarnd)
+###############################################################
+# theta
+###############################################################
+
+# initialize theta with random coefficients close to zero
+seed = 1234  # set to None for random initialization
+print('seed =', seed)
+
+thetarnduniform = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
+thetarnduniform = 2.0 * thetarnduniform - 1.0  # interval [-1.0, 1.0)
+# thetarnd = jnp.array(thetarnd)
+# np.save(cwddir / 'thetarnd', thetarnd)
+# print('thetarnd saved.')
+
+thetarnduniformwide = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
+thetarnduniformwide = 10.0 * thetarnduniform - 5.0  # interval [-5.0, 5.0)
+# thetarnd = jnp.array(thetarnd)
+# np.save(cwddir / 'thetarnd', thetarnd)
+# print('thetarnd saved.')
+
+thetarnduniformpositive = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)  # interval [0.0, 1.0)
+# thetarnd = jnp.array(thetarnd)
+# np.save(cwddir / 'thetarnd', thetarnd)
+# print('thetarnd saved.')
+
+thetarndnormal = np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
+# thetarnd = jnp.array(thetarnd)
+# np.save(cwddir / 'thetarnd', thetarnd)
+# print('thetarnd saved.')
+
+thetarndnormalnarrow = np.random.default_rng(seed).normal(scale=0.5, size=numtoepelms * 2 - 1)
+# thetarnd = jnp.array(thetarnd)
+# np.save(cwddir / 'thetarnd', thetarnd)
+# print('thetarnd saved.')
+
+thetarndnormalwide = np.random.default_rng(seed).normal(scale=2.0, size=numtoepelms * 2 - 1)
+# thetarnd = jnp.array(thetarnd)
+# np.save(cwddir / 'thetarnd', thetarnd)
+# print('thetarnd saved.')
+
+thetarndnormalscaled = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
+# thetarnd = jnp.array(thetarnd)
+# np.save(cwddir / 'thetarnd', thetarnd)
+# print('thetarnd saved.')
+
+thetarndnormalscalednarrow = 0.001 * np.random.default_rng(seed).normal(scale=0.5, size=numtoepelms * 2 - 1)
+# thetarnd = jnp.array(thetarnd)
+# np.save(cwddir / 'thetarnd', thetarnd)
+# print('thetarnd saved.')
+
+thetarndnormalscaledwide = 0.001 * np.random.default_rng(seed).normal(scale=2.0, size=numtoepelms * 2 - 1)
+# thetarnd = jnp.array(thetarnd)
+# np.save(cwddir / 'thetarnd', thetarnd)
+# print('thetarnd saved.')
+
+thetavec = [thetarnduniform,
+            thetarnduniformpositive,
+            thetarnduniformpositive,
+            thetarndnormal,
+            thetarndnormalnarrow,
+            thetarndnormalwide,
+            thetarndnormalscaled,
+            thetarndnormalscalednarrow,
+            thetarndnormalscaledwide]
+
+thetanamevec = ['thetarnduniform',
+                'thetarnduniformpositive',
+                'thetarnduniformpositive',
+                'thetarndnormal',
+                'thetarndnormalnarrow',
+                'thetarndnormalwide',
+                'thetarndnormalscaled',
+                'thetarndnormalscalednarrow',
+                'thetarndnormalscaledwide']
 
 
 ###############################################################
 # results
 ###############################################################
 
-# learned potential vs initial potential
-plt.plot(xvec, jnp.real(vlearnrec), '.-', label='Learned')
-plt.plot(xvec, jnp.real(vinitrec), label='Initial')
-plt.xlabel('x')
-plt.title('Learned vs. Initial Potentials')
-plt.legend()
-# plt.show()
-plt.savefig(cwddir / 'graph_inverse_learned_vs_initial_potential.pdf', format='pdf')
-plt.close()
+for i in len(thetavec):
+    thistheta = thetavec[i]
+    thisthetaname = thetanamevec[i]
 
-# learned potential vs true potential
-plt.plot(xvec, jnp.real(vlearnrec), '.-', label='Learned')
-plt.plot(xvec, vxvec, label='True')
-plt.xlabel('x')
-plt.title('Learned vs. True Potentials')
-plt.legend()
-# plt.show()
-plt.savefig(cwddir / 'graph_inverse_true_vs_learned_potential.pdf', format='pdf')
-plt.close()
+    # learn theta
+    thislearnedtheta = so.minimize(fun=jitampsqobject,
+                                   x0=thistheta,
+                                   jac=jitadjgrads,
+                                   tol=1e-12,options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
 
-# shifted learned potential vs true potential
-midpointindex = numx // 2
-print('midpointindex =', midpointindex)
-shift = vxvec[midpointindex] - jnp.real(vlearnrec)[midpointindex]
+    # np.save(cwddir / 'rsltadjthetarnd', rsltadjthetarnd)
+    # print('rsltadjthetarnd saved.')
 
-plt.plot(xvec, jnp.real(vlearnrec) + shift, '.-', label='Learned')
-plt.plot(xvec, vxvec, label='True')
-plt.xlabel('x')
-plt.title('Shifted Learned Potential vs. True Potential')
-plt.legend()
-# plt.show()
-plt.savefig(cwddir / 'graph_inverse_shifted_true_vs_learned_potential.pdf', format='pdf')
-plt.close()
+    # transform init theta to real space potentials
+    vinitrec = thetatoreal(thistheta)
 
-# set trim to L=10
-trim = np.where(xvec >= -10)[0][0]  # 125
-print('trim =', trim)
+    # transform learned theta to real space potential
+    thislearnedv = thetatoreal(thislearnedtheta)
 
-# calculate and return l2 error
-print('l2 error of learned potential:', nl.norm(jnp.real(vlearnrec) - vxvec), sep='\n')
-print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + shift - vxvec), sep='\n')
-print('l2 error of shifted and trimmed learned potential:', nl.norm(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]), sep='\n')
+    # learned potential vs initial potential
+    plt.plot(xvec, jnp.real(thislearnedv), '.-', label='Learned')
+    plt.plot(xvec, jnp.real(vinitrec), label='Initial')
+    plt.xlabel('x')
+    plt.title('Learned vs. Initial Potentials')
+    plt.legend()
+    # plt.show()
+    plt.savefig(cwddir / f'graph_init-test_{thisthetaname}_learned_vs_initial_potential.pdf', format='pdf')
+    plt.close()
 
-# calculate and return l2 error
-print('l-inf error of learned potential:', np.mean(np.abs(jnp.real(vlearnrec) - vxvec)), sep='\n')
-print('l-inf error of shifted learned potential:', np.mean(np.abs(jnp.real(vlearnrec) + shift - vxvec)), sep='\n')
-print('l-inf error of shifted and trimmed learned potential:', np.mean(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])), sep='\n')
+    # learned potential vs true potential
+    plt.plot(xvec, jnp.real(thislearnedv), '.-', label='Learned')
+    plt.plot(xvec, vxvec, label='True')
+    plt.xlabel('x')
+    plt.title('Learned vs. True Potentials')
+    plt.legend()
+    # plt.show()
+    plt.savefig(cwddir / f'graph_init-test_{thisthetaname}_true_vs_learned_potential.pdf', format='pdf')
+    plt.close()
+
+    # shifted learned potential vs true potential
+    midpointindex = numx // 2
+    print('midpointindex =', midpointindex)
+    shift = vxvec[midpointindex] - jnp.real(thislearnedv)[midpointindex]
+
+    plt.plot(xvec, jnp.real(thislearnedv) + shift, '.-', label='Learned')
+    plt.plot(xvec, vxvec, label='True')
+    plt.xlabel('x')
+    plt.title('Shifted Learned Potential vs. True Potential')
+    plt.legend()
+    # plt.show()
+    plt.savefig(cwddir / 'graph_init-test_{thisthetaname}_shifted_true_vs_learned_potential.pdf', format='pdf')
+    plt.close()
+
+    # set trim to L=10
+    trim = np.where(xvec >= -10)[0][0]  # 125
+    print('trim =', trim)
+
+    # calculate and return l2 error
+    print(f'l2 error of {thisthetaname} potential:', nl.norm(jnp.real(thislearnedv) - vxvec), sep='\n')
+    print(f'l2 error of shifted {thisthetaname} potential:', nl.norm(jnp.real(thislearnedv) + shift - vxvec), sep='\n')
+    print(f'l2 error of shifted and trimmed {thisthetaname} potential:', nl.norm(jnp.real(thislearnedv)[trim:-trim] + shift - vxvec[trim:-trim]), sep='\n')
+
+    # calculate and return l2 error
+    print(f'l-inf error of learned {thisthetaname}:', np.mean(np.abs(jnp.real(thislearnedv) - vxvec)), sep='\n')
+    print(f'l-inf error of shifted {thisthetaname} potential:', np.mean(np.abs(jnp.real(thislearnedv) + shift - vxvec)), sep='\n')
+    print(f'l-inf error of shifted and {thisthetaname} learned potential:', np.mean(np.abs(jnp.real(thislearnedv)[trim:-trim] + shift - vxvec[trim:-trim])), sep='\n')
+    print('') # print a blank line
 
