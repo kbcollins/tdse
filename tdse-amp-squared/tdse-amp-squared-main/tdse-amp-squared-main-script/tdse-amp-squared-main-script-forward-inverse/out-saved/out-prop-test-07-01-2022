@@ -1,0 +1,301 @@
+-------PROP TEST-------
+Command line argument: ./v0
+Current working directory: v0
+Computational environment loaded.
+trim = 171
+Final time for propagation: 0.19
+l2 error of ahatmatvecbestv:
+11.862119422722216
+l-inf error of ahatmatvecbestv:
+1.0665587744274199
+l2 error of ahatmatvecbestprop:
+11.862119422722216
+l-inf error of ahatmatvecbestprop:
+1.0665587744274199
+Shape proptimesteps: (20,)
+Shape l2errahatmatvecbestvstep: (4, 20)
+Shape l2errahatmatvecbestpropstep: (4, 20)
+l2 error of psihatmatvecbestv:
+69.3030375997276
+l-inf error of psihatmatvecbestv:
+0.8939708912507656
+l2 error of psihatmatvecbestprop:
+69.3030375997276
+l-inf error of psihatmatvecbestprop:
+0.8939708912507656
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+Shape psimattruevec: (4, 20, 1025)
+Shape psihatmatvecbestv: (4, 20, 1025)
+Shape psihatmatvecbestprop: (4, 20, 1025)
+Shape psimattruevec[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestv[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestprop[:,:,trim:-trim]: (4, 20, 683)
+l2 error of trimmed psihatmatvecbestv:
+66.61800000283817
+l-inf error of trimmed psihatmatvecbestv:
+0.8939708912507656
+l2 error of trimmed psihatmatvecbestprop:
+66.61800000283817
+l-inf error of trimmed psihatmatvecbestprop:
+0.8939708912507656
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+-------PROP TEST-------
+Command line argument: ./v1
+Current working directory: v1
+Computational environment loaded.
+trim = 171
+Final time for propagation: 0.19
+l2 error of ahatmatvecbestv:
+10.27237306895872
+l-inf error of ahatmatvecbestv:
+0.9965696744704566
+l2 error of ahatmatvecbestprop:
+10.272057955071816
+l-inf error of ahatmatvecbestprop:
+0.9966706891610552
+Shape proptimesteps: (20,)
+Shape l2errahatmatvecbestvstep: (4, 20)
+Shape l2errahatmatvecbestpropstep: (4, 20)
+l2 error of psihatmatvecbestv:
+60.01520070710959
+l-inf error of psihatmatvecbestv:
+0.8196048612798984
+l2 error of psihatmatvecbestprop:
+60.01333226302147
+l-inf error of psihatmatvecbestprop:
+0.820198740300242
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+Shape psimattruevec: (4, 20, 1025)
+Shape psihatmatvecbestv: (4, 20, 1025)
+Shape psihatmatvecbestprop: (4, 20, 1025)
+Shape psimattruevec[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestv[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestprop[:,:,trim:-trim]: (4, 20, 683)
+l2 error of trimmed psihatmatvecbestv:
+57.46606966658148
+l-inf error of trimmed psihatmatvecbestv:
+0.8196048612798984
+l2 error of trimmed psihatmatvecbestprop:
+57.456847697378116
+l-inf error of trimmed psihatmatvecbestprop:
+0.820198740300242
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+-------PROP TEST-------
+Command line argument: ./v2
+Current working directory: v2
+Computational environment loaded.
+trim = 171
+Final time for propagation: 0.19
+l2 error of ahatmatvecbestv:
+10.22847547128343
+l-inf error of ahatmatvecbestv:
+0.9786176600946606
+l2 error of ahatmatvecbestprop:
+10.109810042215273
+l-inf error of ahatmatvecbestprop:
+0.9694608562807968
+Shape proptimesteps: (20,)
+Shape l2errahatmatvecbestvstep: (4, 20)
+Shape l2errahatmatvecbestpropstep: (4, 20)
+l2 error of psihatmatvecbestv:
+59.7592131688159
+l-inf error of psihatmatvecbestv:
+0.8256053619803917
+l2 error of psihatmatvecbestprop:
+59.065938733033285
+l-inf error of psihatmatvecbestprop:
+0.8270184064289158
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+Shape psimattruevec: (4, 20, 1025)
+Shape psihatmatvecbestv: (4, 20, 1025)
+Shape psihatmatvecbestprop: (4, 20, 1025)
+Shape psimattruevec[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestv[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestprop[:,:,trim:-trim]: (4, 20, 683)
+l2 error of trimmed psihatmatvecbestv:
+57.415372505422276
+l-inf error of trimmed psihatmatvecbestv:
+0.8256053619803917
+l2 error of trimmed psihatmatvecbestprop:
+56.6679791915212
+l-inf error of trimmed psihatmatvecbestprop:
+0.8270184064289158
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+-------PROP TEST-------
+Command line argument: ./v3
+Current working directory: v3
+Computational environment loaded.
+trim = 171
+Final time for propagation: 0.19
+l2 error of ahatmatvecbestv:
+0.037826663492888116
+l-inf error of ahatmatvecbestv:
+0.004158073096365343
+l2 error of ahatmatvecbestprop:
+0.03774740645808071
+l-inf error of ahatmatvecbestprop:
+0.004149430041426102
+Shape proptimesteps: (20,)
+Shape l2errahatmatvecbestvstep: (4, 20)
+Shape l2errahatmatvecbestpropstep: (4, 20)
+l2 error of psihatmatvecbestv:
+0.22099776906064134
+l-inf error of psihatmatvecbestv:
+0.0032329183141279155
+l2 error of psihatmatvecbestprop:
+0.22053471343817266
+l-inf error of psihatmatvecbestprop:
+0.003226145558239726
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+Shape psimattruevec: (4, 20, 1025)
+Shape psihatmatvecbestv: (4, 20, 1025)
+Shape psihatmatvecbestprop: (4, 20, 1025)
+Shape psimattruevec[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestv[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestprop[:,:,trim:-trim]: (4, 20, 683)
+l2 error of trimmed psihatmatvecbestv:
+0.2120620489985034
+l-inf error of trimmed psihatmatvecbestv:
+0.0032329183141279155
+l2 error of trimmed psihatmatvecbestprop:
+0.21161803867184562
+l-inf error of trimmed psihatmatvecbestprop:
+0.003226145558239726
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+-------PROP TEST-------
+Command line argument: ./v4
+Current working directory: v4
+Computational environment loaded.
+trim = 171
+Final time for propagation: 0.19
+l2 error of ahatmatvecbestv:
+0.07447238998639463
+l-inf error of ahatmatvecbestv:
+0.008171255052456215
+l2 error of ahatmatvecbestprop:
+0.0722923798241436
+l-inf error of ahatmatvecbestprop:
+0.007933985805426941
+Shape proptimesteps: (20,)
+Shape l2errahatmatvecbestvstep: (4, 20)
+Shape l2errahatmatvecbestpropstep: (4, 20)
+l2 error of psihatmatvecbestv:
+0.4350971819479759
+l-inf error of psihatmatvecbestv:
+0.007084836944866736
+l2 error of psihatmatvecbestprop:
+0.42236078507014635
+l-inf error of psihatmatvecbestprop:
+0.006882684149042095
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+Shape psimattruevec: (4, 20, 1025)
+Shape psihatmatvecbestv: (4, 20, 1025)
+Shape psihatmatvecbestprop: (4, 20, 1025)
+Shape psimattruevec[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestv[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestprop[:,:,trim:-trim]: (4, 20, 683)
+l2 error of trimmed psihatmatvecbestv:
+0.4179834123530076
+l-inf error of trimmed psihatmatvecbestv:
+0.007084836944866736
+l2 error of trimmed psihatmatvecbestprop:
+0.40571617161645424
+l-inf error of trimmed psihatmatvecbestprop:
+0.006882684149042095
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+-------PROP TEST-------
+Command line argument: ./v5
+Current working directory: v5
+Computational environment loaded.
+trim = 171
+Final time for propagation: 0.19
+l2 error of ahatmatvecbestv:
+0.6901975915866384
+l-inf error of ahatmatvecbestv:
+0.03479713248945101
+l2 error of ahatmatvecbestprop:
+0.6893362192469035
+l-inf error of ahatmatvecbestprop:
+0.034794208753785257
+Shape proptimesteps: (20,)
+Shape l2errahatmatvecbestvstep: (4, 20)
+Shape l2errahatmatvecbestpropstep: (4, 20)
+l2 error of psihatmatvecbestv:
+4.032612865904039
+l-inf error of psihatmatvecbestv:
+0.10850456656234325
+l2 error of psihatmatvecbestprop:
+4.027580826097086
+l-inf error of psihatmatvecbestprop:
+0.10837591957996691
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+Shape psimattruevec: (4, 20, 1025)
+Shape psihatmatvecbestv: (4, 20, 1025)
+Shape psihatmatvecbestprop: (4, 20, 1025)
+Shape psimattruevec[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestv[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestprop[:,:,trim:-trim]: (4, 20, 683)
+l2 error of trimmed psihatmatvecbestv:
+3.7387242548428117
+l-inf error of trimmed psihatmatvecbestv:
+0.10850456656234325
+l2 error of trimmed psihatmatvecbestprop:
+3.7317697772783442
+l-inf error of trimmed psihatmatvecbestprop:
+0.10837591957996691
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+-------PROP TEST-------
+Command line argument: ./v6
+Current working directory: v6
+Computational environment loaded.
+trim = 171
+Final time for propagation: 0.19
+l2 error of ahatmatvecbestv:
+0.2715914930447065
+l-inf error of ahatmatvecbestv:
+0.029895126116574255
+l2 error of ahatmatvecbestprop:
+0.2690511030378582
+l-inf error of ahatmatvecbestprop:
+0.02961554984328743
+Shape proptimesteps: (20,)
+Shape l2errahatmatvecbestvstep: (4, 20)
+Shape l2errahatmatvecbestpropstep: (4, 20)
+l2 error of psihatmatvecbestv:
+1.5867409138294208
+l-inf error of psihatmatvecbestv:
+0.023181543229854485
+l2 error of psihatmatvecbestprop:
+1.5718989871307665
+l-inf error of psihatmatvecbestprop:
+0.022964546843406444
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)
+Shape psimattruevec: (4, 20, 1025)
+Shape psihatmatvecbestv: (4, 20, 1025)
+Shape psihatmatvecbestprop: (4, 20, 1025)
+Shape psimattruevec[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestv[:,:,trim:-trim]: (4, 20, 683)
+Shape psihatmatvecbestprop[:,:,trim:-trim]: (4, 20, 683)
+l2 error of trimmed psihatmatvecbestv:
+1.5227253885399334
+l-inf error of trimmed psihatmatvecbestv:
+0.023181543229854485
+l2 error of trimmed psihatmatvecbestprop:
+1.5084828228594547
+l-inf error of trimmed psihatmatvecbestprop:
+0.022964546843406444
+Shape l2errpsihatmatvecbestvstep: (4, 20)
+Shape stepl2errpsihatmatvec: (4, 20)

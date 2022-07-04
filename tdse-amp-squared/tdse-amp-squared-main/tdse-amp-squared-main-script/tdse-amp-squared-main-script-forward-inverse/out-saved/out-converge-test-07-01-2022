@@ -1,0 +1,357 @@
+-------CONVERGE TEST-------
+Command line argument: ./v0
+Current working directory: v0
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 8.76010579057391
+Mean of rawl2err: 1270.11056185532
+Minumum of rawl2err: 1211.763115963455
+Maximum of rawl2err: 1409.7301804679103
+Average deviation of rawl2err: 41.66841450332343
+Average % error of raw learned potential:
+11.289871660936177
+Mean of shiftl2err: 406.46532931563524
+Minumum of shiftl2err: 181.03622928590414
+Maximum of shiftl2err: 798.626080006083
+Average deviation of shiftl2err: 128.649130184581
+Average % error of shifted learned potential:
+3.613025149472313
+Mean of trimshiftl2err: 20.93386682288932
+Minumum of trimshiftl2err: 7.052443938358
+Maximum of trimshiftl2err: 33.2820829503685
+Average deviation of trimshiftl2err: 6.354884920348946
+Average % error of trimmed and shifted learned potential:
+0.18607881620346065
+Mean of rawlinferr: 37.54057037114329
+Minumum of rawlinferr: 37.49918104222985
+Maximum of rawlinferr: 37.587006819855716
+Average deviation of rawlinferr: 0.01951977885251175
+Max % error of raw learned potential:
+0.333693958854607
+Mean of shiftlinferr: 4.816560066591025
+Minumum of shiftlinferr: 2.512467207192512
+Maximum of shiftlinferr: 9.806280229798709
+Average deviation of shiftlinferr: 1.443123216312036
+Max % error of shifted learned potential:
+0.042813867258586887
+Mean of trimshiftlinferr: 0.6460707486333613
+Minumum of trimshiftlinferr: 0.19139217836947303
+Maximum of trimshiftlinferr: 1.0365656920322155
+Average deviation of trimshiftlinferr: 0.20124642304397478
+Max % error of trimmed and shifted learned potential:
+0.005742851098963212
+-------CONVERGE TEST-------
+Command line argument: ./v1
+Current working directory: v1
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 1.740279548995658
+Mean of rawl2err: 801.4125586557674
+Minumum of rawl2err: 795.4170488384866
+Maximum of rawl2err: 804.0090829792174
+Average deviation of rawl2err: 1.5462393172015823
+Average % error of raw learned potential:
+8.014127501008257
+Mean of shiftl2err: 593.0840656971716
+Minumum of shiftl2err: 584.3762460015391
+Maximum of shiftl2err: 596.7438572401359
+Average deviation of shiftl2err: 2.2240710387760485
+Average % error of shifted learned potential:
+5.930842073757768
+Mean of trimshiftl2err: 33.23273206499349
+Minumum of trimshiftl2err: 31.602203848457478
+Maximum of trimshiftl2err: 34.066702114090646
+Average deviation of trimshiftl2err: 0.5473370918265534
+Average % error of trimmed and shifted learned potential:
+0.332327400037789
+Mean of rawlinferr: 17.548653063079243
+Minumum of rawlinferr: 17.54371461202056
+Maximum of rawlinferr: 17.556457187478024
+Average deviation of rawlinferr: 0.0028373119798841273
+Max % error of raw learned potential:
+0.1754865725518089
+Mean of shiftlinferr: 6.629056434101618
+Minumum of shiftlinferr: 6.520369948711796
+Maximum of shiftlinferr: 6.67456692085765
+Average deviation of shiftlinferr: 0.029015948958435622
+Max % error of shifted learned potential:
+0.06629058017680614
+Mean of trimshiftlinferr: 1.0396832192742602
+Minumum of trimshiftlinferr: 0.9893376634322355
+Maximum of trimshiftlinferr: 1.0655282429462059
+Average deviation of trimshiftlinferr: 0.01692892632061833
+Max % error of trimmed and shifted learned potential:
+0.010396834676384921
+-------CONVERGE TEST-------
+Command line argument: ./v2
+Current working directory: v2
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 2.087169859332626
+Mean of rawl2err: 1710.4666501547072
+Minumum of rawl2err: 1696.8902443813097
+Maximum of rawl2err: 1715.6341897617858
+Average deviation of rawl2err: 2.8938542835069256
+Average % error of raw learned potential:
+5.350980581931976
+Mean of shiftl2err: 1586.864400550716
+Minumum of shiftl2err: 1571.5280821840847
+Maximum of shiftl2err: 1591.7981320192712
+Average deviation of shiftl2err: 3.207559138668364
+Average % error of shifted learned potential:
+4.964306432246424
+Mean of trimshiftl2err: 37.886160649630845
+Minumum of trimshiftl2err: 35.44258600512218
+Maximum of trimshiftl2err: 39.44592395370849
+Average deviation of trimshiftl2err: 0.7618121707582258
+Average % error of trimmed and shifted learned potential:
+0.11852210619937768
+Mean of rawlinferr: 23.342816365238352
+Minumum of rawlinferr: 23.337336251740094
+Maximum of rawlinferr: 23.349369090608178
+Average deviation of rawlinferr: 0.002354056787520875
+Max % error of raw learned potential:
+0.07302507598537326
+Mean of shiftlinferr: 13.40488268273226
+Minumum of shiftlinferr: 13.241432640671265
+Maximum of shiftlinferr: 13.483085625700214
+Average deviation of shiftlinferr: 0.043654431232039936
+Max % error of shifted learned potential:
+0.04193549575017368
+Mean of trimshiftlinferr: 1.2098618850820064
+Minumum of trimshiftlinferr: 1.1578273490154507
+Maximum of trimshiftlinferr: 1.255975282029493
+Average deviation of trimshiftlinferr: 0.01917330734318413
+Max % error of trimmed and shifted learned potential:
+0.0037849013035757702
+-------CONVERGE TEST-------
+Command line argument: ./v3
+Current working directory: v3
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 0.006740666982144681
+Mean of rawl2err: 1.3080633402777253
+Minumum of rawl2err: 1.2271793984279473
+Maximum of rawl2err: 1.3683670788525488
+Average deviation of rawl2err: 0.027776322082254824
+Average % error of raw learned potential:
+0.6540345705957835
+Mean of shiftl2err: 0.412498653740633
+Minumum of shiftl2err: 0.41245882619210156
+Maximum of shiftl2err: 0.4127437173028087
+Average deviation of shiftl2err: 3.0995567766539665e-05
+Average % error of shifted learned potential:
+0.2062502415313564
+Mean of trimshiftl2err: 0.03663416852362205
+Minumum of trimshiftl2err: 0.036069414350358354
+Maximum of trimshiftl2err: 0.03932382617435112
+Average deviation of trimshiftl2err: 0.00036645236073246795
+Average % error of trimmed and shifted learned potential:
+0.018317165493219597
+Mean of rawlinferr: 0.039597354193779175
+Minumum of rawlinferr: 0.036962456322525136
+Maximum of rawlinferr: 0.04154943104213013
+Average deviation of rawlinferr: 0.0009019605142073946
+Max % error of raw learned potential:
+0.019798764898769267
+Mean of shiftlinferr: 0.003909835570944984
+Minumum of shiftlinferr: 0.0038872040265136793
+Maximum of shiftlinferr: 0.004011899411768183
+Average deviation of shiftlinferr: 1.4100146368326666e-05
+Max % error of shifted learned potential:
+0.001954926455014166
+Mean of trimshiftlinferr: 0.0012288192580772756
+Minumum of trimshiftlinferr: 0.0012099641275808701
+Maximum of trimshiftlinferr: 0.0013161490455345847
+Average deviation of trimshiftlinferr: 1.207868388631736e-05
+Max % error of trimmed and shifted learned potential:
+0.0006144123537823194
+-------CONVERGE TEST-------
+Command line argument: ./v4
+Current working directory: v4
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 0.007495636965690261
+Mean of rawl2err: 4.583323868266474
+Minumum of rawl2err: 4.557039551438922
+Maximum of rawl2err: 4.614644529369261
+Average deviation of rawl2err: 0.014174056793606615
+Average % error of raw learned potential:
+2.2918178315272866
+Mean of shiftl2err: 3.9552270440657518
+Minumum of shiftl2err: 3.954853744133005
+Maximum of shiftl2err: 3.955740459249094
+Average deviation of shiftl2err: 0.00015934182104131444
+Average % error of shifted learned potential:
+1.9777480553119473
+Mean of trimshiftl2err: 0.9573177259210756
+Minumum of trimshiftl2err: 0.9551942606058358
+Maximum of trimshiftl2err: 0.9618894514483718
+Average deviation of trimshiftl2err: 0.0012128339026335367
+Average % error of trimmed and shifted learned potential:
+0.47869142521078195
+Mean of rawlinferr: 0.10030228011976058
+Minumum of rawlinferr: 0.09921768403809642
+Maximum of rawlinferr: 0.10177665700407709
+Average deviation of rawlinferr: 0.0006693248564892763
+Max % error of raw learned potential:
+0.050154551746363144
+Mean of shiftlinferr: 0.06586639513289527
+Minumum of shiftlinferr: 0.0658449947150602
+Maximum of shiftlinferr: 0.06591155288978995
+Average deviation of shiftlinferr: 1.168769053029456e-05
+Max % error of shifted learned potential:
+0.032935437949115715
+Mean of trimshiftlinferr: 0.029489382372793454
+Minumum of trimshiftlinferr: 0.02942396737726075
+Maximum of trimshiftlinferr: 0.02963033185061387
+Average deviation of trimshiftlinferr: 3.7611360709116984e-05
+Max % error of trimmed and shifted learned potential:
+0.014745694239638476
+-------CONVERGE TEST-------
+Command line argument: ./v5
+Current working directory: v5
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 0.009477141012124228
+Mean of rawl2err: 89.17764820289594
+Minumum of rawl2err: 89.1363583774404
+Maximum of rawl2err: 89.22697983540397
+Average deviation of rawl2err: 0.020942178115377887
+Average % error of raw learned potential:
+1.487324830313031
+Mean of shiftl2err: 87.25087313291911
+Minumum of shiftl2err: 87.21306987265446
+Maximum of shiftl2err: 87.30407582121084
+Average deviation of shiftl2err: 0.023181122264407605
+Average % error of shifted learned potential:
+1.455189643281808
+Mean of trimshiftl2err: 14.383434835515217
+Minumum of trimshiftl2err: 14.35819720012579
+Maximum of trimshiftl2err: 14.404702118173542
+Average deviation of trimshiftl2err: 0.009071790608770947
+Average % error of trimmed and shifted learned potential:
+0.2398901541715753
+Mean of rawlinferr: 1.4942723934603657
+Minumum of rawlinferr: 1.4920441714624537
+Maximum of rawlinferr: 1.495421293954372
+Average deviation of rawlinferr: 0.0006222893583774702
+Max % error of raw learned potential:
+0.024921810328394748
+Mean of shiftlinferr: 1.30303844076487
+Minumum of shiftlinferr: 1.3021385106420025
+Maximum of shiftlinferr: 1.3048715056245654
+Average deviation of shiftlinferr: 0.000688310357605415
+Max % error of shifted learned potential:
+0.021732367547892248
+Mean of trimshiftlinferr: 0.45637669572184036
+Minumum of trimshiftlinferr: 0.45567375352080247
+Maximum of trimshiftlinferr: 0.45740574950926055
+Average deviation of trimshiftlinferr: 0.0003694087671976126
+Max % error of trimmed and shifted learned potential:
+0.0076115529530331955
+-------CONVERGE TEST-------
+Command line argument: ./v6
+Current working directory: v6
+Computational environment loaded.
+Starting inverse problem.
+Training data generated.
+midpointindex = 512
+trim = 171
+0 of 20
+initializing ahatmatl2errbest and thetabestprop
+initializing trimshiftl2errbest and thetabestv
+10 of 20
+thetabestprop saved.
+thetabestv saved.
+l2 error of thetabestprop: 0.004091712214392656
+Mean of rawl2err: 8.730609197419607
+Minumum of rawl2err: 8.60933447450795
+Maximum of rawl2err: 8.785613918284257
+Average deviation of rawl2err: 0.03172021715836957
+Average % error of raw learned potential:
+4.515745906974387
+Mean of shiftl2err: 0.8117813736606859
+Minumum of shiftl2err: 0.8107784982526389
+Maximum of shiftl2err: 0.81460070831789
+Average deviation of shiftl2err: 0.0004620375304610902
+Average % error of shifted learned potential:
+0.41987888045083277
+Mean of trimshiftl2err: 0.6665737861370604
+Minumum of trimshiftl2err: 0.6659668609454037
+Maximum of trimshiftl2err: 0.667607879540886
+Average deviation of trimshiftl2err: 0.00027180752193778357
+Average % error of trimmed and shifted learned potential:
+0.34477294520690505
+Mean of rawlinferr: 0.2726653574922557
+Minumum of rawlinferr: 0.2688769127061027
+Maximum of rawlinferr: 0.2743836306105218
+Average deviation of rawlinferr: 0.0009908892739241893
+Max % error of raw learned potential:
+0.14103110610348674
+Mean of shiftlinferr: 0.024997746810762625
+Minumum of shiftlinferr: 0.02496594669894818
+Maximum of shiftlinferr: 0.025085940753198605
+Average deviation of shiftlinferr: 1.45448581211979e-05
+Max % error of shifted learned potential:
+0.01292962155237081
+Mean of trimshiftlinferr: 0.024981675759359043
+Minumum of trimshiftlinferr: 0.02495886405376177
+Maximum of trimshiftlinferr: 0.025020508855557354
+Average deviation of trimshiftlinferr: 1.0274837611413782e-05
+Max % error of trimmed and shifted learned potential:
+0.012921309098685682

@@ -1,0 +1,119 @@
+-------FORWARD-------
+type(cmdlinearg) <class 'int'>
+Command line argument: 0
+Current working directory: v0
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Computational parameters saved.
+vxvec saved.
+vtoeptrue saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+-------FORWARD-------
+type(cmdlinearg) <class 'int'>
+Command line argument: 1
+Current working directory: v1
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Computational parameters saved.
+vxvec saved.
+vtoeptrue saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+-------FORWARD-------
+type(cmdlinearg) <class 'int'>
+Command line argument: 2
+Current working directory: v2
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Computational parameters saved.
+vxvec saved.
+vtoeptrue saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+-------FORWARD-------
+type(cmdlinearg) <class 'int'>
+Command line argument: 3
+Current working directory: v3
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Computational parameters saved.
+vxvec saved.
+vtoeptrue saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+-------FORWARD-------
+type(cmdlinearg) <class 'int'>
+Command line argument: 4
+Current working directory: v4
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Computational parameters saved.
+vxvec saved.
+vtoeptrue saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+-------FORWARD-------
+type(cmdlinearg) <class 'int'>
+Command line argument: 5
+Current working directory: v5
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Computational parameters saved.
+vxvec saved.
+vtoeptrue saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+-------FORWARD-------
+type(cmdlinearg) <class 'int'>
+Command line argument: 6
+Current working directory: v6
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Computational parameters saved.
+vxvec saved.
+vtoeptrue saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.

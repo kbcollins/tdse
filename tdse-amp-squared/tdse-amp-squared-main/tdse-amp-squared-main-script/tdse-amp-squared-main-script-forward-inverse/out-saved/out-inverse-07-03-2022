@@ -1,0 +1,245 @@
+2022-07-02 13:01:09.052964: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INVERSE-------
+Command line argument: ./v0
+Current working directory: v0
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000004
+         Iterations: 3977
+         Function evaluations: 4048
+         Gradient evaluations: 4038
+rsltadjthetarnd saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1607.0722284923086
+l2 error of shifted learned potential:
+1081.7839772070372
+l2 error of shifted and trimmed learned potential:
+96.16163501931
+l-inf error of learned potential:
+37.56035411673148
+l-inf error of shifted learned potential:
+12.065573297591415
+l-inf error of shifted and trimmed learned potential:
+2.967895328731465
+2022-07-02 13:03:34.819440: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INVERSE-------
+Command line argument: ./v1
+Current working directory: v1
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000002
+         Iterations: 1955
+         Function evaluations: 1985
+         Gradient evaluations: 1977
+rsltadjthetarnd saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1057.4247347709845
+l2 error of shifted learned potential:
+911.1088021756486
+l2 error of shifted and trimmed learned potential:
+17.017165269949725
+l-inf error of learned potential:
+17.65581057188812
+l-inf error of shifted learned potential:
+6.457220948789408
+l-inf error of shifted and trimmed learned potential:
+0.5310280914895461
+2022-07-02 13:05:05.895779: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INVERSE-------
+Command line argument: ./v2
+Current working directory: v2
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000005
+         Iterations: 4000
+         Function evaluations: 4052
+         Gradient evaluations: 4052
+rsltadjthetarnd saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1776.0092556488853
+l2 error of shifted learned potential:
+1627.685812093564
+l2 error of shifted and trimmed learned potential:
+18.39737478743045
+l-inf error of learned potential:
+24.16621767609312
+l-inf error of shifted learned potential:
+9.25383019075638
+l-inf error of shifted and trimmed learned potential:
+0.619906947272587
+2022-07-02 13:07:32.350223: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INVERSE-------
+Command line argument: ./v3
+Current working directory: v3
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1295
+         Function evaluations: 1343
+         Gradient evaluations: 1332
+rsltadjthetarnd saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1.3428410662800367
+l2 error of shifted learned potential:
+0.31328467306287605
+l2 error of shifted and trimmed learned potential:
+0.01756646060025995
+l-inf error of learned potential:
+0.041233769744286004
+l-inf error of shifted learned potential:
+0.0022220068241279828
+l-inf error of shifted and trimmed learned potential:
+0.0005909912146453432
+2022-07-02 13:08:45.153107: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INVERSE-------
+Command line argument: ./v4
+Current working directory: v4
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1947
+         Function evaluations: 1995
+         Gradient evaluations: 1985
+rsltadjthetarnd saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+2.5936991983888196
+l2 error of shifted learned potential:
+0.8081680217002625
+l2 error of shifted and trimmed learned potential:
+0.13294927503542092
+l-inf error of learned potential:
+0.0778523947953531
+l-inf error of shifted learned potential:
+0.00944093311561454
+l-inf error of shifted and trimmed learned potential:
+0.004085898380868591
+2022-07-02 13:10:16.281890: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INVERSE-------
+Command line argument: ./v5
+Current working directory: v5
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3210
+         Function evaluations: 3269
+         Gradient evaluations: 3257
+rsltadjthetarnd saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+24.634417917206335
+l2 error of shifted learned potential:
+12.024882309750387
+l2 error of shifted and trimmed learned potential:
+1.8807185172604883
+l-inf error of learned potential:
+0.7068403573362487
+l-inf error of shifted learned potential:
+0.13537891364198718
+l-inf error of shifted and trimmed learned potential:
+0.0578392145387685
+2022-07-02 13:12:24.154459: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INVERSE-------
+Command line argument: ./v6
+Current working directory: v6
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1147
+         Function evaluations: 1174
+         Gradient evaluations: 1165
+rsltadjthetarnd saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+8.688095802537825
+l2 error of shifted learned potential:
+0.020184333942873913
+l2 error of shifted and trimmed learned potential:
+0.01657606562123072
+l-inf error of learned potential:
+0.27137047054920926
+l-inf error of shifted learned potential:
+0.0006091557417983576
+l-inf error of shifted and trimmed learned potential:
+0.0006191451502715283
