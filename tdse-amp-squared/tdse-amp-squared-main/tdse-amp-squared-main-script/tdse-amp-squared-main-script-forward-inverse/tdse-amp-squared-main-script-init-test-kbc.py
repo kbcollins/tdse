@@ -499,14 +499,14 @@ for i in range(len(thetavec)):
     plt.close()
 
 # plot all of the shifted potentials together
-for i in range(len(thetavec)):
-    thisvxshifted = thisvxshifted[i]
+for i in range(len(vxshiftedvec)):
+    thisvxshifted = vxshiftedvec[i]
     thisthetaname = thetanamevec[i]
     plt.plot(xvec, thisvxshifted, '.-', label=thisthetaname)
 
 plt.plot(xvec, vxvec, label='True')
 plt.xlabel('x')
-plt.title(f'Shifted Learned Potential vs. True Potential - {thisthetaname}')
+plt.title(f'All Shifted Learned Potential vs. True Potential')
 plt.legend()
 # plt.show()
 plt.savefig(cwddir / f'graph_init-test_all_shifted_vs_true_potential.pdf', format='pdf')
