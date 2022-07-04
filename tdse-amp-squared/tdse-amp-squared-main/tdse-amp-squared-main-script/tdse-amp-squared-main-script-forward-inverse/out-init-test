@@ -1,0 +1,1617 @@
+2022-07-04 13:20:18.767597: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INIT TEST-------
+Command line argument: ./v0
+Current working directory: v0
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+Starting inverse problem.
+Training data generated.
+
+Starting training.
+seed = 1234
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000003
+         Iterations: 4000
+         Function evaluations: 4014
+         Gradient evaluations: 4014
+midpointindex = 512
+trim = 171
+
+thetarnduniform - l2 error of potential:
+1428.1510829896745
+thetarnduniform - l2 error of shifted potential:
+820.9619584015137
+thetarnduniform - l2 error of shifted and trimmed potential:
+75.93892365200857
+thetarnduniform - l-inf error of potential:
+36.6905202739713
+thetarnduniform - l-inf error of shifted potential:
+8.756958968423453
+thetarnduniform - l-inf error of shifted and trimmed potential:
+2.339936439816568
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000003
+         Iterations: 2711
+         Function evaluations: 2774
+         Gradient evaluations: 2764
+midpointindex = 512
+trim = 171
+
+thetarnduniformnarrow - l2 error of potential:
+1497.471592605959
+thetarnduniformnarrow - l2 error of shifted potential:
+912.3434940569285
+thetarnduniformnarrow - l2 error of shifted and trimmed potential:
+67.82315798513389
+thetarnduniformnarrow - l-inf error of potential:
+37.562454702646015
+thetarnduniformnarrow - l-inf error of shifted potential:
+10.319253464432661
+thetarnduniformnarrow - l-inf error of shifted and trimmed potential:
+2.099126737522409
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.131346
+         Iterations: 4000
+         Function evaluations: 4054
+         Gradient evaluations: 4054
+midpointindex = 512
+trim = 171
+
+thetarnduniformwide - l2 error of potential:
+4901.288938536232
+thetarnduniformwide - l2 error of shifted potential:
+24773.821745047906
+thetarnduniformwide - l2 error of shifted and trimmed potential:
+20914.369566100293
+thetarnduniformwide - l-inf error of potential:
+108.66526048769384
+thetarnduniformwide - l-inf error of shifted potential:
+759.4185410632706
+thetarnduniformwide - l-inf error of shifted and trimmed potential:
+784.7798735654826
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.002951
+         Iterations: 3854
+         Function evaluations: 3918
+         Gradient evaluations: 3908
+midpointindex = 512
+trim = 171
+
+thetarnduniformpositive - l2 error of potential:
+1377.1930418696456
+thetarnduniformpositive - l2 error of shifted potential:
+1991.4568727252226
+thetarnduniformpositive - l2 error of shifted and trimmed potential:
+1512.4034538342783
+thetarnduniformpositive - l-inf error of potential:
+38.139980671737206
+thetarnduniformpositive - l-inf error of shifted potential:
+58.960450541614804
+thetarnduniformpositive - l-inf error of shifted and trimmed potential:
+56.74751057478967
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.008969
+         Iterations: 4000
+         Function evaluations: 4043
+         Gradient evaluations: 4043
+midpointindex = 512
+trim = 171
+
+thetarndnormal - l2 error of potential:
+2160.4781122377167
+thetarndnormal - l2 error of shifted potential:
+2306.2931495952953
+thetarndnormal - l2 error of shifted and trimmed potential:
+1230.5428971898216
+thetarndnormal - l-inf error of potential:
+47.14625602895785
+thetarndnormal - l-inf error of shifted potential:
+52.10299306290744
+thetarndnormal - l-inf error of shifted and trimmed potential:
+32.01500100561385
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000002
+         Iterations: 3177
+         Function evaluations: 3233
+         Gradient evaluations: 3221
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrow - l2 error of potential:
+1807.7767948690578
+thetarndnormalnarrow - l2 error of shifted potential:
+1358.0688080015827
+thetarndnormalnarrow - l2 error of shifted and trimmed potential:
+8.573893803656585
+thetarndnormalnarrow - l-inf error of potential:
+38.50183562505917
+thetarndnormalnarrow - l-inf error of shifted potential:
+10.232727100232264
+thetarndnormalnarrow - l-inf error of shifted and trimmed potential:
+0.27182784574919355
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.049918
+         Iterations: 4000
+         Function evaluations: 4030
+         Gradient evaluations: 4030
+midpointindex = 512
+trim = 171
+
+thetarndnormalwide - l2 error of potential:
+2569.3416312348695
+thetarndnormalwide - l2 error of shifted potential:
+2225.4598070681236
+thetarndnormalwide - l2 error of shifted and trimmed potential:
+1743.1911952861517
+thetarndnormalwide - l-inf error of potential:
+57.507915918769015
+thetarndnormalwide - l-inf error of shifted potential:
+49.44307012934665
+thetarndnormalwide - l-inf error of shifted and trimmed potential:
+44.21619050849409
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000004
+         Iterations: 3977
+         Function evaluations: 4048
+         Gradient evaluations: 4038
+midpointindex = 512
+trim = 171
+
+thetarndnormalscaled - l2 error of potential:
+1607.0722284923086
+thetarndnormalscaled - l2 error of shifted potential:
+1081.7839772070372
+thetarndnormalscaled - l2 error of shifted and trimmed potential:
+96.16163501931
+thetarndnormalscaled - l-inf error of potential:
+37.56035411673148
+thetarndnormalscaled - l-inf error of shifted potential:
+12.065573297591415
+thetarndnormalscaled - l-inf error of shifted and trimmed potential:
+2.967895328731465
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000004
+         Iterations: 3749
+         Function evaluations: 3789
+         Gradient evaluations: 3778
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrowscaled - l2 error of potential:
+1606.9342773170495
+thetarndnormalnarrowscaled - l2 error of shifted potential:
+1081.5980211374265
+thetarndnormalnarrowscaled - l2 error of shifted and trimmed potential:
+96.13083527946188
+thetarndnormalnarrowscaled - l-inf error of potential:
+37.55966246896602
+thetarndnormalnarrowscaled - l-inf error of shifted potential:
+12.062694898825587
+thetarndnormalnarrowscaled - l-inf error of shifted and trimmed potential:
+2.9668305204746743
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000004
+         Iterations: 3991
+         Function evaluations: 4069
+         Gradient evaluations: 4061
+midpointindex = 512
+trim = 171
+
+thetarndnormalwidescaled - l2 error of potential:
+1607.1201077067199
+thetarndnormalwidescaled - l2 error of shifted potential:
+1081.7963482479297
+thetarndnormalwidescaled - l2 error of shifted and trimmed potential:
+96.16802126380982
+thetarndnormalwidescaled - l-inf error of potential:
+37.561958333049475
+thetarndnormalwidescaled - l-inf error of shifted potential:
+12.065748777656092
+thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
+2.9680774201673716
+
+Traceback (most recent call last):
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+    thisvxshifted = thisvxshifted[i]
+NameError: name 'thisvxshifted' is not defined
+2022-07-04 13:38:03.124542: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INIT TEST-------
+Command line argument: ./v1
+Current working directory: v1
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+Starting inverse problem.
+Training data generated.
+
+Starting training.
+seed = 1234
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000001
+         Iterations: 4000
+         Function evaluations: 4021
+         Gradient evaluations: 4021
+midpointindex = 512
+trim = 171
+
+thetarnduniform - l2 error of potential:
+731.317344635618
+thetarnduniform - l2 error of shifted potential:
+506.9407587721121
+thetarnduniform - l2 error of shifted and trimmed potential:
+3.456438129204114
+thetarnduniform - l-inf error of potential:
+16.687617293051577
+thetarnduniform - l-inf error of shifted potential:
+2.792481374391287
+thetarnduniform - l-inf error of shifted and trimmed potential:
+0.11241020005552375
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000002
+         Iterations: 2026
+         Function evaluations: 2060
+         Gradient evaluations: 2049
+midpointindex = 512
+trim = 171
+
+thetarnduniformnarrow - l2 error of potential:
+1057.5731329446357
+thetarnduniformnarrow - l2 error of shifted potential:
+911.5002255134694
+thetarnduniformnarrow - l2 error of shifted and trimmed potential:
+16.975941582097335
+thetarnduniformnarrow - l-inf error of potential:
+17.645184277773993
+thetarnduniformnarrow - l-inf error of shifted potential:
+6.456842419981012
+thetarnduniformnarrow - l-inf error of shifted and trimmed potential:
+0.5297366736121167
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.141238
+         Iterations: 4000
+         Function evaluations: 4024
+         Gradient evaluations: 4024
+midpointindex = 512
+trim = 171
+
+thetarnduniformwide - l2 error of potential:
+4591.793981565271
+thetarnduniformwide - l2 error of shifted potential:
+24752.44311066885
+thetarnduniformwide - l2 error of shifted and trimmed potential:
+20552.351181886534
+thetarnduniformwide - l-inf error of potential:
+98.98134395179639
+thetarnduniformwide - l-inf error of shifted potential:
+760.0953927147766
+thetarnduniformwide - l-inf error of shifted and trimmed potential:
+771.4397505295498
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.001645
+         Iterations: 4000
+         Function evaluations: 4049
+         Gradient evaluations: 4049
+midpointindex = 512
+trim = 171
+
+thetarnduniformpositive - l2 error of potential:
+820.8801209748281
+thetarnduniformpositive - l2 error of shifted potential:
+2152.2361048373427
+thetarnduniformpositive - l2 error of shifted and trimmed potential:
+1779.2110552275797
+thetarnduniformpositive - l-inf error of potential:
+19.525594363198543
+thetarnduniformpositive - l-inf error of shifted potential:
+64.92719367594235
+thetarnduniformpositive - l-inf error of shifted and trimmed potential:
+65.06804127824947
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.008358
+         Iterations: 4000
+         Function evaluations: 4037
+         Gradient evaluations: 4037
+midpointindex = 512
+trim = 171
+
+thetarndnormal - l2 error of potential:
+1623.9797941527022
+thetarndnormal - l2 error of shifted potential:
+1790.6489985105534
+thetarndnormal - l2 error of shifted and trimmed potential:
+698.8256278739167
+thetarndnormal - l-inf error of potential:
+30.237558349100308
+thetarndnormal - l-inf error of shifted potential:
+35.21888905914013
+thetarndnormal - l-inf error of shifted and trimmed potential:
+18.191241659703202
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000002
+         Iterations: 2436
+         Function evaluations: 2486
+         Gradient evaluations: 2475
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrow - l2 error of potential:
+1219.5388419026572
+thetarndnormalnarrow - l2 error of shifted potential:
+1086.9226655061016
+thetarndnormalnarrow - l2 error of shifted and trimmed potential:
+17.558128306929422
+thetarndnormalnarrow - l-inf error of potential:
+18.48070325780094
+thetarndnormalnarrow - l-inf error of shifted potential:
+7.546824788830934
+thetarndnormalnarrow - l-inf error of shifted and trimmed potential:
+0.5473609540036649
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.063958
+         Iterations: 4000
+         Function evaluations: 4024
+         Gradient evaluations: 4024
+midpointindex = 512
+trim = 171
+
+thetarndnormalwide - l2 error of potential:
+2423.2582529938236
+thetarndnormalwide - l2 error of shifted potential:
+2452.013487422582
+thetarndnormalwide - l2 error of shifted and trimmed potential:
+1818.9942898434717
+thetarndnormalwide - l-inf error of potential:
+56.315954484495606
+thetarndnormalwide - l-inf error of shifted potential:
+56.837074311480244
+thetarndnormalwide - l-inf error of shifted and trimmed potential:
+48.13381710127759
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000002
+         Iterations: 1955
+         Function evaluations: 1985
+         Gradient evaluations: 1977
+midpointindex = 512
+trim = 171
+
+thetarndnormalscaled - l2 error of potential:
+1057.4247347709845
+thetarndnormalscaled - l2 error of shifted potential:
+911.1088021756486
+thetarndnormalscaled - l2 error of shifted and trimmed potential:
+17.017165269949725
+thetarndnormalscaled - l-inf error of potential:
+17.65581057188812
+thetarndnormalscaled - l-inf error of shifted potential:
+6.457220948789408
+thetarndnormalscaled - l-inf error of shifted and trimmed potential:
+0.5310280914895461
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000002
+         Iterations: 1951
+         Function evaluations: 1987
+         Gradient evaluations: 1978
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrowscaled - l2 error of potential:
+1057.481735916179
+thetarndnormalnarrowscaled - l2 error of shifted potential:
+911.1914263459705
+thetarndnormalnarrowscaled - l2 error of shifted and trimmed potential:
+17.007772534268764
+thetarndnormalnarrowscaled - l-inf error of potential:
+17.655015694923545
+thetarndnormalnarrowscaled - l-inf error of shifted potential:
+6.457024665495603
+thetarndnormalnarrowscaled - l-inf error of shifted and trimmed potential:
+0.530731492907493
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000002
+         Iterations: 1956
+         Function evaluations: 1982
+         Gradient evaluations: 1970
+midpointindex = 512
+trim = 171
+
+thetarndnormalwidescaled - l2 error of potential:
+1057.4476322781632
+thetarndnormalwidescaled - l2 error of shifted potential:
+911.1031223325961
+thetarndnormalwidescaled - l2 error of shifted and trimmed potential:
+17.017485818364374
+thetarndnormalwidescaled - l-inf error of potential:
+17.65741312857348
+thetarndnormalwidescaled - l-inf error of shifted potential:
+6.457190095411211
+thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
+0.5310375066641303
+
+Traceback (most recent call last):
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+    thisvxshifted = thisvxshifted[i]
+NameError: name 'thisvxshifted' is not defined
+2022-07-04 13:52:34.911274: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INIT TEST-------
+Command line argument: ./v2
+Current working directory: v2
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+Starting inverse problem.
+Training data generated.
+
+Starting training.
+seed = 1234
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000005
+         Iterations: 4000
+         Function evaluations: 4026
+         Gradient evaluations: 4026
+midpointindex = 512
+trim = 171
+
+thetarnduniform - l2 error of potential:
+2049.9407301490915
+thetarnduniform - l2 error of shifted potential:
+1949.6597897248394
+thetarnduniform - l2 error of shifted and trimmed potential:
+13.377393707372939
+thetarnduniform - l-inf error of potential:
+22.58127615463202
+thetarnduniform - l-inf error of shifted potential:
+11.761283465905162
+thetarnduniform - l-inf error of shifted and trimmed potential:
+0.4159071390357554
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000006
+         Iterations: 4000
+         Function evaluations: 4021
+         Gradient evaluations: 4021
+midpointindex = 512
+trim = 171
+
+thetarnduniformnarrow - l2 error of potential:
+1579.237066240573
+thetarnduniformnarrow - l2 error of shifted potential:
+1405.7255448168926
+thetarnduniformnarrow - l2 error of shifted and trimmed potential:
+28.053403395516803
+thetarnduniformnarrow - l-inf error of potential:
+23.738150515844236
+thetarnduniformnarrow - l-inf error of shifted potential:
+8.789503988296044
+thetarnduniformnarrow - l-inf error of shifted and trimmed potential:
+0.8652878375368409
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.115262
+         Iterations: 4000
+         Function evaluations: 4028
+         Gradient evaluations: 4028
+midpointindex = 512
+trim = 171
+
+thetarnduniformwide - l2 error of potential:
+4746.028715637446
+thetarnduniformwide - l2 error of shifted potential:
+8116.8709061466225
+thetarnduniformwide - l2 error of shifted and trimmed potential:
+7100.714438711669
+thetarnduniformwide - l-inf error of potential:
+103.84402624508576
+thetarnduniformwide - l-inf error of shifted potential:
+217.96727668419453
+thetarnduniformwide - l-inf error of shifted and trimmed potential:
+238.56286909407058
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.001593
+         Iterations: 4000
+         Function evaluations: 4024
+         Gradient evaluations: 4024
+midpointindex = 512
+trim = 171
+
+thetarnduniformpositive - l2 error of potential:
+1836.0552880807988
+thetarnduniformpositive - l2 error of shifted potential:
+1704.1477462338057
+thetarnduniformpositive - l2 error of shifted and trimmed potential:
+705.0345246143945
+thetarnduniformpositive - l-inf error of potential:
+25.34953644244899
+thetarnduniformpositive - l-inf error of shifted potential:
+25.132830136465472
+thetarnduniformpositive - l-inf error of shifted and trimmed potential:
+18.908290434215143
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.008219
+         Iterations: 4000
+         Function evaluations: 4044
+         Gradient evaluations: 4044
+midpointindex = 512
+trim = 171
+
+thetarndnormal - l2 error of potential:
+2075.0842870533966
+thetarndnormal - l2 error of shifted potential:
+2216.6310067483096
+thetarndnormal - l2 error of shifted and trimmed potential:
+753.1178166665164
+thetarndnormal - l-inf error of potential:
+34.29127227930478
+thetarndnormal - l-inf error of shifted potential:
+39.96806455734985
+thetarndnormal - l-inf error of shifted and trimmed potential:
+20.78919361129635
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000006
+         Iterations: 4000
+         Function evaluations: 4053
+         Gradient evaluations: 4053
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrow - l2 error of potential:
+1971.4225588964578
+thetarndnormalnarrow - l2 error of shifted potential:
+1846.6263642117738
+thetarndnormalnarrow - l2 error of shifted and trimmed potential:
+15.45677721738539
+thetarndnormalnarrow - l-inf error of potential:
+24.18275096790382
+thetarndnormalnarrow - l-inf error of shifted potential:
+11.406304779740898
+thetarndnormalnarrow - l-inf error of shifted and trimmed potential:
+0.48288063009221
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.063830
+         Iterations: 4000
+         Function evaluations: 4030
+         Gradient evaluations: 4030
+midpointindex = 512
+trim = 171
+
+thetarndnormalwide - l2 error of potential:
+2587.42331686725
+thetarndnormalwide - l2 error of shifted potential:
+2445.5462120738553
+thetarndnormalwide - l2 error of shifted and trimmed potential:
+1675.0205366516673
+thetarndnormalwide - l-inf error of potential:
+53.580578609897536
+thetarndnormalwide - l-inf error of shifted potential:
+51.7618307213187
+thetarndnormalwide - l-inf error of shifted and trimmed potential:
+44.919661209163095
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000005
+         Iterations: 4000
+         Function evaluations: 4052
+         Gradient evaluations: 4052
+midpointindex = 512
+trim = 171
+
+thetarndnormalscaled - l2 error of potential:
+1776.0092556488853
+thetarndnormalscaled - l2 error of shifted potential:
+1627.685812093564
+thetarndnormalscaled - l2 error of shifted and trimmed potential:
+18.39737478743045
+thetarndnormalscaled - l-inf error of potential:
+24.16621767609312
+thetarndnormalscaled - l-inf error of shifted potential:
+9.25383019075638
+thetarndnormalscaled - l-inf error of shifted and trimmed potential:
+0.619906947272587
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000005
+         Iterations: 4000
+         Function evaluations: 4048
+         Gradient evaluations: 4048
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrowscaled - l2 error of potential:
+2060.4921933327523
+thetarndnormalnarrowscaled - l2 error of shifted potential:
+1949.3428410905692
+thetarndnormalnarrowscaled - l2 error of shifted and trimmed potential:
+13.18234787058641
+thetarndnormalnarrowscaled - l-inf error of potential:
+23.52607503707444
+thetarndnormalnarrowscaled - l-inf error of shifted potential:
+11.75842382538611
+thetarndnormalnarrowscaled - l-inf error of shifted and trimmed potential:
+0.4100530525528438
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000005
+         Iterations: 4000
+         Function evaluations: 4053
+         Gradient evaluations: 4053
+midpointindex = 512
+trim = 171
+
+thetarndnormalwidescaled - l2 error of potential:
+2060.704615121389
+thetarndnormalwidescaled - l2 error of shifted potential:
+1949.5329645212282
+thetarndnormalwidescaled - l2 error of shifted and trimmed potential:
+13.296628385816904
+thetarndnormalwidescaled - l-inf error of potential:
+23.528788517817247
+thetarndnormalwidescaled - l-inf error of shifted potential:
+11.763388082942495
+thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
+0.41374439471604635
+
+Traceback (most recent call last):
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+    thisvxshifted = thisvxshifted[i]
+NameError: name 'thisvxshifted' is not defined
+2022-07-04 14:11:24.260115: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INIT TEST-------
+Command line argument: ./v3
+Current working directory: v3
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+Starting inverse problem.
+Training data generated.
+
+Starting training.
+seed = 1234
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 2548
+         Function evaluations: 2596
+         Gradient evaluations: 2583
+midpointindex = 512
+trim = 171
+
+thetarnduniform - l2 error of potential:
+29.27097790882366
+thetarnduniform - l2 error of shifted potential:
+0.3134762975589194
+thetarnduniform - l2 error of shifted and trimmed potential:
+0.01907380490934336
+thetarnduniform - l-inf error of potential:
+0.9142193209943994
+thetarnduniform - l-inf error of shifted potential:
+0.002257617632059252
+thetarnduniform - l-inf error of shifted and trimmed potential:
+0.0006381626921943461
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1372
+         Function evaluations: 1424
+         Gradient evaluations: 1414
+midpointindex = 512
+trim = 171
+
+thetarnduniformnarrow - l2 error of potential:
+1.013748294920835
+thetarnduniformnarrow - l2 error of shifted potential:
+0.3133081433598567
+thetarnduniformnarrow - l2 error of shifted and trimmed potential:
+0.01826186613860394
+thetarnduniformnarrow - l-inf error of potential:
+0.03064422968022446
+thetarnduniformnarrow - l-inf error of shifted potential:
+0.0022557555651745247
+thetarnduniformnarrow - l-inf error of shifted and trimmed potential:
+0.0006153373626832038
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.116080
+         Iterations: 4000
+         Function evaluations: 4049
+         Gradient evaluations: 4049
+midpointindex = 512
+trim = 171
+
+thetarnduniformwide - l2 error of potential:
+4572.914970955331
+thetarnduniformwide - l2 error of shifted potential:
+16533.20045995655
+thetarnduniformwide - l2 error of shifted and trimmed potential:
+13596.617624577535
+thetarnduniformwide - l-inf error of potential:
+100.08304321203993
+thetarnduniformwide - l-inf error of shifted potential:
+499.26558623194063
+thetarnduniformwide - l-inf error of shifted and trimmed potential:
+501.2449586861291
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.010053
+         Iterations: 4000
+         Function evaluations: 4034
+         Gradient evaluations: 4034
+midpointindex = 512
+trim = 171
+
+thetarnduniformpositive - l2 error of potential:
+404.20683039957544
+thetarnduniformpositive - l2 error of shifted potential:
+2502.34624485817
+thetarnduniformpositive - l2 error of shifted and trimmed potential:
+2088.03392131899
+thetarnduniformpositive - l-inf error of potential:
+9.141000738211622
+thetarnduniformpositive - l-inf error of shifted potential:
+77.1698737954448
+thetarnduniformpositive - l-inf error of shifted and trimmed potential:
+78.88723240870074
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.006651
+         Iterations: 4000
+         Function evaluations: 4070
+         Gradient evaluations: 4070
+midpointindex = 512
+trim = 171
+
+thetarndnormal - l2 error of potential:
+1172.8256660282009
+thetarndnormal - l2 error of shifted potential:
+1227.916233246732
+thetarndnormal - l2 error of shifted and trimmed potential:
+935.2233417606444
+thetarndnormal - l-inf error of potential:
+21.722866591765587
+thetarndnormal - l-inf error of shifted potential:
+24.753180556249593
+thetarndnormal - l-inf error of shifted and trimmed potential:
+21.457390965884276
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 2368
+         Function evaluations: 2430
+         Gradient evaluations: 2417
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrow - l2 error of potential:
+26.93017663739281
+thetarndnormalnarrow - l2 error of shifted potential:
+0.3135493500215199
+thetarndnormalnarrow - l2 error of shifted and trimmed potential:
+0.013881503802603706
+thetarndnormalnarrow - l-inf error of potential:
+0.8411003832804501
+thetarndnormalnarrow - l-inf error of shifted potential:
+0.002049288343105148
+thetarndnormalnarrow - l-inf error of shifted and trimmed potential:
+0.0004611945204792607
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.054655
+         Iterations: 4000
+         Function evaluations: 4025
+         Gradient evaluations: 4025
+midpointindex = 512
+trim = 171
+
+thetarndnormalwide - l2 error of potential:
+2145.7860588075796
+thetarndnormalwide - l2 error of shifted potential:
+2153.151999887926
+thetarndnormalwide - l2 error of shifted and trimmed potential:
+1755.1626745616013
+thetarndnormalwide - l-inf error of potential:
+48.6477688945418
+thetarndnormalwide - l-inf error of shifted potential:
+49.51356494461318
+thetarndnormalwide - l-inf error of shifted and trimmed potential:
+45.29296827386304
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1295
+         Function evaluations: 1343
+         Gradient evaluations: 1332
+midpointindex = 512
+trim = 171
+
+thetarndnormalscaled - l2 error of potential:
+1.3428410662800367
+thetarndnormalscaled - l2 error of shifted potential:
+0.31328467306287605
+thetarndnormalscaled - l2 error of shifted and trimmed potential:
+0.01756646060025995
+thetarndnormalscaled - l-inf error of potential:
+0.041233769744286004
+thetarndnormalscaled - l-inf error of shifted potential:
+0.0022220068241279828
+thetarndnormalscaled - l-inf error of shifted and trimmed potential:
+0.0005909912146453432
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1297
+         Function evaluations: 1335
+         Gradient evaluations: 1326
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrowscaled - l2 error of potential:
+1.3178870671825145
+thetarndnormalnarrowscaled - l2 error of shifted potential:
+0.3132850842099214
+thetarndnormalnarrowscaled - l2 error of shifted and trimmed potential:
+0.017637664843250536
+thetarndnormalnarrowscaled - l-inf error of potential:
+0.04043848714773894
+thetarndnormalnarrowscaled - l-inf error of shifted potential:
+0.002225094655081394
+thetarndnormalnarrowscaled - l-inf error of shifted and trimmed potential:
+0.0005936183408433872
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1303
+         Function evaluations: 1359
+         Gradient evaluations: 1347
+midpointindex = 512
+trim = 171
+
+thetarndnormalwidescaled - l2 error of potential:
+1.3928270337571427
+thetarndnormalwidescaled - l2 error of shifted potential:
+0.31328440952673237
+thetarndnormalwidescaled - l2 error of shifted and trimmed potential:
+0.017430173262448768
+thetarndnormalwidescaled - l-inf error of potential:
+0.04282448179969369
+thetarndnormalwidescaled - l-inf error of shifted potential:
+0.002216258056467341
+thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
+0.0005861251969310958
+
+Traceback (most recent call last):
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+    thisvxshifted = thisvxshifted[i]
+NameError: name 'thisvxshifted' is not defined
+2022-07-04 14:24:04.786169: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INIT TEST-------
+Command line argument: ./v4
+Current working directory: v4
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+Starting inverse problem.
+Training data generated.
+
+Starting training.
+seed = 1234
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3667
+         Function evaluations: 3705
+         Gradient evaluations: 3698
+midpointindex = 512
+trim = 171
+
+thetarnduniform - l2 error of potential:
+28.11814394199113
+thetarnduniform - l2 error of shifted potential:
+0.8083590279265618
+thetarnduniform - l2 error of shifted and trimmed potential:
+0.13353700405994215
+thetarnduniform - l-inf error of potential:
+0.87791028015004
+thetarnduniform - l-inf error of shifted potential:
+0.00945531136301886
+thetarnduniform - l-inf error of shifted and trimmed potential:
+0.004105620412849979
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 2264
+         Function evaluations: 2310
+         Gradient evaluations: 2298
+midpointindex = 512
+trim = 171
+
+thetarnduniformnarrow - l2 error of potential:
+2.2709720108242055
+thetarnduniformnarrow - l2 error of shifted potential:
+0.8080897528104387
+thetarnduniformnarrow - l2 error of shifted and trimmed potential:
+0.1331744491036407
+thetarnduniformnarrow - l-inf error of potential:
+0.0673489219109218
+thetarnduniformnarrow - l-inf error of shifted potential:
+0.009447367042862318
+thetarnduniformnarrow - l-inf error of shifted and trimmed potential:
+0.004093029769948182
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.106614
+         Iterations: 4000
+         Function evaluations: 4040
+         Gradient evaluations: 4040
+midpointindex = 512
+trim = 171
+
+thetarnduniformwide - l2 error of potential:
+4050.224106603633
+thetarnduniformwide - l2 error of shifted potential:
+11848.487618174993
+thetarnduniformwide - l2 error of shifted and trimmed potential:
+9661.251691571531
+thetarnduniformwide - l-inf error of potential:
+85.14889496012069
+thetarnduniformwide - l-inf error of shifted potential:
+353.333933742244
+thetarnduniformwide - l-inf error of shifted and trimmed potential:
+349.579455905127
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.010014
+         Iterations: 3651
+         Function evaluations: 3736
+         Gradient evaluations: 3726
+midpointindex = 512
+trim = 171
+
+thetarnduniformpositive - l2 error of potential:
+1603.9550701503128
+thetarnduniformpositive - l2 error of shifted potential:
+3256.802485283729
+thetarnduniformpositive - l2 error of shifted and trimmed potential:
+2118.7689211228308
+thetarnduniformpositive - l-inf error of potential:
+22.378688508535706
+thetarnduniformpositive - l-inf error of shifted potential:
+88.54674757503112
+thetarnduniformpositive - l-inf error of shifted and trimmed potential:
+80.16745996492553
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.006020
+         Iterations: 4000
+         Function evaluations: 4048
+         Gradient evaluations: 4048
+midpointindex = 512
+trim = 171
+
+thetarndnormal - l2 error of potential:
+742.9735139409345
+thetarndnormal - l2 error of shifted potential:
+745.7134927887369
+thetarndnormal - l2 error of shifted and trimmed potential:
+440.4786283866367
+thetarndnormal - l-inf error of potential:
+15.235484269085806
+thetarndnormal - l-inf error of shifted potential:
+15.036894155724184
+thetarndnormal - l-inf error of shifted and trimmed potential:
+11.350829983443539
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3221
+         Function evaluations: 3256
+         Gradient evaluations: 3244
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrow - l2 error of potential:
+28.10203598845007
+thetarndnormalnarrow - l2 error of shifted potential:
+0.8082983737169728
+thetarndnormalnarrow - l2 error of shifted and trimmed potential:
+0.13445971852315505
+thetarndnormalnarrow - l-inf error of potential:
+0.8774071700562823
+thetarndnormalnarrow - l-inf error of shifted potential:
+0.009497916877349917
+thetarndnormalnarrow - l-inf error of shifted and trimmed potential:
+0.004131874252974851
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.035008
+         Iterations: 4000
+         Function evaluations: 4029
+         Gradient evaluations: 4029
+midpointindex = 512
+trim = 171
+
+thetarndnormalwide - l2 error of potential:
+1977.5555874051831
+thetarndnormalwide - l2 error of shifted potential:
+2005.2629404892557
+thetarndnormalwide - l2 error of shifted and trimmed potential:
+1529.759950336596
+thetarndnormalwide - l-inf error of potential:
+42.19443424161612
+thetarndnormalwide - l-inf error of shifted potential:
+38.51211090652832
+thetarndnormalwide - l-inf error of shifted and trimmed potential:
+31.90874121757425
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1947
+         Function evaluations: 1995
+         Gradient evaluations: 1985
+midpointindex = 512
+trim = 171
+
+thetarndnormalscaled - l2 error of potential:
+2.5936991983888196
+thetarndnormalscaled - l2 error of shifted potential:
+0.8081680217002625
+thetarndnormalscaled - l2 error of shifted and trimmed potential:
+0.13294927503542092
+thetarndnormalscaled - l-inf error of potential:
+0.0778523947953531
+thetarndnormalscaled - l-inf error of shifted potential:
+0.00944093311561454
+thetarndnormalscaled - l-inf error of shifted and trimmed potential:
+0.004085898380868591
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1746
+         Function evaluations: 1805
+         Gradient evaluations: 1794
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrowscaled - l2 error of potential:
+2.569252363548394
+thetarndnormalnarrowscaled - l2 error of shifted potential:
+0.8080605849683375
+thetarndnormalnarrowscaled - l2 error of shifted and trimmed potential:
+0.13294247757259275
+thetarndnormalnarrowscaled - l-inf error of potential:
+0.07706445352708911
+thetarndnormalnarrowscaled - l-inf error of shifted potential:
+0.009440733417102843
+thetarndnormalnarrowscaled - l-inf error of shifted and trimmed potential:
+0.004085698312488961
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1909
+         Function evaluations: 1959
+         Gradient evaluations: 1948
+midpointindex = 512
+trim = 171
+
+thetarndnormalwidescaled - l2 error of potential:
+2.6425823670262827
+thetarndnormalwidescaled - l2 error of shifted potential:
+0.8080601799510286
+thetarndnormalwidescaled - l2 error of shifted and trimmed potential:
+0.13291618693605375
+thetarndnormalwidescaled - l-inf error of potential:
+0.0794325977864247
+thetarndnormalwidescaled - l-inf error of shifted potential:
+0.009440113186457436
+thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
+0.004084875661138383
+
+Traceback (most recent call last):
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+    thisvxshifted = thisvxshifted[i]
+NameError: name 'thisvxshifted' is not defined
+2022-07-04 14:38:39.452232: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INIT TEST-------
+Command line argument: ./v5
+Current working directory: v5
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+Starting inverse problem.
+Training data generated.
+
+Starting training.
+seed = 1234
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3499
+         Function evaluations: 3542
+         Gradient evaluations: 3535
+midpointindex = 512
+trim = 171
+
+thetarnduniform - l2 error of potential:
+14.903368056769184
+thetarnduniform - l2 error of shifted potential:
+12.024917401054418
+thetarnduniform - l2 error of shifted and trimmed potential:
+1.880550531556338
+thetarnduniform - l-inf error of potential:
+0.3203253763334451
+thetarnduniform - l-inf error of shifted potential:
+0.13537170227142775
+thetarnduniform - l-inf error of shifted and trimmed potential:
+0.057833949990916414
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3309
+         Function evaluations: 3355
+         Gradient evaluations: 3345
+midpointindex = 512
+trim = 171
+
+thetarnduniformnarrow - l2 error of potential:
+24.335697387561172
+thetarnduniformnarrow - l2 error of shifted potential:
+12.02491568907631
+thetarnduniformnarrow - l2 error of shifted and trimmed potential:
+1.880675199260472
+thetarnduniformnarrow - l-inf error of potential:
+0.6964601843907979
+thetarnduniformnarrow - l-inf error of shifted potential:
+0.1353767153942137
+thetarnduniformnarrow - l-inf error of shifted and trimmed potential:
+0.05783798294530044
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.419932
+         Iterations: 3441
+         Function evaluations: 3491
+         Gradient evaluations: 3480
+midpointindex = 512
+trim = 171
+
+thetarnduniformwide - l2 error of potential:
+4219.496598404609
+thetarnduniformwide - l2 error of shifted potential:
+10703.937819729506
+thetarnduniformwide - l2 error of shifted and trimmed potential:
+8629.935611186602
+thetarnduniformwide - l-inf error of potential:
+91.73355446137244
+thetarnduniformwide - l-inf error of shifted potential:
+314.0213519743298
+thetarnduniformwide - l-inf error of shifted and trimmed potential:
+308.9513483441829
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.009863
+         Iterations: 4000
+         Function evaluations: 4088
+         Gradient evaluations: 4088
+midpointindex = 512
+trim = 171
+
+thetarnduniformpositive - l2 error of potential:
+419.3708430157229
+thetarnduniformpositive - l2 error of shifted potential:
+2728.1278432873655
+thetarnduniformpositive - l2 error of shifted and trimmed potential:
+2236.55119625785
+thetarnduniformpositive - l-inf error of potential:
+6.729419931286471
+thetarnduniformpositive - l-inf error of shifted potential:
+84.58092861801563
+thetarnduniformpositive - l-inf error of shifted and trimmed potential:
+84.7056790491705
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.028777
+         Iterations: 3733
+         Function evaluations: 3814
+         Gradient evaluations: 3804
+midpointindex = 512
+trim = 171
+
+thetarndnormal - l2 error of potential:
+1274.706438143807
+thetarndnormal - l2 error of shifted potential:
+1285.7392378589286
+thetarndnormal - l2 error of shifted and trimmed potential:
+1069.7475288852438
+thetarndnormal - l-inf error of potential:
+31.335609207600854
+thetarndnormal - l-inf error of shifted potential:
+31.35749557208081
+thetarndnormal - l-inf error of shifted and trimmed potential:
+31.710567149831142
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3228
+         Function evaluations: 3301
+         Gradient evaluations: 3292
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrow - l2 error of potential:
+100.97325772516344
+thetarndnormalnarrow - l2 error of shifted potential:
+88.95637623238768
+thetarndnormalnarrow - l2 error of shifted and trimmed potential:
+4.3475487648152695
+thetarndnormalnarrow - l-inf error of potential:
+1.5585542857287278
+thetarndnormalnarrow - l-inf error of shifted potential:
+0.5977932581943621
+thetarndnormalnarrow - l-inf error of shifted and trimmed potential:
+0.13396957112676774
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.195718
+         Iterations: 3513
+         Function evaluations: 3583
+         Gradient evaluations: 3573
+midpointindex = 512
+trim = 171
+
+thetarndnormalwide - l2 error of potential:
+1856.6435426440528
+thetarndnormalwide - l2 error of shifted potential:
+2058.1872254274285
+thetarndnormalwide - l2 error of shifted and trimmed potential:
+1583.5911899761895
+thetarndnormalwide - l-inf error of potential:
+42.78761775496157
+thetarndnormalwide - l-inf error of shifted potential:
+51.44714528450368
+thetarndnormalwide - l-inf error of shifted and trimmed potential:
+48.991463256829576
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3210
+         Function evaluations: 3269
+         Gradient evaluations: 3257
+midpointindex = 512
+trim = 171
+
+thetarndnormalscaled - l2 error of potential:
+24.634417917206335
+thetarndnormalscaled - l2 error of shifted potential:
+12.024882309750387
+thetarndnormalscaled - l2 error of shifted and trimmed potential:
+1.8807185172604883
+thetarndnormalscaled - l-inf error of potential:
+0.7068403573362487
+thetarndnormalscaled - l-inf error of shifted potential:
+0.13537891364198718
+thetarndnormalscaled - l-inf error of shifted and trimmed potential:
+0.0578392145387685
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3018
+         Function evaluations: 3058
+         Gradient evaluations: 3046
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrowscaled - l2 error of potential:
+24.611921353762995
+thetarndnormalnarrowscaled - l2 error of shifted potential:
+12.02487232877837
+thetarndnormalnarrowscaled - l2 error of shifted and trimmed potential:
+1.8808476939080665
+thetarndnormalnarrowscaled - l-inf error of potential:
+0.7060592944944826
+thetarndnormalnarrowscaled - l-inf error of shifted potential:
+0.13538318769188118
+thetarndnormalnarrowscaled - l-inf error of shifted and trimmed potential:
+0.05784318039463935
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3079
+         Function evaluations: 3121
+         Gradient evaluations: 3111
+midpointindex = 512
+trim = 171
+
+thetarndnormalwidescaled - l2 error of potential:
+24.679400801603364
+thetarndnormalwidescaled - l2 error of shifted potential:
+12.0248831922434
+thetarndnormalwidescaled - l2 error of shifted and trimmed potential:
+1.8808655105459127
+thetarndnormalwidescaled - l-inf error of potential:
+0.7083990972601566
+thetarndnormalwidescaled - l-inf error of shifted potential:
+0.1353835133508313
+thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
+0.05784370148158904
+
+Traceback (most recent call last):
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+    thisvxshifted = thisvxshifted[i]
+NameError: name 'thisvxshifted' is not defined
+2022-07-04 14:55:02.091623: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-------INIT TEST-------
+Command line argument: ./v6
+Current working directory: v6
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 64
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+Starting inverse problem.
+Training data generated.
+
+Starting training.
+seed = 1234
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 2585
+         Function evaluations: 2632
+         Gradient evaluations: 2620
+midpointindex = 512
+trim = 171
+
+thetarnduniform - l2 error of potential:
+39.26306903745787
+thetarnduniform - l2 error of shifted potential:
+0.04401640070607007
+thetarnduniform - l2 error of shifted and trimmed potential:
+0.018127755198694504
+thetarnduniform - l-inf error of potential:
+1.226371483900551
+thetarnduniform - l-inf error of shifted potential:
+0.0009795177978865026
+thetarnduniform - l-inf error of shifted and trimmed potential:
+0.0005957551731447138
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1810
+         Function evaluations: 1881
+         Gradient evaluations: 1870
+midpointindex = 512
+trim = 171
+
+thetarnduniformnarrow - l2 error of potential:
+9.029754318507953
+thetarnduniformnarrow - l2 error of shifted potential:
+0.020160740129441898
+thetarnduniformnarrow - l2 error of shifted and trimmed potential:
+0.016451454374143307
+thetarnduniformnarrow - l-inf error of potential:
+0.2820420919773298
+thetarnduniformnarrow - l-inf error of shifted potential:
+0.0006078983823174819
+thetarnduniformnarrow - l-inf error of shifted and trimmed potential:
+0.0006148613408728141
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.123239
+         Iterations: 4000
+         Function evaluations: 4043
+         Gradient evaluations: 4043
+midpointindex = 512
+trim = 171
+
+thetarnduniformwide - l2 error of potential:
+4577.681223258789
+thetarnduniformwide - l2 error of shifted potential:
+24488.845070404306
+thetarnduniformwide - l2 error of shifted and trimmed potential:
+19931.667957761638
+thetarnduniformwide - l-inf error of potential:
+96.5961785796717
+thetarnduniformwide - l-inf error of shifted potential:
+752.0296060579141
+thetarnduniformwide - l-inf error of shifted and trimmed potential:
+747.2376140628002
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.010568
+         Iterations: 3642
+         Function evaluations: 3705
+         Gradient evaluations: 3694
+midpointindex = 512
+trim = 171
+
+thetarnduniformpositive - l2 error of potential:
+541.4398364388874
+thetarnduniformpositive - l2 error of shifted potential:
+2138.751260500598
+thetarnduniformpositive - l2 error of shifted and trimmed potential:
+1761.3587460822016
+thetarnduniformpositive - l-inf error of potential:
+12.922473091312575
+thetarnduniformpositive - l-inf error of shifted potential:
+64.79979029147384
+thetarnduniformpositive - l-inf error of shifted and trimmed potential:
+66.0321614611803
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.007316
+         Iterations: 4000
+         Function evaluations: 4051
+         Gradient evaluations: 4051
+midpointindex = 512
+trim = 171
+
+thetarndnormal - l2 error of potential:
+1188.7343469426417
+thetarndnormal - l2 error of shifted potential:
+1244.9834138694916
+thetarndnormal - l2 error of shifted and trimmed potential:
+943.4185080296088
+thetarndnormal - l-inf error of potential:
+23.415881104854726
+thetarndnormal - l-inf error of shifted potential:
+25.418280648684807
+thetarndnormal - l-inf error of shifted and trimmed potential:
+21.441174237168145
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 2448
+         Function evaluations: 2483
+         Gradient evaluations: 2471
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrow - l2 error of potential:
+16.934402793067203
+thetarndnormalnarrow - l2 error of shifted potential:
+0.05203622510090741
+thetarndnormalnarrow - l2 error of shifted and trimmed potential:
+0.03463482578799626
+thetarndnormalnarrow - l-inf error of potential:
+0.5289407838498063
+thetarndnormalnarrow - l-inf error of shifted potential:
+0.0013412410044811405
+thetarndnormalnarrow - l-inf error of shifted and trimmed potential:
+0.0011774158948792326
+
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.063070
+         Iterations: 4000
+         Function evaluations: 4012
+         Gradient evaluations: 4012
+midpointindex = 512
+trim = 171
+
+thetarndnormalwide - l2 error of potential:
+1745.6743794889953
+thetarndnormalwide - l2 error of shifted potential:
+1750.038852132188
+thetarndnormalwide - l2 error of shifted and trimmed potential:
+1471.5312970711705
+thetarndnormalwide - l-inf error of potential:
+39.941721323164955
+thetarndnormalwide - l-inf error of shifted potential:
+39.500001693349304
+thetarndnormalwide - l-inf error of shifted and trimmed potential:
+38.416512409827426
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1147
+         Function evaluations: 1174
+         Gradient evaluations: 1165
+midpointindex = 512
+trim = 171
+
+thetarndnormalscaled - l2 error of potential:
+8.688095802537825
+thetarndnormalscaled - l2 error of shifted potential:
+0.020184333942873913
+thetarndnormalscaled - l2 error of shifted and trimmed potential:
+0.01657606562123072
+thetarndnormalscaled - l-inf error of potential:
+0.27137047054920926
+thetarndnormalscaled - l-inf error of shifted potential:
+0.0006091557417983576
+thetarndnormalscaled - l-inf error of shifted and trimmed potential:
+0.0006191451502715283
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1322
+         Function evaluations: 1348
+         Gradient evaluations: 1337
+midpointindex = 512
+trim = 171
+
+thetarndnormalnarrowscaled - l2 error of potential:
+8.713772735441193
+thetarndnormalnarrowscaled - l2 error of shifted potential:
+0.021213084682712297
+thetarndnormalnarrowscaled - l2 error of shifted and trimmed potential:
+0.017385010215741643
+thetarndnormalnarrowscaled - l-inf error of potential:
+0.2721725096932288
+thetarndnormalnarrowscaled - l-inf error of shifted potential:
+0.0006526632657930679
+thetarndnormalnarrowscaled - l-inf error of shifted and trimmed potential:
+0.0006519461879158007
+
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1422
+         Function evaluations: 1454
+         Gradient evaluations: 1444
+midpointindex = 512
+trim = 171
+
+thetarndnormalwidescaled - l2 error of potential:
+8.636760834621006
+thetarndnormalwidescaled - l2 error of shifted potential:
+0.022305650739857404
+thetarndnormalwidescaled - l2 error of shifted and trimmed potential:
+0.01817690762834351
+thetarndnormalwidescaled - l-inf error of potential:
+0.2697670584979383
+thetarndnormalwidescaled - l-inf error of shifted potential:
+0.0006859741212564374
+thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
+0.000681529449475079
+
+Traceback (most recent call last):
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+    thisvxshifted = thisvxshifted[i]
+NameError: name 'thisvxshifted' is not defined
