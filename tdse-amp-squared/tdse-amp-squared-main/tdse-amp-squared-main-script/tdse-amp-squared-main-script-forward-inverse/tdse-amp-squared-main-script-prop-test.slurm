@@ -3,7 +3,7 @@
 #SBATCH --gpus=1
 #SBATCH --job-name=kbc-prop-test
 #SBATCH --output='out-prop-test'
-#SBATCH --time=02:00:00
+#SBATCH --time=00:30:00
 
 
 for i in {0..6}
