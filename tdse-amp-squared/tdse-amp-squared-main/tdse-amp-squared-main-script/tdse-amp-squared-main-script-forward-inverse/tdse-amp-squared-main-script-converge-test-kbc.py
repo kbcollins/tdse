@@ -446,14 +446,14 @@ for i in range(numitrs):
     thisvlearnrec = thetatoreal(thisresult)
 
     rawl2err.append(nl.norm(jnp.real(thisvlearnrec) - vxvec))
-    rawlinferr.append(np.mean(np.abs(jnp.real(thisvlearnrec) - vxvec)))
+    rawlinferr.append(np.amax(np.abs(jnp.real(thisvlearnrec) - vxvec)))
 
     shift = vxvec[midpointindex] - jnp.real(thisvlearnrec)[midpointindex]
     shiftl2err.append(nl.norm(jnp.real(thisvlearnrec) + shift - vxvec))
-    shiftlinferr.append(np.mean(np.abs(jnp.real(thisvlearnrec) + shift - vxvec)))
+    shiftlinferr.append(np.amax(np.abs(jnp.real(thisvlearnrec) + shift - vxvec)))
 
     trimshiftl2err.append(nl.norm(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]))
-    trimshiftlinferr.append(np.mean(np.abs(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])))
+    trimshiftlinferr.append(np.amax(np.abs(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])))
 
     if i == 0:
         print('initializing trimshiftl2errbest and thetabestv')

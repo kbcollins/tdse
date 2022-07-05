@@ -459,11 +459,11 @@ for i in range(len(thetavec)):
     print(f'{thisthetaname} - l2 error of shifted and trimmed potential:', thisl2err, sep='\n')
 
     # calculate and return l-inf error
-    print(f'{thisthetaname} - l-inf error of potential:', np.mean(np.abs(jnp.real(thislearnedv) - vxvec)), sep='\n')
+    print(f'{thisthetaname} - l-inf error of potential:', np.amax(np.abs(jnp.real(thislearnedv) - vxvec)), sep='\n')
     print(f'{thisthetaname} - l-inf error of shifted potential:',
-          np.mean(np.abs(jnp.real(thislearnedv) + shift - vxvec)), sep='\n')
-    print(f'{thisthetaname} - l-inf error of shifted and trimmed potential:',
-          np.mean(np.abs(jnp.real(thislearnedv)[trim:-trim] + shift - vxvec[trim:-trim])), sep='\n')
+          np.amax(np.abs(jnp.real(thislearnedv) + shift - vxvec)), sep='\n')
+    thislinferr = np.amax(np.abs(jnp.real(thislearnedv)[trim:-trim] + shift - vxvec[trim:-trim]))
+    print(f'{thisthetaname} - l-inf error of shifted and trimmed potential:', thislinferr, sep='\n')
     print('')  # print a blank line
 
     # learned potential vs. initial potential
@@ -490,7 +490,7 @@ for i in range(len(thetavec)):
     plt.plot(xvec, vxshiftedvec[-1], '.-', label='Learned')
     plt.plot(xvec, vxvec, label='True')
     plt.xlabel('x')
-    plt.title(f'Shifted Learned Potential vs. True Potential - {thisthetaname}\nl2 = {thisl2err}')
+    plt.title(f'Shifted Learned Potential vs. True Potential - {thisthetaname}\nl2 = {thisl2err}\nl-inf = {thislinferr}')
     plt.legend()
     # plt.show()
     plt.savefig(cwddir / f'graph_init-test_{thisthetaname}_shifted_learned_vs_true_potential.pdf', format='pdf')

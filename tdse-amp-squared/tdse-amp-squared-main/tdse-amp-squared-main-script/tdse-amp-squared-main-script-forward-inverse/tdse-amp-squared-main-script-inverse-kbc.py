@@ -410,7 +410,7 @@ print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + sh
 print('l2 error of shifted and trimmed learned potential:', nl.norm(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]), sep='\n')
 
 # calculate and return l2 error
-print('l-inf error of learned potential:', np.mean(np.abs(jnp.real(vlearnrec) - vxvec)), sep='\n')
-print('l-inf error of shifted learned potential:', np.mean(np.abs(jnp.real(vlearnrec) + shift - vxvec)), sep='\n')
-print('l-inf error of shifted and trimmed learned potential:', np.mean(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])), sep='\n')
+print('l-inf error of learned potential:', np.amax(np.abs(jnp.real(vlearnrec) - vxvec)), sep='\n')
+print('l-inf error of shifted learned potential:', np.amax(np.abs(jnp.real(vlearnrec) + shift - vxvec)), sep='\n')
+print('l-inf error of shifted and trimmed learned potential:', np.amax(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])), sep='\n')
 
