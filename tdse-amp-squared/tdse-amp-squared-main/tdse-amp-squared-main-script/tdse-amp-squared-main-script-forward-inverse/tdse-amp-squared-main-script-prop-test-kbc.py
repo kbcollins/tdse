@@ -384,7 +384,7 @@ print('')  # blank line
 # plot of stepwise l2 and l-inf errors for amat
 l2errahatmattestsetbestvstep = nl.norm(amattruetestset - ahatmattestsetbestv, axis=2)
 l2errahatmattestsetbestpropstep = nl.norm(amattruetestset - ahatmattestsetbestprop, axis=2)
-for i in range(a0testset.shape[0]):
+for i in range(len(a0testset)):
     plt.plot(proptimesteps, l2errahatmattestsetbestvstep[i], label=f'best v {i}')
     plt.plot(proptimesteps, l2errahatmattestsetbestpropstep[i], label=f'best prop {i}')
     plt.title('Step-Wise l2 Error of Propagations - Fourier Space')
@@ -410,7 +410,7 @@ print('')  # blank line
 # plot of stepwise l2 and l-inf errors for psimat
 l2errpsihatmattestsetbestvstep = nl.norm(psimattruetestset - psihatmattestsetbestv, axis=2)
 l2errpsihatmattestsetbestpropstep = nl.norm(psimattruetestset - psihatmattestsetbestprop, axis=2)
-for i in range(a0testset.shape[0]):
+for i in range(len(a0testset)):
     plt.plot(proptimesteps, l2errpsihatmattestsetbestvstep[i], label=f'best v {i}')
     plt.plot(proptimesteps, l2errpsihatmattestsetbestpropstep[i], label=f'best prop {i}')
     plt.title('Step-Wise l2 Error of Propagations - Real Space')
@@ -431,7 +431,7 @@ print('')  # blank line
 # plot of stepwise l2 and l-inf errors for trimmed psimat
 triml2errpsihatmattestsetbestvstep = nl.norm(psimattruetestset[:,:,trim:-trim] - psihatmattestsetbestv[:,:,trim:-trim], axis=2)
 triml2errpsihatmattestsetbestpropstep = nl.norm(psimattruetestset[:,:,trim:-trim] - psihatmattestsetbestprop[:,:,trim:-trim], axis=2)
-for i in range(a0testset.shape[0]):
+for i in range(len(a0testset)):
     plt.plot(proptimesteps, triml2errpsihatmattestsetbestvstep[i], label=f'best v {i}')
     plt.plot(proptimesteps, triml2errpsihatmattestsetbestpropstep[i], label=f'best prop {i}')
     plt.title('Step-Wise l2 Error of Propagations - Trimmed Real Space')
