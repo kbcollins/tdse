@@ -521,20 +521,20 @@ plt.close()
 meanrawl2err = np.mean(rawl2err)
 minrawl2err = np.amin(rawl2err)
 maxrawl2err = np.amax(rawl2err)
-avgdevrawl2err = np.mean(np.abs(np.subtract(rawl2err, np.mean(rawl2err))))
-l2percenterror = meanrawl2err / vxrange * 100
+avgdevrawl2err = np.mean(np.abs(np.subtract(rawl2err, meanrawl2err)))
+prcnterrrawl2err = meanrawl2err / vxrange * 100
 print('Mean of rawl2err:', meanrawl2err)
 print('Minumum of rawl2err:', minrawl2err)
 print('Maximum of rawl2err:', maxrawl2err)
 print('Average deviation of rawl2err:', avgdevrawl2err)
-print('Average % error of raw learned potential:', l2percenterror, sep='\n')
+print('Average % error of raw learned potential:', prcnterrrawl2err, sep='\n')
 
-# plot l2 error results
+# plot raw potential l2 error
 plt.plot(rawl2err, '.', label='rawl2err')
 plt.hlines(meanrawl2err, xvec[0], xvec[-1], label='Mean')
 plt.hlines(meanrawl2err + avgdevrawl2err, xvec[0], xvec[-1], '-.', label='_')
 plt.hlines(meanrawl2err - avgdevrawl2err, xvec[0], xvec[-1], '-.', label='_')
-plt.title(f'l2 Error of the Raw Learned Potentials - {numtrials} Trials\nmin={minrawl2err:.4}, max={maxrawl2err:.4},% error = {l2percenterror:.4}')
+plt.title(f'l2 Error of the Raw Learned Potentials - {numtrials} Trials\nmin={minrawl2err:.4}, max={maxrawl2err:.4},% error = {prcnterrrawl2err:.4}')
 plt.xlabel('Trial')
 plt.ylabel('Error')
 plt.legend()
@@ -545,20 +545,20 @@ plt.close()
 meanrawlinferr = np.mean(rawlinferr)
 minrawlinferr = np.amin(rawlinferr)
 maxrawlinferr = np.amax(rawlinferr)
-avgdevrawlinferr = np.mean(np.abs(np.subtract(rawlinferr, np.mean(rawlinferr))))
-linfpercenterror = meanrawlinferr / vxrange * 100
+avgdevrawlinferr = np.mean(np.abs(np.subtract(rawlinferr, meanrawlinferr)))
+prcnterrrawlinferr = meanrawlinferr / vxrange * 100
 print('Mean of rawlinferr:', meanrawlinferr)
 print('Minumum of rawlinferr:', minrawlinferr)
 print('Maximum of rawlinferr:', maxrawlinferr)
 print('Average deviation of rawlinferr:', avgdevrawlinferr)
-print('Max % error of raw learned potential:', linfpercenterror, sep='\n')
+print('Max % error of raw learned potential:', prcnterrrawlinferr, sep='\n')
 
-# plot linf error results
+# plot raw potential l-infinite error
 plt.plot(rawlinferr, '.', label='rawlinferr')
 plt.hlines(meanrawlinferr, xvec[0], xvec[-1], label='Mean')
 plt.hlines(meanrawlinferr + avgdevrawlinferr, xvec[0], xvec[-1], '-.', label='_')
 plt.hlines(meanrawlinferr - avgdevrawlinferr, xvec[0], xvec[-1], '-.', label='_')
-plt.title(f'l-infinite Error of the Raw Learned Potentials - {numtrials} Trials\nmin={minrawlinferr:.4}, max={maxrawlinferr:.4},% error = {linfpercenterror:.4}')
+plt.title(f'l-infinite Error of the Raw Learned Potentials - {numtrials} Trials\nmin={minrawlinferr:.4}, max={maxrawlinferr:.4},% error = {prcnterrrawlinferr:.4}')
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
@@ -566,29 +566,48 @@ plt.savefig(cwddir / 'graph_converge-test_l-infinite_error_rawlinferr.pdf', form
 plt.close()
 
 
-# results of shifted potential
-print('Mean of shiftl2err:', np.mean(shiftl2err))
-print('Minumum of shiftl2err:', np.amin(shiftl2err))
-print('Maximum of shiftl2err:', np.amax(shiftl2err))
-print('Average deviation of shiftl2err:', np.mean(np.abs(np.subtract(shiftl2err, np.mean(shiftl2err)))))
-print('Average % error of shifted learned potential:', np.mean(shiftl2err) / vxrange * 100, sep='\n')
+# results of shifted potential l2 error
+meanshiftl2err = np.mean(shiftl2err)
+minshiftl2err = np.amin(shiftl2err)
+maxshiftl2err = np.amax(shiftl2err)
+avgdevshiftl2err = np.mean(np.abs(np.subtract(shiftl2err, meanshiftl2err)))
+prcnterrshiftl2err = meanshiftl2err / vxrange * 100
+print('Mean of shiftl2err:', meanshiftl2err)
+print('Minumum of shiftl2err:', minshiftl2err)
+print('Maximum of shiftl2err:', maxshiftl2err)
+print('Average deviation of shiftl2err:', avgdevshiftl2err)
+print('Average % error of shifted learned potential:', prcnterrshiftl2err, sep='\n')
 
+# plot shifted potential l2 error
 plt.plot(shiftl2err, '.', label='shiftl2err')
-plt.title(f'l2 Error of the Shifted Learned Potentials - {numtrials} Initializations')
+plt.hlines(meanshiftl2err, xvec[0], xvec[-1], label='Mean')
+plt.hlines(meanshiftl2err + avgdevshiftl2err, xvec[0], xvec[-1], '-.', label='_')
+plt.hlines(meanshiftl2err - avgdevshiftl2err, xvec[0], xvec[-1], '-.', label='_')
+plt.title(f'l2 Error of the Shifted Learned Potentials - {numtrials} Trials\nmin={minshiftl2err:.4}, max={maxshiftl2err:.4},% error = {prcnterrshiftl2err:.4}')
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
 plt.savefig(cwddir / 'graph_converge-test_l2_error_shiftl2err.pdf', format='pdf')
 plt.close()
 
-print('Mean of shiftlinferr:', np.mean(shiftlinferr))
-print('Minumum of shiftlinferr:', np.amin(shiftlinferr))
-print('Maximum of shiftlinferr:', np.amax(shiftlinferr))
-print('Average deviation of shiftlinferr:', np.mean(np.abs(np.subtract(shiftlinferr, np.mean(shiftlinferr)))))
-print('Max % error of shifted learned potential:', np.mean(shiftlinferr) / vxrange * 100, sep='\n')
+# results of shifted potential l-infinite error
+meanshiftlinferr = np.mean(shiftlinferr)
+minshiftlinferr = np.amin(shiftlinferr)
+maxshiftlinferr = np.amax(shiftlinferr)
+avgdevshiftlinferr = np.mean(np.abs(np.subtract(shiftlinferr, meanshiftlinferr)))
+prcnterrshiftlinferr = meanshiftlinferr / vxrange * 100
+print('Mean of shiftlinferr:', meanshiftlinferr)
+print('Minumum of shiftlinferr:', minshiftlinferr)
+print('Maximum of shiftlinferr:', maxshiftlinferr)
+print('Average deviation of shiftlinferr:', avgdevshiftlinferr)
+print('Max % error of shifted learned potential:', prcnterrshiftlinferr, sep='\n')
 
+# plot shifted potential l-infinite error
 plt.plot(shiftlinferr, '.', label='shiftlinferr')
-plt.title(f'l-infinite Error of the Shifted Learned Potentials - {numtrials} Initializations')
+plt.hlines(meanshiftlinferr, xvec[0], xvec[-1], label='Mean')
+plt.hlines(meanshiftlinferr + avgdevshiftlinferr, xvec[0], xvec[-1], '-.', label='_')
+plt.hlines(meanshiftlinferr - avgdevshiftlinferr, xvec[0], xvec[-1], '-.', label='_')
+plt.title(f'l-infinite Error of the Shifted Learned Potentials - {numtrials} Trials\nmin={minshiftlinferr:.4}, max={maxshiftlinferr:.4},% error = {prcnterrshiftlinferr:.4}')
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
@@ -596,29 +615,48 @@ plt.savefig(cwddir / 'graph_converge-test_l-infinite_error_shiftlinferr.pdf', fo
 plt.close()
 
 
-# results of trimmed and shifted potential
-print('Mean of trimshiftl2err:', np.mean(trimshiftl2err))
-print('Minumum of trimshiftl2err:', np.amin(trimshiftl2err))
-print('Maximum of trimshiftl2err:', np.amax(trimshiftl2err))
-print('Average deviation of trimshiftl2err:', np.mean(np.abs(np.subtract(trimshiftl2err, np.mean(trimshiftl2err)))))
-print('Average % error of trimmed and shifted learned potential:', np.mean(trimshiftl2err) / vxrange * 100, sep='\n')
+# results of trimmed and shifted potential l2 error
+meantrimshiftl2err = np.mean(trimshiftl2err)
+mintrimshiftl2err = np.amin(shiftlinferr)
+maxtrimshiftl2err = np.amax(shiftlinferr)
+avgdevtrimshiftl2err = np.mean(np.abs(np.subtract(shiftlinferr, meanshiftlinferr)))
+prcnterrtrimshiftl2err = meanshiftlinferr / vxrange * 100
+print('Mean of trimshiftl2err:', meantrimshiftl2err)
+print('Minumum of trimshiftl2err:', mintrimshiftl2err)
+print('Maximum of trimshiftl2err:', maxtrimshiftl2err)
+print('Average deviation of trimshiftl2err:', meantrimshiftl2err)
+print('Average % error of trimmed and shifted learned potential:', prcnterrtrimshiftl2err, sep='\n')
 
+# plot trimmed and shifted potential l2 error
 plt.plot(trimshiftl2err, '.', label='trimshiftl2err')
-plt.title(f'l2 Error of Trimmed and Shifted\nLearned Potentials - {numtrials} Initializations')
+plt.hlines(meantrimshiftl2err, xvec[0], xvec[-1], label='Mean')
+plt.hlines(meantrimshiftl2err + avgdevtrimshiftl2err, xvec[0], xvec[-1], '-.', label='_')
+plt.hlines(meantrimshiftl2err - avgdevtrimshiftl2err, xvec[0], xvec[-1], '-.', label='_')
+plt.title(f'l2 Error of Trimmed and Shifted\nLearned Potentials - {numtrials} Trials\nmin={mintrimshiftl2err:.4}, max={maxtrimshiftl2err:.4},% error = {prcnterrtrimshiftl2err:.4}')
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
 plt.savefig(cwddir / 'graph_converge-test_l2_error_trimshiftl2err.pdf', format='pdf')
 plt.close()
 
-print('Mean of trimshiftlinferr:', np.mean(trimshiftlinferr))
-print('Minumum of trimshiftlinferr:', np.amin(trimshiftlinferr))
-print('Maximum of trimshiftlinferr:', np.amax(trimshiftlinferr))
-print('Average deviation of trimshiftlinferr:', np.mean(np.abs(np.subtract(trimshiftlinferr, np.mean(trimshiftlinferr)))))
-print('Max % error of trimmed and shifted learned potential:', np.mean(trimshiftlinferr) / vxrange * 100, sep='\n')
+# results of trimmed and shifted potential l-infinite error
+meantrimshiftlinferr = np.mean(trimshiftlinferr)
+mintrimshiftlinferr = np.amin(shiftlinferr)
+maxtrimshiftlinferr = np.amax(shiftlinferr)
+avgdevtrimshiftlinferr = np.mean(np.abs(np.subtract(shiftlinferr, meanshiftlinferr)))
+prcnterrtrimshiftlinferr = meanshiftlinferr / vxrange * 100
+print('Mean of trimshiftlinferr:', meantrimshiftlinferr)
+print('Minumum of trimshiftlinferr:', mintrimshiftlinferr)
+print('Maximum of trimshiftlinferr:', maxtrimshiftlinferr)
+print('Average deviation of trimshiftlinferr:', avgdevtrimshiftlinferr)
+print('Max % error of trimmed and shifted learned potential:', prcnterrtrimshiftlinferr, sep='\n')
 
+# plot trimmed and shifted potential l-infinite error
 plt.plot(trimshiftlinferr, '.', label='trimshiftlinferr')
-plt.title(f'l-infinite Error of the Trimmed and Shifted\nLearned Potentials - {numtrials} Initializations')
+plt.hlines(meantrimshiftlinferr, xvec[0], xvec[-1], label='Mean')
+plt.hlines(meantrimshiftlinferr + avgdevtrimshiftlinferr, xvec[0], xvec[-1], '-.', label='_')
+plt.hlines(meantrimshiftlinferr - avgdevtrimshiftlinferr, xvec[0], xvec[-1], '-.', label='_')
+plt.title(f'l-infinite Error of the Trimmed and Shifted\nLearned Potentials - {numtrials} Trials\nmin={mintrimshiftlinferr:.4}, max={maxtrimshiftlinferr:.4},% error = {prcnterrtrimshiftlinferr:.4}')
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
