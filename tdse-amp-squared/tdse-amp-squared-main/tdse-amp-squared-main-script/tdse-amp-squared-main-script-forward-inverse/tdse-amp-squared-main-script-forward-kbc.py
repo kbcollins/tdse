@@ -217,9 +217,8 @@ def mka0(psi0fn):
 # generate initial state vector
 # pick initial un-normalized wave functions
 psi0fnvec = [psi0_0, psi0_1, psi0_2, psi0_3]  # [psi0_0, psi0_1, psi0_2, psi0_3, psi0_4, psi0_5]
-print('Number of a0 states:', len(psi0fnvec))
 
-# run mka0
+# make initial states, a0, with mka0
 a0vec = []
 normpsi0xvec = []
 normpsi0recxvec = []
@@ -228,6 +227,9 @@ for thispsi0fn in psi0fnvec:
     a0vec.append(tempa0)
     normpsi0xvec.append(tempnormpsi0x)
     normpsi0recxvec.append(tempa0 @ fourtox)
+
+
+print('Number of a0 states:', len(a0vec))
 
 np.save(cwddir / 'a0vec', a0vec)
 print('a0vec saved.')
