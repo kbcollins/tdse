@@ -295,10 +295,13 @@ def psicmplx(x):
     return yexpvec1 + 1j*yexpvec2
 
 def psisquare(x):
-    if x >= -7 and x <=-3:
-        return 1
+    if len(x) == 1:
+        if x >= -7 and x <=-3:
+            return 1
+        else:
+            return 0
     else:
-        return 0
+        return np.logical_and(x >= -7, x <=-3) * 1
 
 
 # function for normalizing initial wave functions
