@@ -344,13 +344,11 @@ thetauniform = 2.0 * thetauniform - 1.0  # interval [-1.0, 1.0)
 # np.save(cwddir / 'theta', theta)
 # print('theta saved.')
 
-thetauniformnarrow = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
 thetauniformnarrow = 0.02 * thetauniform - 0.01  # interval [-0.01, 0.01)
 # theta = jnp.array(theta)
 # np.save(cwddir / 'theta', theta)
 # print('theta saved.')
 
-thetauniformwide = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
 thetauniformwide = 10.0 * thetauniform - 5.0  # interval [-5.0, 5.0)
 # theta = jnp.array(theta)
 # np.save(cwddir / 'theta', theta)
