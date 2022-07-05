@@ -391,15 +391,6 @@ midpointindex = numx // 2
 print('midpointindex =', midpointindex)
 shift = vxvec[midpointindex] - jnp.real(vlearnrec)[midpointindex]
 
-plt.plot(xvec, jnp.real(vlearnrec) + shift, '.-', label='Learned')
-plt.plot(xvec, vxvec, label='True')
-plt.xlabel('x')
-plt.title('Shifted Learned Potential vs. True Potential')
-plt.legend()
-# plt.show()
-plt.savefig(cwddir / 'graph_inverse_shifted_true_vs_learned_potential.pdf', format='pdf')
-plt.close()
-
 # set trim to L=10
 trim = np.where(xvec >= -10)[0][0]  # 125
 print('trim =', trim)
@@ -407,10 +398,21 @@ print('trim =', trim)
 # calculate and return l2 error
 print('l2 error of learned potential:', nl.norm(jnp.real(vlearnrec) - vxvec), sep='\n')
 print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + shift - vxvec), sep='\n')
-print('l2 error of shifted and trimmed learned potential:', nl.norm(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]), sep='\n')
+l2errshifttrim = nl.norm(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])
+print('l2 error of shifted and trimmed learned potential:', l2errshifttrim, sep='\n')
 
 # calculate and return l2 error
 print('l-inf error of learned potential:', np.amax(np.abs(jnp.real(vlearnrec) - vxvec)), sep='\n')
 print('l-inf error of shifted learned potential:', np.amax(np.abs(jnp.real(vlearnrec) + shift - vxvec)), sep='\n')
-print('l-inf error of shifted and trimmed learned potential:', np.amax(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])), sep='\n')
+linferrshifttrim = np.amax(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]))
+print('l-inf error of shifted and trimmed learned potential:', linferrshifttrim, sep='\n')
 
+# plot shifted potential
+plt.plot(xvec, jnp.real(vlearnrec) + shift, '.-', label='Learned')
+plt.plot(xvec, vxvec, label='True')
+plt.xlabel('x')
+plt.title(f'Shifted Learned Potential vs. True Potential\nl2 error (shift/trim) = {l2errshifttrim}\nl-inf error (shift/trim) = linferrshifttrim')
+plt.legend()
+# plt.show()
+plt.savefig(cwddir / 'graph_inverse_shifted_true_vs_learned_potential.pdf', format='pdf')
+plt.close()
