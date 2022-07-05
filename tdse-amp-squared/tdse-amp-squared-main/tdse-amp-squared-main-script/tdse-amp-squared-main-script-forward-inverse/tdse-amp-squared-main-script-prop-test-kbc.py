@@ -395,6 +395,7 @@ for i in range(len(a0testset)):
 plt.savefig(cwddir / 'graph_prop-test_test-set_step-wise_l2_error_amat_progation.pdf', format='pdf')
 plt.close()
 
+
 # transform amat to real space wave functions
 psimattruetestset = amattruetestset @ fourtox
 psihatmattestsetbestv = ahatmattestsetbestv @ fourtox
@@ -422,8 +423,8 @@ plt.savefig(cwddir / 'graph_prop-test_test-set_step-wise_l2_error_psimat_progati
 plt.close()
 
 # l2 and l-inf errors for trimmed psimat
-print('l2 error of trimmed psihatmattestsetbestv:', nl.norm(psimattruetestset[:,:,trim:-trim] - psihatmatvecbestv[:,:,trim:-trim]), sep='\n')
-print('l-inf error of trimmed psihatmattestsetbestv:', np.amax(np.abs(psimattruetestset[:,:,trim:-trim] - psihatmatvecbestv[:,:,trim:-trim])), sep='\n')
+print('l2 error of trimmed psihatmattestsetbestv:', nl.norm(psimattruetestset[:,:,trim:-trim] - psihatmattestsetbestv[:,:,trim:-trim]), sep='\n')
+print('l-inf error of trimmed psihatmattestsetbestv:', np.amax(np.abs(psimattruetestset[:,:,trim:-trim] - psihatmattestsetbestv[:,:,trim:-trim])), sep='\n')
 print('l2 error of trimmed psihatmattestsetbestprop:', nl.norm(psimattruetestset[:,:,trim:-trim] - psihatmattestsetbestprop[:,:,trim:-trim]), sep='\n')
 print('l-inf error of trimmed psihatmattestsetbestprop:', np.amax(np.abs(psimattruetestset[:,:,trim:-trim] - psihatmattestsetbestprop[:,:,trim:-trim])), sep='\n')
 print('')  # blank line
