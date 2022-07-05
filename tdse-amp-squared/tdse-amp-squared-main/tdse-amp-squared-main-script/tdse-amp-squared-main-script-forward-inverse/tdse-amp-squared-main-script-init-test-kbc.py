@@ -338,80 +338,80 @@ print('Starting training.')
 seed = 1234  # set to None for random initialization
 print('seed =', seed)
 
-thetarnduniform = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
-thetarnduniform = 2.0 * thetarnduniform - 1.0  # interval [-1.0, 1.0)
-# thetarnd = jnp.array(thetarnd)
-# np.save(cwddir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+thetauniform = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
+thetauniform = 2.0 * thetauniform - 1.0  # interval [-1.0, 1.0)
+# theta = jnp.array(theta)
+# np.save(cwddir / 'theta', theta)
+# print('theta saved.')
 
-thetarnduniformnarrow = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
-thetarnduniformnarrow = 0.02 * thetarnduniform - 0.01  # interval [-0.01, 0.01)
-# thetarnd = jnp.array(thetarnd)
-# np.save(cwddir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+thetauniformnarrow = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
+thetauniformnarrow = 0.02 * thetauniform - 0.01  # interval [-0.01, 0.01)
+# theta = jnp.array(theta)
+# np.save(cwddir / 'theta', theta)
+# print('theta saved.')
 
-thetarnduniformwide = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
-thetarnduniformwide = 10.0 * thetarnduniform - 5.0  # interval [-5.0, 5.0)
-# thetarnd = jnp.array(thetarnd)
-# np.save(cwddir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+thetauniformwide = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
+thetauniformwide = 10.0 * thetauniform - 5.0  # interval [-5.0, 5.0)
+# theta = jnp.array(theta)
+# np.save(cwddir / 'theta', theta)
+# print('theta saved.')
 
-thetarnduniformpositive = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)  # interval [0.0, 1.0)
-# thetarnd = jnp.array(thetarnd)
-# np.save(cwddir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+thetauniformpositive = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)  # interval [0.0, 1.0)
+# theta = jnp.array(theta)
+# np.save(cwddir / 'theta', theta)
+# print('theta saved.')
 
-thetarndnormal = np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
-# thetarnd = jnp.array(thetarnd)
-# np.save(cwddir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+thetanormal = np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
+# theta = jnp.array(theta)
+# np.save(cwddir / 'theta', theta)
+# print('theta saved.')
 
-thetarndnormalnarrow = np.random.default_rng(seed).normal(scale=0.5, size=numtoepelms * 2 - 1)
-# thetarnd = jnp.array(thetarnd)
-# np.save(cwddir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+thetanormalnarrow = np.random.default_rng(seed).normal(scale=0.5, size=numtoepelms * 2 - 1)
+# theta = jnp.array(theta)
+# np.save(cwddir / 'theta', theta)
+# print('theta saved.')
 
-thetarndnormalwide = np.random.default_rng(seed).normal(scale=2.0, size=numtoepelms * 2 - 1)
-# thetarnd = jnp.array(thetarnd)
-# np.save(cwddir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+thetanormalwide = np.random.default_rng(seed).normal(scale=2.0, size=numtoepelms * 2 - 1)
+# theta = jnp.array(theta)
+# np.save(cwddir / 'theta', theta)
+# print('theta saved.')
 
-thetarndnormalscaled = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
-# thetarnd = jnp.array(thetarnd)
-# np.save(cwddir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+thetanormalscaled = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
+# theta = jnp.array(theta)
+# np.save(cwddir / 'theta', theta)
+# print('theta saved.')
 
-thetarndnormalnarrowscaled = 0.001 * np.random.default_rng(seed).normal(scale=0.5, size=numtoepelms * 2 - 1)
-# thetarnd = jnp.array(thetarnd)
-# np.save(cwddir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+thetanormalnarrowscaled = 0.001 * np.random.default_rng(seed).normal(scale=0.5, size=numtoepelms * 2 - 1)
+# theta = jnp.array(theta)
+# np.save(cwddir / 'theta', theta)
+# print('theta saved.')
 
-thetarndnormalwidescaled = 0.001 * np.random.default_rng(seed).normal(scale=2.0, size=numtoepelms * 2 - 1)
-# thetarnd = jnp.array(thetarnd)
-# np.save(cwddir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+thetanormalwidescaled = 0.001 * np.random.default_rng(seed).normal(scale=2.0, size=numtoepelms * 2 - 1)
+# theta = jnp.array(theta)
+# np.save(cwddir / 'theta', theta)
+# print('theta saved.')
 
-thetavec = [thetarnduniform,
-            thetarnduniformnarrow,
-            thetarnduniformwide,
-            thetarnduniformpositive,
-            thetarndnormal,
-            thetarndnormalnarrow,
-            thetarndnormalwide,
-            thetarndnormalscaled,
-            thetarndnormalnarrowscaled,
-            thetarndnormalwidescaled]
+thetavec = [thetauniform,
+            thetauniformnarrow,
+            thetauniformwide,
+            thetauniformpositive,
+            thetanormal,
+            thetanormalnarrow,
+            thetanormalwide,
+            thetanormalscaled,
+            thetanormalnarrowscaled,
+            thetanormalwidescaled]
 
-thetanamevec = ['thetarnduniform',
-                'thetarnduniformnarrow',
-                'thetarnduniformwide',
-                'thetarnduniformpositive',
-                'thetarndnormal',
-                'thetarndnormalnarrow',
-                'thetarndnormalwide',
-                'thetarndnormalscaled',
-                'thetarndnormalnarrowscaled',
-                'thetarndnormalwidescaled']
+thetanamevec = ['thetauniform',
+                'thetauniformnarrow',
+                'thetauniformwide',
+                'thetauniformpositive',
+                'thetanormal',
+                'thetanormalnarrow',
+                'thetanormalwide',
+                'thetanormalscaled',
+                'thetanormalnarrowscaled',
+                'thetanormalwidescaled']
 
 
 ###############################################################
@@ -430,8 +430,8 @@ for i in range(len(thetavec)):
                                    jac=jitadjgrads,
                                    tol=1e-12,options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
 
-    # np.save(cwddir / 'rsltadjthetarnd', rsltadjthetarnd)
-    # print('rsltadjthetarnd saved.')
+    # np.save(cwddir / 'rsltadjtheta', rsltadjtheta)
+    # print('rsltadjtheta saved.')
 
     # transform init theta to real space potentials
     vinitrec = thetatoreal(thistheta)
