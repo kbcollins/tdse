@@ -295,6 +295,8 @@ def psicmplx(x):
     return yexpvec1 + 1j*yexpvec2
 
 def psisquare(x):
+    # THIS CAUSES THE QUAD FUNCTION TO RETURN AN ERROR
+    # IT NEEDS TO BE FIXED
     if len(x) == 1:
         if x >= -7 and x <=-3:
             return 1
@@ -333,7 +335,7 @@ def mka0(psi0fn):
 
 
 # initial state vector
-psi0testset = [psicheb, psicmplx, psisquare]
+psi0testset = [psicheb, psicmplx]  # [psicheb, psicmplx, psisquare]
 
 # make initial states, a0, with mka0
 a0testset = []

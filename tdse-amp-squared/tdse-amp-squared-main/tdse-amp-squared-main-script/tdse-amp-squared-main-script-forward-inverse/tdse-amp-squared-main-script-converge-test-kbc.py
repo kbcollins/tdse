@@ -367,7 +367,7 @@ def thetatopropmat(theta):
 ###############################################################
 
 # set number of trials
-numtrials = 2  # 200
+numtrials = 4  # 200
 
 # find midpoint of computational interval
 midpointindex = numx // 2
@@ -542,19 +542,23 @@ plt.savefig(cwddir / 'graph_converge-test_l2_error_rawl2err.pdf', format='pdf')
 plt.close()
 
 # results of raw potential l-infinite error
-meanrawl2err = np.mean(rawl2err)
-minrawl2err = np.amin(rawl2err)
-maxrawl2err = np.amax(rawl2err)
-avgdevrawl2err = np.mean(np.abs(np.subtract(rawl2err, np.mean(rawl2err))))
-l2percenterror = meanrawl2err / vxrange * 100
-print('Mean of rawlinferr:', np.mean(rawlinferr))
-print('Minumum of rawlinferr:', np.amin(rawlinferr))
-print('Maximum of rawlinferr:', np.amax(rawlinferr))
-print('Average deviation of rawlinferr:', np.mean(np.abs(np.subtract(rawlinferr, np.mean(rawlinferr)))))
-print('Max % error of raw learned potential:', np.mean(rawlinferr) / vxrange * 100, sep='\n')
+meanrawlinferr = np.mean(rawlinferr)
+minrawlinferr = np.amin(rawlinferr)
+maxrawlinferr = np.amax(rawlinferr)
+avgdevrawlinferr = np.mean(np.abs(np.subtract(rawlinferr, np.mean(rawlinferr))))
+linfpercenterror = meanrawlinferr / vxrange * 100
+print('Mean of rawlinferr:', meanrawlinferr)
+print('Minumum of rawlinferr:', minrawlinferr)
+print('Maximum of rawlinferr:', maxrawlinferr)
+print('Average deviation of rawlinferr:', avgdevrawlinferr)
+print('Max % error of raw learned potential:', linfpercenterror, sep='\n')
 
+# plot linf error results
 plt.plot(rawlinferr, '.', label='rawlinferr')
-plt.title(f'l-infinite Error of the Raw Learned Potentials - {numtrials} Initializations')
+plt.hlines(meanrawlinferr, xvec[0], xvec[-1], label='Mean')
+plt.hlines(meanrawlinferr + avgdevrawlinferr, xvec[0], xvec[-1], '-.', label='_')
+plt.hlines(meanrawlinferr - avgdevrawlinferr, xvec[0], xvec[-1], '-.', label='_')
+plt.title(f'l-infinite Error of the Raw Learned Potentials - {numtrials} Trials\nmin={minrawlinferr:.4}, max={maxrawlinferr:.4},% error = {linfpercenterror:.4}')
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
