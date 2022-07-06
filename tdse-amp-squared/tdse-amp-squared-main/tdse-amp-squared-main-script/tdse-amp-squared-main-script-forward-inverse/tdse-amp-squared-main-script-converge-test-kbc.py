@@ -531,7 +531,7 @@ print('Average % error of raw learned potential:', prcnterrrawl2err, sep='\n')
 
 # plot raw potential l2 error
 plt.plot(rawl2err, '.', label='rawl2err')
-plt.hlines(meanrawl2err, 0, len(rawl2err), label='Mean')
+plt.hlines(meanrawl2err, 0, len(rawl2err), label=f'Mean: {meanrawl2err}')
 plt.hlines(meanrawl2err + avgdevrawl2err, 0, len(rawl2err), linestyles='dashdot', label='_')
 plt.hlines(meanrawl2err - avgdevrawl2err, 0, len(rawl2err), linestyles='dashdot', label='_')
 plt.title(f'l2 Error of the Raw Learned Potentials - {numtrials} Trials\nmin={minrawl2err:.4}, max={maxrawl2err:.4},% error = {prcnterrrawl2err:.4}')
@@ -555,7 +555,7 @@ print('Max % error of raw learned potential:', prcnterrrawlinferr, sep='\n')
 
 # plot raw potential l-infinite error
 plt.plot(rawlinferr, '.', label='rawlinferr')
-plt.hlines(meanrawlinferr, 0, len(rawlinferr), label='Mean')
+plt.hlines(meanrawlinferr, 0, len(rawlinferr), label=f'Mean: {meanrawlinferr}')
 plt.hlines(meanrawlinferr + avgdevrawlinferr, 0, len(rawlinferr), linestyles='dashdot', label='_')
 plt.hlines(meanrawlinferr - avgdevrawlinferr, 0, len(rawlinferr), linestyles='dashdot', label='_')
 plt.title(f'l-infinite Error of the Raw Learned Potentials - {numtrials} Trials\nmin={minrawlinferr:.4}, max={maxrawlinferr:.4},% error = {prcnterrrawlinferr:.4}')
@@ -580,7 +580,7 @@ print('Average % error of shifted learned potential:', prcnterrshiftl2err, sep='
 
 # plot shifted potential l2 error
 plt.plot(shiftl2err, '.', label='shiftl2err')
-plt.hlines(meanshiftl2err, 0, len(shiftl2err), label='Mean')
+plt.hlines(meanshiftl2err, 0, len(shiftl2err), label=f'Mean: {meanshiftl2err}')
 plt.hlines(meanshiftl2err + avgdevshiftl2err, 0, len(shiftl2err), linestyles='dashdot', label='_')
 plt.hlines(meanshiftl2err - avgdevshiftl2err, 0, len(shiftl2err), linestyles='dashdot', label='_')
 plt.title(f'l2 Error of the Shifted Learned Potentials - {numtrials} Trials\nmin={minshiftl2err:.4}, max={maxshiftl2err:.4},% error = {prcnterrshiftl2err:.4}')
@@ -604,7 +604,7 @@ print('Max % error of shifted learned potential:', prcnterrshiftlinferr, sep='\n
 
 # plot shifted potential l-infinite error
 plt.plot(shiftlinferr, '.', label='shiftlinferr')
-plt.hlines(meanshiftlinferr, 0, len(shiftlinferr), label='Mean')
+plt.hlines(meanshiftlinferr, 0, len(shiftlinferr), label=f'Mean: {meanshiftlinferr}')
 plt.hlines(meanshiftlinferr + avgdevshiftlinferr, 0, len(shiftlinferr), linestyles='dashdot', label='_')
 plt.hlines(meanshiftlinferr - avgdevshiftlinferr, 0, len(shiftlinferr), linestyles='dashdot', label='_')
 plt.title(f'l-infinite Error of the Shifted Learned Potentials - {numtrials} Trials\nmin={minshiftlinferr:.4}, max={maxshiftlinferr:.4},% error = {prcnterrshiftlinferr:.4}')
@@ -629,7 +629,7 @@ print('Average % error of trimmed and shifted learned potential:', prcnterrtrims
 
 # plot trimmed and shifted potential l2 error
 plt.plot(trimshiftl2err, '.', label='trimshiftl2err')
-plt.hlines(meantrimshiftl2err, 0, len(trimshiftl2err), label='Mean')
+plt.hlines(meantrimshiftl2err, 0, len(trimshiftl2err), label=f'Mean: {meantrimshiftl2err}')
 plt.hlines(meantrimshiftl2err + avgdevtrimshiftl2err, 0, len(trimshiftl2err), linestyles='dashdot', label='_')
 plt.hlines(meantrimshiftl2err - avgdevtrimshiftl2err, 0, len(trimshiftl2err), linestyles='dashdot', label='_')
 plt.title(f'l2 Error of Trimmed and Shifted\nLearned Potentials - {numtrials} Trials\nmin={mintrimshiftl2err:.4}, max={maxtrimshiftl2err:.4},% error = {prcnterrtrimshiftl2err:.4}')
@@ -653,7 +653,7 @@ print('Max % error of trimmed and shifted learned potential:', prcnterrtrimshift
 
 # plot trimmed and shifted potential l-infinite error
 plt.plot(trimshiftlinferr, '.', label='trimshiftlinferr')
-plt.hlines(meantrimshiftlinferr, 0, len(trimshiftlinferr), label='Mean')
+plt.hlines(meantrimshiftlinferr, 0, len(trimshiftlinferr), label=f'Mean: {meantrimshiftlinferr}')
 plt.hlines(meantrimshiftlinferr + avgdevtrimshiftlinferr, 0, len(trimshiftlinferr), linestyles='dashdot', label='_')
 plt.hlines(meantrimshiftlinferr - avgdevtrimshiftlinferr, 0, len(trimshiftlinferr), linestyles='dashdot', label='_')
 plt.title(f'l-infinite Error of the Trimmed and Shifted\nLearned Potentials - {numtrials} Trials\nmin={mintrimshiftlinferr:.4}, max={maxtrimshiftlinferr:.4},% error = {prcnterrtrimshiftlinferr:.4}')
