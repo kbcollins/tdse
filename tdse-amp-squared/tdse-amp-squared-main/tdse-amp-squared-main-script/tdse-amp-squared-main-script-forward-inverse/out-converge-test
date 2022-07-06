@@ -1,4 +1,16 @@
-2022-07-05 18:09:46.991183: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+2022-07-05 19:58:19.931371: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:525: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrrawl2err = meanrawl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:549: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrrawlinferr = meanrawlinferr / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:574: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrshiftl2err = meanshiftl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:598: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrshiftlinferr = meanshiftlinferr / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:623: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrtrimshiftl2err = meantrimshiftl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:647: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrtrimshiftlinferr = meantrimshiftlinferr / vxrange * 100
 -------CONVERGE TEST-------
 Command line argument: ./v0
 Current working directory: v0
@@ -22,45 +34,57 @@ thetabestprop saved.
 thetabestv saved.
 
 l2 error of thetabestprop W.R.T. thetabestv:
-1.8370299454778123
+0.0
 
-Mean of rawl2err: 1612.931129910597
-Minumum of rawl2err: 1549.387768513756
-Maximum of rawl2err: 1632.6136888221936
-Average deviation of rawl2err: 15.626821716791346
+Mean of rawl2err: 1610.545751889726
+Minumum of rawl2err: 1543.2864426255514
+Maximum of rawl2err: 1630.420374639505
+Average deviation of rawl2err: 18.656905432953145
 Average % error of raw learned potential:
-1433.7165599205307
-Mean of rawlinferr: 241.40966367039792
-Minumum of rawlinferr: 215.03695066306386
-Maximum of rawlinferr: 248.8554550353579
-Average deviation of rawlinferr: 5.75227959220163
+inf
+Mean of rawlinferr: 239.40467002533995
+Minumum of rawlinferr: 202.36515868286332
+Maximum of rawlinferr: 247.33377345383155
+Average deviation of rawlinferr: 9.290964905254956
 Max % error of raw learned potential:
-214.58636770702037
-Mean of shiftl2err: 1097.0038587816641
-Minumum of shiftl2err: 999.3229206722604
-Maximum of shiftl2err: 1127.714723965126
-Average deviation of shiftl2err: 24.144521487358976
+inf
+Mean of shiftl2err: 1093.1671314228256
+Minumum of shiftl2err: 988.9438289655178
+Maximum of shiftl2err: 1124.251152209347
+Average deviation of shiftl2err: 29.111601959755582
 Average % error of shifted learned potential:
-975.1145411392571
-Mean of shiftlinferr: 210.72760005493177
-Minumum of shiftlinferr: 184.12128602089797
-Maximum of shiftlinferr: 218.396003561448
-Average deviation of shiftlinferr: 5.860605459522837
+inf
+Mean of shiftlinferr: 208.70055659283088
+Minumum of shiftlinferr: 171.1570634819435
+Maximum of shiftlinferr: 216.8510895141998
+Average deviation of shiftlinferr: 9.420951583896665
 Max % error of shifted learned potential:
-187.31342227105046
-Mean of trimshiftl2err: 69.57108128663305
-Minumum of trimshiftl2err: 184.12128602089797
-Maximum of trimshiftl2err: 218.396003561448
-Average deviation of trimshiftl2err: 69.57108128663305
+inf
+Mean of trimshiftl2err: 69.60242550719802
+Minumum of trimshiftl2err: 57.73135680470979
+Maximum of trimshiftl2err: 77.25479311151179
+Average deviation of trimshiftl2err: 69.60242550719802
 Average % error of trimmed and shifted learned potential:
-187.31342227105046
-Mean of trimshiftlinferr: 5.762393518530106
-Minumum of trimshiftlinferr: 184.12128602089797
-Maximum of trimshiftlinferr: 218.396003561448
-Average deviation of trimshiftlinferr: 5.860605459522837
+inf
+Mean of trimshiftlinferr: 5.7775587151752195
+Minumum of trimshiftlinferr: 4.713884976335301
+Maximum of trimshiftlinferr: 6.561748810421449
+Average deviation of trimshiftlinferr: 0.19985854214597348
 Max % error of trimmed and shifted learned potential:
-187.31342227105046
-2022-07-05 18:19:39.318953: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+inf
+2022-07-05 20:08:09.237775: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:525: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrrawl2err = meanrawl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:549: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrrawlinferr = meanrawlinferr / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:574: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrshiftl2err = meanshiftl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:598: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrshiftlinferr = meanshiftlinferr / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:623: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrtrimshiftl2err = meantrimshiftl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:647: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrtrimshiftlinferr = meantrimshiftlinferr / vxrange * 100
 -------CONVERGE TEST-------
 Command line argument: ./v1
 Current working directory: v1
@@ -84,45 +108,45 @@ thetabestprop saved.
 thetabestv saved.
 
 l2 error of thetabestprop W.R.T. thetabestv:
-1.137766409453778
+0.7865004449702365
 
-Mean of rawl2err: 948.5611388366966
-Minumum of rawl2err: 944.7675142203731
-Maximum of rawl2err: 953.5591093770707
-Average deviation of rawl2err: 2.3660288011983313
+Mean of rawl2err: 947.2480510302906
+Minumum of rawl2err: 942.0305442840721
+Maximum of rawl2err: 950.9859874290568
+Average deviation of rawl2err: 2.1050119080475214
 Average % error of raw learned potential:
-948.5613654332734
-Mean of rawlinferr: 155.17473817060778
-Minumum of rawlinferr: 153.7791368364594
-Maximum of rawlinferr: 156.7443200879747
-Average deviation of rawlinferr: 0.812770906864867
+inf
+Mean of rawlinferr: 154.9101887201117
+Minumum of rawlinferr: 153.6739772714971
+Maximum of rawlinferr: 156.7251025117222
+Average deviation of rawlinferr: 0.6626831129688128
 Max % error of raw learned potential:
-155.17477523945138
-Mean of shiftl2err: 780.6422888525882
-Minumum of shiftl2err: 775.6551091330806
-Maximum of shiftl2err: 786.6246841862211
-Average deviation of shiftl2err: 3.0245384889370257
+inf
+Mean of shiftl2err: 779.0344678861918
+Minumum of shiftl2err: 773.3450363091758
+Maximum of shiftl2err: 783.9929534957331
+Average deviation of shiftl2err: 2.526330107285554
 Average % error of shifted learned potential:
-780.6424753359504
-Mean of shiftlinferr: 142.8042926284622
-Minumum of shiftlinferr: 141.36606544225629
-Maximum of shiftlinferr: 144.3774879661156
-Average deviation of shiftlinferr: 0.838167260345756
+inf
+Mean of shiftlinferr: 142.5331049871965
+Minumum of shiftlinferr: 141.25679317414642
+Maximum of shiftlinferr: 144.43501478192522
+Average deviation of shiftlinferr: 0.6645965476362292
 Max % error of shifted learned potential:
-142.8043267421978
-Mean of trimshiftl2err: 17.693969864082106
-Minumum of trimshiftl2err: 141.36606544225629
-Maximum of trimshiftl2err: 144.3774879661156
-Average deviation of trimshiftl2err: 17.693969864082106
+inf
+Mean of trimshiftl2err: 17.327306691818592
+Minumum of trimshiftl2err: 16.137716596346344
+Maximum of trimshiftl2err: 18.846726276564652
+Average deviation of trimshiftl2err: 17.327306691818592
 Average % error of trimmed and shifted learned potential:
-142.8043267421978
-Mean of trimshiftlinferr: 1.3848300900743018
-Minumum of trimshiftlinferr: 141.36606544225629
-Maximum of trimshiftlinferr: 144.3774879661156
-Average deviation of trimshiftlinferr: 0.838167260345756
+inf
+Mean of trimshiftlinferr: 1.3322199955126326
+Minumum of trimshiftlinferr: 1.1688966172725692
+Maximum of trimshiftlinferr: 1.5849607002928519
+Average deviation of trimshiftlinferr: 0.10749210286797979
 Max % error of trimmed and shifted learned potential:
-142.8043267421978
-2022-07-05 18:29:24.173485: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+inf
+2022-07-05 20:17:47.824248: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
 -------CONVERGE TEST-------
 Command line argument: ./v2
 Current working directory: v2
@@ -146,45 +170,45 @@ thetabestprop saved.
 thetabestv saved.
 
 l2 error of thetabestprop W.R.T. thetabestv:
-1.2980846320845194
+1.2781503675767436
 
-Mean of rawl2err: 1691.3844182638582
-Minumum of rawl2err: 1679.1063281109627
-Maximum of rawl2err: 1707.343686563243
-Average deviation of rawl2err: 9.865269344693456
+Mean of rawl2err: 1694.441745117365
+Minumum of rawl2err: 1680.1380839272867
+Maximum of rawl2err: 1710.7116286342552
+Average deviation of rawl2err: 11.446713391930746
 Average % error of raw learned potential:
-529.1284210594587
-Mean of rawlinferr: 361.11655994042565
-Minumum of rawlinferr: 354.6350172128775
-Maximum of rawlinferr: 366.5994126812221
-Average deviation of rawlinferr: 2.438782593028873
+690.5201360748782
+Mean of rawlinferr: 360.4656134916937
+Minumum of rawlinferr: 352.870680759459
+Maximum of rawlinferr: 364.4895054471019
+Average deviation of rawlinferr: 2.8840181057245444
 Max % error of raw learned potential:
-112.97079074184336
-Mean of shiftl2err: 1552.879914355409
-Minumum of shiftl2err: 1537.0852217939491
-Maximum of shiftl2err: 1572.111845371442
-Average deviation of shiftl2err: 12.445996900483886
+146.89720977179906
+Mean of shiftl2err: 1556.551257678257
+Minumum of shiftl2err: 1539.1608763020959
+Maximum of shiftl2err: 1575.834663093644
+Average deviation of shiftl2err: 14.258789107803489
 Average % error of shifted learned potential:
-485.79902256711154
-Mean of shiftlinferr: 347.9746737085014
-Minumum of shiftlinferr: 341.3136688279109
-Maximum of shiftlinferr: 353.56224343181475
-Average deviation of shiftlinferr: 2.627647265781556
+634.3269040418178
+Mean of shiftlinferr: 347.3733488345446
+Minumum of shiftlinferr: 339.57066799285957
+Maximum of shiftlinferr: 351.66179390420234
+Average deviation of shiftlinferr: 3.0462378867030537
 Max % error of shifted learned potential:
-108.85951631093731
-Mean of trimshiftl2err: 12.6673622138938
-Minumum of trimshiftl2err: 341.3136688279109
-Maximum of trimshiftl2err: 353.56224343181475
-Average deviation of trimshiftl2err: 12.6673622138938
+141.56184052783797
+Mean of trimshiftl2err: 12.520085648668037
+Minumum of trimshiftl2err: 6.772452031617352
+Maximum of trimshiftl2err: 20.82342324940425
+Average deviation of trimshiftl2err: 12.520085648668037
 Average % error of trimmed and shifted learned potential:
-108.85951631093731
-Mean of trimshiftlinferr: 1.3756267512848617
-Minumum of trimshiftlinferr: 341.3136688279109
-Maximum of trimshiftlinferr: 353.56224343181475
-Average deviation of trimshiftlinferr: 2.627647265781556
+5.10219443701711
+Mean of trimshiftlinferr: 1.369795799697234
+Minumum of trimshiftlinferr: 1.0136908171354921
+Maximum of trimshiftlinferr: 2.1198680060607664
+Average deviation of trimshiftlinferr: 0.27811694064551984
 Max % error of trimmed and shifted learned potential:
-108.85951631093731
-2022-07-05 18:39:08.815186: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+0.558220183566249
+2022-07-05 20:27:30.170880: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
 -------CONVERGE TEST-------
 Command line argument: ./v3
 Current working directory: v3
@@ -208,45 +232,57 @@ thetabestprop saved.
 thetabestv saved.
 
 l2 error of thetabestprop W.R.T. thetabestv:
-0.07882453255876724
+0.09024239859425218
 
-Mean of rawl2err: 1.338794582661929
-Minumum of rawl2err: 0.9951147544873621
-Maximum of rawl2err: 1.6587099175240763
-Average deviation of rawl2err: 0.15859086879506554
+Mean of rawl2err: 1.3162820336966974
+Minumum of rawl2err: 1.0186762237404874
+Maximum of rawl2err: 1.5954251699396362
+Average deviation of rawl2err: 0.16091817172268125
 Average % error of raw learned potential:
-66.94002599303383
-Mean of rawlinferr: 0.18047694128556108
-Minumum of rawlinferr: 0.15285837302412675
-Maximum of rawlinferr: 0.2731482954095903
-Average deviation of rawlinferr: 0.023833538846294616
+-435.94494445910186
+Mean of rawlinferr: 0.1726496237968252
+Minumum of rawlinferr: 0.15154594607396532
+Maximum of rawlinferr: 0.24575091855470566
+Average deviation of rawlinferr: 0.01391414930222205
 Max % error of raw learned potential:
-9.023887082645459
-Mean of shiftl2err: 0.39392338530144505
-Minumum of shiftl2err: 0.3245808225598872
-Maximum of shiftl2err: 0.6485801683546555
-Average deviation of shiftl2err: 0.0807411127168449
+-57.180550011468746
+Mean of shiftl2err: 0.3671326830510119
+Minumum of shiftl2err: 0.32635774523325806
+Maximum of shiftl2err: 0.6112047129040028
+Average deviation of shiftl2err: 0.04122659606812968
 Average % error of shifted learned potential:
-19.696256612356898
-Mean of shiftlinferr: 0.19906150618753943
-Minumum of shiftlinferr: 0.16250984508552846
-Maximum of shiftlinferr: 0.31004273138635086
-Average deviation of shiftlinferr: 0.0335535634568675
+-121.59220670383597
+Mean of shiftlinferr: 0.1922811068494334
+Minumum of shiftlinferr: 0.1613739733384838
+Maximum of shiftlinferr: 0.2955149560799267
+Average deviation of shiftlinferr: 0.021986043068969906
 Max % error of shifted learned potential:
-9.953119448625088
-Mean of trimshiftl2err: 0.03297018345469991
-Minumum of trimshiftl2err: 0.16250984508552846
-Maximum of trimshiftl2err: 0.31004273138635086
-Average deviation of trimshiftl2err: 0.03297018345469991
+-63.68238287853581
+Mean of trimshiftl2err: 0.028433883167318496
+Minumum of trimshiftl2err: 0.006891719470112045
+Maximum of trimshiftl2err: 0.08591841731425012
+Average deviation of trimshiftl2err: 0.028433883167318496
 Average % error of trimmed and shifted learned potential:
-9.953119448625088
-Mean of trimshiftlinferr: 0.003002401267873113
-Minumum of trimshiftlinferr: 0.16250984508552846
-Maximum of trimshiftlinferr: 0.31004273138635086
-Average deviation of trimshiftlinferr: 0.0335535634568675
+-9.41713652606877
+Mean of trimshiftlinferr: 0.002498270316372858
+Minumum of trimshiftlinferr: 0.0007502730503497756
+Maximum of trimshiftlinferr: 0.007333068822075628
+Average deviation of trimshiftlinferr: 0.0009131513616683033
 Max % error of trimmed and shifted learned potential:
-9.953119448625088
-2022-07-05 18:48:48.524478: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-0.827412580612602
+2022-07-05 20:37:12.115956: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:525: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrrawl2err = meanrawl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:549: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrrawlinferr = meanrawlinferr / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:574: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrshiftl2err = meanshiftl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:598: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrshiftlinferr = meanshiftlinferr / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:623: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrtrimshiftl2err = meantrimshiftl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:647: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrtrimshiftlinferr = meantrimshiftlinferr / vxrange * 100
 -------CONVERGE TEST-------
 Command line argument: ./v4
 Current working directory: v4
@@ -270,45 +306,45 @@ thetabestprop saved.
 thetabestv saved.
 
 l2 error of thetabestprop W.R.T. thetabestv:
-0.07666840329064904
+0.07965233968582126
 
-Mean of rawl2err: 2.5552670546468255
-Minumum of rawl2err: 2.2815215931775747
-Maximum of rawl2err: 2.8521560229841993
-Average deviation of rawl2err: 0.14221935367203675
+Mean of rawl2err: 2.536770184505679
+Minumum of rawl2err: 2.248597749562428
+Maximum of rawl2err: 2.8451049992176936
+Average deviation of rawl2err: 0.15182114633225754
 Average % error of raw learned potential:
-127.77204422974293
-Mean of rawlinferr: 0.33972155769077855
-Minumum of rawlinferr: 0.28310675836402793
-Maximum of rawlinferr: 0.4064857187887924
-Average deviation of rawlinferr: 0.020782998608085235
+inf
+Mean of rawlinferr: 0.33440315037039375
+Minumum of rawlinferr: 0.2832808013925547
+Maximum of rawlinferr: 0.39220024069962517
+Average deviation of rawlinferr: 0.017742551705009706
 Max % error of raw learned potential:
-16.987233415046234
-Mean of shiftl2err: 0.8412045029938376
-Minumum of shiftl2err: 0.8075816846005941
-Maximum of shiftl2err: 0.8903886810996914
-Average deviation of shiftl2err: 0.01938218518192688
+inf
+Mean of shiftl2err: 0.8464255394761766
+Minumum of shiftl2err: 0.803400356131593
+Maximum of shiftl2err: 0.9136641497347378
+Average deviation of shiftl2err: 0.0188866060509164
 Average % error of shifted learned potential:
-42.06308642665264
-Mean of shiftlinferr: 0.26874754145237156
-Minumum of shiftlinferr: 0.236339056682786
-Maximum of shiftlinferr: 0.33171027163376215
-Average deviation of shiftlinferr: 0.01962281911552251
+inf
+Mean of shiftlinferr: 0.2645913739488645
+Minumum of shiftlinferr: 0.23935140232443092
+Maximum of shiftlinferr: 0.3160648610270645
+Average deviation of shiftlinferr: 0.016057398092625432
 Max % error of shifted learned potential:
-13.438291191772578
-Mean of trimshiftl2err: 0.18293363974830007
-Minumum of trimshiftl2err: 0.236339056682786
-Maximum of trimshiftl2err: 0.33171027163376215
-Average deviation of trimshiftl2err: 0.18293363974830007
+inf
+Mean of trimshiftl2err: 0.1861058922104329
+Minumum of trimshiftl2err: 0.1652261373483802
+Maximum of trimshiftl2err: 0.20494901988497014
+Average deviation of trimshiftl2err: 0.1861058922104329
 Average % error of trimmed and shifted learned potential:
-13.438291191772578
-Mean of trimshiftlinferr: 0.015490173395726342
-Minumum of trimshiftlinferr: 0.236339056682786
-Maximum of trimshiftlinferr: 0.33171027163376215
-Average deviation of trimshiftlinferr: 0.01962281911552251
+inf
+Mean of trimshiftlinferr: 0.015857663471290646
+Minumum of trimshiftlinferr: 0.013898678388581082
+Maximum of trimshiftlinferr: 0.017544200964632772
+Average deviation of trimshiftlinferr: 0.0007569162057973471
 Max % error of trimmed and shifted learned potential:
-13.438291191772578
-2022-07-05 18:58:28.319800: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+inf
+2022-07-05 20:46:52.022205: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
 -------CONVERGE TEST-------
 Command line argument: ./v5
 Current working directory: v5
@@ -332,45 +368,57 @@ thetabestprop saved.
 thetabestv saved.
 
 l2 error of thetabestprop W.R.T. thetabestv:
-0.049238790428228235
+0.05476558823889695
 
-Mean of rawl2err: 76.49521730657197
-Minumum of rawl2err: 76.14217398742478
-Maximum of rawl2err: 76.82029472239046
-Average deviation of rawl2err: 0.12378373391710014
+Mean of rawl2err: 76.45124990706586
+Minumum of rawl2err: 76.05014025902098
+Maximum of rawl2err: 76.68715310548751
+Average deviation of rawl2err: 0.13340769947581207
 Average % error of raw learned potential:
-127.58044015850258
-Mean of rawlinferr: 21.968758519685203
-Minumum of rawlinferr: 21.885175058358694
-Maximum of rawlinferr: 22.076755512880226
-Average deviation of rawlinferr: 0.03578705745510362
+-1889.4692241363064
+Mean of rawlinferr: 21.94864636367741
+Minumum of rawlinferr: 21.838980058604005
+Maximum of rawlinferr: 22.03684307629417
+Average deviation of rawlinferr: 0.041381109801452355
 Max % error of raw learned potential:
-36.63998849031957
-Mean of shiftl2err: 73.61114750107436
-Minumum of shiftl2err: 73.27461161133265
-Maximum of shiftl2err: 73.88897105292979
-Average deviation of shiftl2err: 0.13739205192971654
+-542.4540719220709
+Mean of shiftl2err: 73.56483124663917
+Minumum of shiftl2err: 73.1386200587988
+Maximum of shiftl2err: 73.82807877086702
+Average deviation of shiftl2err: 0.13956730947012802
 Average % error of shifted learned potential:
-122.77032381150815
-Mean of shiftlinferr: 21.519140451608855
-Minumum of shiftlinferr: 21.44406212762284
-Maximum of shiftlinferr: 21.62404397598128
-Average deviation of shiftlinferr: 0.03557496676376637
+-1818.1322710651846
+Mean of shiftlinferr: 21.498782664462997
+Minumum of shiftlinferr: 21.390115077231393
+Maximum of shiftlinferr: 21.5890321920941
+Average deviation of shiftlinferr: 0.04204268641630495
 Max % error of shifted learned potential:
-35.89010538588309
-Mean of trimshiftl2err: 1.8879550012446067
-Minumum of trimshiftl2err: 21.44406212762284
-Maximum of trimshiftl2err: 21.62404397598128
-Average deviation of trimshiftl2err: 1.8879550012446067
+-531.335828390997
+Mean of trimshiftl2err: 1.890976198421479
+Minumum of trimshiftl2err: 1.8514947334705205
+Maximum of trimshiftl2err: 1.9411671876065217
+Average deviation of trimshiftl2err: 1.890976198421479
 Average % error of trimmed and shifted learned potential:
-35.89010538588309
-Mean of trimshiftlinferr: 0.15855787229474003
-Minumum of trimshiftlinferr: 21.44406212762284
-Maximum of trimshiftlinferr: 21.62404397598128
-Average deviation of trimshiftlinferr: 0.03557496676376637
+-46.73489753058219
+Mean of trimshiftlinferr: 0.15865161247463164
+Minumum of trimshiftlinferr: 0.15512347150620442
+Maximum of trimshiftlinferr: 0.1633508983917018
+Average deviation of trimshiftlinferr: 0.001976641268967208
 Max % error of trimmed and shifted learned potential:
-35.89010538588309
-2022-07-05 19:08:09.655805: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+-3.921026006701177
+2022-07-05 20:56:34.071159: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:525: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrrawl2err = meanrawl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:549: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrrawlinferr = meanrawlinferr / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:574: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrshiftl2err = meanshiftl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:598: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrshiftlinferr = meanshiftlinferr / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:623: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrtrimshiftl2err = meantrimshiftl2err / vxrange * 100
+/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-converge-test-kbc.py:647: RuntimeWarning: divide by zero encountered in double_scalars
+  prcnterrtrimshiftlinferr = meantrimshiftlinferr / vxrange * 100
 -------CONVERGE TEST-------
 Command line argument: ./v6
 Current working directory: v6
@@ -394,41 +442,41 @@ thetabestprop saved.
 thetabestv saved.
 
 l2 error of thetabestprop W.R.T. thetabestv:
-0.0870922336686493
+0.0
 
-Mean of rawl2err: 8.72864034230906
-Minumum of rawl2err: 8.446747819763129
-Maximum of rawl2err: 8.938202255945349
-Average deviation of rawl2err: 0.13163652284027388
+Mean of rawl2err: 8.713065585483125
+Minumum of rawl2err: 8.423969775781739
+Maximum of rawl2err: 9.03320225940325
+Average deviation of rawl2err: 0.12001485299701775
 Average % error of raw learned potential:
-451.4727553133798
-Mean of rawlinferr: 0.279266061958248
-Minumum of rawlinferr: 0.26663274551129734
-Maximum of rawlinferr: 0.29025431112308164
-Average deviation of rawlinferr: 0.004602695535521656
+inf
+Mean of rawlinferr: 0.2794499019676498
+Minumum of rawlinferr: 0.2673174543064819
+Maximum of rawlinferr: 0.30176504670932036
+Average deviation of rawlinferr: 0.006185018576094598
 Max % error of raw learned potential:
-14.444519823628566
-Mean of shiftl2err: 0.07470535780883196
-Minumum of shiftl2err: 0.027808898959167546
-Maximum of shiftl2err: 0.1599123308907198
-Average deviation of shiftl2err: 0.02665821135090346
+inf
+Mean of shiftl2err: 0.07414171982779204
+Minumum of shiftl2err: 0.0385310448383673
+Maximum of shiftl2err: 0.11844471854700064
+Average deviation of shiftl2err: 0.01767429319323973
 Average % error of shifted learned potential:
-3.863996270202958
-Mean of shiftlinferr: 0.015932754728055987
-Minumum of shiftlinferr: 0.00327187320079117
-Maximum of shiftlinferr: 0.03973156602394377
-Average deviation of shiftlinferr: 0.00734757786955275
+inf
+Mean of shiftlinferr: 0.014766154767764791
+Minumum of shiftlinferr: 0.008102684249838607
+Maximum of shiftlinferr: 0.031638505360597605
+Average deviation of shiftlinferr: 0.003571914047148209
 Max % error of shifted learned potential:
-0.824092229111692
-Mean of trimshiftl2err: 0.025845543354474504
-Minumum of trimshiftl2err: 0.00327187320079117
-Maximum of trimshiftl2err: 0.03973156602394377
-Average deviation of trimshiftl2err: 0.025845543354474504
+inf
+Mean of trimshiftl2err: 0.028959350105973326
+Minumum of trimshiftl2err: 0.014698593655166734
+Maximum of trimshiftl2err: 0.054655143553854035
+Average deviation of trimshiftl2err: 0.028959350105973326
 Average % error of trimmed and shifted learned potential:
-0.824092229111692
-Mean of trimshiftlinferr: 0.0021754660503776535
-Minumum of trimshiftlinferr: 0.00327187320079117
-Maximum of trimshiftlinferr: 0.03973156602394377
-Average deviation of trimshiftlinferr: 0.00734757786955275
+inf
+Mean of trimshiftlinferr: 0.0023053580059815308
+Minumum of trimshiftlinferr: 0.0011616822556048678
+Maximum of trimshiftlinferr: 0.0042036226752528855
+Average deviation of trimshiftlinferr: 0.0007091370849215911
 Max % error of trimmed and shifted learned potential:
-0.824092229111692
+inf
