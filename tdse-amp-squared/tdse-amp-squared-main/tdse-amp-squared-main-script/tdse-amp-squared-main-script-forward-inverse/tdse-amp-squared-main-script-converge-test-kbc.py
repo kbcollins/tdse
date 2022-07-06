@@ -51,7 +51,7 @@ amattruevec = np.load(cwddir / 'amattruevec.npy')
 # fourtox = np.load(cwddir / 'fourtox.npy')
 # vtoeptrue = np.load(cwddir / 'vtoeptrue.npy')
 vxvec = np.load(cwddir / 'vxvec.npy')
-vxrange = np.amax(vxvec) - np.amin(vxvec)
+vxrange = vxvec[-1] - vxvec[0]
 
 print('Computational environment loaded.')
 # print computational environment variables to stdout
@@ -619,8 +619,8 @@ plt.close()
 meantrimshiftl2err = np.mean(trimshiftl2err)
 mintrimshiftl2err = np.amin(shiftlinferr)
 maxtrimshiftl2err = np.amax(shiftlinferr)
-avgdevtrimshiftl2err = np.mean(np.abs(np.subtract(shiftlinferr, meanshiftlinferr)))
-prcnterrtrimshiftl2err = meanshiftlinferr / vxrange * 100
+avgdevtrimshiftl2err = np.mean(np.abs(np.subtract(shiftlinferr, meantrimshiftl2err)))
+prcnterrtrimshiftl2err = meantrimshiftl2err / vxrange * 100
 print('Mean of trimshiftl2err:', meantrimshiftl2err)
 print('Minumum of trimshiftl2err:', mintrimshiftl2err)
 print('Maximum of trimshiftl2err:', maxtrimshiftl2err)
@@ -643,8 +643,8 @@ plt.close()
 meantrimshiftlinferr = np.mean(trimshiftlinferr)
 mintrimshiftlinferr = np.amin(shiftlinferr)
 maxtrimshiftlinferr = np.amax(shiftlinferr)
-avgdevtrimshiftlinferr = np.mean(np.abs(np.subtract(shiftlinferr, meanshiftlinferr)))
-prcnterrtrimshiftlinferr = meanshiftlinferr / vxrange * 100
+avgdevtrimshiftlinferr = np.mean(np.abs(np.subtract(shiftlinferr, meantrimshiftlinferr)))
+prcnterrtrimshiftlinferr = meantrimshiftlinferr / vxrange * 100
 print('Mean of trimshiftlinferr:', meantrimshiftlinferr)
 print('Minumum of trimshiftlinferr:', mintrimshiftlinferr)
 print('Maximum of trimshiftlinferr:', maxtrimshiftlinferr)
