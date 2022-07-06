@@ -367,7 +367,7 @@ def thetatopropmat(theta):
 ###############################################################
 
 # set number of trials
-numtrials = 4  # 200
+numtrials = 20  # 200
 
 # find midpoint of computational interval
 midpointindex = numx // 2

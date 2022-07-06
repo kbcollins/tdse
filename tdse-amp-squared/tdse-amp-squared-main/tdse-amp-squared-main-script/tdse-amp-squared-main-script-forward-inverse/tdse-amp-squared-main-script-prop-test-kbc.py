@@ -164,7 +164,7 @@ propbestprop = thetatopropmat(thetabestprop)
 ###############################################################
 
 # set multiplier of numts
-tsmultiplier = 5  # 10
+tsmultiplier = 10  # 10
 proptimesteps = np.arange(int(numts * tsmultiplier)) * dt
 print('Final time for propagation:', proptimesteps[-1])
 print('')  # blank line
