@@ -11,65 +11,65 @@ Number of a0 states: 4
 
 trim = 171
 
-Final time for propagation: 0.99
+Final time for propagation: 1.99
 
 TRAINING SET RESULTS
 l2 error of ahatmatvecbestv:
-28.3120714877193
+39.64751705561
 l-inf error of ahatmatvecbestv:
-1.0190117608919318
+1.0228880279530348
 l2 error of ahatmatvecbestprop:
-28.580085711495098
+39.64751705561
 l-inf error of ahatmatvecbestprop:
-1.0211609814936737
+1.0228880279530348
 
 l2 error of psihatmatvecbestv:
-165.40983321606328
+231.6360265409158
 l-inf error of psihatmatvecbestv:
-1.1992310996150843
+2.4855225263414544
 l2 error of psihatmatvecbestprop:
-166.97569844931405
+231.6360265409158
 l-inf error of psihatmatvecbestprop:
-1.186636269572275
+2.4855225263414544
 
 l2 error of trimmed psihatmatvecbestv:
-162.78412791885492
+229.71376130371544
 l-inf error of trimmed psihatmatvecbestv:
-1.1992310996150843
+2.4855225263414544
 l2 error of trimmed psihatmatvecbestprop:
-164.36510349807804
+229.71376130371544
 l-inf error of trimmed psihatmatvecbestprop:
-1.186636269572275
+2.4855225263414544
 
 
 Number of a0testset states: 2
 TEST SET RESULTS
 l2 error of ahatmattestsetbestv:
-18.055568552204658
+25.292798135907777
 l-inf error of ahatmattestsetbestv:
-1.0082626024308732
+1.0394110106461552
 l2 error of ahatmattestsetbestprop:
-18.202291276213916
+25.292798135907777
 l-inf error of ahatmattestsetbestprop:
-1.0296592856261908
+1.0394110106461552
 
 l2 error of psihatmattestsetbestv:
-105.50389254486345
+147.80425115922347
 l-inf error of psihatmattestsetbestv:
-0.7322360469001492
+2.4789251429047887
 l2 error of psihatmattestsetbestprop:
-106.36606202369715
+147.80425115922347
 l-inf error of psihatmattestsetbestprop:
-0.7162309398564222
+2.4789251429047887
 
 l2 error of trimmed psihatmattestsetbestv:
-95.8926443028335
+139.01033932647712
 l-inf error of trimmed psihatmattestsetbestv:
-0.7322360469001492
+2.4789251429047887
 l2 error of trimmed psihatmattestsetbestprop:
-96.78085704803837
+139.01033932647712
 l-inf error of trimmed psihatmattestsetbestprop:
-0.7162309398564222
+2.4789251429047887
 
 -------PROP TEST-------
 Command line argument: ./v1
@@ -84,65 +84,65 @@ Number of a0 states: 4
 
 trim = 171
 
-Final time for propagation: 0.99
+Final time for propagation: 1.99
 
 TRAINING SET RESULTS
 l2 error of ahatmatvecbestv:
-28.951822902969745
+40.721275058743174
 l-inf error of ahatmatvecbestv:
-1.098615464594603
+1.0980071809831782
 l2 error of ahatmatvecbestprop:
-29.091978151882383
+40.66946460167302
 l-inf error of ahatmatvecbestprop:
-1.0976161485994578
+1.097664291210844
 
 l2 error of psihatmatvecbestv:
-169.14761402829308
+237.90924449442204
 l-inf error of psihatmatvecbestv:
-1.3781037155913483
+2.109328303423938
 l2 error of psihatmatvecbestprop:
-169.96643891561064
+237.60654802359596
 l-inf error of psihatmatvecbestprop:
-1.4712881737532688
+2.101266500005423
 
 l2 error of trimmed psihatmatvecbestv:
-166.5200157254278
+235.97380463290582
 l-inf error of trimmed psihatmatvecbestv:
-1.3781037155913483
+2.109328303423938
 l2 error of trimmed psihatmatvecbestprop:
-167.34492586041702
+235.68124526768605
 l-inf error of trimmed psihatmatvecbestprop:
-1.4712881737532688
+2.101266500005423
 
 
 Number of a0testset states: 2
 TEST SET RESULTS
 l2 error of ahatmattestsetbestv:
-18.351126210228884
+25.881706032185164
 l-inf error of ahatmattestsetbestv:
-0.7370930399381691
+0.7782272617510595
 l2 error of ahatmattestsetbestprop:
-18.432755069316944
+25.85246373857203
 l-inf error of ahatmattestsetbestprop:
-0.7345161861847642
+0.7385303616727965
 
 l2 error of psihatmattestsetbestv:
-107.24024235317157
+151.24749724216542
 l-inf error of psihatmattestsetbestv:
-1.026842083166607
+1.2510270238655112
 l2 error of psihatmattestsetbestprop:
-107.7174457237346
+151.0766945683023
 l-inf error of psihatmattestsetbestprop:
-1.0497801363964099
+1.2444777031821015
 
 l2 error of trimmed psihatmattestsetbestv:
-98.8240139407059
+144.32471147764645
 l-inf error of trimmed psihatmattestsetbestv:
-1.026842083166607
+1.2510270238655112
 l2 error of trimmed psihatmattestsetbestprop:
-99.27281096746019
+144.16743676731306
 l-inf error of trimmed psihatmattestsetbestprop:
-1.0497801363964099
+1.2444777031821015
 
 -------PROP TEST-------
 Command line argument: ./v2
@@ -157,65 +157,65 @@ Number of a0 states: 4
 
 trim = 171
 
-Final time for propagation: 0.99
+Final time for propagation: 1.99
 
 TRAINING SET RESULTS
 l2 error of ahatmatvecbestv:
-27.755270755490084
+39.45522927621173
 l-inf error of ahatmatvecbestv:
-1.069312522095792
+1.0690459638783298
 l2 error of ahatmatvecbestprop:
-27.910144570015426
+39.5766307290901
 l-inf error of ahatmatvecbestprop:
-1.0685223813257576
+1.0685034672343854
 
 l2 error of psihatmatvecbestv:
-162.157093017356
+230.51280470379675
 l-inf error of psihatmatvecbestv:
-1.2492919626007095
+2.1874495181017286
 l2 error of psihatmatvecbestprop:
-163.06188627354427
+231.22204076508237
 l-inf error of psihatmatvecbestprop:
-1.259158683223746
+2.185806930200632
 
 l2 error of trimmed psihatmatvecbestv:
-158.86148310045354
+228.12819519510245
 l-inf error of trimmed psihatmatvecbestv:
-1.2492919626007095
+2.1874495181017286
 l2 error of trimmed psihatmatvecbestprop:
-159.75625020080167
+228.83866497904484
 l-inf error of trimmed psihatmatvecbestprop:
-1.259158683223746
+2.185806930200632
 
 
 Number of a0testset states: 2
 TEST SET RESULTS
 l2 error of ahatmattestsetbestv:
-17.676541459106467
+25.17343613341494
 l-inf error of ahatmattestsetbestv:
-0.7439925814167024
+0.7392663590433625
 l2 error of ahatmattestsetbestprop:
-17.774407759277455
+25.24871097825195
 l-inf error of ahatmattestsetbestprop:
-0.7457520033841823
+0.7461841131989453
 
 l2 error of psihatmattestsetbestv:
-103.30974105275943
+147.12345625398578
 l-inf error of psihatmattestsetbestv:
-0.9931496764712404
+1.1977999486615911
 l2 error of psihatmattestsetbestprop:
-103.87903488943974
+147.56035626844013
 l-inf error of psihatmattestsetbestprop:
-0.9795342429263543
+1.2003454972539422
 
 l2 error of trimmed psihatmattestsetbestv:
-92.65806608859988
+137.8522393968043
 l-inf error of trimmed psihatmattestsetbestv:
-0.9931496764712404
+1.1977999486615911
 l2 error of trimmed psihatmattestsetbestprop:
-93.24616100406774
+138.28076130759078
 l-inf error of trimmed psihatmattestsetbestprop:
-0.9795342429263543
+1.2003454972539422
 
 -------PROP TEST-------
 Command line argument: ./v3
@@ -230,65 +230,65 @@ Number of a0 states: 4
 
 trim = 171
 
-Final time for propagation: 0.99
+Final time for propagation: 1.99
 
 TRAINING SET RESULTS
 l2 error of ahatmatvecbestv:
-0.36267289992132995
+1.3149607063030742
 l-inf error of ahatmatvecbestv:
-0.017243003759606614
+0.039769612442993776
 l2 error of ahatmatvecbestprop:
-0.35174828671076763
+0.9992767387681605
 l-inf error of ahatmatvecbestprop:
-0.0166994421358669
+0.03017536028947179
 
 l2 error of psihatmatvecbestv:
-2.118872015205828
+7.682522481659623
 l-inf error of psihatmatvecbestv:
-0.014456267577521956
+0.04065304325660166
 l2 error of psihatmatvecbestprop:
-2.055047838782915
+5.83817174087847
 l-inf error of psihatmatvecbestprop:
-0.013986839585091506
+0.030913452690535633
 
 l2 error of trimmed psihatmatvecbestv:
-2.0308747828475857
+7.293867361988576
 l-inf error of trimmed psihatmatvecbestv:
-0.014456267577521956
+0.04065304325660166
 l2 error of trimmed psihatmatvecbestprop:
-1.9676934847522225
+5.541746439570772
 l-inf error of trimmed psihatmatvecbestprop:
-0.013986839585091506
+0.030913452690535633
 
 
 Number of a0testset states: 2
 TEST SET RESULTS
 l2 error of ahatmattestsetbestv:
-0.22493120368726477
+0.8264591865243182
 l-inf error of ahatmattestsetbestv:
-0.020752362501243283
+0.03785323723961139
 l2 error of ahatmattestsetbestprop:
-0.22144737082279561
+0.6283026161453231
 l-inf error of ahatmattestsetbestprop:
-0.02042291393359373
+0.02887021860116736
 
 l2 error of psihatmattestsetbestv:
-1.3143490240690574
+4.830372794262176
 l-inf error of psihatmattestsetbestv:
-0.009057891100515343
+0.02654647651609635
 l2 error of psihatmattestsetbestprop:
-1.2942764288743873
+3.672182884369236
 l-inf error of psihatmattestsetbestprop:
-0.009107979402698706
+0.020184407013951907
 
 l2 error of trimmed psihatmattestsetbestv:
-1.1612180118857836
+4.237741965864496
 l-inf error of trimmed psihatmattestsetbestv:
-0.008510288341450489
+0.02654647651609635
 l2 error of trimmed psihatmattestsetbestprop:
-1.125542854384084
+3.2198214182813825
 l-inf error of trimmed psihatmattestsetbestprop:
-0.00832809996101032
+0.020184407013951907
 
 -------PROP TEST-------
 Command line argument: ./v4
@@ -303,65 +303,65 @@ Number of a0 states: 4
 
 trim = 171
 
-Final time for propagation: 0.99
+Final time for propagation: 1.99
 
 TRAINING SET RESULTS
 l2 error of ahatmatvecbestv:
-0.9829103044283816
+2.735340322275864
 l-inf error of ahatmatvecbestv:
-0.04700173474359098
+0.09108423871914473
 l2 error of ahatmatvecbestprop:
-0.8181091687360955
+2.169112061343091
 l-inf error of ahatmatvecbestprop:
-0.039349120404302905
+0.07301338912114377
 
 l2 error of psihatmatvecbestv:
-5.742537739983826
+15.980937294015678
 l-inf error of psihatmatvecbestv:
-0.05176868280762231
+0.10534528563193289
 l2 error of psihatmatvecbestprop:
-4.77970598378031
+12.672820815702297
 l-inf error of psihatmatvecbestprop:
-0.04304674649689457
+0.08314666817283013
 
 l2 error of trimmed psihatmatvecbestv:
-5.516121887724475
+15.333634993590303
 l-inf error of trimmed psihatmatvecbestv:
-0.05176868280762231
+0.10534528563193289
 l2 error of trimmed psihatmatvecbestprop:
-4.588808966791928
+12.142128607760787
 l-inf error of trimmed psihatmatvecbestprop:
-0.04304674649689457
+0.08314666817283013
 
 
 Number of a0testset states: 2
 TEST SET RESULTS
 l2 error of ahatmattestsetbestv:
-0.6150883091703331
+1.6943093306122634
 l-inf error of ahatmattestsetbestv:
-0.04553326709840087
+0.083416409525846
 l2 error of ahatmattestsetbestprop:
-0.5133996515309405
+1.3577756758893407
 l-inf error of ahatmattestsetbestprop:
-0.03804916365776168
+0.06771082568793695
 
 l2 error of psihatmattestsetbestv:
-3.5947107380877177
+9.900711862881883
 l-inf error of psihatmattestsetbestv:
-0.03082958610814895
+0.06015975349388006
 l2 error of psihatmattestsetbestprop:
-3.0002540164774674
+7.93516054020901
 l-inf error of psihatmattestsetbestprop:
-0.02565735752217793
+0.04747650122023044
 
 l2 error of trimmed psihatmattestsetbestv:
-3.151515446885669
+8.90842498542862
 l-inf error of trimmed psihatmattestsetbestv:
-0.03082958610814895
+0.06015975349388006
 l2 error of trimmed psihatmattestsetbestprop:
-2.622324599225896
+7.063131711530631
 l-inf error of trimmed psihatmattestsetbestprop:
-0.02565735752217793
+0.04747650122023044
 
 -------PROP TEST-------
 Command line argument: ./v5
@@ -376,65 +376,65 @@ Number of a0 states: 4
 
 trim = 171
 
-Final time for propagation: 0.99
+Final time for propagation: 1.99
 
 TRAINING SET RESULTS
 l2 error of ahatmatvecbestv:
-4.919574227935794
+13.539599786236609
 l-inf error of ahatmatvecbestv:
-0.1480813209638979
+0.2689453766650804
 l2 error of ahatmatvecbestprop:
-4.8400560572870965
+13.480611898299925
 l-inf error of ahatmatvecbestprop:
-0.14666316094901288
+0.2668107737648055
 
 l2 error of psihatmatvecbestv:
-28.807563696830712
+79.14877399790382
 l-inf error of psihatmatvecbestv:
-0.3103097542065568
+0.663594380317511
 l2 error of psihatmatvecbestprop:
-28.34363933042617
+78.80438835768801
 l-inf error of psihatmatvecbestprop:
-0.30897923495528046
+0.659667596208735
 
 l2 error of trimmed psihatmatvecbestv:
-24.973897140680677
+70.7870514384703
 l-inf error of trimmed psihatmatvecbestv:
-0.3026969890355364
+0.663594380317511
 l2 error of trimmed psihatmatvecbestprop:
-24.52150672499423
+70.42841742573864
 l-inf error of trimmed psihatmatvecbestprop:
-0.2996786123897971
+0.659667596208735
 
 
 Number of a0testset states: 2
 TEST SET RESULTS
 l2 error of ahatmattestsetbestv:
-3.7941672574285867
+9.439586905341528
 l-inf error of ahatmattestsetbestv:
-0.14572561156818487
+0.2675294580762575
 l2 error of ahatmattestsetbestprop:
-3.732695296548581
+9.431785337660928
 l-inf error of ahatmattestsetbestprop:
-0.14300569841442173
+0.2663202617755886
 
 l2 error of psihatmattestsetbestv:
-22.242740456507565
+55.20349675536488
 l-inf error of psihatmattestsetbestv:
-0.3209225224509432
+0.5593987132994827
 l2 error of psihatmattestsetbestprop:
-21.88372690843724
+55.158609538100656
 l-inf error of psihatmattestsetbestprop:
-0.3165661403005492
+0.5717029291130286
 
 l2 error of trimmed psihatmattestsetbestv:
-14.634139746374421
+40.97744139708004
 l-inf error of trimmed psihatmattestsetbestv:
-0.19743626287549926
+0.42285917636100223
 l2 error of trimmed psihatmattestsetbestprop:
-14.370164481609802
+40.802816784705854
 l-inf error of trimmed psihatmattestsetbestprop:
-0.19334642355829879
+0.419135709867267
 
 -------PROP TEST-------
 Command line argument: ./v6
@@ -449,63 +449,63 @@ Number of a0 states: 4
 
 trim = 171
 
-Final time for propagation: 0.99
+Final time for propagation: 1.99
 
 TRAINING SET RESULTS
 l2 error of ahatmatvecbestv:
-3.2258644347197465
+8.505022421354743
 l-inf error of ahatmatvecbestv:
-0.15824620134661474
+0.28794571422395415
 l2 error of ahatmatvecbestprop:
-3.0541737386923673
+8.505022421354743
 l-inf error of ahatmatvecbestprop:
-0.14989604515603913
+0.28794571422395415
 
 l2 error of psihatmatvecbestv:
-18.846742249537407
+49.68966763270273
 l-inf error of psihatmatvecbestv:
-0.12353482039557487
+0.24153458778995812
 l2 error of psihatmatvecbestprop:
-17.84365866876087
+49.68966763270273
 l-inf error of psihatmatvecbestprop:
-0.11701332792329507
+0.24153458778995812
 
 l2 error of trimmed psihatmatvecbestv:
-18.083193782458338
+47.64917936059603
 l-inf error of trimmed psihatmatvecbestv:
-0.12353482039557487
+0.24153458778995812
 l2 error of trimmed psihatmatvecbestprop:
-17.12127813444498
+47.64917936059603
 l-inf error of trimmed psihatmatvecbestprop:
-0.11701332792329507
+0.24153458778995812
 
 
 Number of a0testset states: 2
 TEST SET RESULTS
 l2 error of ahatmattestsetbestv:
-2.055214376257918
+5.418845247451548
 l-inf error of ahatmattestsetbestv:
-0.17727119193393626
+0.31512704690000387
 l2 error of ahatmattestsetbestprop:
-1.9448477965651403
+5.418845247451548
 l-inf error of ahatmattestsetbestprop:
-0.167751347710253
+0.31512704690000387
 
 l2 error of psihatmattestsetbestv:
-12.014346371872746
+31.67818267769444
 l-inf error of psihatmattestsetbestv:
-0.0950433801291285
+0.19651846971115502
 l2 error of psihatmattestsetbestprop:
-11.369088392234694
+31.67818267769444
 l-inf error of psihatmattestsetbestprop:
-0.09001446579446518
+0.19651846971115502
 
 l2 error of trimmed psihatmattestsetbestv:
-10.342512820806022
+27.74132281659108
 l-inf error of trimmed psihatmattestsetbestv:
-0.0950433801291285
+0.19651846971115502
 l2 error of trimmed psihatmattestsetbestprop:
-9.792384592849421
+27.74132281659108
 l-inf error of trimmed psihatmattestsetbestprop:
-0.09001446579446518
+0.19651846971115502
 
