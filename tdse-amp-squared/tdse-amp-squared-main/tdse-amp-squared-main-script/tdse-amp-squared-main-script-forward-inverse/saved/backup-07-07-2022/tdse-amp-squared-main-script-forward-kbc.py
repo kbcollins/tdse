@@ -24,29 +24,32 @@ print('')  # blank line
 # set directory where results will be saved
 ###############################################################
 
-# get commandline arguments
-# - cmdlineargsavedir: directory to save files to
-# - cmdlineargpotential: selection of true potential,
-#   possible selections are {0, 1, 2, 3, 4, 5, 6}
-# - cmdlineargnumts: number of times steps of training
-#   trajectories
-# - cmdlineargdt: time-step size
+# # get selection of potential as argument from command line
+# cmdlinearg = int(sys.argv[1])
+# print('type(cmdlinearg)', type(cmdlinearg))
+# print('Command line argument:', cmdlinearg)
+
+# get selection of potential, number of time-steps, and
 # time-step size as arguments from command line
 print('sys.argv =', sys.argv)
-cmdlineargsavedir = pathlib.Path(sys.argv[1])
-print('cmdlineargsavedir =', cmdlineargsavedir)
-cmdlineargpotential = int(sys.argv[2])
+_, cmdlineargpotential, cmdlineargnumts, cmdlineargdt = sys.argv
+
+print('type(cmdlineargpotential)', type(cmdlineargpotential))
+cmdlineargpotential = int(cmdlineargpotential)
 print('cmdlineargpotential =', cmdlineargpotential)
-cmdlineargnumts = int(sys.argv[3])
+
+print('type(cmdlineargnumts)', type(cmdlineargnumts))
+cmdlineargnumts = float(cmdlineargnumts)
 print('cmdlineargnumts =', cmdlineargnumts)
-cmdlineargdt = float(sys.argv[3])
+
+print('type(cmdlineargdt)', type(cmdlineargdt))
+cmdlineargdt = float(cmdlineargdt)
 print('cmdlineargdt =', cmdlineargdt)
 
-
 # file path to output directory
-workingdir = cmdlineargsavedir / f'v{cmdlineargpotential}'
-print('Current working directory:', workingdir)
-print('')  # blank line
+cwddir = pathlib.Path()
+cwddir = cwddir / f'v{cmdlineargpotential}'
+print('Current working directory:', cwddir)
 
 
 ###############################################################
@@ -63,6 +66,8 @@ print('numx =', numx)
 
 # real space grid points (for plotting)
 xvec = np.linspace(-L, L, numx)
+# np.save(workingdir/'xvec', xvec)
+# print('xvec saved.')
 
 # number of Fourier basis functions
 numfour = 32  # 64
@@ -72,7 +77,7 @@ print('numfour =', numfour)
 numtoepelms = 2 * numfour + 1
 
 # set number of time steps
-# trajectory's length = numts + 1
+# trajectory length = numts + 1
 numts = cmdlineargnumts
 # numts = 20  # 20
 print('numts =', numts)
@@ -82,9 +87,11 @@ dt = cmdlineargdt
 # dt = 1e-2  # 1e-2
 print('dt =', dt)
 
+# print('Computational parameters set.')
+
 cmpenv = {'L': L, 'numx': numx, 'numfour': numfour, 'numts': numts, 'dt': dt}
 # cmpenv = [L, numx, numfour, dt, numts]  # original cmpenv (what all other scripts expect)
-np.save(workingdir / 'cmpenv', cmpenv)
+np.save(cwddir / 'cmpenv', cmpenv)
 print('Computational parameters saved.')
 print('')  # blank line
 
@@ -152,12 +159,12 @@ else:
     print(f'Selection of "{cmdlineargpotential}" is not recognized as an available potential.')
 
 # true potential on real space grid (for plotting)
-vtruexvec = v(xvec)
-np.save(workingdir / 'vtruexvec', vtruexvec)
+vxvec = v(xvec)
+np.save(cwddir / 'vtruexvec', vxvec)
 print('vtruexvec saved.')
 
 # compute the potential operator matrix, vmat
-vtruetoep = []
+vtoeptrue = []
 for thisfourn in range(numtoepelms):
     def intgrnd(x):
         return v(x) * np.exp(-1j * np.pi * thisfourn * x / L) / (2 * L)
@@ -165,13 +172,13 @@ for thisfourn in range(numtoepelms):
         return intgrnd(x).real
     def iintgrnd(x):
         return intgrnd(x).imag
-    vtruetoep.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
+    vtoeptrue.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
 
-vtruetoep = jnp.array(vtruetoep)
-np.save(workingdir / 'vtruetoep', vtruetoep)
+vtoeptrue = jnp.array(vtoeptrue)
+np.save(cwddir / 'vtruetoep', vtoeptrue)
 print('vtruetoep saved.')
 
-vmattrue = sl.toeplitz(r=vtruetoep, c=np.conj(vtruetoep))
+vmattrue = sl.toeplitz(r=vtoeptrue, c=np.conj(vtoeptrue))
 
 # define initial state functions
 def psi0_0(x):
@@ -247,7 +254,7 @@ for thispsi0fn in psi0fnvec:
 
 print('Number of a0 states:', len(a0vec))
 
-np.save(workingdir / 'a0vec', a0vec)
+np.save(cwddir / 'a0vec', a0vec)
 print('a0vec saved.')
 
 # make kinetic operator in the Fourier representation
@@ -263,7 +270,7 @@ spctrue, stttrue = jnl.eigh(hmattrue)
 
 # compute propagator matrix
 propatrue = stttrue @ jnp.diag(jnp.exp(-1j * spctrue * dt)) @ stttrue.conj().T
-np.save(workingdir / 'propatrue', propatrue)
+np.save(cwddir / 'propatrue', propatrue)
 print('propatrue saved.')
 
 # propagate system starting from initial "a" state
@@ -278,7 +285,7 @@ for thisa0 in a0vec:
     amattruevec.append(tempamat)
 
 amattruevec = jnp.array(amattruevec)
-np.save(workingdir / 'amattruevec', amattruevec)
+np.save(cwddir / 'amattruevec', amattruevec)
 print('amattruevec saved.')
 
 print('Done with forward problem.')

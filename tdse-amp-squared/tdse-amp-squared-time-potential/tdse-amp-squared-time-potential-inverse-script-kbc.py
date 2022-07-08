@@ -60,7 +60,7 @@ numfour = int(numfour)
 numts = int(numts)
 
 # load state variables
-# a0vec = np.load(cwddir / 'a0vec.npy')
+# a0vec = np.load(workingdir / 'a0vec.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
 
 print('Computational environment loaded.')
@@ -130,7 +130,7 @@ toepindxmat = np.array(aa + bb)
 ###############################################################
 
 # true potential in the form of theta (for testing purposes)
-# thetatrue = jnp.concatenate((jnp.real(vtoeptrue), jnp.imag(vtoeptrue[1:])))
+# thetatrue = jnp.concatenate((jnp.real(vtruetoep), jnp.imag(vtruetoep[1:])))
 
 # initialize theta with random coefficients close to zero
 seed = 1234  # set to None for random initialization
@@ -462,5 +462,5 @@ for i in range(numsec):
     #     plt.title('Real Part of Final State - Learned vs. Truth')
     #     plt.legend()
     #     # plt.show()
-    #     plt.savefig(cwddir / f'graph_real_part_last_state_learned_vs_truth_{i}.pdf', format='pdf')
+    #     plt.savefig(workingdir / f'graph_real_part_last_state_learned_vs_truth_{i}.pdf', format='pdf')
     #     plt.close()

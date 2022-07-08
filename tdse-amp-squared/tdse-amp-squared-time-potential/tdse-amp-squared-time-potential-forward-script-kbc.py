@@ -188,7 +188,7 @@ for thispsi0fn in psi0fnvec:
     # normpsi0xvec.append(tempnormpsi0x)
     # normpsi0recxvec.append(tempa0 @ fourtox)
 
-# np.save(cwddir / 'a0vec', a0vec)
+# np.save(workingdir / 'a0vec', a0vec)
 # print('a0vec saved.')
 
 # check if reconstructed Fourier representation is close to truth
@@ -242,7 +242,7 @@ for thisa0 in a0vec:
             vtoeptrue.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
 
         vtoeptrue = jnp.array(vtoeptrue)
-        # print('Shape vtoeptrue', vtoeptrue.shape)
+        # print('Shape vtruetoep', vtruetoep.shape)
 
         vmattrue = sl.toeplitz(r=vtoeptrue, c=np.conj(vtoeptrue))
 

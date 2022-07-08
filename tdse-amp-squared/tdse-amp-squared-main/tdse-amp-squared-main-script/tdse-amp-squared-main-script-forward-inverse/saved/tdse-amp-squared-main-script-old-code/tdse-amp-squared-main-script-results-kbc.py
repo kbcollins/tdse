@@ -46,7 +46,7 @@ numts = int(numts)
 # load state variables
 amattruevec = np.load(cwddir / 'amattruevec.npy')
 
-vxvec = np.load(cwddir / 'vxvec.npy')
+vxvec = np.load(cwddir / 'vtruexvec.npy')
 
 # load initial theta
 thetarnd = np.load(cwddir / 'thetarnd.npy')
@@ -130,7 +130,7 @@ plt.close()
 # zeroindex = len(xvec) // 2
 midpointindex = numx // 2
 print('midpointindex =', midpointindex)
-# shift = vxvec[zeroindex] - jnp.real(vlearnrec)[zeroindex]
+# shift = vtruexvec[zeroindex] - jnp.real(vlearnrec)[zeroindex]
 shift = vxvec[midpointindex] - jnp.real(vlearnrec)[midpointindex]
 print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + shift - vxvec), sep='\n')
 print('l-inf error of shifted learned potential:', np.mean(np.abs(jnp.real(vlearnrec) + shift - vxvec)), sep='\n')

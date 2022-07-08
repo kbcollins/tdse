@@ -19,6 +19,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 ###############################################################
 
 print('-------INVERSE-------')
+print('')  # blank line
 
 
 ###############################################################
@@ -30,26 +31,30 @@ cmdlinearg = sys.argv[1]
 print('Command line argument:', cmdlinearg)
 
 # transform commandline argument to path object
-cwddir = pathlib.Path(cmdlinearg)
-print('Current working directory:', cwddir)
+workingdir = pathlib.Path(cmdlinearg)
+print('Current working directory:', workingdir)
 
 
 ###############################################################
 # load computational environment
 ###############################################################
 
-L, numx, numfour, dt, numts = np.load(cwddir / 'cmpenv.npy')
-numx = int(numx)
-numfour = int(numfour)
-numts = int(numts)
+cmpenv = np.load(workingdir / 'cmpenv.npy')
+print('type(cmpenv[\'L\'])', type(cmpenv['L']))
+L = cmpenv['L']
+numx = cmpenv['numx']
+numfour = cmpenv['numx']
+dt = cmpenv['numx']
+numts = cmpenv['numx']
+
 
 # load state variables
-# a0vec = np.load(cwddir / 'a0vec.npy')
-amattruevec = np.load(cwddir / 'amattruevec.npy')
+# a0vec = np.load(workingdir / 'a0vec.npy')
+amattruevec = np.load(workingdir / 'amattruevec.npy')
 
-# fourtox = np.load(cwddir / 'fourtox.npy')
-# vtoeptrue = np.load(cwddir / 'vtoeptrue.npy')
-vxvec = np.load(cwddir / 'vxvec.npy')
+# fourtox = np.load(workingdir / 'fourtox.npy')
+# vtruetoep = np.load(workingdir / 'vtruetoep.npy')
+vxvec = np.load(workingdir / 'vtruexvec.npy')
 
 print('Computational environment loaded.')
 # print computational environment variables to stdout
@@ -125,7 +130,7 @@ toepindxmat = np.array(aa + bb)
 ###############################################################
 
 # true potential in the form of theta (for testing purposes)
-# thetatrue = jnp.concatenate((jnp.real(vtoeptrue), jnp.imag(vtoeptrue[1:])))
+# thetatrue = jnp.concatenate((jnp.real(vtruetoep), jnp.imag(vtruetoep[1:])))
 
 # initialize theta with random coefficients close to zero
 seed = 1234  # set to None for random initialization
@@ -134,7 +139,7 @@ print('seed =', seed)
 thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
 thetarnd = jnp.array(thetarnd)
 
-np.save(cwddir / 'thetarnd', thetarnd)
+np.save(workingdir / 'thetarnd', thetarnd)
 print('thetarnd saved.')
 
 
@@ -339,7 +344,7 @@ jitadjgrads = jax.jit(adjgrads)
 rsltadjthetarnd = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
 # rsltadjthetarnd = so.minimize(jitampsquaredobjective, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
 
-np.save(cwddir / 'rsltadjthetarnd', rsltadjthetarnd)
+np.save(workingdir / 'rsltadjthetarnd', rsltadjthetarnd)
 print('rsltadjthetarnd saved.')
 
 
@@ -373,7 +378,7 @@ plt.xlabel('x')
 plt.title('Learned vs. Initial Potentials')
 plt.legend()
 # plt.show()
-plt.savefig(cwddir / 'graph_inverse_learned_vs_initial_potential.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_inverse_learned_vs_initial_potential.pdf', format='pdf')
 plt.close()
 
 # learned potential vs true potential
@@ -383,7 +388,7 @@ plt.xlabel('x')
 plt.title('Learned vs. True Potentials')
 plt.legend()
 # plt.show()
-plt.savefig(cwddir / 'graph_inverse_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_inverse_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
 
 # shifted learned potential vs true potential
@@ -414,5 +419,5 @@ plt.xlabel('x')
 plt.title(f'Shifted Learned Potential vs. True Potential\nl2 error (shift/trim) = {l2errshifttrim}\nl-inf error (shift/trim) = linferrshifttrim')
 plt.legend()
 # plt.show()
-plt.savefig(cwddir / 'graph_inverse_shifted_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_inverse_shifted_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
