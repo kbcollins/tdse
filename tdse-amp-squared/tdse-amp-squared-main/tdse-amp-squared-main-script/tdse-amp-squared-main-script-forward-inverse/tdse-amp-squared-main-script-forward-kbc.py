@@ -21,9 +21,6 @@ print('')  # blank line
 
 
 ###############################################################
-# set directory where results will be saved
-###############################################################
-
 # get commandline arguments
 # - cmdlineargsavedir: directory to save files to
 # - cmdlineargpotential: selection of true potential,
@@ -32,16 +29,25 @@ print('')  # blank line
 #   trajectories
 # - cmdlineargdt: time-step size
 # time-step size as arguments from command line
+###############################################################
+
 print('sys.argv =', sys.argv)
+
+# directory to load from/save to
 cmdlineargsavedir = pathlib.Path(sys.argv[1])
 print('cmdlineargsavedir =', cmdlineargsavedir)
+
+# selection of true potential function
 cmdlineargpotential = int(sys.argv[2])
 print('cmdlineargpotential =', cmdlineargpotential)
+
+# number of time steps
 cmdlineargnumts = int(sys.argv[3])
 print('cmdlineargnumts =', cmdlineargnumts)
+
+# time-step size
 cmdlineargdt = float(sys.argv[3])
 print('cmdlineargdt =', cmdlineargdt)
-
 
 # file path to output directory
 workingdir = cmdlineargsavedir / f'v{cmdlineargpotential}'

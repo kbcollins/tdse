@@ -11,6 +11,6 @@
 for i in {0..6}
 do
 #	echo $i
-	mkdir -p v$i
-	python tdse-amp-squared-main-script-forward-kbc.py $i
+	mkdir -p ./07-08-2022_numts-20_dt-1e-2/v$i
+	python tdse-amp-squared-main-script-forward-kbc.py $i 20 1e-2
 done
