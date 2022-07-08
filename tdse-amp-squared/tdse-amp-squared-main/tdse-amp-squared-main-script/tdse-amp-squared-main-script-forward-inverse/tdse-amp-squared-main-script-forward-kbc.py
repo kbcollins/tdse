@@ -46,7 +46,7 @@ cmdlineargnumts = int(sys.argv[3])
 print('cmdlineargnumts =', cmdlineargnumts)
 
 # time-step size
-cmdlineargdt = float(sys.argv[3])
+cmdlineargdt = float(sys.argv[4])
 print('cmdlineargdt =', cmdlineargdt)
 
 # file path to output directory
