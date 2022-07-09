@@ -88,8 +88,8 @@ dt = cmdlineargdt
 # dt = 1e-2  # 1e-2
 print('dt =', dt)
 
-cmpenv = {'L': L, 'numx': numx, 'numfour': numfour, 'numts': numts, 'dt': dt}
-# cmpenv = [L, numx, numfour, dt, numts]  # original cmpenv (what all other scripts expect)
+# cmpenv = {'L': L, 'numx': numx, 'numfour': numfour, 'numts': numts, 'dt': dt}
+cmpenv = [L, numx, numfour, dt, numts]  # original cmpenv (what all other scripts expect)
 np.save(workingdir / 'cmpenv', cmpenv)
 print('Computational parameters saved.')
 print('')  # blank line

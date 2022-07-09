@@ -36,7 +36,7 @@ print('Current working directory:', workingdir)
 
 
 ###############################################################
-# load computational environment
+# load computational parameters
 ###############################################################
 
 # load saved computational parameters
@@ -45,11 +45,11 @@ print('type(cmpenv)', type(cmpenv))
 print('cmpenv =', cmpenv)
 
 # store loaded parameters as variables
-L = cmpenv['L']
-numx = cmpenv['numx']
-numfour = cmpenv['numx']
-dt = cmpenv['numx']
-numts = cmpenv['numx']
+L = float(cmpenv[0])
+numx = int(cmpenv[1])
+numfour = int(cmpenv[2])
+dt = float(cmpenv[3])
+numts = int(cmpenv[4])
 
 # load state variables
 # a0vec = np.load(workingdir / 'a0vec.npy')

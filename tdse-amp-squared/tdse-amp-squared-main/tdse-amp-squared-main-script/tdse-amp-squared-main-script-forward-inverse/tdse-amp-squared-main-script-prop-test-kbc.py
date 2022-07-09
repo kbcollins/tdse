@@ -466,4 +466,5 @@ plt.close()
 ###############################################################
 
 def vtd(z, t):
-    return
+    return lambda x: -(t / proptimesteps[-1]) * np.exp(-(z-5)**2 / 8)
+
