@@ -16,10 +16,12 @@
 #	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022_numts-20_dt-1e-2 $i 20 1e-2
 #done
 
+
 # Define Bash variables
 date="07-08-2022"
 numtsargs=(20 50 80 110 140)
 dtargs=("1e-2" "1e-3" "1e-4" "1e-5" "1e-6")
+
 
 for i in {0..6}; do
   # test: keep numts constant, change dt
@@ -43,79 +45,4 @@ for i in {0..6}; do
     mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
     python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
   done
-done
-
-
-#for i in {0..6}
-#do
-#  dt=
-#	mkdir -p ./07-08-2022/numts-20_dt-"$dt"/v"$i"
-#	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts-20_dt-"$dt" $i 20 $dt
-#
-#	dt=
-#	mkdir -p ./07-08-2022/numts-20_dt-"$dt"/v"$i"
-#	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts-20_dt-"$dt" $i 20 $dt
-#
-#	dt=
-#	mkdir -p ./07-08-2022/numts-20_dt-"$dt"/v"$i"
-#	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts-20_dt-"$dt" $i 20 $dt
-#
-#  dt=
-#	mkdir -p ./07-08-2022/numts-20_dt-"$dt"/v"$i"
-#	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts-20_dt-"$dt" $i 20 $dt
-#
-#	dt=
-#	mkdir -p ./07-08-2022/numts-20_dt-"$dt"/v"$i"
-#	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts-20_dt-"$dt" $i 20 $dt
-#done
-
-
-# test: keep time-step size constant, change number of time steps
-for i in {0..6}
-do
-  numts=50
-	mkdir -p ./07-08-2022/numts_numts-"$numts"_dt-1e-2/v"$i"
-	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts_numts-"$numts"_dt-1e-2 $i $numts 1e-2
-
-	numts=80
-	mkdir -p ./07-08-2022/numts_numts-"$numts"_dt-1e-2/v"$i"
-	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts_numts-"$numts"_dt-1e-2 $i $numts 1e-2
-
-	numts=110
-	mkdir -p ./07-08-2022/numts_numts-"$numts"_dt-1e-2/v"$i"
-	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts_numts-"$numts"_dt-1e-2 $i $numts 1e-2
-
-	numts=140
-	mkdir -p ./07-08-2022/numts_numts-"$numts"_dt-1e-2/v"$i"
-	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts_numts-"$numts"_dt-1e-2 $i $numts 1e-2
-done
-
-
-# test: change both the number of time steps and time-step size
-for i in {0..6}
-do
-  dt="1e-2"
-  numts=20
-	mkdir -p ./07-08-2022/numts-"$numts"_dt-"$dt"/v"$i"
-	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts-"$numts"_dt-"$dt" $i $numts $dt
-
-  dt="1e-3"
-  numts=50
-	mkdir -p ./07-08-2022/numts-"$numts"_dt-"$dt"/v"$i"
-	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts-"$numts"_dt-"$dt" $i $numts $dt
-
-  dt="1e-4"
-  numts=80
-	mkdir -p ./07-08-2022/numts-"$numts"_dt-"$dt"/v"$i"
-	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts-"$numts"_dt-"$dt" $i $numts $dt
-
-  dt="1e-5"
-  numts=110
-	mkdir -p ./07-08-2022/numts-"$numts"_dt-"$dt"/v"$i"
-	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts-"$numts"_dt-"$dt" $i $numts $dt
-
-	dt="1e-6"
-  numts=140
-	mkdir -p ./07-08-2022/numts-"$numts"_dt-"$dt"/v"$i"
-	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022/numts-"$numts"_dt-"$dt" $i $numts $dt
 done
