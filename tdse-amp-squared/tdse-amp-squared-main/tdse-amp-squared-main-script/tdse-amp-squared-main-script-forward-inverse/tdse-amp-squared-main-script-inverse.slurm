@@ -8,8 +8,7 @@
 
 ################## BASH SCRIPT ##################
 
-#for i in {0..6}
-#do
+#for i in {0..6}; do
 ##	echo $i
 #	python tdse-amp-squared-main-script-inverse-kbc.py ./v$i
 #done
@@ -17,5 +16,12 @@
 
 # Define Bash variables
 date="07-08-2022"
-numtsargs=(20 50 80 110 140)
-dtargs=("1e-2" "1e-3" "1e-4" "1e-5" "1e-6")
+filelist=( $(ls ./"$date") )
+
+# run pyscript
+for i in {0..6}; do
+  for thisfile in "${filelist[@]}"; do
+    mkdir -p ./"$date"/"$thisfile"/v"$i"/results-inverse
+    python tdse-amp-squared-main-script-inverse-kbc.py ./"$date"/"$thisfile"/v"$i"
+  done
+done

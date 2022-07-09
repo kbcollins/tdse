@@ -22,7 +22,7 @@ date="07-08-2022"
 numtsargs=(20 50 80 110 140)
 dtargs=("1e-2" "1e-3" "1e-4" "1e-5" "1e-6")
 
-
+# run pyscript
 for i in {0..6}; do
   # test: keep numts constant, change dt
   for thisdt in "${dtargs[@]}"; do
