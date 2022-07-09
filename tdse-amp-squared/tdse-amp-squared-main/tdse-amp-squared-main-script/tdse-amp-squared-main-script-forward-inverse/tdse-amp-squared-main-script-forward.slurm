@@ -3,6 +3,8 @@
 #SBATCH --gpus=1                  # select how many gpus to use (each node as 2)
 #SBATCH --job-name=forward        # create a short name for the job
 #SBATCH --output='out_%x'         # stdout file (%A: job ID, a%: job array index, x%: job name)
+#SBATCH --nodes=1                 # set number of nodes tasks will be run across
+#SBATCH --ntasks=2                # set number of tasks to run at the same time?
 #SBATCH --time=02:00:00           # set total run time limit for job
 #SBATCH --array=0-6               # job array with index values 0, 1, 2, 3, 4, 5, 6
                                   # use $SLURM_ARRAY_TASK_ID to pass the array number as an argument
