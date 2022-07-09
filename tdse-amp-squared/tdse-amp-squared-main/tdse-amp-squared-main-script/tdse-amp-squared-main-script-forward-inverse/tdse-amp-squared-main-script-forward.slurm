@@ -4,7 +4,7 @@
 #SBATCH --job-name=forward        # create a short name for the job
 #SBATCH --output='out_%x'         # stdout file (%A: job ID, a%: job array index, x%: job name)
 #SBATCH --time=02:00:00           # set total run time limit for job
-#SBATCH --array=0-6%2             # job array with index values 0, 1, 2, 3, 4, 5, 6
+#SBATCH --array=0-6%1             # job array with index values 0, 1, 2, 3, 4, 5, 6
                                   # use $SLURM_ARRAY_TASK_ID to pass the array number as an argument
 
 
