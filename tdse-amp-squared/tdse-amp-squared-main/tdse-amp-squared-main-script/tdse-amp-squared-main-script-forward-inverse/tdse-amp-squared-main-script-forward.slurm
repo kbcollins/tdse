@@ -3,7 +3,7 @@
 #SBATCH --gpus=1
 #SBATCH --job-name=kbc-forward
 #SBATCH --output='out-forward'
-#SBATCH --time=00:35:00
+#SBATCH --time=02:00:00
 
 
 #mkdir -p v0
