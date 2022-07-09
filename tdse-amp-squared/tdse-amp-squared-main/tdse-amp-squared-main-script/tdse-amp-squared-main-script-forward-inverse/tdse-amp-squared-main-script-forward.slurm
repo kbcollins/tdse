@@ -25,7 +25,8 @@ dtargs=("1e-2" "1e-3" "1e-4" "1e-5" "1e-6")
 # run pyscript
 for i in {0..6}; do
   # test: keep numts constant, change dt
-  for thisdt in "${dtargs[@]}"; do
+  for thisdt in "${dtargs[@]:1}"; do
+#  for thisdt in "${dtargs[@]}"; do
     thisnumts=20
     mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
     python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
@@ -39,7 +40,8 @@ for i in {0..6}; do
   done
 
   # test: change numts and dt
-  for j in "${!dtargs[@]:1}"; do
+  for j in "${!dtargs[@]}"; do
+#  for j in "${!dtargs[@]:1}"; do
     thisdt="${dtargs[j]}"
     thisnumts="${numtsargs[j]}"
     mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"

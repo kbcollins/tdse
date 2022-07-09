@@ -288,3 +288,4 @@ np.save(workingdir / 'amattruevec', amattruevec)
 print('amattruevec saved.')
 
 print('Done with forward problem.')
+print('')  # blank line
