@@ -464,3 +464,6 @@ plt.close()
 ###############################################################
 # results of propagating with time-dependent perturbation
 ###############################################################
+
+def vtd(z, t):
+    return

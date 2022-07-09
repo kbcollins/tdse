@@ -39,8 +39,12 @@ print('Current working directory:', workingdir)
 # load computational environment
 ###############################################################
 
+# load saved computational parameters
 cmpenv = np.load(workingdir / 'cmpenv.npy', allow_pickle=True)
-print('type(cmpenv[\'L\'])', type(cmpenv['L']))
+print('type(cmpenv)', type(cmpenv))
+print('cmpenv =', cmpenv)
+
+# store loaded parameters as variables
 L = cmpenv['L']
 numx = cmpenv['numx']
 numfour = cmpenv['numx']
