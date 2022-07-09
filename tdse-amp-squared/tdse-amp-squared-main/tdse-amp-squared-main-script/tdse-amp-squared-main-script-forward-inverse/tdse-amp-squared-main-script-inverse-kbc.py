@@ -39,7 +39,7 @@ print('Current working directory:', workingdir)
 # load computational environment
 ###############################################################
 
-cmpenv = np.load(workingdir / 'cmpenv.npy')
+cmpenv = np.load(workingdir / 'cmpenv.npy', allow_pickle=True)
 print('type(cmpenv[\'L\'])', type(cmpenv['L']))
 L = cmpenv['L']
 numx = cmpenv['numx']

@@ -32,7 +32,7 @@ for i in {0..6}; do
   done
 
   # test: keep dt constant, change numts
-  for thisdt in "${numtsargs[@]:1}"; do
+  for thisnumts in "${numtsargs[@]:1}"; do
     thisdt="1e-2"
     mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
     python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
