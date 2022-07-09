@@ -419,8 +419,8 @@ for i in range(numsec):
     ###############################################################
 
     # first recombine learned theta into vector of complex values
-    # vtoeplearnedR = rsltadjthetarnd[:numtoepelms]
-    # vtoeplearnedI = jnp.concatenate((jnp.array([0.0]), rsltadjthetarnd[numtoepelms:]))
+    # vtoeplearnedR = thetahat[:numtoepelms]
+    # vtoeplearnedI = jnp.concatenate((jnp.array([0.0]), thetahat[numtoepelms:]))
     # vtoeplearned = vtoeplearnedR + 1j * vtoeplearnedI
 
     # construct vmatlearned from complex toeplitz vector

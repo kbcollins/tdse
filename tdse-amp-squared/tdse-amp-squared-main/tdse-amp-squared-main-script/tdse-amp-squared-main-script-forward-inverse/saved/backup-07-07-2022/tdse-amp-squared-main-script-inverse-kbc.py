@@ -337,10 +337,10 @@ jitadjgrads = jax.jit(adjgrads)
 
 # start optimization (i.e., learning theta)
 rsltadjthetarnd = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
-# rsltadjthetarnd = so.minimize(jitampsquaredobjective, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
+# thetahat = so.minimize(jitampsquaredobjective, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
 
-np.save(cwddir / 'rsltadjthetarnd', rsltadjthetarnd)
-print('rsltadjthetarnd saved.')
+np.save(cwddir / 'thetahat', rsltadjthetarnd)
+print('thetahat saved.')
 
 
 ###############################################################

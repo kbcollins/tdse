@@ -47,14 +47,13 @@ numfour = cmpenv['numx']
 dt = cmpenv['numx']
 numts = cmpenv['numx']
 
-
 # load state variables
 # a0vec = np.load(workingdir / 'a0vec.npy')
 amattruevec = np.load(workingdir / 'amattruevec.npy')
 
 # fourtox = np.load(workingdir / 'fourtox.npy')
 # vtruetoep = np.load(workingdir / 'vtruetoep.npy')
-vxvec = np.load(workingdir / 'vtruexvec.npy')
+vtruexvec = np.load(workingdir / 'vtruexvec.npy')
 
 print('Computational environment loaded.')
 # print computational environment variables to stdout
@@ -341,11 +340,11 @@ jitadjgrads = jax.jit(adjgrads)
 ###############################################################
 
 # start optimization (i.e., learning theta)
-rsltadjthetarnd = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
-# rsltadjthetarnd = so.minimize(jitampsquaredobjective, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
+thetahat = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+# thetahat = so.minimize(jitampsquaredobjective, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
 
-np.save(workingdir / 'rsltadjthetarnd', rsltadjthetarnd)
-print('rsltadjthetarnd saved.')
+np.save(workingdir / 'thetahat', thetahat)
+print('thetahat saved.')
 
 
 ###############################################################
@@ -364,7 +363,7 @@ def thetatoreal(theta):
 vinitrec = thetatoreal(thetarnd)
 
 # transform learned theta to real space potential
-vlearnrec = thetatoreal(rsltadjthetarnd)
+vlearnrec = thetatoreal(thetahat)
 
 
 ###############################################################
@@ -378,46 +377,46 @@ plt.xlabel('x')
 plt.title('Learned vs. Initial Potentials')
 plt.legend()
 # plt.show()
-plt.savefig(workingdir / 'graph_inverse_learned_vs_initial_potential.pdf', format='pdf')
+plt.savefig(workingdir / 'results-inverse' / 'graph_inverse_learned_vs_initial_potential.pdf', format='pdf')
 plt.close()
 
 # learned potential vs true potential
 plt.plot(xvec, jnp.real(vlearnrec), '.-', label='Learned')
-plt.plot(xvec, vxvec, label='True')
+plt.plot(xvec, vtruexvec, label='True')
 plt.xlabel('x')
 plt.title('Learned vs. True Potentials')
 plt.legend()
 # plt.show()
-plt.savefig(workingdir / 'graph_inverse_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(workingdir / 'results-inverse' / 'graph_inverse_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
 
 # shifted learned potential vs true potential
 midpointindex = numx // 2
 print('midpointindex =', midpointindex)
-shift = vxvec[midpointindex] - jnp.real(vlearnrec)[midpointindex]
+shift = vtruexvec[midpointindex] - jnp.real(vlearnrec)[midpointindex]
 
 # set trim to L=10
 trim = np.where(xvec >= -10)[0][0]  # 125
 print('trim =', trim)
 
 # calculate and return l2 error
-print('l2 error of learned potential:', nl.norm(jnp.real(vlearnrec) - vxvec), sep='\n')
-print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + shift - vxvec), sep='\n')
-l2errshifttrim = nl.norm(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])
+print('l2 error of learned potential:', nl.norm(jnp.real(vlearnrec) - vtruexvec), sep='\n')
+print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + shift - vtruexvec), sep='\n')
+l2errshifttrim = nl.norm(jnp.real(vlearnrec)[trim:-trim] + shift - vtruexvec[trim:-trim])
 print('l2 error of shifted and trimmed learned potential:', l2errshifttrim, sep='\n')
 
 # calculate and return l2 error
-print('l-inf error of learned potential:', np.amax(np.abs(jnp.real(vlearnrec) - vxvec)), sep='\n')
-print('l-inf error of shifted learned potential:', np.amax(np.abs(jnp.real(vlearnrec) + shift - vxvec)), sep='\n')
-linferrshifttrim = np.amax(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]))
+print('l-inf error of learned potential:', np.amax(np.abs(jnp.real(vlearnrec) - vtruexvec)), sep='\n')
+print('l-inf error of shifted learned potential:', np.amax(np.abs(jnp.real(vlearnrec) + shift - vtruexvec)), sep='\n')
+linferrshifttrim = np.amax(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vtruexvec[trim:-trim]))
 print('l-inf error of shifted and trimmed learned potential:', linferrshifttrim, sep='\n')
 
 # plot shifted potential
 plt.plot(xvec, jnp.real(vlearnrec) + shift, '.-', label='Learned')
-plt.plot(xvec, vxvec, label='True')
+plt.plot(xvec, vtruexvec, label='True')
 plt.xlabel('x')
 plt.title(f'Shifted Learned Potential vs. True Potential\nl2 error (shift/trim) = {l2errshifttrim}\nl-inf error (shift/trim) = linferrshifttrim')
 plt.legend()
 # plt.show()
-plt.savefig(workingdir / 'graph_inverse_shifted_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(workingdir / 'results-inverse' / 'graph_inverse_shifted_true_vs_learned_potential.pdf', format='pdf')
 plt.close()

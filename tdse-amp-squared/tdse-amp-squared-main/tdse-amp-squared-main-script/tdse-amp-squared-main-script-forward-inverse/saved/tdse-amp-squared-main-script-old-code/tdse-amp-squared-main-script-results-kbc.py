@@ -25,7 +25,7 @@ print('-------RESULTS-------')
 # set directory to load data from
 ###############################################################
 
-# get path to directory containing rsltadjthetarnd from command line
+# get path to directory containing thetahat from command line
 cmdlinearg = sys.argv[1]
 print('Command line argument:', cmdlinearg)
 
@@ -52,7 +52,7 @@ vxvec = np.load(cwddir / 'vtruexvec.npy')
 thetarnd = np.load(cwddir / 'thetarnd.npy')
 
 # load learned theta
-rsltadjthetarnd = np.load(cwddir / 'rsltadjthetarnd.npy')
+rsltadjthetarnd = np.load(cwddir / 'thetahat.npy')
 
 print('Computational environment loaded.')
 
