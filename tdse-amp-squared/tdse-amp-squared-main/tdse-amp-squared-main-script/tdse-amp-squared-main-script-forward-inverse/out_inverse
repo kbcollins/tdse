@@ -1,0 +1,3367 @@
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-2/v0
+Current working directory: 07-08-2022/numts-110_dt-1e-2/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.281181
+         Iterations: 898
+         Function evaluations: 994
+         Gradient evaluations: 980
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+2097.5943243641564
+l2 error of shifted learned potential:
+1914.6700530143128
+l2 error of shifted and trimmed learned potential:
+100.69072486151296
+l-inf error of learned potential:
+213.56385248137852
+l-inf error of shifted learned potential:
+202.382379672667
+l-inf error of shifted and trimmed learned potential:
+9.15115652482794
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-5/v0
+Current working directory: 07-08-2022/numts-110_dt-1e-5/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 27
+         Gradient evaluations: 17
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1613.9408366373932
+l2 error of shifted learned potential:
+1614.0704494530598
+l2 error of shifted and trimmed learned potential:
+585.1159738727162
+l-inf error of learned potential:
+112.5123563750772
+l-inf error of shifted learned potential:
+112.51778763280043
+l-inf error of shifted and trimmed learned potential:
+49.931187131791944
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-2/v0
+Current working directory: 07-08-2022/numts-140_dt-1e-2/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 1.135223
+         Iterations: 498
+         Function evaluations: 532
+         Gradient evaluations: 522
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+2022.4346211185402
+l2 error of shifted learned potential:
+1931.7889702456512
+l2 error of shifted and trimmed learned potential:
+87.30151663238834
+l-inf error of learned potential:
+157.98957517111404
+l-inf error of shifted learned potential:
+153.01025286194044
+l-inf error of shifted and trimmed learned potential:
+17.852826907656855
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-6/v0
+Current working directory: 07-08-2022/numts-140_dt-1e-6/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 17
+         Gradient evaluations: 6
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1613.9408366373932
+l2 error of shifted learned potential:
+1614.0704494530598
+l2 error of shifted and trimmed learned potential:
+585.1159738727162
+l-inf error of learned potential:
+112.5123563750772
+l-inf error of shifted learned potential:
+112.51778763280043
+l-inf error of shifted and trimmed learned potential:
+49.931187131791944
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-2/v0
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000001
+         Iterations: 1885
+         Function evaluations: 1985
+         Gradient evaluations: 1973
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1223.7977248188809
+l2 error of shifted learned potential:
+237.01826223395116
+l2 error of shifted and trimmed learned potential:
+14.565480211050026
+l-inf error of learned potential:
+77.23101132304568
+l-inf error of shifted learned potential:
+41.405134514069545
+l-inf error of shifted and trimmed learned potential:
+1.0911200744881953
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-3/v0
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1767
+         Function evaluations: 1823
+         Gradient evaluations: 1811
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1277.7419161982252
+l2 error of shifted learned potential:
+459.47379526770067
+l2 error of shifted and trimmed learned potential:
+7.203700305146565
+l-inf error of learned potential:
+108.3814447868461
+l-inf error of shifted learned potential:
+75.78351394862446
+l-inf error of shifted and trimmed learned potential:
+0.9534278886180658
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-4/v0
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3
+         Function evaluations: 51
+         Gradient evaluations: 40
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1613.938483094218
+l2 error of shifted learned potential:
+1613.8023317072177
+l2 error of shifted and trimmed learned potential:
+584.8969622644863
+l-inf error of learned potential:
+112.51273355453364
+l-inf error of shifted learned potential:
+112.50702793902401
+l-inf error of shifted and trimmed learned potential:
+49.87878939894347
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-5/v0
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 17
+         Gradient evaluations: 8
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1613.9408366373932
+l2 error of shifted learned potential:
+1614.0704494530598
+l2 error of shifted and trimmed learned potential:
+585.1159738727162
+l-inf error of learned potential:
+112.5123563750772
+l-inf error of shifted learned potential:
+112.51778763280043
+l-inf error of shifted and trimmed learned potential:
+49.931187131791944
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-6/v0
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1613.9408366373932
+l2 error of shifted learned potential:
+1614.0704494530598
+l2 error of shifted and trimmed learned potential:
+585.1159738727162
+l-inf error of learned potential:
+112.5123563750772
+l-inf error of shifted learned potential:
+112.51778763280043
+l-inf error of shifted and trimmed learned potential:
+49.931187131791944
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-2/v0
+Current working directory: 07-08-2022/numts-50_dt-1e-2/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000169
+         Iterations: 2707
+         Function evaluations: 2770
+         Gradient evaluations: 2761
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1531.3922799887816
+l2 error of shifted learned potential:
+1010.5020717535391
+l2 error of shifted and trimmed learned potential:
+72.36932741683066
+l-inf error of learned potential:
+176.7253250090851
+l-inf error of shifted learned potential:
+150.26045022053006
+l-inf error of shifted and trimmed learned potential:
+6.2557655524832825
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-3/v0
+Current working directory: 07-08-2022/numts-50_dt-1e-3/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1567
+         Function evaluations: 1605
+         Gradient evaluations: 1593
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1200.7742659584148
+l2 error of shifted learned potential:
+10.458545492752963
+l2 error of shifted and trimmed learned potential:
+1.167985068903161
+l-inf error of learned potential:
+40.465288122065004
+l-inf error of shifted learned potential:
+3.048397098403541
+l-inf error of shifted and trimmed learned potential:
+0.12644156855105138
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-2/v0
+Current working directory: 07-08-2022/numts-80_dt-1e-2/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.046367
+         Iterations: 2694
+         Function evaluations: 2894
+         Gradient evaluations: 2883
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+3865.8166381835217
+l2 error of shifted learned potential:
+4195.472223496944
+l2 error of shifted and trimmed learned potential:
+362.57525910114975
+l-inf error of learned potential:
+394.2526595671907
+l-inf error of shifted learned potential:
+419.86494811943015
+l-inf error of shifted and trimmed learned potential:
+38.838701308687476
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-4/v0
+Current working directory: 07-08-2022/numts-80_dt-1e-4/v0
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1376
+         Function evaluations: 1417
+         Gradient evaluations: 1406
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1507.3046339726595
+l2 error of shifted learned potential:
+1119.8967126300136
+l2 error of shifted and trimmed learned potential:
+156.06757301352894
+l-inf error of learned potential:
+122.74502876854217
+l-inf error of shifted learned potential:
+105.64545001278616
+l-inf error of shifted and trimmed learned potential:
+14.061996395903464
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-2/v1
+Current working directory: 07-08-2022/numts-110_dt-1e-2/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.029375
+         Iterations: 1099
+         Function evaluations: 1145
+         Gradient evaluations: 1133
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1394.159823201107
+l2 error of shifted learned potential:
+1413.0156318052318
+l2 error of shifted and trimmed learned potential:
+28.19550447232357
+l-inf error of learned potential:
+148.07943130989793
+l-inf error of shifted learned potential:
+149.49212286703727
+l-inf error of shifted and trimmed learned potential:
+2.842030486957432
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-5/v1
+Current working directory: 07-08-2022/numts-110_dt-1e-5/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 26
+         Gradient evaluations: 16
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1003.3295769578879
+l2 error of shifted learned potential:
+976.2340641885154
+l2 error of shifted and trimmed learned potential:
+88.63421005741108
+l-inf error of learned potential:
+100.0123563750772
+l-inf error of shifted learned potential:
+98.45528763280043
+l-inf error of shifted and trimmed learned potential:
+12.45568454768511
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-2/v1
+Current working directory: 07-08-2022/numts-140_dt-1e-2/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.402640
+         Iterations: 1041
+         Function evaluations: 1218
+         Gradient evaluations: 1202
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+5503.522639687298
+l2 error of shifted learned potential:
+6413.493913629576
+l2 error of shifted and trimmed learned potential:
+560.9284885977435
+l-inf error of learned potential:
+599.0024118309243
+l-inf error of shifted learned potential:
+685.7401073247541
+l-inf error of shifted and trimmed learned potential:
+72.23285065135279
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-6/v1
+Current working directory: 07-08-2022/numts-140_dt-1e-6/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 19
+         Gradient evaluations: 7
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1003.3295769578879
+l2 error of shifted learned potential:
+976.2340641885154
+l2 error of shifted and trimmed learned potential:
+88.63421005741108
+l-inf error of learned potential:
+100.0123563750772
+l-inf error of shifted learned potential:
+98.45528763280043
+l-inf error of shifted and trimmed learned potential:
+12.45568454768511
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-2/v1
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000006
+         Iterations: 1637
+         Function evaluations: 1665
+         Gradient evaluations: 1653
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+805.1768070544864
+l2 error of shifted learned potential:
+597.9133317034263
+l2 error of shifted and trimmed learned potential:
+35.363371494665515
+l-inf error of learned potential:
+94.7885582105047
+l-inf error of shifted learned potential:
+82.16162559901707
+l-inf error of shifted and trimmed learned potential:
+2.6779210604679644
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-3/v1
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1563
+         Function evaluations: 1597
+         Gradient evaluations: 1586
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+717.4060246096328
+l2 error of shifted learned potential:
+489.2721073950117
+l2 error of shifted and trimmed learned potential:
+27.329285738353263
+l-inf error of learned potential:
+73.34693645801589
+l-inf error of shifted learned potential:
+62.08763044816085
+l-inf error of shifted and trimmed learned potential:
+2.2205850340065414
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-4/v1
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3
+         Function evaluations: 64
+         Gradient evaluations: 55
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1003.3281403384918
+l2 error of shifted learned potential:
+975.9696281840398
+l2 error of shifted and trimmed learned potential:
+88.53723603390549
+l-inf error of learned potential:
+100.01201965961413
+l-inf error of shifted learned potential:
+98.4393169283172
+l-inf error of shifted and trimmed learned potential:
+12.385405332559781
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-5/v1
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 17
+         Gradient evaluations: 6
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1003.3295769578879
+l2 error of shifted learned potential:
+976.2340641885154
+l2 error of shifted and trimmed learned potential:
+88.63421005741108
+l-inf error of learned potential:
+100.0123563750772
+l-inf error of shifted learned potential:
+98.45528763280043
+l-inf error of shifted and trimmed learned potential:
+12.45568454768511
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-6/v1
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1003.3295769578879
+l2 error of shifted learned potential:
+976.2340641885154
+l2 error of shifted and trimmed learned potential:
+88.63421005741108
+l-inf error of learned potential:
+100.0123563750772
+l-inf error of shifted learned potential:
+98.45528763280043
+l-inf error of shifted and trimmed learned potential:
+12.45568454768511
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-2/v1
+Current working directory: 07-08-2022/numts-50_dt-1e-2/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000359
+         Iterations: 2029
+         Function evaluations: 2125
+         Gradient evaluations: 2113
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1214.5576489950652
+l2 error of shifted learned potential:
+1143.5922368482888
+l2 error of shifted and trimmed learned potential:
+70.1687838616215
+l-inf error of learned potential:
+161.41747183357094
+l-inf error of shifted learned potential:
+155.93551968569398
+l-inf error of shifted and trimmed learned potential:
+6.686087257482378
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-3/v1
+Current working directory: 07-08-2022/numts-50_dt-1e-3/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1956
+         Function evaluations: 2026
+         Gradient evaluations: 2014
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+581.9425737308637
+l2 error of shifted learned potential:
+156.01819213730226
+l2 error of shifted and trimmed learned potential:
+9.203041052933235
+l-inf error of learned potential:
+52.82964851781833
+l-inf error of shifted learned potential:
+36.22591567958222
+l-inf error of shifted and trimmed learned potential:
+0.7224003185177175
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-2/v1
+Current working directory: 07-08-2022/numts-80_dt-1e-2/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.004282
+         Iterations: 2004
+         Function evaluations: 2183
+         Gradient evaluations: 2169
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+3121.012579582418
+l2 error of shifted learned potential:
+3284.007316794466
+l2 error of shifted and trimmed learned potential:
+49.5262546513581
+l-inf error of learned potential:
+328.4513200173624
+l-inf error of shifted learned potential:
+347.19130844999484
+l-inf error of shifted and trimmed learned potential:
+6.026076872674562
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-4/v1
+Current working directory: 07-08-2022/numts-80_dt-1e-4/v1
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1346
+         Function evaluations: 1392
+         Gradient evaluations: 1380
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+971.737406185884
+l2 error of shifted learned potential:
+971.8924440973974
+l2 error of shifted and trimmed learned potential:
+158.92049132291103
+l-inf error of learned potential:
+105.21732950587737
+l-inf error of shifted learned potential:
+105.22568543429058
+l-inf error of shifted and trimmed learned potential:
+13.751521563524886
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-2/v2
+Current working directory: 07-08-2022/numts-110_dt-1e-2/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.003614
+         Iterations: 1715
+         Function evaluations: 1802
+         Gradient evaluations: 1792
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+2097.5193480056632
+l2 error of shifted learned potential:
+2097.5751528582914
+l2 error of shifted and trimmed learned potential:
+89.83908229094499
+l-inf error of learned potential:
+390.74089475121286
+l-inf error of shifted learned potential:
+390.74579946091353
+l-inf error of shifted and trimmed learned potential:
+8.143198543854524
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-5/v2
+Current working directory: 07-08-2022/numts-110_dt-1e-5/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 73
+         Function evaluations: 161
+         Gradient evaluations: 148
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1661.1048000966312
+l2 error of shifted learned potential:
+1624.2975025670362
+l2 error of shifted and trimmed learned potential:
+102.97950490379459
+l-inf error of learned potential:
+319.87641860341785
+l-inf error of shifted learned potential:
+317.1782827708177
+l-inf error of shifted and trimmed learned potential:
+11.815350121252674
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-2/v2
+Current working directory: 07-08-2022/numts-140_dt-1e-2/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.056737
+         Iterations: 2902
+         Function evaluations: 3126
+         Gradient evaluations: 3110
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+4232.785699508043
+l2 error of shifted learned potential:
+4486.1192744030295
+l2 error of shifted and trimmed learned potential:
+121.1741014030517
+l-inf error of learned potential:
+510.0285542986905
+l-inf error of shifted learned potential:
+538.6845071410937
+l-inf error of shifted and trimmed learned potential:
+13.101799090329303
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-6/v2
+Current working directory: 07-08-2022/numts-140_dt-1e-6/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 38
+         Gradient evaluations: 26
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1661.4470723536244
+l2 error of shifted learned potential:
+1628.2309624497605
+l2 error of shifted and trimmed learned potential:
+105.63760725468659
+l-inf error of learned potential:
+319.8391106461515
+l-inf error of shifted learned potential:
+317.4163077168151
+l-inf error of shifted and trimmed learned potential:
+12.091377651783432
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-2/v2
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000038
+         Iterations: 3485
+         Function evaluations: 3592
+         Gradient evaluations: 3580
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1838.207307850479
+l2 error of shifted learned potential:
+1715.9683445080882
+l2 error of shifted and trimmed learned potential:
+67.83332644226945
+l-inf error of learned potential:
+396.9128172600515
+l-inf error of shifted learned potential:
+384.5079862850704
+l-inf error of shifted and trimmed learned potential:
+5.840921054689577
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-3/v2
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 3198
+         Function evaluations: 3304
+         Gradient evaluations: 3293
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+811.1618344095893
+l2 error of shifted learned potential:
+336.8734671364959
+l2 error of shifted and trimmed learned potential:
+30.912148195153712
+l-inf error of learned potential:
+158.23876117661084
+l-inf error of shifted learned potential:
+135.70745001978074
+l-inf error of shifted and trimmed learned potential:
+3.2012196627335623
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-4/v2
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 546
+         Function evaluations: 628
+         Gradient evaluations: 616
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1658.067555403008
+l2 error of shifted learned potential:
+1623.340238946611
+l2 error of shifted and trimmed learned potential:
+108.79950329740797
+l-inf error of learned potential:
+319.57541883841265
+l-inf error of shifted learned potential:
+317.0423799400723
+l-inf error of shifted and trimmed learned potential:
+13.228053404563461
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-5/v2
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 46
+         Gradient evaluations: 34
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1661.4470723536244
+l2 error of shifted learned potential:
+1628.2309624497605
+l2 error of shifted and trimmed learned potential:
+105.63760725468659
+l-inf error of learned potential:
+319.8391106461515
+l-inf error of shifted learned potential:
+317.4163077168151
+l-inf error of shifted and trimmed learned potential:
+12.091377651783432
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-6/v2
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1661.4470723536244
+l2 error of shifted learned potential:
+1628.2309624497605
+l2 error of shifted and trimmed learned potential:
+105.63760725468659
+l-inf error of learned potential:
+319.8391106461515
+l-inf error of shifted learned potential:
+317.4163077168151
+l-inf error of shifted and trimmed learned potential:
+12.091377651783432
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-2/v2
+Current working directory: 07-08-2022/numts-50_dt-1e-2/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.001028
+         Iterations: 1401
+         Function evaluations: 1435
+         Gradient evaluations: 1424
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1883.1243457612213
+l2 error of shifted learned potential:
+1813.379560288432
+l2 error of shifted and trimmed learned potential:
+44.063457264262965
+l-inf error of learned potential:
+367.17371341034465
+l-inf error of shifted learned potential:
+360.9277775323094
+l-inf error of shifted and trimmed learned potential:
+4.436277855599634
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-3/v2
+Current working directory: 07-08-2022/numts-50_dt-1e-3/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Maximum number of iterations has been exceeded.
+         Current function value: 0.000003
+         Iterations: 4000
+         Function evaluations: 4119
+         Gradient evaluations: 4119
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1354.63968198595
+l2 error of shifted learned potential:
+1164.8143576700854
+l2 error of shifted and trimmed learned potential:
+62.881550879810135
+l-inf error of learned potential:
+258.626708579399
+l-inf error of shifted learned potential:
+243.78664547817053
+l-inf error of shifted and trimmed learned potential:
+8.841292726509344
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-2/v2
+Current working directory: 07-08-2022/numts-80_dt-1e-2/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.002221
+         Iterations: 2570
+         Function evaluations: 2674
+         Gradient evaluations: 2663
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+2437.3878693269003
+l2 error of shifted learned potential:
+2470.7832098140098
+l2 error of shifted and trimmed learned potential:
+73.40908517145446
+l-inf error of learned potential:
+384.8778056615729
+l-inf error of shifted learned potential:
+388.0912248395495
+l-inf error of shifted and trimmed learned potential:
+6.629848425735506
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-4/v2
+Current working directory: 07-08-2022/numts-80_dt-1e-4/v2
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1578
+         Function evaluations: 1641
+         Gradient evaluations: 1630
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1441.9714336787858
+l2 error of shifted learned potential:
+1445.5661979640195
+l2 error of shifted and trimmed learned potential:
+301.74370793131993
+l-inf error of learned potential:
+297.25015153292355
+l-inf error of shifted learned potential:
+297.4674806594561
+l-inf error of shifted and trimmed learned potential:
+30.880889866629136
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-2/v3
+Current working directory: 07-08-2022/numts-110_dt-1e-2/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 892
+         Function evaluations: 939
+         Gradient evaluations: 929
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1.3692321955326074
+l2 error of shifted learned potential:
+0.41244606903552483
+l2 error of shifted and trimmed learned potential:
+0.035865744226468946
+l-inf error of learned potential:
+0.1829536814691891
+l-inf error of shifted learned potential:
+0.15991023491709122
+l-inf error of shifted and trimmed learned potential:
+0.0030520557317269548
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-5/v3
+Current working directory: 07-08-2022/numts-110_dt-1e-5/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 42
+         Gradient evaluations: 31
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+22.43413083523932
+l2 error of shifted learned potential:
+36.16442572265801
+l2 error of shifted and trimmed learned potential:
+32.18464225703183
+l-inf error of learned potential:
+1.0259689709612387
+l-inf error of shifted learned potential:
+1.870003764884595
+l-inf error of shifted and trimmed learned potential:
+1.870003764884595
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-2/v3
+Current working directory: 07-08-2022/numts-140_dt-1e-2/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 972
+         Function evaluations: 1006
+         Gradient evaluations: 997
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1.3692322192105881
+l2 error of shifted learned potential:
+0.4124461216273682
+l2 error of shifted and trimmed learned potential:
+0.03587990460455149
+l-inf error of learned potential:
+0.18295377029790694
+l-inf error of shifted learned potential:
+0.15991009825229685
+l-inf error of shifted and trimmed learned potential:
+0.0030531687117709705
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-6/v3
+Current working directory: 07-08-2022/numts-140_dt-1e-6/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 53
+         Gradient evaluations: 43
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+22.43413083523932
+l2 error of shifted learned potential:
+36.16442572265801
+l2 error of shifted and trimmed learned potential:
+32.18464225703183
+l-inf error of learned potential:
+1.0259689709612387
+l-inf error of shifted learned potential:
+1.870003764884595
+l-inf error of shifted and trimmed learned potential:
+1.870003764884595
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-2/v3
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 815
+         Function evaluations: 843
+         Gradient evaluations: 834
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1.3692251796236552
+l2 error of shifted learned potential:
+0.4124842732718801
+l2 error of shifted and trimmed learned potential:
+0.036226282996892144
+l-inf error of learned potential:
+0.18248777178063302
+l-inf error of shifted learned potential:
+0.16041361242351637
+l-inf error of shifted and trimmed learned potential:
+0.0031003165631847684
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-3/v3
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1393
+         Function evaluations: 1445
+         Gradient evaluations: 1438
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+9.02141815709881
+l2 error of shifted learned potential:
+9.70561503299327
+l2 error of shifted and trimmed learned potential:
+1.34508786548381
+l-inf error of learned potential:
+1.2650183203730447
+l-inf error of shifted learned potential:
+1.4234242767923726
+l-inf error of shifted and trimmed learned potential:
+0.1431419783190323
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-4/v3
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 21
+         Function evaluations: 97
+         Gradient evaluations: 85
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+22.430588672344694
+l2 error of shifted learned potential:
+36.07811277805576
+l2 error of shifted and trimmed learned potential:
+32.111610545005995
+l-inf error of learned potential:
+1.0162707774447874
+l-inf error of shifted learned potential:
+1.8446905915566674
+l-inf error of shifted and trimmed learned potential:
+1.8446905915566674
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-5/v3
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 44
+         Gradient evaluations: 35
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+22.43413083523932
+l2 error of shifted learned potential:
+36.16442572265801
+l2 error of shifted and trimmed learned potential:
+32.18464225703183
+l-inf error of learned potential:
+1.0259689709612387
+l-inf error of shifted learned potential:
+1.870003764884595
+l-inf error of shifted and trimmed learned potential:
+1.870003764884595
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-6/v3
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+22.43413083523932
+l2 error of shifted learned potential:
+36.16442572265801
+l2 error of shifted and trimmed learned potential:
+32.18464225703183
+l-inf error of learned potential:
+1.0259689709612387
+l-inf error of shifted learned potential:
+1.870003764884595
+l-inf error of shifted and trimmed learned potential:
+1.870003764884595
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-2/v3
+Current working directory: 07-08-2022/numts-50_dt-1e-2/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 909
+         Function evaluations: 947
+         Gradient evaluations: 936
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1.3692322701266924
+l2 error of shifted learned potential:
+0.4124461659159419
+l2 error of shifted and trimmed learned potential:
+0.03587395220812428
+l-inf error of learned potential:
+0.18295637948237786
+l-inf error of shifted learned potential:
+0.15990786308505178
+l-inf error of shifted and trimmed learned potential:
+0.003052932069030123
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-3/v3
+Current working directory: 07-08-2022/numts-50_dt-1e-3/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1077
+         Function evaluations: 1116
+         Gradient evaluations: 1107
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+3.3885012220906603
+l2 error of shifted learned potential:
+3.267222806294542
+l2 error of shifted and trimmed learned potential:
+0.25034235765351404
+l-inf error of learned potential:
+0.6988712682317967
+l-inf error of shifted learned potential:
+0.7678931869417712
+l-inf error of shifted and trimmed learned potential:
+0.02198287705794047
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-2/v3
+Current working directory: 07-08-2022/numts-80_dt-1e-2/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 816
+         Function evaluations: 892
+         Gradient evaluations: 880
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+1.3692320880639863
+l2 error of shifted learned potential:
+0.4124461038964787
+l2 error of shifted and trimmed learned potential:
+0.03586434676836689
+l-inf error of learned potential:
+0.18294867095789435
+l-inf error of shifted learned potential:
+0.1599149517421915
+l-inf error of shifted and trimmed learned potential:
+0.003051517555602623
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-4/v3
+Current working directory: 07-08-2022/numts-80_dt-1e-4/v3
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1072
+         Function evaluations: 1143
+         Gradient evaluations: 1132
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+15.07369434295934
+l2 error of shifted learned potential:
+17.05169794387197
+l2 error of shifted and trimmed learned potential:
+11.291792033438401
+l-inf error of learned potential:
+1.1803362697571336
+l-inf error of shifted learned potential:
+1.0546665849647323
+l-inf error of shifted and trimmed learned potential:
+0.8552870390247733
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-2/v4
+Current working directory: 07-08-2022/numts-110_dt-1e-2/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 857
+         Function evaluations: 905
+         Gradient evaluations: 895
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+4.599142799493222
+l2 error of shifted learned potential:
+3.954886182506405
+l2 error of shifted and trimmed learned potential:
+0.9835524986014808
+l-inf error of learned potential:
+1.1711202973270467
+l-inf error of shifted learned potential:
+1.0673556092525833
+l-inf error of shifted and trimmed learned potential:
+0.08407167738414811
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-5/v4
+Current working directory: 07-08-2022/numts-110_dt-1e-5/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 19
+         Gradient evaluations: 9
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+21.95263863630657
+l2 error of shifted learned potential:
+21.972685644115717
+l2 error of shifted and trimmed learned potential:
+17.623049441737198
+l-inf error of learned potential:
+1.0218121730222096
+l-inf error of shifted learned potential:
+1.027243430745435
+l-inf error of shifted and trimmed learned potential:
+1.027243430745435
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-2/v4
+Current working directory: 07-08-2022/numts-140_dt-1e-2/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 765
+         Function evaluations: 805
+         Gradient evaluations: 793
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+4.599142798226407
+l2 error of shifted learned potential:
+3.954886180845022
+l2 error of shifted and trimmed learned potential:
+0.9835524938809661
+l-inf error of learned potential:
+1.1711202924970148
+l-inf error of shifted learned potential:
+1.0673556044693489
+l-inf error of shifted and trimmed learned potential:
+0.08407167449487518
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-6/v4
+Current working directory: 07-08-2022/numts-140_dt-1e-6/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 27
+         Gradient evaluations: 16
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+21.95263863630657
+l2 error of shifted learned potential:
+21.972685644115717
+l2 error of shifted and trimmed learned potential:
+17.623049441737198
+l-inf error of learned potential:
+1.0218121730222096
+l-inf error of shifted learned potential:
+1.027243430745435
+l-inf error of shifted and trimmed learned potential:
+1.027243430745435
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-2/v4
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1469
+         Function evaluations: 1509
+         Gradient evaluations: 1499
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+4.599055105629256
+l2 error of shifted learned potential:
+3.95477538205352
+l2 error of shifted and trimmed learned potential:
+0.9830800151106951
+l-inf error of learned potential:
+1.1707847163099827
+l-inf error of shifted learned potential:
+1.067022646471663
+l-inf error of shifted and trimmed learned potential:
+0.08404864023416858
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-3/v4
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1283
+         Function evaluations: 1339
+         Gradient evaluations: 1330
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+5.565115086836078
+l2 error of shifted learned potential:
+5.055178540318331
+l2 error of shifted and trimmed learned potential:
+0.47764917319438166
+l-inf error of learned potential:
+0.8641412612179793
+l-inf error of shifted learned potential:
+0.9669349449956041
+l-inf error of shifted and trimmed learned potential:
+0.052550278639963754
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-4/v4
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 234
+         Function evaluations: 300
+         Gradient evaluations: 288
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+12.554400465264772
+l2 error of shifted learned potential:
+12.734699026816177
+l2 error of shifted and trimmed learned potential:
+9.339280762948503
+l-inf error of learned potential:
+0.960955304315588
+l-inf error of shifted learned potential:
+0.9859573786938319
+l-inf error of shifted and trimmed learned potential:
+0.9634143053157522
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-5/v4
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 34
+         Gradient evaluations: 23
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+21.95263863630657
+l2 error of shifted learned potential:
+21.972685644115717
+l2 error of shifted and trimmed learned potential:
+17.623049441737198
+l-inf error of learned potential:
+1.0218121730222096
+l-inf error of shifted learned potential:
+1.027243430745435
+l-inf error of shifted and trimmed learned potential:
+1.027243430745435
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-6/v4
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+21.95263863630657
+l2 error of shifted learned potential:
+21.972685644115717
+l2 error of shifted and trimmed learned potential:
+17.623049441737198
+l-inf error of learned potential:
+1.0218121730222096
+l-inf error of shifted learned potential:
+1.027243430745435
+l-inf error of shifted and trimmed learned potential:
+1.027243430745435
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-2/v4
+Current working directory: 07-08-2022/numts-50_dt-1e-2/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1175
+         Function evaluations: 1205
+         Gradient evaluations: 1195
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+4.599142755097746
+l2 error of shifted learned potential:
+3.9548859750901704
+l2 error of shifted and trimmed learned potential:
+0.9835520371646986
+l-inf error of learned potential:
+1.1711201280939276
+l-inf error of shifted learned potential:
+1.0673554638247844
+l-inf error of shifted and trimmed learned potential:
+0.08407178514321922
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-3/v4
+Current working directory: 07-08-2022/numts-50_dt-1e-3/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 949
+         Function evaluations: 980
+         Gradient evaluations: 970
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+5.336833167037298
+l2 error of shifted learned potential:
+5.066562110330655
+l2 error of shifted and trimmed learned potential:
+0.8081038391763254
+l-inf error of learned potential:
+0.7830661866983506
+l-inf error of shifted learned potential:
+0.903125754494233
+l-inf error of shifted and trimmed learned potential:
+0.07998881944448588
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-2/v4
+Current working directory: 07-08-2022/numts-80_dt-1e-2/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1013
+         Function evaluations: 1083
+         Gradient evaluations: 1067
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+4.599142820722037
+l2 error of shifted learned potential:
+3.954886222629096
+l2 error of shifted and trimmed learned potential:
+0.9835526212719411
+l-inf error of learned potential:
+1.1711203782721253
+l-inf error of shifted learned potential:
+1.0673556875892936
+l-inf error of shifted and trimmed learned potential:
+0.08407168441865476
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-4/v4
+Current working directory: 07-08-2022/numts-80_dt-1e-4/v4
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1042
+         Function evaluations: 1089
+         Gradient evaluations: 1078
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+7.811161163233022
+l2 error of shifted learned potential:
+11.258060043575691
+l2 error of shifted and trimmed learned potential:
+6.662767848339694
+l-inf error of learned potential:
+0.9565269226717349
+l-inf error of shifted learned potential:
+1.2977443182869903
+l-inf error of shifted and trimmed learned potential:
+0.45425502848524485
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-2/v5
+Current working directory: 07-08-2022/numts-110_dt-1e-2/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 3.845690
+         Iterations: 558
+         Function evaluations: 599
+         Gradient evaluations: 588
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+461.3118177693266
+l2 error of shifted learned potential:
+600.3552996759903
+l2 error of shifted and trimmed learned potential:
+488.57641605773495
+l-inf error of learned potential:
+46.53190479931042
+l-inf error of shifted learned potential:
+48.39301800947868
+l-inf error of shifted and trimmed learned potential:
+37.615903001620836
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-5/v5
+Current working directory: 07-08-2022/numts-110_dt-1e-5/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 276
+         Function evaluations: 330
+         Gradient evaluations: 320
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+391.67370957164263
+l2 error of shifted learned potential:
+647.9068403493669
+l2 error of shifted and trimmed learned potential:
+561.6729538075987
+l-inf error of learned potential:
+26.391970750881075
+l-inf error of shifted learned potential:
+41.834566873831776
+l-inf error of shifted and trimmed learned potential:
+41.834566873831776
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-2/v5
+Current working directory: 07-08-2022/numts-140_dt-1e-2/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 4.495705
+         Iterations: 677
+         Function evaluations: 767
+         Gradient evaluations: 754
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+454.25808490715497
+l2 error of shifted learned potential:
+497.3617168056801
+l2 error of shifted and trimmed learned potential:
+423.130842218297
+l-inf error of learned potential:
+46.410845349568945
+l-inf error of shifted learned potential:
+40.73564418857276
+l-inf error of shifted and trimmed learned potential:
+37.35667479044362
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-6/v5
+Current working directory: 07-08-2022/numts-140_dt-1e-6/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 21
+         Gradient evaluations: 9
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+485.3732156402126
+l2 error of shifted learned potential:
+698.3705842877721
+l2 error of shifted and trimmed learned potential:
+612.2539382540185
+l-inf error of learned potential:
+29.976716347198813
+l-inf error of shifted learned potential:
+44.98214760492204
+l-inf error of shifted and trimmed learned potential:
+44.98214760492204
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-2/v5
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000006
+         Iterations: 1321
+         Function evaluations: 1382
+         Gradient evaluations: 1371
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+87.36439796028168
+l2 error of shifted learned potential:
+85.4463822572955
+l2 error of shifted and trimmed learned potential:
+16.374143264805436
+l-inf error of learned potential:
+17.046142823869175
+l-inf error of shifted learned potential:
+16.755446361903225
+l-inf error of shifted and trimmed learned potential:
+1.8282084969970462
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-3/v5
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 2663
+         Function evaluations: 2721
+         Gradient evaluations: 2711
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+66.72207156930807
+l2 error of shifted learned potential:
+64.78588998435222
+l2 error of shifted and trimmed learned potential:
+17.302195452675587
+l-inf error of learned potential:
+15.956921469033391
+l-inf error of shifted learned potential:
+16.181772504322637
+l-inf error of shifted and trimmed learned potential:
+1.8672270154607435
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-4/v5
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 813
+         Function evaluations: 867
+         Gradient evaluations: 857
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+305.882593583459
+l2 error of shifted learned potential:
+414.6096200917949
+l2 error of shifted and trimmed learned potential:
+341.1845625500169
+l-inf error of learned potential:
+25.818888981295053
+l-inf error of shifted learned potential:
+33.8965093578826
+l-inf error of shifted and trimmed learned potential:
+23.107712874209483
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-5/v5
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 44
+         Gradient evaluations: 32
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+485.3732156402126
+l2 error of shifted learned potential:
+698.3705842877721
+l2 error of shifted and trimmed learned potential:
+612.2539382540185
+l-inf error of learned potential:
+29.976716347198813
+l-inf error of shifted learned potential:
+44.98214760492204
+l-inf error of shifted and trimmed learned potential:
+44.98214760492204
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-6/v5
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+485.3732156402126
+l2 error of shifted learned potential:
+698.3705842877721
+l2 error of shifted and trimmed learned potential:
+612.2539382540185
+l-inf error of learned potential:
+29.976716347198813
+l-inf error of shifted learned potential:
+44.98214760492204
+l-inf error of shifted and trimmed learned potential:
+44.98214760492204
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-2/v5
+Current working directory: 07-08-2022/numts-50_dt-1e-2/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.365887
+         Iterations: 898
+         Function evaluations: 987
+         Gradient evaluations: 974
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+510.6423677732222
+l2 error of shifted learned potential:
+510.1644538063711
+l2 error of shifted and trimmed learned potential:
+393.3679033262631
+l-inf error of learned potential:
+55.77559288774265
+l-inf error of shifted learned potential:
+54.970608292698785
+l-inf error of shifted and trimmed learned potential:
+37.289634446398566
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-3/v5
+Current working directory: 07-08-2022/numts-50_dt-1e-3/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 2383
+         Function evaluations: 2457
+         Gradient evaluations: 2446
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+63.06867086350446
+l2 error of shifted learned potential:
+61.40355657782154
+l2 error of shifted and trimmed learned potential:
+18.15001048723666
+l-inf error of learned potential:
+15.75955880519828
+l-inf error of shifted learned potential:
+15.934636296377272
+l-inf error of shifted and trimmed learned potential:
+1.8448476838566883
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-2/v5
+Current working directory: 07-08-2022/numts-80_dt-1e-2/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 1.466365
+         Iterations: 727
+         Function evaluations: 781
+         Gradient evaluations: 770
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+519.2777218929392
+l2 error of shifted learned potential:
+522.9482474432525
+l2 error of shifted and trimmed learned potential:
+410.63799059111307
+l-inf error of learned potential:
+45.43173206634815
+l-inf error of shifted learned potential:
+42.68476329329236
+l-inf error of shifted and trimmed learned potential:
+39.251293259005394
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-4/v5
+Current working directory: 07-08-2022/numts-80_dt-1e-4/v5
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1672
+         Function evaluations: 1739
+         Gradient evaluations: 1729
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+173.715025607247
+l2 error of shifted learned potential:
+182.0769927150617
+l2 error of shifted and trimmed learned potential:
+41.46467623897671
+l-inf error of learned potential:
+25.43440495499455
+l-inf error of shifted learned potential:
+22.91160309728644
+l-inf error of shifted and trimmed learned potential:
+7.836411636368292
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-2/v6
+Current working directory: 07-08-2022/numts-110_dt-1e-2/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 998
+         Function evaluations: 1054
+         Gradient evaluations: 1042
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+8.689114522946078
+l2 error of shifted learned potential:
+0.8116790697624693
+l2 error of shifted and trimmed learned potential:
+0.6665492699782659
+l-inf error of learned potential:
+0.29636372277671597
+l-inf error of shifted learned potential:
+0.04565012222232201
+l-inf error of shifted and trimmed learned potential:
+0.04565012222232201
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-110_dt-1e-5/v6
+Current working directory: 07-08-2022/numts-110_dt-1e-5/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 1.100e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 20
+         Gradient evaluations: 8
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+14.498769559487874
+l2 error of shifted learned potential:
+56.725136149510405
+l2 error of shifted and trimmed learned potential:
+44.15533126215893
+l-inf error of learned potential:
+2.005431257723225
+l-inf error of shifted learned potential:
+1.9570455697380564
+l-inf error of shifted and trimmed learned potential:
+1.9288230782606144
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-2/v6
+Current working directory: 07-08-2022/numts-140_dt-1e-2/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 869
+         Function evaluations: 927
+         Gradient evaluations: 915
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+8.68911452188705
+l2 error of shifted learned potential:
+0.8116789004094207
+l2 error of shifted and trimmed learned potential:
+0.666549125942396
+l-inf error of learned potential:
+0.29636371737541767
+l-inf error of shifted learned potential:
+0.04565011182770551
+l-inf error of shifted and trimmed learned potential:
+0.04565011182770551
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-140_dt-1e-6/v6
+Current working directory: 07-08-2022/numts-140_dt-1e-6/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 1.400e+02]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 20
+         Gradient evaluations: 9
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+14.498769559487874
+l2 error of shifted learned potential:
+56.725136149510405
+l2 error of shifted and trimmed learned potential:
+44.15533126215893
+l-inf error of learned potential:
+2.005431257723225
+l-inf error of shifted learned potential:
+1.9570455697380564
+l-inf error of shifted and trimmed learned potential:
+1.9288230782606144
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-2/v6
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 774
+         Function evaluations: 806
+         Gradient evaluations: 795
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+8.689108247267097
+l2 error of shifted learned potential:
+0.8125183706631929
+l2 error of shifted and trimmed learned potential:
+0.6670600041756493
+l-inf error of learned potential:
+0.29638998499984126
+l-inf error of shifted learned potential:
+0.045685858890119224
+l-inf error of shifted and trimmed learned potential:
+0.045685858890119224
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-3/v6
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1263
+         Function evaluations: 1305
+         Gradient evaluations: 1293
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+9.417231511859278
+l2 error of shifted learned potential:
+5.102196695079384
+l2 error of shifted and trimmed learned potential:
+1.2946530311035687
+l-inf error of learned potential:
+0.3824908795728239
+l-inf error of shifted learned potential:
+0.44688015271540826
+l-inf error of shifted and trimmed learned potential:
+0.09583426124118362
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-4/v6
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 24
+         Function evaluations: 61
+         Gradient evaluations: 52
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+14.443164892455574
+l2 error of shifted learned potential:
+53.26729757637713
+l2 error of shifted and trimmed learned potential:
+41.35734542282244
+l-inf error of learned potential:
+1.8954187847608046
+l-inf error of shifted learned potential:
+1.8492454894623414
+l-inf error of shifted and trimmed learned potential:
+1.8151980400751204
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-5/v6
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-05 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 22
+         Gradient evaluations: 11
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+14.498769559487874
+l2 error of shifted learned potential:
+56.725136149510405
+l2 error of shifted and trimmed learned potential:
+44.15533126215893
+l-inf error of learned potential:
+2.005431257723225
+l-inf error of shifted learned potential:
+1.9570455697380564
+l-inf error of shifted and trimmed learned potential:
+1.9288230782606144
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-20_dt-1e-6/v6
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-06 2.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Optimization terminated successfully.
+         Current function value: 0.000000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+14.498769559487874
+l2 error of shifted learned potential:
+56.725136149510405
+l2 error of shifted and trimmed learned potential:
+44.15533126215893
+l-inf error of learned potential:
+2.005431257723225
+l-inf error of shifted learned potential:
+1.9570455697380564
+l-inf error of shifted and trimmed learned potential:
+1.9288230782606144
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-2/v6
+Current working directory: 07-08-2022/numts-50_dt-1e-2/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1041
+         Function evaluations: 1081
+         Gradient evaluations: 1071
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+8.68911451906475
+l2 error of shifted learned potential:
+0.8116842884148419
+l2 error of shifted and trimmed learned potential:
+0.666552267118113
+l-inf error of learned potential:
+0.29636388798171187
+l-inf error of shifted learned potential:
+0.045650311338954586
+l-inf error of shifted and trimmed learned potential:
+0.045650311338954586
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-50_dt-1e-3/v6
+Current working directory: 07-08-2022/numts-50_dt-1e-3/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 5.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 885
+         Function evaluations: 916
+         Gradient evaluations: 909
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+9.02712806976608
+l2 error of shifted learned potential:
+3.143702393801705
+l2 error of shifted and trimmed learned potential:
+0.7483000209102132
+l-inf error of learned potential:
+0.33099524376130707
+l-inf error of shifted learned potential:
+0.4123411332816398
+l-inf error of shifted and trimmed learned potential:
+0.04581273314512746
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-2/v6
+Current working directory: 07-08-2022/numts-80_dt-1e-2/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.01
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 1165
+         Function evaluations: 1218
+         Gradient evaluations: 1206
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+8.689114522569126
+l2 error of shifted learned potential:
+0.8116789008838204
+l2 error of shifted and trimmed learned potential:
+0.6665491309491685
+l-inf error of learned potential:
+0.2963637174135225
+l-inf error of shifted learned potential:
+0.04565012001627511
+l-inf error of shifted and trimmed learned potential:
+0.04565012001627511
+-------INVERSE-------
+
+Command line argument: ./07-08-2022/numts-80_dt-1e-4/v6
+Current working directory: 07-08-2022/numts-80_dt-1e-4/v6
+type(cmpenv) <class 'numpy.ndarray'>
+cmpenv = [1.500e+01 1.025e+03 3.200e+01 1.000e-04 8.000e+01]
+Computational environment loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0001
+Number of a0 states: 4
+Starting inverse problem.
+Training data generated.
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 854
+         Function evaluations: 916
+         Gradient evaluations: 905
+thetahat saved.
+midpointindex = 512
+trim = 171
+l2 error of learned potential:
+12.489878144817338
+l2 error of shifted learned potential:
+23.846000629079796
+l2 error of shifted and trimmed learned potential:
+17.434943387745516
+l-inf error of learned potential:
+0.9611546273055531
+l-inf error of shifted learned potential:
+0.9113929215623405
+l-inf error of shifted and trimmed learned potential:
+0.8934751248194533
