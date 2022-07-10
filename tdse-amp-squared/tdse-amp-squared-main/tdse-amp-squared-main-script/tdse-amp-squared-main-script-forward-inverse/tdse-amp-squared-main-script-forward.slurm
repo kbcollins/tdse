@@ -24,27 +24,45 @@ dtargs=("1e-2" "1e-3" "1e-4" "1e-5" "1e-6")
 
 # run pyscript
 for i in {0..6}; do
-  # test: keep numts constant, change dt
-  for thisdt in "${dtargs[@]:1}"; do
-#  for thisdt in "${dtargs[@]}"; do
-    thisnumts=20
-    mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
-    python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
-  done
-
-  # test: keep dt constant, change numts
-  for thisnumts in "${numtsargs[@]:1}"; do
-    thisdt="1e-2"
-    mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
-    python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
-  done
-
-  # test: change numts and dt
   for j in "${!dtargs[@]}"; do
-#  for j in "${!dtargs[@]:1}"; do
     thisdt="${dtargs[j]}"
-    thisnumts="${numtsargs[j]}"
-    mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
-    python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
+    for k in "${!numtsargs[@]}"; do
+      thisnumts="${numtsargs[k]}"
+      mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
+      python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
+    done
   done
 done
+
+
+## Define Bash variables
+#date="07-08-2022"
+#numtsargs=(20 50 80 110 140)
+#dtargs=("1e-2" "1e-3" "1e-4" "1e-5" "1e-6")
+#
+## run pyscript
+#for i in {0..6}; do
+#  # test: keep numts constant, change dt
+#  for thisdt in "${dtargs[@]:1}"; do
+##  for thisdt in "${dtargs[@]}"; do
+#    thisnumts=20
+#    mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
+#    python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
+#  done
+#
+#  # test: keep dt constant, change numts
+#  for thisnumts in "${numtsargs[@]:1}"; do
+#    thisdt="1e-2"
+#    mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
+#    python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
+#  done
+#
+#  # test: change numts and dt
+#  for j in "${!dtargs[@]}"; do
+##  for j in "${!dtargs[@]:1}"; do
+#    thisdt="${dtargs[j]}"
+#    thisnumts="${numtsargs[j]}"
+#    mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
+#    python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
+#  done
+#done

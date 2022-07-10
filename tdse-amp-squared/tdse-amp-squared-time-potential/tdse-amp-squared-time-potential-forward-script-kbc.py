@@ -246,7 +246,7 @@ for thisa0 in a0vec:
 
         vmattrue = sl.toeplitz(r=vtoeptrue, c=np.conj(vtoeptrue))
 
-        # print('Shape vmattrue:', vmattrue.shape)
+        # print('Shape vtruemat:', vtruemat.shape)
 
 
         ### Eigendecomposition of Hamiltonian ###

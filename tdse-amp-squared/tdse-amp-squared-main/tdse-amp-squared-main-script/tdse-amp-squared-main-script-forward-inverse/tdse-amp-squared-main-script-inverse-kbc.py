@@ -34,6 +34,13 @@ print('Command line argument:', cmdlinearg)
 workingdir = pathlib.Path(cmdlinearg)
 print('Current working directory:', workingdir)
 
+# set directory to store results
+resultsdir = workingdir / 'results-inverse'
+print('Results directory:', resultsdir)
+
+# set identifier for saved output
+savename = 'inverse'
+
 
 ###############################################################
 # load computational parameters
@@ -41,7 +48,6 @@ print('Current working directory:', workingdir)
 
 # load saved computational parameters
 cmpenv = np.load(workingdir / 'cmpenv.npy', allow_pickle=True)
-print('type(cmpenv)', type(cmpenv))
 print('cmpenv =', cmpenv)
 
 # store loaded parameters as variables
@@ -55,11 +61,12 @@ numts = int(cmpenv[4])
 # a0vec = np.load(workingdir / 'a0vec.npy')
 amattruevec = np.load(workingdir / 'amattruevec.npy')
 
-# fourtox = np.load(workingdir / 'fourtox.npy')
+# load true potential
 # vtruetoep = np.load(workingdir / 'vtruetoep.npy')
 vtruexvec = np.load(workingdir / 'vtruexvec.npy')
 
 print('Computational environment loaded.')
+
 # print computational environment variables to stdout
 print('L =', L)
 print('numx =', numx)
@@ -67,6 +74,7 @@ print('numfour =', numfour)
 print('numts =', numts)
 print('dt =', dt)
 print('Number of a0 states:', amattruevec.shape[0])
+print('')  # blank line
 
 
 ###############################################################
@@ -111,8 +119,6 @@ for thisamattrue in amattruevec:
     betamatvec.append(jnp.array(tempbetamat))
 
 betamatvec = jnp.array(betamatvec) / jnp.sqrt(2 * L)
-
-print('Training data generated.')
 
 
 ###############################################################
@@ -381,7 +387,7 @@ plt.xlabel('x')
 plt.title('Learned vs. Initial Potentials')
 plt.legend()
 # plt.show()
-plt.savefig(workingdir / 'results-inverse' / 'graph_inverse_learned_vs_initial_potential.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{savename}_learned_vs_initial_potential.pdf', format='pdf')
 plt.close()
 
 # learned potential vs true potential
@@ -391,7 +397,7 @@ plt.xlabel('x')
 plt.title('Learned vs. True Potentials')
 plt.legend()
 # plt.show()
-plt.savefig(workingdir / 'results-inverse' / 'graph_inverse_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{savename}_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
 
 # shifted learned potential vs true potential
@@ -422,5 +428,7 @@ plt.xlabel('x')
 plt.title(f'Shifted Learned Potential vs. True Potential\nl2 error (shift/trim) = {l2errshifttrim}\nl-inf error (shift/trim) = linferrshifttrim')
 plt.legend()
 # plt.show()
-plt.savefig(workingdir / 'results-inverse' / 'graph_inverse_shifted_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{savename}_shifted_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
+
+print('')  # blank line

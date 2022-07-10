@@ -3,7 +3,7 @@
 #SBATCH --gpus=1                  # select how many gpus to use (each node as 2)
 #SBATCH --job-name=inverse        # create a short name for the job
 #SBATCH --output='out_%x'         # stdout file (%A: job ID, a%: job array index, x%: job name)
-#SBATCH --time=03:00:00           # set total run time limit for job
+#SBATCH --time=06:00:00           # set total run time limit for job
 
 
 ################## BASH SCRIPT ##################
@@ -16,7 +16,7 @@
 
 # Define Bash variables
 date="07-08-2022"
-filelist=( $(ls ./"$date") )
+filelist=( $(ls ./"$date") ) # bash array of files in directory ./"$date"
 
 # run pyscript
 for i in {0..6}; do

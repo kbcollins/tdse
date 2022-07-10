@@ -3,6 +3,7 @@ import pathlib
 import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as nl
+import scipy.linalg as sl
 import scipy.special as ss
 import scipy.integrate as si
 import jax.numpy as jnp
@@ -19,6 +20,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 ###############################################################
 
 print('-------PROP TEST-------')
+print('')  # blank line
 
 
 ###############################################################
@@ -30,32 +32,47 @@ cmdlinearg = sys.argv[1]
 print('Command line argument:', cmdlinearg)
 
 # transform commandline argument to path object
-cwddir = pathlib.Path(cmdlinearg)
-print('Current working directory:', cwddir)
+workingdir = pathlib.Path(cmdlinearg)
+print('Current working directory:', workingdir)
+
+# set directory to store results
+resultsdir = workingdir / 'results-prop-test'
+print('Results directory:', resultsdir)
+
+# set identifier for saved output
+savename = 'prop-test'
 
 
 ###############################################################
-# load computational environment
+# load computational parameters
 ###############################################################
 
-L, numx, numfour, dt, numts = np.load(cwddir / 'cmpenv.npy')
-numx = int(numx)
-numfour = int(numfour)
-numts = int(numts)
+# load saved computational parameters
+cmpenv = np.load(workingdir / 'cmpenv.npy', allow_pickle=True)
+print('cmpenv =', cmpenv)
+
+# store loaded parameters as variables
+L = float(cmpenv[0])
+numx = int(cmpenv[1])
+numfour = int(cmpenv[2])
+dt = float(cmpenv[3])
+numts = int(cmpenv[4])
 
 # load state variables
-a0vec = np.load(cwddir / 'a0vec.npy')
-propatrue = np.load(cwddir / 'propatrue.npy')
+a0vec = np.load(workingdir / 'a0vec.npy')
+propatrue = np.load(workingdir / 'propatrue.npy')
 # amattruevec = np.load(workingdir / 'amattruevec.npy')
 
-# fourtox = np.load(workingdir / 'fourtox.npy')
-# vtruetoep = np.load(workingdir / 'vtruetoep.npy')
+# load true potential
+vtruetoep = np.load(workingdir / 'vtruetoep.npy')
 # vtruexvec = np.load(workingdir / 'vtruexvec.npy')
 
-thetabestv = np.load(cwddir / 'thetabestv.npy')
-thetabestprop = np.load(cwddir / 'thetabestprop.npy')
+# load best learned potentials (i.e., \theta)
+thetabestv = np.load(workingdir / 'thetabestv.npy')
+thetabestprop = np.load(workingdir / 'thetabestprop.npy')
 
 print('Computational variables loaded.')
+
 # print computational environment variables to stdout
 print('L =', L)
 print('numx =', numx)
@@ -63,6 +80,7 @@ print('numfour =', numfour)
 print('numts =', numts)
 print('dt =', dt)
 print('Number of a0 states:', a0vec.shape[0])
+print('')  # blank line
 
 
 ###############################################################
@@ -91,6 +109,9 @@ numtoepelms = 2 * numfour + 1
 # (this is constant for a given system)
 kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2))
 
+# make vtruemat
+vtruemat = sl.toeplitz(r=vtruetoep, c=np.conj(vtruetoep))
+
 
 ###############################################################
 # Set trim
@@ -115,14 +136,14 @@ toepindxmat = np.array(aa + bb)
 
 
 ###############################################################
-# Function for computing the propagator matrix given some theta
+# Functions for computing the propagator matrix given some theta
 #   - theta is a vector containing the concatenation
 #     of the real and imaginary parts of vmat
 #   - theta should contain 2 * numtoepelms - 1
 #     = 4 * numfour + 1 elements
 ###############################################################
 
-def thetatopropmat(theta):
+def thetatovmat(theta):
     # to use theta we need to first recombine the real
     # and imaginary parts into a vector of complex values
     vtoephatR = theta[:numtoepelms]
@@ -132,8 +153,12 @@ def thetatopropmat(theta):
     # construct vmathat from complex toeplitz vector
     vmathat = jnp.concatenate([jnp.flipud(jnp.conj(vtoephat)), vtoephat[1:]])[toepindxmat]
 
+    return vmathat
+
+
+def vmattopropmat(vmat):
     # Construct Hamiltonian matrix
-    hmathat = kmat + vmathat
+    hmathat = kmat + vmat
 
     # eigen-decomposition of the Hamiltonian matrix
     spchat, stthat = jnl.eigh(hmathat)
@@ -143,10 +168,17 @@ def thetatopropmat(theta):
 
     return propahat
 
+
+# compute vhatmat matrices for thetabestv and
+# thetabestprop using thetatovmat
+vhatmatbestv = thetatovmat(thetabestv)
+vhatmatbestprop = thetatovmat(thetabestprop)
+
 # compute propagator matrices for thetabestv and
-# thetabestprop using thetatopropmat
-propbestv = thetatopropmat(thetabestv)
-propbestprop = thetatopropmat(thetabestprop)
+# thetabestprop using thetatopropmat, vhatmatbestv
+# and vhatmatbestprop
+propbestv = vmattopropmat(vhatmatbestv)
+propbestprop = vmattopropmat(vhatmatbestprop)
 
 
 ###############################################################
@@ -219,7 +251,7 @@ for i in range(a0vec.shape[0]):
     plt.ylabel('Error')
     plt.legend()
 
-plt.savefig(cwddir / 'graph_prop-test_step-wise_l2_error_amat_progation.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{savename}_step-wise_l2_error_amat_progation.pdf', format='pdf')
 plt.close()
 
 # transform amat to real space wave functions
@@ -245,7 +277,7 @@ for i in range(a0vec.shape[0]):
     plt.ylabel('Error')
     plt.legend()
 
-plt.savefig(cwddir / 'graph_prop-test_step-wise_l2_error_psimat_progation.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{savename}_step-wise_l2_error_psimat_progation.pdf', format='pdf')
 plt.close()
 
 # l2 and l-inf errors for trimmed psimat
@@ -266,7 +298,7 @@ for i in range(a0vec.shape[0]):
     plt.ylabel('Error')
     plt.legend()
 
-plt.savefig(cwddir / 'graph_prop-test_step-wise_l2_error_psimat_progation_trim.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{savename}_step-wise_l2_error_psimat_progation_trim.pdf', format='pdf')
 plt.close()
 
 print('')  # blank line
@@ -394,9 +426,8 @@ for i in range(len(a0testset)):
     plt.ylabel('Error')
     plt.legend()
 
-plt.savefig(cwddir / 'graph_prop-test_test-set_step-wise_l2_error_amat_progation.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{savename}_test-set_step-wise_l2_error_amat_progation.pdf', format='pdf')
 plt.close()
-
 
 # transform amat to real space wave functions
 psimattruetestset = amattruetestset @ fourtox
@@ -421,7 +452,7 @@ for i in range(len(a0testset)):
     plt.ylabel('Error')
     plt.legend()
 
-plt.savefig(cwddir / 'graph_prop-test_test-set_step-wise_l2_error_psimat_progation.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{savename}_test-set_step-wise_l2_error_psimat_progation.pdf', format='pdf')
 plt.close()
 
 # l2 and l-inf errors for trimmed psimat
@@ -442,7 +473,7 @@ for i in range(len(a0testset)):
     plt.ylabel('Error')
     plt.legend()
 
-plt.savefig(cwddir / 'graph_prop-test_test-set_step-wise_l2_error_psimat_progation_trim.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{savename}_test-set_step-wise_l2_error_psimat_progation_trim.pdf', format='pdf')
 plt.close()
 
 
@@ -460,11 +491,121 @@ plt.close()
 #     l2 and l-inf errors of trimmed psimat
 ###############################################################
 
+def vtd(t):
+    return lambda z: -(t / proptimesteps[-1]) * np.exp(-(z-5)**2 / 8)
+
+# propagate
+amattruevtd = []
+ahatmatbestvtd = []
+ahatmatbestproptd = []
+for thisa0 in a0testset:
+    tempamattruevtd = [thisa0.copy()]
+    tempahatmatbestvtd = [thisa0.copy()]
+    tempahatmatbestproptd = [thisa0.copy()]
+
+    for thist in range(proptimesteps[1:]):
+        # compute the potential operator matrix, vmat, for this t
+        thisvtdtoep = []
+        thisvtd = vtd(thist)
+        for thisfourn in range(numtoepelms):
+            def intgrnd(x):
+                return thisvtd(x) * np.exp(-1j * np.pi * thisfourn * x / L) / (2 * L)
+            def rintgrnd(x):
+                return intgrnd(x).real
+            def iintgrnd(x):
+                return intgrnd(x).imag
+
+            thisvtdtoep.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
+
+        thisvtdmat = sl.toeplitz(r=thisvtdtoep, c=np.conj(thisvtdtoep))
+
+        # construct propagation matrices
+        propatruetd = vmattopropmat(vtruemat + thisvtdmat)
+        propbestvtd = vmattopropmat(vhatmatbestv + thisvtdmat)
+        propbestproptd = vmattopropmat(vhatmatbestprop + thisvtdmat)
+
+        tempamattruevtd.append(propatruetd @ tempamattruevtd[-1])
+        tempahatmatbestvtd.append(propbestvtd @ tempahatmatbestvtd[-1])
+        tempahatmatbestproptd.append(propbestproptd @ tempahatmatbestproptd[-1])
+
+    amattruevtd.append(tempamattruevtd)
+    ahatmatbestvtd.append(tempahatmatbestvtd)
+    ahatmatbestproptd.append(tempahatmatbestproptd)
+
+amattruevtd = jnp.array(amattruevtd)
+ahatmatbestvtd = jnp.array(ahatmatbestvtd)
+ahatmatbestproptd = jnp.array(ahatmatbestproptd)
+
 
 ###############################################################
 # results of propagating with time-dependent perturbation
 ###############################################################
 
-def vtd(z, t):
-    return lambda x: -(t / proptimesteps[-1]) * np.exp(-(z-5)**2 / 8)
+# l2 and l-inf errors for amat
+print('l2 error of ahatmatbestvtd:', nl.norm(amattruevtd - ahatmatbestvtd), sep='\n')
+print('l-inf error of ahatmatbestvtd:', np.amax(np.abs(amattruevtd - ahatmatbestvtd)), sep='\n')
+print('l2 error of ahatmatbestproptd:', nl.norm(amattruevtd - ahatmatbestproptd), sep='\n')
+print('l-inf error of ahatmatbestproptd:', np.amax(np.abs(amattruevtd - ahatmatbestproptd)), sep='\n')
+print('')  # blank line
+
+# plot of stepwise l2 and l-inf errors for amat
+l2errahatmatbestvtdstep = nl.norm(amattruevtd - ahatmatbestvtd, axis=2)
+l2errahatmatbestproptdstep = nl.norm(amattruevtd - ahatmatbestproptd, axis=2)
+for i in range(len(a0testset)):
+    plt.plot(proptimesteps, l2errahatmatbestvtdstep[i], label=f'best v {i}')
+    plt.plot(proptimesteps, l2errahatmatbestproptdstep[i], label=f'best prop {i}')
+    plt.title('Step-Wise l2 Error of Propagations - Fourier Space')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Error')
+    plt.legend()
+
+plt.savefig(resultsdir / f'graph_{savename}_vtd-pert_step-wise_l2_error_amat_progation.pdf', format='pdf')
+plt.close()
+
+# transform amat to real space wave functions
+psimattruevtd = amattruevtd @ fourtox
+psihatmatbestvtd = ahatmatbestvtd @ fourtox
+psihatmatbestproptd = ahatmatbestproptd @ fourtox
+
+# l2 and l-inf errors for psimat
+print('l2 error of psihatmatbestvtd:', nl.norm(psimattruevtd - psihatmatbestvtd), sep='\n')
+print('l-inf error of psihatmatbestvtd:', np.amax(np.abs(psimattruevtd - psihatmatbestvtd)), sep='\n')
+print('l2 error of psihatmatbestproptd:', nl.norm(psimattruevtd - psihatmatbestproptd), sep='\n')
+print('l-inf error of psihatmatbestproptd:', np.amax(np.abs(psimattruevtd - psihatmatbestproptd)), sep='\n')
+print('')  # blank line
+
+# plot of stepwise l2 and l-inf errors for psimat
+l2errpsihatmatbestvtdstep = nl.norm(psimattruevtd - psihatmatbestvtd, axis=2)
+l2errpsihatmatbestproptdstep = nl.norm(psimattruevtd - psihatmatbestproptd, axis=2)
+for i in range(len(a0testset)):
+    plt.plot(proptimesteps, l2errpsihatmatbestvtdstep[i], label=f'best v {i}')
+    plt.plot(proptimesteps, l2errpsihatmatbestproptdstep[i], label=f'best prop {i}')
+    plt.title('Step-Wise l2 Error of Propagations - Real Space')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Error')
+    plt.legend()
+
+plt.savefig(resultsdir / f'graph_{savename}_vtd-pert_step-wise_l2_error_psimat_progation.pdf', format='pdf')
+plt.close()
+
+# l2 and l-inf errors for trimmed psimat
+print('l2 error of trimmed psihatmatbestvtd:', nl.norm(psimattruevtd[:,:,trim:-trim] - psihatmatbestvtd[:,:,trim:-trim]), sep='\n')
+print('l-inf error of trimmed psihatmatbestvtd:', np.amax(np.abs(psimattruevtd[:,:,trim:-trim] - psihatmatbestvtd[:,:,trim:-trim])), sep='\n')
+print('l2 error of trimmed psihatmatbestproptd:', nl.norm(psimattruevtd[:,:,trim:-trim] - psihatmatbestproptd[:,:,trim:-trim]), sep='\n')
+print('l-inf error of trimmed psihatmatbestproptd:', np.amax(np.abs(psimattruevtd[:,:,trim:-trim] - psihatmatbestproptd[:,:,trim:-trim])), sep='\n')
+print('')  # blank line
+
+# plot of stepwise l2 and l-inf errors for trimmed psimat
+triml2errpsihatmatbestvtdstep = nl.norm(psimattruevtd[:,:,trim:-trim] - psihatmatbestvtd[:,:,trim:-trim], axis=2)
+triml2errpsihatmatbestproptdstep = nl.norm(psimattruevtd[:,:,trim:-trim] - psihatmatbestproptd[:,:,trim:-trim], axis=2)
+for i in range(len(a0testset)):
+    plt.plot(proptimesteps, triml2errpsihatmatbestvtdstep[i], label=f'best v {i}')
+    plt.plot(proptimesteps, triml2errpsihatmatbestproptdstep[i], label=f'best prop {i}')
+    plt.title('Step-Wise l2 Error of Propagations - Trimmed Real Space')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Error')
+    plt.legend()
+
+plt.savefig(resultsdir / f'graph_{savename}_vtd-pert_step-wise_l2_error_psimat_progation_trim.pdf', format='pdf')
+plt.close()
 

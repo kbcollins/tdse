@@ -177,7 +177,7 @@ vtruetoep = jnp.array(vtruetoep)
 np.save(workingdir / 'vtruetoep', vtruetoep)
 print('vtruetoep saved.')
 
-vmattrue = sl.toeplitz(r=vtruetoep, c=np.conj(vtruetoep))
+vtruemat = sl.toeplitz(r=vtruetoep, c=np.conj(vtruetoep))
 
 # define initial state functions
 def psi0_0(x):
@@ -262,7 +262,7 @@ kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2)
 
 # Hamiltonian operator with true potential
 # in the Fourier representation
-hmattrue = kmat + vmattrue
+hmattrue = kmat + vtruemat
 
 # eigen-decomposition of the Hamiltonian matrix
 spctrue, stttrue = jnl.eigh(hmattrue)
