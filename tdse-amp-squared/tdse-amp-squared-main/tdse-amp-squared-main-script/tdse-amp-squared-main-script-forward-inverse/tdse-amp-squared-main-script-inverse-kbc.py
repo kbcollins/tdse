@@ -425,7 +425,7 @@ print('l-inf error of shifted and trimmed learned potential:', linferrshifttrim,
 plt.plot(xvec, jnp.real(vlearnrec) + shift, '.-', label='Learned')
 plt.plot(xvec, vtruexvec, label='True')
 plt.xlabel('x')
-plt.title(f'Shifted Learned Potential vs. True Potential\nl2 error (shift/trim) = {l2errshifttrim}\nl-inf error (shift/trim) = linferrshifttrim')
+plt.title(f'Shifted Learned Potential vs. True Potential\nl2 error (shift/trim) = {l2errshifttrim}\nl-inf error (shift/trim) = {linferrshifttrim}')
 plt.legend()
 # plt.show()
 plt.savefig(resultsdir / f'graph_{savename}_shifted_true_vs_learned_potential.pdf', format='pdf')
