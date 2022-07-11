@@ -177,10 +177,9 @@ print('thetarnd saved.')
 
 
 ###############################################################
-# define objective function
+# objective function
 ###############################################################
 
-# define objective function
 def ampsqobject(theta):
     #################################################
     # theta is a vector containing the concatenation
