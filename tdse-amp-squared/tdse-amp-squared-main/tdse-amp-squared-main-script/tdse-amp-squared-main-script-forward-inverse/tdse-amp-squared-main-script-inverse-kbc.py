@@ -145,7 +145,8 @@ toepindxmat = np.array(aa + bb)
 seed = 1234  # set to None for random initialization
 print('seed =', seed)
 
-thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
+thetarnd = 0.02 * np.random.default_rng(seed).random(size=numtoepelms * 2 - 1) - 0.01  # interval=[-0.01, 0.01)
+# thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)  # mean=0, std=1
 thetarnd = jnp.array(thetarnd)
 
 np.save(workingdir / 'thetarnd', thetarnd)
