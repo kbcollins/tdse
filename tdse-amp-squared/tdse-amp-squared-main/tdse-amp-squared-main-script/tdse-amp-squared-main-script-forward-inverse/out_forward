@@ -1,89 +1,17 @@
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '0', '20', '1e-3']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '0', '20', '1e-2']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
 cmdlineargpotential = 0
 cmdlineargnumts = 20
-cmdlineargdt = 0.001
-Current working directory: 07-08-2022/numts-20_dt-1e-3/v0
+cmdlineargdt = 0.01
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v0
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '0', '20', '1e-4']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
-cmdlineargpotential = 0
-cmdlineargnumts = 20
-cmdlineargdt = 0.0001
-Current working directory: 07-08-2022/numts-20_dt-1e-4/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 0.0001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '0', '20', '1e-5']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
-cmdlineargpotential = 0
-cmdlineargnumts = 20
-cmdlineargdt = 1e-05
-Current working directory: 07-08-2022/numts-20_dt-1e-5/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-05
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '0', '20', '1e-6']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
-cmdlineargpotential = 0
-cmdlineargnumts = 20
-cmdlineargdt = 1e-06
-Current working directory: 07-08-2022/numts-20_dt-1e-6/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-06
+dt = 0.01
 Computational parameters saved.
 
 vtruexvec saved.
@@ -192,18 +120,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '0', '20', '1e-2']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '0', '20', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
 cmdlineargpotential = 0
 cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-08-2022/numts-20_dt-1e-2/v0
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v0
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.01
+dt = 0.001
 Computational parameters saved.
 
 vtruexvec saved.
@@ -240,6 +168,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-3', '0', '80', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-3
+cmdlineargpotential = 0
+cmdlineargnumts = 80
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-80_dt-1e-3/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-3', '0', '110', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-3
+cmdlineargpotential = 0
+cmdlineargnumts = 110
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-110_dt-1e-3/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-3', '0', '140', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-3
+cmdlineargpotential = 0
+cmdlineargnumts = 140
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-140_dt-1e-3/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '0', '20', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
+cmdlineargpotential = 0
+cmdlineargnumts = 20
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-4', '0', '50', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-4
+cmdlineargpotential = 0
+cmdlineargnumts = 50
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-50_dt-1e-4/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-4', '0', '80', '1e-4']
 cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-4
 cmdlineargpotential = 0
@@ -252,6 +300,126 @@ numx = 1025
 numfour = 32
 numts = 80
 dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-4', '0', '110', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-4
+cmdlineargpotential = 0
+cmdlineargnumts = 110
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-110_dt-1e-4/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-4', '0', '140', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-4
+cmdlineargpotential = 0
+cmdlineargnumts = 140
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-140_dt-1e-4/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '0', '20', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
+cmdlineargpotential = 0
+cmdlineargnumts = 20
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-5', '0', '50', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-5
+cmdlineargpotential = 0
+cmdlineargnumts = 50
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-50_dt-1e-5/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-5', '0', '80', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-5
+cmdlineargpotential = 0
+cmdlineargnumts = 80
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-80_dt-1e-5/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-05
 Computational parameters saved.
 
 vtruexvec saved.
@@ -288,6 +456,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-5', '0', '140', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-5
+cmdlineargpotential = 0
+cmdlineargnumts = 140
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-140_dt-1e-5/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '0', '20', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
+cmdlineargpotential = 0
+cmdlineargnumts = 20
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-6', '0', '50', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-6
+cmdlineargpotential = 0
+cmdlineargnumts = 50
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-50_dt-1e-6/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-6', '0', '80', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-6
+cmdlineargpotential = 0
+cmdlineargnumts = 80
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-80_dt-1e-6/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-6', '0', '110', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-6
+cmdlineargpotential = 0
+cmdlineargnumts = 110
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-110_dt-1e-6/v0
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-6', '0', '140', '1e-6']
 cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-6
 cmdlineargpotential = 0
@@ -312,90 +600,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '1', '20', '1e-3']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '1', '20', '1e-2']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
 cmdlineargpotential = 1
 cmdlineargnumts = 20
-cmdlineargdt = 0.001
-Current working directory: 07-08-2022/numts-20_dt-1e-3/v1
+cmdlineargdt = 0.01
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v1
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '1', '20', '1e-4']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
-cmdlineargpotential = 1
-cmdlineargnumts = 20
-cmdlineargdt = 0.0001
-Current working directory: 07-08-2022/numts-20_dt-1e-4/v1
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 0.0001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '1', '20', '1e-5']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
-cmdlineargpotential = 1
-cmdlineargnumts = 20
-cmdlineargdt = 1e-05
-Current working directory: 07-08-2022/numts-20_dt-1e-5/v1
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-05
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '1', '20', '1e-6']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
-cmdlineargpotential = 1
-cmdlineargnumts = 20
-cmdlineargdt = 1e-06
-Current working directory: 07-08-2022/numts-20_dt-1e-6/v1
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-06
+dt = 0.01
 Computational parameters saved.
 
 vtruexvec saved.
@@ -504,18 +720,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '1', '20', '1e-2']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '1', '20', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
 cmdlineargpotential = 1
 cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-08-2022/numts-20_dt-1e-2/v1
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v1
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.01
+dt = 0.001
 Computational parameters saved.
 
 vtruexvec saved.
@@ -552,6 +768,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-3', '1', '80', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-3
+cmdlineargpotential = 1
+cmdlineargnumts = 80
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-80_dt-1e-3/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-3', '1', '110', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-3
+cmdlineargpotential = 1
+cmdlineargnumts = 110
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-110_dt-1e-3/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-3', '1', '140', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-3
+cmdlineargpotential = 1
+cmdlineargnumts = 140
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-140_dt-1e-3/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '1', '20', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
+cmdlineargpotential = 1
+cmdlineargnumts = 20
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-4', '1', '50', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-4
+cmdlineargpotential = 1
+cmdlineargnumts = 50
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-50_dt-1e-4/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-4', '1', '80', '1e-4']
 cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-4
 cmdlineargpotential = 1
@@ -564,6 +900,126 @@ numx = 1025
 numfour = 32
 numts = 80
 dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-4', '1', '110', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-4
+cmdlineargpotential = 1
+cmdlineargnumts = 110
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-110_dt-1e-4/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-4', '1', '140', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-4
+cmdlineargpotential = 1
+cmdlineargnumts = 140
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-140_dt-1e-4/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '1', '20', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
+cmdlineargpotential = 1
+cmdlineargnumts = 20
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-5', '1', '50', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-5
+cmdlineargpotential = 1
+cmdlineargnumts = 50
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-50_dt-1e-5/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-5', '1', '80', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-5
+cmdlineargpotential = 1
+cmdlineargnumts = 80
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-80_dt-1e-5/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-05
 Computational parameters saved.
 
 vtruexvec saved.
@@ -600,6 +1056,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-5', '1', '140', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-5
+cmdlineargpotential = 1
+cmdlineargnumts = 140
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-140_dt-1e-5/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '1', '20', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
+cmdlineargpotential = 1
+cmdlineargnumts = 20
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-6', '1', '50', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-6
+cmdlineargpotential = 1
+cmdlineargnumts = 50
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-50_dt-1e-6/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-6', '1', '80', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-6
+cmdlineargpotential = 1
+cmdlineargnumts = 80
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-80_dt-1e-6/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-6', '1', '110', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-6
+cmdlineargpotential = 1
+cmdlineargnumts = 110
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-110_dt-1e-6/v1
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-6', '1', '140', '1e-6']
 cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-6
 cmdlineargpotential = 1
@@ -624,90 +1200,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '2', '20', '1e-3']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '2', '20', '1e-2']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
 cmdlineargpotential = 2
 cmdlineargnumts = 20
-cmdlineargdt = 0.001
-Current working directory: 07-08-2022/numts-20_dt-1e-3/v2
+cmdlineargdt = 0.01
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v2
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '2', '20', '1e-4']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
-cmdlineargpotential = 2
-cmdlineargnumts = 20
-cmdlineargdt = 0.0001
-Current working directory: 07-08-2022/numts-20_dt-1e-4/v2
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 0.0001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '2', '20', '1e-5']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
-cmdlineargpotential = 2
-cmdlineargnumts = 20
-cmdlineargdt = 1e-05
-Current working directory: 07-08-2022/numts-20_dt-1e-5/v2
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-05
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '2', '20', '1e-6']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
-cmdlineargpotential = 2
-cmdlineargnumts = 20
-cmdlineargdt = 1e-06
-Current working directory: 07-08-2022/numts-20_dt-1e-6/v2
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-06
+dt = 0.01
 Computational parameters saved.
 
 vtruexvec saved.
@@ -816,18 +1320,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '2', '20', '1e-2']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '2', '20', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
 cmdlineargpotential = 2
 cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-08-2022/numts-20_dt-1e-2/v2
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v2
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.01
+dt = 0.001
 Computational parameters saved.
 
 vtruexvec saved.
@@ -864,6 +1368,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-3', '2', '80', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-3
+cmdlineargpotential = 2
+cmdlineargnumts = 80
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-80_dt-1e-3/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-3', '2', '110', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-3
+cmdlineargpotential = 2
+cmdlineargnumts = 110
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-110_dt-1e-3/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-3', '2', '140', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-3
+cmdlineargpotential = 2
+cmdlineargnumts = 140
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-140_dt-1e-3/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '2', '20', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
+cmdlineargpotential = 2
+cmdlineargnumts = 20
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-4', '2', '50', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-4
+cmdlineargpotential = 2
+cmdlineargnumts = 50
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-50_dt-1e-4/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-4', '2', '80', '1e-4']
 cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-4
 cmdlineargpotential = 2
@@ -876,6 +1500,126 @@ numx = 1025
 numfour = 32
 numts = 80
 dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-4', '2', '110', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-4
+cmdlineargpotential = 2
+cmdlineargnumts = 110
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-110_dt-1e-4/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-4', '2', '140', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-4
+cmdlineargpotential = 2
+cmdlineargnumts = 140
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-140_dt-1e-4/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '2', '20', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
+cmdlineargpotential = 2
+cmdlineargnumts = 20
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-5', '2', '50', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-5
+cmdlineargpotential = 2
+cmdlineargnumts = 50
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-50_dt-1e-5/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-5', '2', '80', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-5
+cmdlineargpotential = 2
+cmdlineargnumts = 80
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-80_dt-1e-5/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-05
 Computational parameters saved.
 
 vtruexvec saved.
@@ -912,6 +1656,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-5', '2', '140', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-5
+cmdlineargpotential = 2
+cmdlineargnumts = 140
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-140_dt-1e-5/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '2', '20', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
+cmdlineargpotential = 2
+cmdlineargnumts = 20
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-6', '2', '50', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-6
+cmdlineargpotential = 2
+cmdlineargnumts = 50
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-50_dt-1e-6/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-6', '2', '80', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-6
+cmdlineargpotential = 2
+cmdlineargnumts = 80
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-80_dt-1e-6/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-6', '2', '110', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-6
+cmdlineargpotential = 2
+cmdlineargnumts = 110
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-110_dt-1e-6/v2
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-6', '2', '140', '1e-6']
 cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-6
 cmdlineargpotential = 2
@@ -936,90 +1800,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '3', '20', '1e-3']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '3', '20', '1e-2']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
 cmdlineargpotential = 3
 cmdlineargnumts = 20
-cmdlineargdt = 0.001
-Current working directory: 07-08-2022/numts-20_dt-1e-3/v3
+cmdlineargdt = 0.01
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v3
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '3', '20', '1e-4']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
-cmdlineargpotential = 3
-cmdlineargnumts = 20
-cmdlineargdt = 0.0001
-Current working directory: 07-08-2022/numts-20_dt-1e-4/v3
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 0.0001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '3', '20', '1e-5']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
-cmdlineargpotential = 3
-cmdlineargnumts = 20
-cmdlineargdt = 1e-05
-Current working directory: 07-08-2022/numts-20_dt-1e-5/v3
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-05
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '3', '20', '1e-6']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
-cmdlineargpotential = 3
-cmdlineargnumts = 20
-cmdlineargdt = 1e-06
-Current working directory: 07-08-2022/numts-20_dt-1e-6/v3
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-06
+dt = 0.01
 Computational parameters saved.
 
 vtruexvec saved.
@@ -1128,18 +1920,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '3', '20', '1e-2']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '3', '20', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
 cmdlineargpotential = 3
 cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-08-2022/numts-20_dt-1e-2/v3
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v3
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.01
+dt = 0.001
 Computational parameters saved.
 
 vtruexvec saved.
@@ -1176,6 +1968,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-3', '3', '80', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-3
+cmdlineargpotential = 3
+cmdlineargnumts = 80
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-80_dt-1e-3/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-3', '3', '110', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-3
+cmdlineargpotential = 3
+cmdlineargnumts = 110
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-110_dt-1e-3/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-3', '3', '140', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-3
+cmdlineargpotential = 3
+cmdlineargnumts = 140
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-140_dt-1e-3/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '3', '20', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
+cmdlineargpotential = 3
+cmdlineargnumts = 20
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-4', '3', '50', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-4
+cmdlineargpotential = 3
+cmdlineargnumts = 50
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-50_dt-1e-4/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-4', '3', '80', '1e-4']
 cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-4
 cmdlineargpotential = 3
@@ -1188,6 +2100,126 @@ numx = 1025
 numfour = 32
 numts = 80
 dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-4', '3', '110', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-4
+cmdlineargpotential = 3
+cmdlineargnumts = 110
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-110_dt-1e-4/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-4', '3', '140', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-4
+cmdlineargpotential = 3
+cmdlineargnumts = 140
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-140_dt-1e-4/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '3', '20', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
+cmdlineargpotential = 3
+cmdlineargnumts = 20
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-5', '3', '50', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-5
+cmdlineargpotential = 3
+cmdlineargnumts = 50
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-50_dt-1e-5/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-5', '3', '80', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-5
+cmdlineargpotential = 3
+cmdlineargnumts = 80
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-80_dt-1e-5/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-05
 Computational parameters saved.
 
 vtruexvec saved.
@@ -1224,6 +2256,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-5', '3', '140', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-5
+cmdlineargpotential = 3
+cmdlineargnumts = 140
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-140_dt-1e-5/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '3', '20', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
+cmdlineargpotential = 3
+cmdlineargnumts = 20
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-6', '3', '50', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-6
+cmdlineargpotential = 3
+cmdlineargnumts = 50
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-50_dt-1e-6/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-6', '3', '80', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-6
+cmdlineargpotential = 3
+cmdlineargnumts = 80
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-80_dt-1e-6/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-6', '3', '110', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-6
+cmdlineargpotential = 3
+cmdlineargnumts = 110
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-110_dt-1e-6/v3
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-6', '3', '140', '1e-6']
 cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-6
 cmdlineargpotential = 3
@@ -1248,90 +2400,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '4', '20', '1e-3']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '4', '20', '1e-2']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
 cmdlineargpotential = 4
 cmdlineargnumts = 20
-cmdlineargdt = 0.001
-Current working directory: 07-08-2022/numts-20_dt-1e-3/v4
+cmdlineargdt = 0.01
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v4
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '4', '20', '1e-4']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
-cmdlineargpotential = 4
-cmdlineargnumts = 20
-cmdlineargdt = 0.0001
-Current working directory: 07-08-2022/numts-20_dt-1e-4/v4
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 0.0001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '4', '20', '1e-5']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
-cmdlineargpotential = 4
-cmdlineargnumts = 20
-cmdlineargdt = 1e-05
-Current working directory: 07-08-2022/numts-20_dt-1e-5/v4
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-05
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '4', '20', '1e-6']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
-cmdlineargpotential = 4
-cmdlineargnumts = 20
-cmdlineargdt = 1e-06
-Current working directory: 07-08-2022/numts-20_dt-1e-6/v4
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-06
+dt = 0.01
 Computational parameters saved.
 
 vtruexvec saved.
@@ -1440,18 +2520,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '4', '20', '1e-2']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '4', '20', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
 cmdlineargpotential = 4
 cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-08-2022/numts-20_dt-1e-2/v4
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v4
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.01
+dt = 0.001
 Computational parameters saved.
 
 vtruexvec saved.
@@ -1488,6 +2568,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-3', '4', '80', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-3
+cmdlineargpotential = 4
+cmdlineargnumts = 80
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-80_dt-1e-3/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-3', '4', '110', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-3
+cmdlineargpotential = 4
+cmdlineargnumts = 110
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-110_dt-1e-3/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-3', '4', '140', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-3
+cmdlineargpotential = 4
+cmdlineargnumts = 140
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-140_dt-1e-3/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '4', '20', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
+cmdlineargpotential = 4
+cmdlineargnumts = 20
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-4', '4', '50', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-4
+cmdlineargpotential = 4
+cmdlineargnumts = 50
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-50_dt-1e-4/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-4', '4', '80', '1e-4']
 cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-4
 cmdlineargpotential = 4
@@ -1500,6 +2700,126 @@ numx = 1025
 numfour = 32
 numts = 80
 dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-4', '4', '110', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-4
+cmdlineargpotential = 4
+cmdlineargnumts = 110
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-110_dt-1e-4/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-4', '4', '140', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-4
+cmdlineargpotential = 4
+cmdlineargnumts = 140
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-140_dt-1e-4/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '4', '20', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
+cmdlineargpotential = 4
+cmdlineargnumts = 20
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-5', '4', '50', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-5
+cmdlineargpotential = 4
+cmdlineargnumts = 50
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-50_dt-1e-5/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-5', '4', '80', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-5
+cmdlineargpotential = 4
+cmdlineargnumts = 80
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-80_dt-1e-5/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-05
 Computational parameters saved.
 
 vtruexvec saved.
@@ -1536,6 +2856,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-5', '4', '140', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-5
+cmdlineargpotential = 4
+cmdlineargnumts = 140
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-140_dt-1e-5/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '4', '20', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
+cmdlineargpotential = 4
+cmdlineargnumts = 20
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-6', '4', '50', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-6
+cmdlineargpotential = 4
+cmdlineargnumts = 50
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-50_dt-1e-6/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-6', '4', '80', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-6
+cmdlineargpotential = 4
+cmdlineargnumts = 80
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-80_dt-1e-6/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-6', '4', '110', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-6
+cmdlineargpotential = 4
+cmdlineargnumts = 110
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-110_dt-1e-6/v4
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-6', '4', '140', '1e-6']
 cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-6
 cmdlineargpotential = 4
@@ -1560,90 +3000,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '5', '20', '1e-3']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '5', '20', '1e-2']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
 cmdlineargpotential = 5
 cmdlineargnumts = 20
-cmdlineargdt = 0.001
-Current working directory: 07-08-2022/numts-20_dt-1e-3/v5
+cmdlineargdt = 0.01
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v5
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '5', '20', '1e-4']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
-cmdlineargpotential = 5
-cmdlineargnumts = 20
-cmdlineargdt = 0.0001
-Current working directory: 07-08-2022/numts-20_dt-1e-4/v5
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 0.0001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '5', '20', '1e-5']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
-cmdlineargpotential = 5
-cmdlineargnumts = 20
-cmdlineargdt = 1e-05
-Current working directory: 07-08-2022/numts-20_dt-1e-5/v5
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-05
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '5', '20', '1e-6']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
-cmdlineargpotential = 5
-cmdlineargnumts = 20
-cmdlineargdt = 1e-06
-Current working directory: 07-08-2022/numts-20_dt-1e-6/v5
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-06
+dt = 0.01
 Computational parameters saved.
 
 vtruexvec saved.
@@ -1752,18 +3120,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '5', '20', '1e-2']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '5', '20', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
 cmdlineargpotential = 5
 cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-08-2022/numts-20_dt-1e-2/v5
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v5
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.01
+dt = 0.001
 Computational parameters saved.
 
 vtruexvec saved.
@@ -1800,6 +3168,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-3', '5', '80', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-3
+cmdlineargpotential = 5
+cmdlineargnumts = 80
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-80_dt-1e-3/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-3', '5', '110', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-3
+cmdlineargpotential = 5
+cmdlineargnumts = 110
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-110_dt-1e-3/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-3', '5', '140', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-3
+cmdlineargpotential = 5
+cmdlineargnumts = 140
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-140_dt-1e-3/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '5', '20', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
+cmdlineargpotential = 5
+cmdlineargnumts = 20
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-4', '5', '50', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-4
+cmdlineargpotential = 5
+cmdlineargnumts = 50
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-50_dt-1e-4/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-4', '5', '80', '1e-4']
 cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-4
 cmdlineargpotential = 5
@@ -1812,6 +3300,126 @@ numx = 1025
 numfour = 32
 numts = 80
 dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-4', '5', '110', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-4
+cmdlineargpotential = 5
+cmdlineargnumts = 110
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-110_dt-1e-4/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-4', '5', '140', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-4
+cmdlineargpotential = 5
+cmdlineargnumts = 140
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-140_dt-1e-4/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '5', '20', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
+cmdlineargpotential = 5
+cmdlineargnumts = 20
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-5', '5', '50', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-5
+cmdlineargpotential = 5
+cmdlineargnumts = 50
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-50_dt-1e-5/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-5', '5', '80', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-5
+cmdlineargpotential = 5
+cmdlineargnumts = 80
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-80_dt-1e-5/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-05
 Computational parameters saved.
 
 vtruexvec saved.
@@ -1848,6 +3456,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-5', '5', '140', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-5
+cmdlineargpotential = 5
+cmdlineargnumts = 140
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-140_dt-1e-5/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '5', '20', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
+cmdlineargpotential = 5
+cmdlineargnumts = 20
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-6', '5', '50', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-6
+cmdlineargpotential = 5
+cmdlineargnumts = 50
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-50_dt-1e-6/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-6', '5', '80', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-6
+cmdlineargpotential = 5
+cmdlineargnumts = 80
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-80_dt-1e-6/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-6', '5', '110', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-6
+cmdlineargpotential = 5
+cmdlineargnumts = 110
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-110_dt-1e-6/v5
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-6', '5', '140', '1e-6']
 cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-6
 cmdlineargpotential = 5
@@ -1872,90 +3600,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '6', '20', '1e-3']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '6', '20', '1e-2']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
 cmdlineargpotential = 6
 cmdlineargnumts = 20
-cmdlineargdt = 0.001
-Current working directory: 07-08-2022/numts-20_dt-1e-3/v6
+cmdlineargdt = 0.01
+Current working directory: 07-08-2022/numts-20_dt-1e-2/v6
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '6', '20', '1e-4']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
-cmdlineargpotential = 6
-cmdlineargnumts = 20
-cmdlineargdt = 0.0001
-Current working directory: 07-08-2022/numts-20_dt-1e-4/v6
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 0.0001
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '6', '20', '1e-5']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
-cmdlineargpotential = 6
-cmdlineargnumts = 20
-cmdlineargdt = 1e-05
-Current working directory: 07-08-2022/numts-20_dt-1e-5/v6
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-05
-Computational parameters saved.
-
-vtruexvec saved.
-vtruetoep saved.
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '6', '20', '1e-6']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
-cmdlineargpotential = 6
-cmdlineargnumts = 20
-cmdlineargdt = 1e-06
-Current working directory: 07-08-2022/numts-20_dt-1e-6/v6
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 1e-06
+dt = 0.01
 Computational parameters saved.
 
 vtruexvec saved.
@@ -2064,18 +3720,18 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-2', '6', '20', '1e-2']
-cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-2
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-3', '6', '20', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-3
 cmdlineargpotential = 6
 cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-08-2022/numts-20_dt-1e-2/v6
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-20_dt-1e-3/v6
 
 L = 15.0
 numx = 1025
 numfour = 32
 numts = 20
-dt = 0.01
+dt = 0.001
 Computational parameters saved.
 
 vtruexvec saved.
@@ -2112,6 +3768,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-3', '6', '80', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-3
+cmdlineargpotential = 6
+cmdlineargnumts = 80
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-80_dt-1e-3/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-3', '6', '110', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-3
+cmdlineargpotential = 6
+cmdlineargnumts = 110
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-110_dt-1e-3/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-3', '6', '140', '1e-3']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-3
+cmdlineargpotential = 6
+cmdlineargnumts = 140
+cmdlineargdt = 0.001
+Current working directory: 07-08-2022/numts-140_dt-1e-3/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-4', '6', '20', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-4
+cmdlineargpotential = 6
+cmdlineargnumts = 20
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-20_dt-1e-4/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-4', '6', '50', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-4
+cmdlineargpotential = 6
+cmdlineargnumts = 50
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-50_dt-1e-4/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-4', '6', '80', '1e-4']
 cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-4
 cmdlineargpotential = 6
@@ -2136,6 +3912,126 @@ Done with forward problem.
 
 -------FORWARD-------
 
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-4', '6', '110', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-4
+cmdlineargpotential = 6
+cmdlineargnumts = 110
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-110_dt-1e-4/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-4', '6', '140', '1e-4']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-4
+cmdlineargpotential = 6
+cmdlineargnumts = 140
+cmdlineargdt = 0.0001
+Current working directory: 07-08-2022/numts-140_dt-1e-4/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 0.0001
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-5', '6', '20', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-5
+cmdlineargpotential = 6
+cmdlineargnumts = 20
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-20_dt-1e-5/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-5', '6', '50', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-5
+cmdlineargpotential = 6
+cmdlineargnumts = 50
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-50_dt-1e-5/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-5', '6', '80', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-5
+cmdlineargpotential = 6
+cmdlineargnumts = 80
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-80_dt-1e-5/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
 sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-5', '6', '110', '1e-5']
 cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-5
 cmdlineargpotential = 6
@@ -2148,6 +4044,126 @@ numx = 1025
 numfour = 32
 numts = 110
 dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-140_dt-1e-5', '6', '140', '1e-5']
+cmdlineargsavedir = 07-08-2022/numts-140_dt-1e-5
+cmdlineargpotential = 6
+cmdlineargnumts = 140
+cmdlineargdt = 1e-05
+Current working directory: 07-08-2022/numts-140_dt-1e-5/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 140
+dt = 1e-05
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-20_dt-1e-6', '6', '20', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-20_dt-1e-6
+cmdlineargpotential = 6
+cmdlineargnumts = 20
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-20_dt-1e-6/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-50_dt-1e-6', '6', '50', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-50_dt-1e-6
+cmdlineargpotential = 6
+cmdlineargnumts = 50
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-50_dt-1e-6/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-80_dt-1e-6', '6', '80', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-80_dt-1e-6
+cmdlineargpotential = 6
+cmdlineargnumts = 80
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-80_dt-1e-6/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 1e-06
+Computational parameters saved.
+
+vtruexvec saved.
+vtruetoep saved.
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-amp-squared-main-script-forward-kbc.py', './07-08-2022/numts-110_dt-1e-6', '6', '110', '1e-6']
+cmdlineargsavedir = 07-08-2022/numts-110_dt-1e-6
+cmdlineargpotential = 6
+cmdlineargnumts = 110
+cmdlineargdt = 1e-06
+Current working directory: 07-08-2022/numts-110_dt-1e-6/v6
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 110
+dt = 1e-06
 Computational parameters saved.
 
 vtruexvec saved.
