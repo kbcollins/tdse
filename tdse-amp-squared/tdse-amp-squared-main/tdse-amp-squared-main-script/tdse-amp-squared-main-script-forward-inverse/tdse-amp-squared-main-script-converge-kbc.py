@@ -20,10 +20,11 @@ os.environ['TF_FORCE_GPU_ALLOW_GROWTH']='true'  # this is suppose to fix the cun
 ###############################################################
 
 print('-------CONVERGE TEST-------')
+print('')  # blank line
 
 
 ###############################################################
-# set directory to load data from
+# set directories to load from and save to
 ###############################################################
 
 # get path to directory containing amat from command line
@@ -31,37 +32,53 @@ cmdlinearg = sys.argv[1]
 print('Command line argument:', cmdlinearg)
 
 # transform commandline argument to path object
-cwddir = pathlib.Path(cmdlinearg)
-print('Current working directory:', cwddir)
+workingdir = pathlib.Path(cmdlinearg)
+print('Current working directory:', workingdir)
+
+# set identifier for saved output
+savename = 'converge'
+
+# set directory to store results
+resultsdir = workingdir / f'results-{savename}'
+print('Results directory:', resultsdir)
 
 
 ###############################################################
-# load computational environment
+# load computational parameters
 ###############################################################
 
-L, numx, numfour, dt, numts = np.load(cwddir / 'cmpenv.npy')
-numx = int(numx)
-numfour = int(numfour)
-numts = int(numts)
+# load saved computational parameters
+cmpenv = np.load(workingdir / 'cmpenv.npy', allow_pickle=True)
+print('cmpenv =', cmpenv)
+
+# store loaded parameters as variables
+L = float(cmpenv[0])
+numx = int(cmpenv[1])
+numfour = int(cmpenv[2])
+dt = float(cmpenv[3])
+numts = int(cmpenv[4])
 
 # load state variables
-a0vec = np.load(cwddir / 'a0vec.npy')
-propatrue = np.load(cwddir / 'propatrue.npy')
-amattruevec = np.load(cwddir / 'amattruevec.npy')
+a0vec = np.load(workingdir / 'a0vec.npy')
+propatrue = np.load(workingdir / 'propatrue.npy')
+amattruevec = np.load(workingdir / 'amattruevec.npy')
 
+# load true potential
 # fourtox = np.load(workingdir / 'fourtox.npy')
 # vtruetoep = np.load(workingdir / 'vtruetoep.npy')
-vxvec = np.load(cwddir / 'vtruexvec.npy')
-vxrange = np.amax(vxvec) - np.amin(vxvec)
+vtruexvec = np.load(workingdir / 'vtruexvec.npy')
+vtruexrange = np.amax(vtruexvec) - np.amin(vtruexvec)
 
 print('Computational environment loaded.')
+
 # print computational environment variables to stdout
 print('L =', L)
 print('numx =', numx)
 print('numfour =', numfour)
 print('numts =', numts)
 print('dt =', dt)
-print('Number of a0 states:', a0vec.shape[0])
+print('Number of a0 states:', amattruevec.shape[0])
+
 print('')  # blank line
 
 
@@ -108,8 +125,6 @@ for thisamattrue in amattruevec:
 
 betamatvec = jnp.array(betamatvec) / jnp.sqrt(2 * L)
 
-print('Training data generated.')
-
 
 ###############################################################
 # Toeplitz indexing matrix
@@ -130,9 +145,12 @@ toepindxmat = np.array(aa + bb)
 
 # define objective function
 def ampsqobject(theta):
+    #################################################
     # theta is a vector containing the concatenation
     # of the real and imaginary parts of vmat
-    # its size should be 2 * numtoepelms - 1 = 4 * numfour + 1
+    # its size should be
+    # 2 * numtoepelms - 1 = 4 * numfour + 1
+    #################################################
 
     # to use theta we need to first recombine the real
     # and imaginary parts into a vector of complex values
@@ -204,12 +222,18 @@ jit_mk_M_and_P = jax.jit(mk_M_and_P)
 
 # function for computing gradients using adjoint method
 def adjgrads(theta):
+    #################################################
+    # theta is a vector containing the concatenation
+    # of the real and imaginary parts of vmat
+    # its size should be
+    # 2 * numtoepelms - 1 = 4 * numfour + 1
+    #################################################
+
     # to use theta we need to first recombine the real
     # and imaginary parts into a vector of complex values
     vtoephatR = theta[:numtoepelms]
     vtoephatI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
     vtoephat = vtoephatR + 1j * vtoephatI
-    # print('Shape vtoephat:', vtoephat.shape)
 
     # construct vmathat from complex toeplitz vector
     vmathat = jnp.concatenate([jnp.flipud(jnp.conj(vtoephat)), vtoephat[1:]])[toepindxmat]
@@ -274,10 +298,10 @@ def adjgrads(theta):
     lammatvec = jnp.array(lammatvec)
 
 
-    #######################################
+    #################################################
     # the remainder of this function is for computing the
     # gradient of the exponential matrix
-    #######################################
+    #################################################
 
     offdiagmask = jnp.ones((numtoepelms, numtoepelms)) - jnp.eye(numtoepelms)
     expspec = jnp.exp(-1j * dt * spchat)
@@ -368,7 +392,7 @@ def thetatopropmat(theta):
 ###############################################################
 
 # set number of trials
-numtrials = 20  # 200
+numtrials = 100  # 20  # 200
 
 # find midpoint of computational interval
 midpointindex = numx // 2
@@ -386,17 +410,27 @@ for i in range(numtrials):
     if i % 10 == 0:
         print(f'{i} of {numtrials}')
 
-    # initialize theta with random coefficients close to zero
+    #################################################
+    # initialize theta with random values
+    #################################################
+
     seed = None  # set to None for random initialization
-    thetarnd = 0.02 * np.random.default_rng(seed).random(size=numtoepelms * 2 - 1) - 0.01  # interval [-0.01, 0.01)
-    # thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
+    print('seed =', seed)
+    thetarnd = 0.02 * np.random.default_rng(seed).random(size=numtoepelms * 2 - 1) - 0.01  # interval=[-0.01, 0.01)
+    # thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)  # mean=0, std=1
     thetarnd = jnp.array(thetarnd)
+
+
+    #################################################
+    # learning
+    #################################################
 
     # start optimizing (i.e., learning)
     thisresult = so.minimize(fun=jitampsqobject,
                              x0=thetarnd, jac=jitadjgrads,
                              tol=1e-12, options={'maxiter': 1000, 'disp': False, 'gtol': 1e-15}).x
                              # tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+
 
     #################################################
     # propagate a0vec using the learned potential and
@@ -452,15 +486,15 @@ for i in range(numtrials):
     # get real space potential from learned theta
     thisvlearnrec = thetatoreal(thisresult)
 
-    rawl2err.append(nl.norm(jnp.real(thisvlearnrec) - vxvec))
-    rawlinferr.append(np.amax(np.abs(jnp.real(thisvlearnrec) - vxvec)))
+    rawl2err.append(nl.norm(jnp.real(thisvlearnrec) - vtruexvec))
+    rawlinferr.append(np.amax(np.abs(jnp.real(thisvlearnrec) - vtruexvec)))
 
-    shift = vxvec[midpointindex] - jnp.real(thisvlearnrec)[midpointindex]
-    shiftl2err.append(nl.norm(jnp.real(thisvlearnrec) + shift - vxvec))
-    shiftlinferr.append(np.amax(np.abs(jnp.real(thisvlearnrec) + shift - vxvec)))
+    shift = vtruexvec[midpointindex] - jnp.real(thisvlearnrec)[midpointindex]
+    shiftl2err.append(nl.norm(jnp.real(thisvlearnrec) + shift - vtruexvec))
+    shiftlinferr.append(np.amax(np.abs(jnp.real(thisvlearnrec) + shift - vtruexvec)))
 
-    trimshiftl2err.append(nl.norm(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim]))
-    trimshiftlinferr.append(np.amax(np.abs(jnp.real(thisvlearnrec)[trim:-trim] + shift - vxvec[trim:-trim])))
+    trimshiftl2err.append(nl.norm(jnp.real(thisvlearnrec)[trim:-trim] + shift - vtruexvec[trim:-trim]))
+    trimshiftlinferr.append(np.amax(np.abs(jnp.real(thisvlearnrec)[trim:-trim] + shift - vtruexvec[trim:-trim])))
 
     if i == 0:
         print('initializing trimshiftl2errbest and thetabestv')
@@ -479,10 +513,10 @@ for i in range(numtrials):
 # thetabestprop
 ###############################################################
 
-np.save(cwddir / 'thetabestprop', thetabestprop)
+np.save(workingdir / 'thetabestprop', thetabestprop)
 print('thetabestprop saved.')
 
-np.save(cwddir / 'thetabestv', thetabestv)
+np.save(workingdir / 'thetabestv', thetabestv)
 print('thetabestv saved.')
 
 print('')  # blank line
@@ -504,7 +538,7 @@ plt.title(f'l2 Error of the Learned Potentials - {numtrials} Initializations')
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_converge-test_l2_error_all.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_converge-test_l2_error_all.pdf', format='pdf')
 plt.close()
 
 
@@ -516,7 +550,7 @@ plt.title(f'l-infinite Error of the Learned Potentials - {numtrials} Initializat
 plt.xlabel('Trial Number')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_converge-test_l-infinite_error_all.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_converge-test_l-infinite_error_all.pdf', format='pdf')
 plt.close()
 
 
@@ -525,7 +559,7 @@ meanrawl2err = np.mean(rawl2err)
 minrawl2err = np.amin(rawl2err)
 maxrawl2err = np.amax(rawl2err)
 avgdevrawl2err = np.mean(np.abs(np.subtract(rawl2err, meanrawl2err)))
-# prcnterrrawl2err = meanrawl2err / vxrange * 100
+# prcnterrrawl2err = meanrawl2err / vtruexrange * 100
 print('Mean of rawl2err:', meanrawl2err)
 print('Minumum of rawl2err:', minrawl2err)
 print('Maximum of rawl2err:', maxrawl2err)
@@ -542,7 +576,7 @@ plt.title(f'l2 Error of the Raw Learned Potentials - {numtrials} Trials\nmin={mi
 plt.xlabel('Trial')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_converge-test_l2_error_rawl2err.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_converge-test_l2_error_rawl2err.pdf', format='pdf')
 plt.close()
 
 # results of raw potential l-infinite error
@@ -550,7 +584,7 @@ meanrawlinferr = np.mean(rawlinferr)
 minrawlinferr = np.amin(rawlinferr)
 maxrawlinferr = np.amax(rawlinferr)
 avgdevrawlinferr = np.mean(np.abs(np.subtract(rawlinferr, meanrawlinferr)))
-prcnterrrawlinferr = meanrawlinferr / vxrange * 100
+prcnterrrawlinferr = meanrawlinferr / vtruexrange * 100
 print('Mean of rawlinferr:', meanrawlinferr)
 print('Minumum of rawlinferr:', minrawlinferr)
 print('Maximum of rawlinferr:', maxrawlinferr)
@@ -566,7 +600,7 @@ plt.title(f'l-infinite Error of the Raw Learned Potentials - {numtrials} Trials\
 plt.xlabel('Trial')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_converge-test_l-infinite_error_rawlinferr.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_converge-test_l-infinite_error_rawlinferr.pdf', format='pdf')
 plt.close()
 
 
@@ -575,7 +609,7 @@ meanshiftl2err = np.mean(shiftl2err)
 minshiftl2err = np.amin(shiftl2err)
 maxshiftl2err = np.amax(shiftl2err)
 avgdevshiftl2err = np.mean(np.abs(np.subtract(shiftl2err, meanshiftl2err)))
-# prcnterrshiftl2err = meanshiftl2err / vxrange * 100
+# prcnterrshiftl2err = meanshiftl2err / vtruexrange * 100
 print('Mean of shiftl2err:', meanshiftl2err)
 print('Minumum of shiftl2err:', minshiftl2err)
 print('Maximum of shiftl2err:', maxshiftl2err)
@@ -592,7 +626,7 @@ plt.title(f'l2 Error of the Shifted Learned Potentials - {numtrials} Trials\nmin
 plt.xlabel('Trial')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_converge-test_l2_error_shiftl2err.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_converge-test_l2_error_shiftl2err.pdf', format='pdf')
 plt.close()
 
 # results of shifted potential l-infinite error
@@ -600,7 +634,7 @@ meanshiftlinferr = np.mean(shiftlinferr)
 minshiftlinferr = np.amin(shiftlinferr)
 maxshiftlinferr = np.amax(shiftlinferr)
 avgdevshiftlinferr = np.mean(np.abs(np.subtract(shiftlinferr, meanshiftlinferr)))
-prcnterrshiftlinferr = meanshiftlinferr / vxrange * 100
+prcnterrshiftlinferr = meanshiftlinferr / vtruexrange * 100
 print('Mean of shiftlinferr:', meanshiftlinferr)
 print('Minumum of shiftlinferr:', minshiftlinferr)
 print('Maximum of shiftlinferr:', maxshiftlinferr)
@@ -616,7 +650,7 @@ plt.title(f'l-infinite Error of the Shifted Learned Potentials - {numtrials} Tri
 plt.xlabel('Trial')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_converge-test_l-infinite_error_shiftlinferr.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_converge-test_l-infinite_error_shiftlinferr.pdf', format='pdf')
 plt.close()
 
 
@@ -625,7 +659,7 @@ meantrimshiftl2err = np.mean(trimshiftl2err)
 mintrimshiftl2err = np.amin(trimshiftl2err)
 maxtrimshiftl2err = np.amax(trimshiftl2err)
 avgdevtrimshiftl2err = np.mean(np.abs(np.subtract(trimshiftl2err, meantrimshiftl2err)))
-# prcnterrtrimshiftl2err = meantrimshiftl2err / vxrange * 100
+# prcnterrtrimshiftl2err = meantrimshiftl2err / vtruexrange * 100
 print('Mean of trimshiftl2err:', meantrimshiftl2err)
 print('Minumum of trimshiftl2err:', mintrimshiftl2err)
 print('Maximum of trimshiftl2err:', maxtrimshiftl2err)
@@ -642,7 +676,7 @@ plt.title(f'l2 Error of Trimmed and Shifted\nLearned Potentials - {numtrials} Tr
 plt.xlabel('Trial')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_converge-test_l2_error_trimshiftl2err.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_converge-test_l2_error_trimshiftl2err.pdf', format='pdf')
 plt.close()
 
 # results of trimmed and shifted potential l-infinite error
@@ -650,7 +684,7 @@ meantrimshiftlinferr = np.mean(trimshiftlinferr)
 mintrimshiftlinferr = np.amin(trimshiftlinferr)
 maxtrimshiftlinferr = np.amax(trimshiftlinferr)
 avgdevtrimshiftlinferr = np.mean(np.abs(np.subtract(trimshiftlinferr, meantrimshiftlinferr)))
-prcnterrtrimshiftlinferr = meantrimshiftlinferr / vxrange * 100
+prcnterrtrimshiftlinferr = meantrimshiftlinferr / vtruexrange * 100
 print('Mean of trimshiftlinferr:', meantrimshiftlinferr)
 print('Minumum of trimshiftlinferr:', mintrimshiftlinferr)
 print('Maximum of trimshiftlinferr:', maxtrimshiftlinferr)
@@ -666,5 +700,7 @@ plt.title(f'l-infinite Error of the Trimmed and Shifted\nLearned Potentials - {n
 plt.xlabel('Trial')
 plt.ylabel('Error')
 plt.legend()
-plt.savefig(cwddir / 'graph_converge-test_l-infinite_error_trimshiftlinferr.pdf', format='pdf')
+plt.savefig(workingdir / 'graph_converge-test_l-infinite_error_trimshiftlinferr.pdf', format='pdf')
 plt.close()
+
+print('')  # blank line

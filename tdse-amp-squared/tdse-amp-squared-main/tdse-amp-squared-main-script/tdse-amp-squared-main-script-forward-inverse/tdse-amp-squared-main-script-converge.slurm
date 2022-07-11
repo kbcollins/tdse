@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --partition=gpu           # select which resource to run your job on
 #SBATCH --gpus=1                  # select how many gpus to use (each node as 2)
-#SBATCH --job-name=inverse        # create a short name for the job
+#SBATCH --job-name=converge        # create a short name for the job
 #SBATCH --output='out_%x'         # stdout file (%A: job ID, a%: job array index, x%: job name)
 #SBATCH --time=06:00:00           # set total run time limit for job
 
@@ -13,9 +13,10 @@
 
 ################## BASH SCRIPT ##################
 
-#for i in {0..6}; do
+#for i in {0..6}
+#do
 ##	echo $i
-#	python tdse-amp-squared-main-script-inverse-kbc.py ./v$i
+#	python tdse-amp-squared-main-script-converge-kbc.py ./v$i
 #done
 
 

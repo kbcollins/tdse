@@ -19,12 +19,12 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 # identify script on stdout
 ###############################################################
 
-print('-------PROP TEST-------')
+print('-------PROP-------')
 print('')  # blank line
 
 
 ###############################################################
-# set directory to load data from
+# set directories to load from and save to
 ###############################################################
 
 # get path to directory containing amat from command line
@@ -35,12 +35,12 @@ print('Command line argument:', cmdlinearg)
 workingdir = pathlib.Path(cmdlinearg)
 print('Current working directory:', workingdir)
 
-# set directory to store results
-resultsdir = workingdir / 'results-prop-test'
-print('Results directory:', resultsdir)
-
 # set identifier for saved output
-savename = 'prop-test'
+savename = 'propagate'
+
+# set directory to store results
+resultsdir = workingdir / f'results-{savename}'
+print('Results directory:', resultsdir)
 
 
 ###############################################################
@@ -80,6 +80,7 @@ print('numfour =', numfour)
 print('numts =', numts)
 print('dt =', dt)
 print('Number of a0 states:', a0vec.shape[0])
+
 print('')  # blank line
 
 
@@ -114,7 +115,7 @@ vtruemat = sl.toeplitz(r=vtruetoep, c=np.conj(vtruetoep))
 
 
 ###############################################################
-# Set trim
+# Set trim of real space region
 ###############################################################
 
 trim = np.where(xvec >= -10)[0][0]  # 125

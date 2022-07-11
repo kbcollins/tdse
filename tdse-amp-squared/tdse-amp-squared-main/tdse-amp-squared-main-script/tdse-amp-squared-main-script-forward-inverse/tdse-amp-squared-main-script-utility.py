@@ -1,0 +1,235 @@
+import sys
+import pathlib
+import numpy as np
+import numpy.linalg as nl
+import scipy.optimize as so
+import matplotlib.pyplot as plt
+import jax
+import jax.numpy as jnp
+import jax.numpy.linalg as jnl
+from jax.config import config
+config.update("jax_enable_x64", True)
+
+import os
+os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
+
+
+###############################################################
+# Toeplitz indexing matrix
+###############################################################
+
+# Toeplitz indexing matrix, used for constructing Toeplitz matrix
+# from a vector setup like:
+# jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
+aa = (-1) * np.arange(0, numtoepelms).reshape(numtoepelms, 1)
+bb = [np.arange(numtoepelms - 1, 2 * numtoepelms - 1)]
+toepindxmat = np.array(aa + bb)
+# print(toepindxmat.shape)
+
+
+###############################################################
+# function for transforming theta to a real space potential
+###############################################################
+
+def thetatoreal(theta):
+    thetaR = theta[:numtoepelms]
+    thetaI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
+    thetacomplex = thetaR + 1j * thetaI
+    potentialfourier = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(thetacomplex[1:(numfour + 1)])), thetacomplex[:(numfour + 1)]])
+    potentialreal = potentialfourier @ fourtox
+    return potentialreal
+
+
+###############################################################
+# function for constructing the Hamiltonian operator matrix
+# and performing an eigen-decomposition on the Hamiltonian
+# operator matrix
+###############################################################
+
+def hmateigh(theta):
+    #################################################
+    # theta is a vector containing the concatenation
+    # of the real and imaginary parts of vmat
+    # its size should be
+    # 2 * numtoepelms - 1 = 4 * numfour + 1
+    #################################################
+
+    # to use theta we need to first recombine the real
+    # and imaginary parts into a vector of complex values
+    vtoephatR = theta[:numtoepelms]
+    vtoephatI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
+    vtoephat = vtoephatR + 1j * vtoephatI
+
+    # construct vmathat from complex toeplitz vector
+    vmathat = jnp.concatenate([jnp.flipud(jnp.conj(vtoephat)), vtoephat[1:]])[toepindxmat]
+
+    # Construct Hamiltonian matrix
+    hmathat = kmat + vmathat
+
+    # eigen-decomposition of the Hamiltonian matrix
+    spchat, stthat = jnl.eigh(hmathat)
+
+    return (spchat, stthat)
+
+
+###############################################################
+# define objective function
+###############################################################
+
+# define objective function
+def ampsqobject(theta):
+    # eigen-decomposition of the Hamiltonian operator matrix
+    spchat, stthat = hmateigh(theta)
+
+    # compute propagator matrix
+    propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
+
+    # forward propagation loop
+    rtnobj = 0.0
+    # for r in range(len(a0vec)):
+    for r in range(betamatvec.shape[0]):
+        # thisahat = a0vec[r].copy()
+        thisahat = amattruevec[r, 0].copy()
+        thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
+
+        # propagate system starting from initial "a" state
+        # for _ in range(numts):
+        for _ in range(betamatvec.shape[1] - 1):
+            # propagate the system one time-step
+            thisahat = propahat @ thisahat
+            # calculate the amp^2
+            thisbetahatmat.append(jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L))
+
+        # compute objective functions
+        tempresid = jnp.array(thisbetahatmat) - betamatvec[r]
+        thisobj = 0.5 * jnp.sum(jnp.abs(tempresid)**2)
+        rtnobj += thisobj
+
+    return rtnobj
+
+# jit ampsquaredobjective
+jitampsqobject = jax.jit(ampsqobject)
+# complie and test jitampsquaredobjective
+# print(jitampsquaredobjective(thetatrue))
+
+
+###############################################################
+# adjoint method for computing gradient
+###############################################################
+
+# function for generating M and P matrix (used in adjoint method)
+def mk_M_and_P(avec):
+    halflen = len(avec) // 2
+    padavec = jnp.concatenate((jnp.zeros(halflen), jnp.array(avec), jnp.zeros(halflen)))
+
+    rawmat = []
+    for j in range(2 * halflen + 1):
+        rawmat.append(padavec[2 * halflen - j:4 * halflen + 1 - j])
+
+    Mmat = jnp.conjugate(jnp.array(rawmat))
+    Pmat = jnp.flipud(jnp.array(rawmat))
+
+    return Mmat, Pmat
+
+# jit mk_M_and_P
+jit_mk_M_and_P = jax.jit(mk_M_and_P)
+
+# function for computing gradients using adjoint method
+def adjgrads(theta):
+    # eigen-decomposition of the Hamiltonian operator matrix
+    spchat, stthat = hmateigh(theta)
+
+    # compute propagator matrix
+    propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
+    proplam = jnp.transpose(jnp.conjugate(propahat))
+
+    # forward propagation
+    ahatmatvec = []
+    lammatvec = []
+    # for r in range(len(a0vec)):
+    for r in range(betamatvec.shape[0]):
+        # propagate system starting from initial "a" state
+        # thisahatmat = [a0vec[r].copy()]
+        thisahatmat = [amattruevec[r, 0].copy()]
+        thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
+        # thisrhomat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
+        thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
+
+        # propagate system starting from thisa0vec state
+        # for i in range(numts):
+        for i in range(betamatvec.shape[1] - 1):
+            # propagate the system one time-step and store the result
+            thisahatmat.append(propahat @ thisahatmat[-1])
+
+            # calculate the amp^2
+            thisbetahatmat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
+            # thisrhomat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
+
+            # compute \rho^r - \beta^r
+            # compute \betahat^r - \beta^r
+            thiserr = thisbetahatmat[-1] - betamatvec[r, i+1]
+            # thiserr = thisrhomat[-1] - betamatvec[r, i+1]
+
+            # compute M and P matrix for lambda mat
+            thisMmat, thisPmat = jit_mk_M_and_P(thisahatmat[-1])
+
+            # compute part of lambda mat
+            # ( 1 / \sqrt{2 L} ) * [ ( M^r )^\dagger * ( \rho^r - \beta^r )
+            # + \overline{( P^r )^\dagger * ( \rho^r - \beta^r )} ]
+            thispartlammat.append((thisMmat.conj().T @ thiserr + (thisPmat.conj().T @ thiserr).conj()) / jnp.sqrt(2 * L))
+
+        # store compute ahatmat
+        ahatmatvec.append(jnp.array(thisahatmat))
+
+        # build lammat backwards then flip at the end
+        thislammat = [thispartlammat[-1]]
+        for i in range(2, numts + 2):
+            thislammat.append(thispartlammat[-i] + proplam @ thislammat[-1])
+
+        lammatvec.append(jnp.flipud(jnp.array(thislammat)))
+
+    # make lists into JAX array object
+    ahatmatvec = jnp.array(ahatmatvec)
+    lammatvec = jnp.array(lammatvec)
+
+
+    #######################################
+    # the remainder of this function is for computing the
+    # gradient of the exponential matrix
+    #######################################
+
+    offdiagmask = jnp.ones((numtoepelms, numtoepelms)) - jnp.eye(numtoepelms)
+    expspec = jnp.exp(-1j * dt * spchat)
+    e1, e2 = jnp.meshgrid(expspec, expspec)
+    s1, s2 = jnp.meshgrid(spchat, spchat)
+    denom = offdiagmask * (-1j * dt) * (s1 - s2) + jnp.eye(numtoepelms)
+    mask = offdiagmask * (e1 - e2)/denom + jnp.diag(expspec)
+
+    myeye = jnp.eye(numtoepelms)
+    wsR = jnp.hstack([jnp.fliplr(myeye), myeye[:,1:]]).T
+    ctrmatsR = wsR[toepindxmat]
+    prederivamatR = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsR,stthat)
+    derivamatR = prederivamatR * jnp.expand_dims(mask,2)
+    alldmatreal = -1j * dt * jnp.einsum('ij,jkm,kl->mil',stthat, derivamatR, stthat.conj().T)
+
+    wsI = 1.0j * jnp.hstack([-jnp.fliplr(myeye), myeye[:,1:]])
+    wsI = wsI[1:,:]
+    wsI = wsI.T
+    ctrmatsI = wsI[toepindxmat]
+    prederivamatI = jnp.einsum('ij,jkm,kl->ilm',stthat.conj().T, ctrmatsI, stthat)
+    derivamatI = prederivamatI * jnp.expand_dims(mask, 2)
+    alldmatimag = -1j * dt * jnp.einsum('ij,jkm,kl->mil',stthat, derivamatI, stthat.conj().T)
+
+    alldmat = jnp.vstack([alldmatreal, alldmatimag])
+
+    # compute all entries of the gradient at once
+    gradients = jnp.real(jnp.einsum('bij,ajk,bik->a', jnp.conj(lammatvec[:, 1:]), alldmat, ahatmatvec[:, :-1]))
+
+    return gradients
+
+
+# jist adjgrads
+jitadjgrads = jax.jit(adjgrads)
+# compile and test jitadjgrads
+# print(nl.norm(jitadjgrads(thetatrue)))
+

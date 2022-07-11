@@ -525,7 +525,7 @@ meanrawl2err = np.mean(rawl2err)
 minrawl2err = np.amin(rawl2err)
 maxrawl2err = np.amax(rawl2err)
 avgdevrawl2err = np.mean(np.abs(np.subtract(rawl2err, meanrawl2err)))
-# prcnterrrawl2err = meanrawl2err / vxrange * 100
+# prcnterrrawl2err = meanrawl2err / vtruexrange * 100
 print('Mean of rawl2err:', meanrawl2err)
 print('Minumum of rawl2err:', minrawl2err)
 print('Maximum of rawl2err:', maxrawl2err)
@@ -575,7 +575,7 @@ meanshiftl2err = np.mean(shiftl2err)
 minshiftl2err = np.amin(shiftl2err)
 maxshiftl2err = np.amax(shiftl2err)
 avgdevshiftl2err = np.mean(np.abs(np.subtract(shiftl2err, meanshiftl2err)))
-# prcnterrshiftl2err = meanshiftl2err / vxrange * 100
+# prcnterrshiftl2err = meanshiftl2err / vtruexrange * 100
 print('Mean of shiftl2err:', meanshiftl2err)
 print('Minumum of shiftl2err:', minshiftl2err)
 print('Maximum of shiftl2err:', maxshiftl2err)
@@ -625,7 +625,7 @@ meantrimshiftl2err = np.mean(trimshiftl2err)
 mintrimshiftl2err = np.amin(trimshiftl2err)
 maxtrimshiftl2err = np.amax(trimshiftl2err)
 avgdevtrimshiftl2err = np.mean(np.abs(np.subtract(trimshiftl2err, meantrimshiftl2err)))
-# prcnterrtrimshiftl2err = meantrimshiftl2err / vxrange * 100
+# prcnterrtrimshiftl2err = meantrimshiftl2err / vtruexrange * 100
 print('Mean of trimshiftl2err:', meantrimshiftl2err)
 print('Minumum of trimshiftl2err:', mintrimshiftl2err)
 print('Maximum of trimshiftl2err:', maxtrimshiftl2err)

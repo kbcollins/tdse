@@ -23,7 +23,7 @@ print('')  # blank line
 
 
 ###############################################################
-# set directory to load data from
+# set directories to load from and save to
 ###############################################################
 
 # get path to directory containing amat from command line
@@ -34,12 +34,12 @@ print('Command line argument:', cmdlinearg)
 workingdir = pathlib.Path(cmdlinearg)
 print('Current working directory:', workingdir)
 
-# set directory to store results
-resultsdir = workingdir / 'results-inverse'
-print('Results directory:', resultsdir)
-
 # set identifier for saved output
 savename = 'inverse'
+
+# set directory to store results
+resultsdir = workingdir / f'results-{savename}'
+print('Results directory:', resultsdir)
 
 
 ###############################################################
@@ -59,13 +59,14 @@ numts = int(cmpenv[4])
 
 # load state variables
 # a0vec = np.load(workingdir / 'a0vec.npy')
+# propatrue = np.load(workingdir / 'propatrue.npy')
 amattruevec = np.load(workingdir / 'amattruevec.npy')
 
 # load true potential
 # vtruetoep = np.load(workingdir / 'vtruetoep.npy')
 vtruexvec = np.load(workingdir / 'vtruexvec.npy')
 
-print('Computational environment loaded.')
+print('Computational variables loaded.')
 
 # print computational environment variables to stdout
 print('L =', L)
@@ -74,6 +75,7 @@ print('numfour =', numfour)
 print('numts =', numts)
 print('dt =', dt)
 print('Number of a0 states:', amattruevec.shape[0])
+
 print('')  # blank line
 
 
@@ -105,6 +107,41 @@ kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2)
 
 
 ###############################################################
+# Set trim of real space region
+###############################################################
+
+trim = np.where(xvec >= -10)[0][0]  # 125
+print('trim =', trim)
+print('')  # blank line
+
+
+###############################################################
+# Toeplitz indexing matrix
+###############################################################
+
+# Toeplitz indexing matrix, used for constructing Toeplitz matrix
+# from a vector setup like:
+# jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
+aa = (-1) * np.arange(0, numtoepelms).reshape(numtoepelms, 1)
+bb = [np.arange(numtoepelms - 1, 2 * numtoepelms - 1)]
+toepindxmat = np.array(aa + bb)
+# print(toepindxmat.shape)
+
+
+###############################################################
+# function for transforming theta to a real space potential
+###############################################################
+
+def thetatoreal(theta):
+    thetaR = theta[:numtoepelms]
+    thetaI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
+    thetacomplex = thetaR + 1j * thetaI
+    potentialfourier = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(thetacomplex[1:(numfour + 1)])), thetacomplex[:(numfour + 1)]])
+    potentialreal = potentialfourier @ fourtox
+    return potentialreal
+
+
+###############################################################
 # make |\psi(t)|^2 training data from amattruevec
 ###############################################################
 
@@ -122,29 +159,15 @@ betamatvec = jnp.array(betamatvec) / jnp.sqrt(2 * L)
 
 
 ###############################################################
-# Toeplitz indexing matrix
-###############################################################
-
-# Toeplitz indexing matrix, used for constructing Toeplitz matrix
-# from a vector setup like:
-# jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
-aa = (-1) * np.arange(0, numtoepelms).reshape(numtoepelms, 1)
-bb = [np.arange(numtoepelms - 1, 2 * numtoepelms - 1)]
-toepindxmat = np.array(aa + bb)
-# print(toepindxmat.shape)
-
-
-###############################################################
 # theta
 ###############################################################
 
 # true potential in the form of theta (for testing purposes)
 # thetatrue = jnp.concatenate((jnp.real(vtruetoep), jnp.imag(vtruetoep[1:])))
 
-# initialize theta with random coefficients close to zero
+# initialize theta with random values
 seed = 1234  # set to None for random initialization
 print('seed =', seed)
-
 thetarnd = 0.02 * np.random.default_rng(seed).random(size=numtoepelms * 2 - 1) - 0.01  # interval=[-0.01, 0.01)
 # thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)  # mean=0, std=1
 thetarnd = jnp.array(thetarnd)
@@ -159,11 +182,12 @@ print('thetarnd saved.')
 
 # define objective function
 def ampsqobject(theta):
-    ###############################################################
+    #################################################
     # theta is a vector containing the concatenation
     # of the real and imaginary parts of vmat
-    # its size should be 2 * numtoepelms - 1 = 4 * numfour + 1
-    ###############################################################
+    # its size should be
+    # 2 * numtoepelms - 1 = 4 * numfour + 1
+    #################################################
 
     # to use theta we need to first recombine the real
     # and imaginary parts into a vector of complex values
@@ -235,12 +259,18 @@ jit_mk_M_and_P = jax.jit(mk_M_and_P)
 
 # function for computing gradients using adjoint method
 def adjgrads(theta):
+    #################################################
+    # theta is a vector containing the concatenation
+    # of the real and imaginary parts of vmat
+    # its size should be
+    # 2 * numtoepelms - 1 = 4 * numfour + 1
+    #################################################
+
     # to use theta we need to first recombine the real
     # and imaginary parts into a vector of complex values
     vtoephatR = theta[:numtoepelms]
     vtoephatI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
     vtoephat = vtoephatR + 1j * vtoephatI
-    # print('Shape vtoephat:', vtoephat.shape)
 
     # construct vmathat from complex toeplitz vector
     vmathat = jnp.concatenate([jnp.flipud(jnp.conj(vtoephat)), vtoephat[1:]])[toepindxmat]
@@ -347,7 +377,7 @@ jitadjgrads = jax.jit(adjgrads)
 
 
 ###############################################################
-# learn theta
+# learning
 ###############################################################
 
 # start optimization (i.e., learning theta)
@@ -359,27 +389,14 @@ print('thetahat saved.')
 
 
 ###############################################################
-# function for transforming theta to a real space potential
+# results
 ###############################################################
-
-def thetatoreal(theta):
-    thetaR = theta[:numtoepelms]
-    thetaI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
-    thetacomplex = thetaR + 1j * thetaI
-    potentialfourier = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(thetacomplex[1:(numfour + 1)])), thetacomplex[:(numfour + 1)]])
-    potentialreal = potentialfourier @ fourtox
-    return potentialreal
 
 # transform init theta to real space potentials
 vinitrec = thetatoreal(thetarnd)
 
 # transform learned theta to real space potential
 vlearnrec = thetatoreal(thetahat)
-
-
-###############################################################
-# results
-###############################################################
 
 # learned potential vs initial potential
 plt.plot(xvec, jnp.real(vlearnrec), '.-', label='Learned')
@@ -406,9 +423,9 @@ midpointindex = numx // 2
 print('midpointindex =', midpointindex)
 shift = vtruexvec[midpointindex] - jnp.real(vlearnrec)[midpointindex]
 
-# set trim to L=10
-trim = np.where(xvec >= -10)[0][0]  # 125
-print('trim =', trim)
+# # set trim to L=10
+# trim = np.where(xvec >= -10)[0][0]  # 125
+# print('trim =', trim)
 
 # calculate and return l2 error
 print('l2 error of learned potential:', nl.norm(jnp.real(vlearnrec) - vtruexvec), sep='\n')
