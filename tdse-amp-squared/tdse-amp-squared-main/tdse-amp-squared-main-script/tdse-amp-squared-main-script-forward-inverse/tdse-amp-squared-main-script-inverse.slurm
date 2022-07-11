@@ -20,7 +20,7 @@
 
 
 # define Bash variables
-date="07-08-2022"
+date="07-11-2022"
 filelist=( $(ls ./"$date") ) # bash array of files in directory ./"$date"
 
 # run pyscript
