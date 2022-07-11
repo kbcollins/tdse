@@ -23,8 +23,8 @@ period="0.2"  # seconds
 
 # run pyscript
 for i in {0..6}; do
-  for j in {3..10}; do
-    thisdt=`echo "scale=10; 1/(2^"$j")" | bc`
+  for j in {0..9}; do
+    thisdt=`echo "scale=10; 0.01-(0.001*"$j")" | bc`
     thisnumts=`echo "scale=0; "$period"/"$thisdt"" | bc`
     mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
     python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
