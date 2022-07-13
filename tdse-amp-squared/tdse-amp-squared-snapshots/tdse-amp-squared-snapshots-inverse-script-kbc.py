@@ -31,7 +31,7 @@ print('Current working directory:', cwddir)
 # load computational environment
 ###############################################################
 
-L, numx, numfour, dt, numts = np.load(cwddir / 'cmpenv.npy')
+L, numx, numfour, dt, numts = np.load(cwddir / 'cmpprm.npy')
 numx = int(numx)
 numfour = int(numfour)
 numts = int(numts)

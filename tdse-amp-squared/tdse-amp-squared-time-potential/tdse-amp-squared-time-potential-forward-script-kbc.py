@@ -53,7 +53,7 @@ tvec = np.arange(0, numts) * dt
 print('Computational parameters set.')
 
 cmpenv = [L, numx, numfour, dt, numts]
-np.save(cwddir / 'cmpenv', cmpenv)
+np.save(cwddir / 'cmpprm', cmpenv)
 print('Computational parameters saved.')
 
 

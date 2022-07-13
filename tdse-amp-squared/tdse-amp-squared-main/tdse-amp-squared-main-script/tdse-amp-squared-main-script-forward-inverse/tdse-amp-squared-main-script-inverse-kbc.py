@@ -47,18 +47,18 @@ print('Results directory:', resultsdir)
 ###############################################################
 
 # load saved computational parameters
-cmpenv = np.load(workingdir / 'cmpenv.npy', allow_pickle=True)
-print('cmpenv =', cmpenv)
+cmpprm = np.load(workingdir / 'cmpprm.npy', allow_pickle=True)
+print('cmpprm =', cmpprm)
 
 # store loaded parameters as variables
-L = float(cmpenv[0])
-numx = int(cmpenv[1])
-numfour = int(cmpenv[2])
-dt = float(cmpenv[3])
-numts = int(cmpenv[4])
+L = float(cmpprm[0])
+numx = int(cmpprm[1])
+numfour = int(cmpprm[2])
+dt = float(cmpprm[3])
+numts = int(cmpprm[4])
 
 # load state variables
-# a0vec = np.load(workingdir / 'a0vec.npy')
+a0vec = np.load(workingdir / 'a0vec.npy')
 # propatrue = np.load(workingdir / 'propatrue.npy')
 amattruevec = np.load(workingdir / 'amattruevec.npy')
 
@@ -74,7 +74,7 @@ print('numx =', numx)
 print('numfour =', numfour)
 print('numts =', numts)
 print('dt =', dt)
-print('Number of a0 states:', amattruevec.shape[0])
+print('Number of a0 states:', a0vec.shape[0])
 
 print('')  # blank line
 
@@ -133,6 +133,13 @@ toepindxmat = np.array(aa + bb)
 ###############################################################
 
 def thetatoreal(theta):
+    ##################################################
+    # this function is used to transform theta, which
+    # is the Toeplitz representation of vmat that has
+    # also been split into real and imaginary parts
+    # and concatenated together, into a real space
+    # potential
+    ##################################################
     thetaR = theta[:numtoepelms]
     thetaI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
     thetacomplex = thetaR + 1j * thetaI
@@ -209,14 +216,15 @@ def ampsqobject(theta):
     # forward propagation loop
     rtnobj = 0.0
     # for r in range(len(a0vec)):
-    for r in range(betamatvec.shape[0]):
-        # thisahat = a0vec[r].copy()
-        thisahat = amattruevec[r, 0].copy()
+    # for r in range(betamatvec.shape[0]):
+    for r in range(a0vec.shape[0].shape[0]):
+        thisahat = a0vec[r].copy()
+        # thisahat = amattruevec[r, 0].copy()
         thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
 
         # propagate system starting from initial "a" state
-        # for _ in range(numts):
-        for _ in range(betamatvec.shape[1] - 1):
+        for _ in range(numts):
+        # for _ in range(betamatvec.shape[1] - 1):
             # propagate the system one time-step
             thisahat = propahat @ thisahat
             # calculate the amp^2
@@ -287,18 +295,19 @@ def adjgrads(theta):
     # forward propagation
     ahatmatvec = []
     lammatvec = []
-    # for r in range(len(a0vec)):
-    for r in range(betamatvec.shape[0]):
+    for r in range(a0vec.shape[0]):
+    # for r in range(betamatvec.shape[0]):
         # propagate system starting from initial "a" state
-        # thisahatmat = [a0vec[r].copy()]
-        thisahatmat = [amattruevec[r, 0].copy()]
-        thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
+        thisahatmat = [a0vec[r].copy()]
+        # thisahatmat = [amattruevec[r, 0].copy()]
+        thisbetahatmat = [jnp.correlate(a0vec[r].copy(), a0vec[r].copy(), 'same') / jnp.sqrt(2 * L)]
+        # thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
         # thisrhomat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
         thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
 
         # propagate system starting from thisa0vec state
-        # for i in range(numts):
-        for i in range(betamatvec.shape[1] - 1):
+        for i in range(numts):
+        # for i in range(betamatvec.shape[1] - 1):
             # propagate the system one time-step and store the result
             thisahatmat.append(propahat @ thisahatmat[-1])
 
@@ -333,11 +342,10 @@ def adjgrads(theta):
     ahatmatvec = jnp.array(ahatmatvec)
     lammatvec = jnp.array(lammatvec)
 
-
-    #######################################
-    # the remainder of this function is for computing the
-    # gradient of the exponential matrix
-    #######################################
+    ####################################################
+    # the remainder of this function is for computing
+    # the gradient of the exponential matrix
+    ####################################################
 
     offdiagmask = jnp.ones((numtoepelms, numtoepelms)) - jnp.eye(numtoepelms)
     expspec = jnp.exp(-1j * dt * spchat)

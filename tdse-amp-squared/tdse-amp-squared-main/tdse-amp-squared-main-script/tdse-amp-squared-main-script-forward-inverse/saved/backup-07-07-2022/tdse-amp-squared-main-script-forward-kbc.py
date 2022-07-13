@@ -90,8 +90,8 @@ print('dt =', dt)
 # print('Computational parameters set.')
 
 cmpenv = {'L': L, 'numx': numx, 'numfour': numfour, 'numts': numts, 'dt': dt}
-# cmpenv = [L, numx, numfour, dt, numts]  # original cmpenv (what all other scripts expect)
-np.save(cwddir / 'cmpenv', cmpenv)
+# cmpprm = [L, numx, numfour, dt, numts]  # original cmpprm (what all other scripts expect)
+np.save(cwddir / 'cmpprm', cmpenv)
 print('Computational parameters saved.')
 print('')  # blank line
 

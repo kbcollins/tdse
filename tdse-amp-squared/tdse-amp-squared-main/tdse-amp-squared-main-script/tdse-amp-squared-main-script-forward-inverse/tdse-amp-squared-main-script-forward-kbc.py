@@ -61,18 +61,15 @@ print('')  # blank line
 
 # size of spatial domain
 L = 15.0
-print('L =', L)
 
 # number of real space grid points (for plotting)
 numx = 1025
-print('numx =', numx)
 
 # real space grid points (for plotting)
 xvec = np.linspace(-L, L, numx)
 
 # number of Fourier basis functions
 numfour = 32  # 64
-print('numfour =', numfour)
 
 # number of Toeplitz elements in the Fourier representation
 numtoepelms = 2 * numfour + 1
@@ -81,17 +78,23 @@ numtoepelms = 2 * numfour + 1
 # trajectory's length = numts + 1
 numts = cmdlineargnumts
 # numts = 20  # 20
-print('numts =', numts)
 
 # set time-step size
 dt = cmdlineargdt
 # dt = 1e-2  # 1e-2
+
+# print computational environment variables to stdout
+print('L =', L)
+print('numx =', numx)
+print('numfour =', numfour)
+print('numts =', numts)
 print('dt =', dt)
 
-# cmpenv = {'L': L, 'numx': numx, 'numfour': numfour, 'numts': numts, 'dt': dt}
-cmpenv = [L, numx, numfour, dt, numts]  # original cmpenv (what all other scripts expect)
-np.save(workingdir / 'cmpenv', cmpenv)
+# save computational parameters to disk
+cmpprm = [L, numx, numfour, dt, numts]  # original cmpprm (what all other scripts expect)
+np.save(workingdir / 'cmpprm', cmpprm)
 print('Computational parameters saved.')
+
 print('')  # blank line
 
 
@@ -111,7 +114,7 @@ fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 
 
 ###############################################################
-# forward problem
+# true potential - used for generating training data
 ###############################################################
 
 # define true potential (for generating training data)
@@ -178,6 +181,11 @@ np.save(workingdir / 'vtruetoep', vtruetoep)
 print('vtruetoep saved.')
 
 vtruemat = sl.toeplitz(r=vtruetoep, c=np.conj(vtruetoep))
+
+
+###############################################################
+# initial states - a0
+###############################################################
 
 # define initial state functions
 def psi0_0(x):
@@ -255,6 +263,11 @@ print('Number of a0 states:', len(a0vec))
 
 np.save(workingdir / 'a0vec', a0vec)
 print('a0vec saved.')
+
+
+###############################################################
+# forward propagation - make training data
+###############################################################
 
 # make kinetic operator in the Fourier representation
 # (this is constant for a given system)

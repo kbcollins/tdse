@@ -47,7 +47,7 @@ numts = 1000  # 100 # 20
 print('Computational parameters set.')
 
 cmpenv = [L, numx, numfour, dt, numts]
-np.save(cwddir / 'cmpenv', cmpenv)
+np.save(cwddir / 'cmpprm', cmpenv)
 print('Computational parameters saved.')
 
 

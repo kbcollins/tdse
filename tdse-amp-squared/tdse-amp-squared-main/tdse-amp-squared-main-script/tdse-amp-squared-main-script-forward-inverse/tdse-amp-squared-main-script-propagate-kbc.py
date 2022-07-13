@@ -48,15 +48,15 @@ print('Results directory:', resultsdir)
 ###############################################################
 
 # load saved computational parameters
-cmpenv = np.load(workingdir / 'cmpenv.npy', allow_pickle=True)
-print('cmpenv =', cmpenv)
+cmpprm = np.load(workingdir / 'cmpprm.npy', allow_pickle=True)
+print('cmpprm =', cmpprm)
 
 # store loaded parameters as variables
-L = float(cmpenv[0])
-numx = int(cmpenv[1])
-numfour = int(cmpenv[2])
-dt = float(cmpenv[3])
-numts = int(cmpenv[4])
+L = float(cmpprm[0])
+numx = int(cmpprm[1])
+numfour = int(cmpprm[2])
+dt = float(cmpprm[3])
+numts = int(cmpprm[4])
 
 # load state variables
 a0vec = np.load(workingdir / 'a0vec.npy')

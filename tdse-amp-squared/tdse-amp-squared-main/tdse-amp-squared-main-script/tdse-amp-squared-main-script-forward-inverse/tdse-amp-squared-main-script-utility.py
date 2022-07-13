@@ -15,13 +15,31 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
 
 ###############################################################
+# Model Class:
+# HSB thinks we should make the model trained by the adjoint
+# method a class.
+# - Class name: adjoint_model_fourier
+# - Class methods:
+#   - initialize: create/replace all of theta's values with random
+#     values. Can select distribution, center (mean),
+#     interval (std-div)
+#   - thetatoreal: transforms theta to real valued potential
+#   - thetatovmat: transforms theta to vmat form, ready to be
+#     used by the adjoint method
+#   - grad: returns the gradient of the model with respect to theta
+#     assessed with the current values of theta, (this is used by
+#     derivamatI and derivamatI
+################################################################
+
+
+###############################################################
 # The scripts like tdse-amp-squared-main-script-forward-kbc.py
 # generate training data, tests, and display results, the class
 # handles the learning process. So once training has taken place
 # the class object represents the best guess of the potential in
 # the form of theta (i.e., thetahat)
 #
-# Class ideas
+# ML Class:
 # - Class name: tdseadj
 # - The object created by the class is theta
 # - Instantiating theta
@@ -30,11 +48,6 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 #   - kmat is created
 #   - toepindxmat
 # - Methods
-#   - initialize(numfour, seed=None): replaces all of theta's
-#     values with random values
-#   - thetatoreal(): transforms theta to real valued potential
-#   - thetatovmat(): transforms theta to vmat form, ready to be
-#     used by the adjoint method
 #       - To transform theta to vmat, toepindxmat will have to
 #         be constructed when theta is instantiated
 #   - train(a0vec, betamatvec): given the training data a0vec and
