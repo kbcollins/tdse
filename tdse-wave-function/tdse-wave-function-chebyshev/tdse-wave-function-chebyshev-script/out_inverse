@@ -1,0 +1,38 @@
+-------INVERSE-------
+
+Command line argument: ./07-13-2022/numts-20_dt-.010/v0
+Current working directory: 07-13-2022/numts-20_dt-.010/v0
+Results directory: 07-13-2022/numts-20_dt-.010/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+trim = 171
+
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 94
+         Function evaluations: 209
+         Gradient evaluations: 196
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+4.1846633613718165e-12
+l2 error of shifted learned potential:
+4.1832334390752416e-12
+l2 error of shifted and trimmed learned potential:
+8.921813731956188e-13
+l-inf error of learned potential:
+1.3784529073745944e-12
+l-inf error of shifted learned potential:
+1.3642420526593924e-12
+l-inf error of shifted and trimmed learned potential:
+6.927791673660977e-14
+
