@@ -23,6 +23,6 @@ for i in {0..0}; do
 #for i in {0..6}; do
   for thisfile in "${filelist[@]}"; do
     mkdir -p ./"$date"/"$thisfile"/v"$i"/results-"$SLURM_JOB_NAME"
-    python tdse-amp-squared-main-script-"$SLURM_JOB_NAME"-kbc.py ./"$date"/"$thisfile"/v"$i"
+    python tdse-wave-function-chebyshev-script-"$SLURM_JOB_NAME"-kbc.py ./"$date"/"$thisfile"/v"$i"
   done
 done
