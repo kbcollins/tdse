@@ -36,3 +36,231 @@ l-inf error of shifted learned potential:
 l-inf error of shifted and trimmed learned potential:
 6.927791673660977e-14
 
+-------INVERSE-------
+
+Command line argument: ./07-13-2022/numts-20_dt-.010/v1
+Current working directory: 07-13-2022/numts-20_dt-.010/v1
+Results directory: 07-13-2022/numts-20_dt-.010/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+trim = 171
+
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 77
+         Function evaluations: 168
+         Gradient evaluations: 155
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+6.091458081321071e-12
+l2 error of shifted learned potential:
+6.074219139253485e-12
+l2 error of shifted and trimmed learned potential:
+1.0123752309147542e-12
+l-inf error of learned potential:
+1.8047785488306545e-12
+l-inf error of shifted learned potential:
+1.7905676941154525e-12
+l-inf error of shifted and trimmed learned potential:
+7.76601005725297e-14
+
+-------INVERSE-------
+
+Command line argument: ./07-13-2022/numts-20_dt-.010/v2
+Current working directory: 07-13-2022/numts-20_dt-.010/v2
+Results directory: 07-13-2022/numts-20_dt-.010/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+trim = 171
+
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 83
+         Function evaluations: 145
+         Gradient evaluations: 134
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+7.241618499847381e-12
+l2 error of shifted learned potential:
+7.244189846844442e-12
+l2 error of shifted and trimmed learned potential:
+1.290005523205319e-12
+l-inf error of learned potential:
+2.5437429940211587e-12
+l-inf error of shifted learned potential:
+2.5437429940211587e-12
+l-inf error of shifted and trimmed learned potential:
+1.2079226507921703e-13
+
+-------INVERSE-------
+
+Command line argument: ./07-13-2022/numts-20_dt-.010/v3
+Current working directory: 07-13-2022/numts-20_dt-.010/v3
+Results directory: 07-13-2022/numts-20_dt-.010/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+trim = 171
+
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 63
+         Function evaluations: 123
+         Gradient evaluations: 109
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.07328804813710511
+l2 error of shifted learned potential:
+0.07284829462717196
+l2 error of shifted and trimmed learned potential:
+0.009937775849942238
+l-inf error of learned potential:
+0.023458416013355188
+l-inf error of shifted learned potential:
+0.023143474809035447
+l-inf error of shifted and trimmed learned potential:
+0.0006509857638639094
+
+-------INVERSE-------
+
+Command line argument: ./07-13-2022/numts-20_dt-.010/v4
+Current working directory: 07-13-2022/numts-20_dt-.010/v4
+Results directory: 07-13-2022/numts-20_dt-.010/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+trim = 171
+
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.216451
+         Iterations: 58
+         Function evaluations: 129
+         Gradient evaluations: 117
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+21.10739202554321
+l2 error of shifted learned potential:
+28.266337022505663
+l2 error of shifted and trimmed learned potential:
+22.065664304546193
+l-inf error of learned potential:
+1.1263949623334049
+l-inf error of shifted learned potential:
+1.7070496812049574
+l-inf error of shifted and trimmed learned potential:
+1.6592682944479114
+
+-------INVERSE-------
+
+Command line argument: ./07-13-2022/numts-20_dt-.010/v5
+Current working directory: 07-13-2022/numts-20_dt-.010/v5
+Results directory: 07-13-2022/numts-20_dt-.010/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+trim = 171
+
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 40.463004
+         Iterations: 76
+         Function evaluations: 107
+         Gradient evaluations: 94
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+895.8874354949972
+l2 error of shifted learned potential:
+902.301861248156
+l2 error of shifted and trimmed learned potential:
+712.6298744855276
+l-inf error of learned potential:
+75.11965627667712
+l-inf error of shifted learned potential:
+76.90368109677777
+l-inf error of shifted and trimmed learned potential:
+76.90368109677777
+
+-------INVERSE-------
+
+Command line argument: ./07-13-2022/numts-20_dt-.010/v6
+Current working directory: 07-13-2022/numts-20_dt-.010/v6
+Results directory: 07-13-2022/numts-20_dt-.010/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+trim = 171
+
+seed = 1234
+thetarnd saved.
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.019147
+         Iterations: 61
+         Function evaluations: 96
+         Gradient evaluations: 83
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+13.475683724403627
+l2 error of shifted learned potential:
+32.407961934815994
+l2 error of shifted and trimmed learned potential:
+25.976604087694483
+l-inf error of learned potential:
+3.088575152014919
+l-inf error of shifted learned potential:
+2.107092309206315
+l-inf error of shifted and trimmed learned potential:
+1.2328385851186927
+
