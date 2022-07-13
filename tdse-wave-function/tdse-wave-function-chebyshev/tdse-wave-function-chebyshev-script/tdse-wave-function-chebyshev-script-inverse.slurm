@@ -19,8 +19,8 @@ filelist="numts-20_dt-.010"
 #filelist=( $(ls ./"$date") ) # bash array of files in directory ./"$date"
 
 # run pyscript
-for i in {0..0}; do
-#for i in {0..6}; do
+#for i in {0..0}; do  # only do the first potential
+for i in {0..6}; do
   for thisfile in "${filelist[@]}"; do
     mkdir -p ./"$date"/"$thisfile"/v"$i"/results-"$SLURM_JOB_NAME"
     python tdse-wave-function-chebyshev-script-"$SLURM_JOB_NAME"-kbc.py ./"$date"/"$thisfile"/v"$i"
