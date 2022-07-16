@@ -8,17 +8,8 @@
 
 ################## BASH SCRIPT ##################
 
-# Normal run of forward script
-#for i in {0..6}
-#do
-##	echo $i
-#	mkdir -p ./07-08-2022_numts-20_dt-1e-2/v$i
-#	python tdse-wave-function-main-script-forward-kbc.py ./07-08-2022_numts-20_dt-1e-2 $i 20 1e-2
-#done
-
-
 # Define Bash variables
-date="07-11-2022"
+date="07-16-2022"
 period="0.2"  # seconds
 
 # run pyscript
@@ -27,7 +18,8 @@ for i in {0..6}; do
     thisdt=`echo "scale=10; 0.01-(0.001*"$j")" | bc`
     thisnumts=`echo "scale=0; "$period"/"$thisdt"" | bc`
     mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
-    python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
+    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
+#    python tdse-wave-function-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
   done
 done
 

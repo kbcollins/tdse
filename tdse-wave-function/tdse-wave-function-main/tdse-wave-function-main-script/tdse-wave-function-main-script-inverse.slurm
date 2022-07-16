@@ -20,15 +20,13 @@
 
 
 # define Bash variables
-date="07-11-2022"
+date="07-16-2022"
 filelist=( $(ls ./"$date") ) # bash array of files in directory ./"$date"
 
 # run pyscript
 for i in {0..6}; do
   for thisfile in "${filelist[@]}"; do
     mkdir -p ./"$date"/"$thisfile"/v"$i"/results-"$SLURM_JOB_NAME"
-    python tdse-amp-squared-main-script-"$SLURM_JOB_NAME"-kbc.py ./"$date"/"$thisfile"/v"$i"
-#    mkdir -p ./"$date"/"$thisfile"/v"$i"/results-inverse
-#    python tdse-wave-function-main-script-inverse-kbc.py ./"$date"/"$thisfile"/v"$i"
+    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py ./"$date"/"$thisfile"/v"$i"
   done
 done
