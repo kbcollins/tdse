@@ -92,7 +92,7 @@ def thetatoreal(theta):
     potentialreal = potentialfourier @ fourtox
     return potentialreal
 
-# transform init theta (i.e., initvhatmat) to real space potential
+# transform randtheta theta (i.e., initvhatmat) to real space potential
 vinitrec = thetatoreal(thetarnd)
 
 # transform learned theta to real space potential

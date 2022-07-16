@@ -432,7 +432,7 @@ for i in range(len(thetavec)):
     # np.save(workingdir / 'rsltadjtheta', rsltadjtheta)
     # print('rsltadjtheta saved.')
 
-    # transform init theta to real space potentials
+    # transform randtheta theta to real space potentials
     vinitrec = thetatoreal(thistheta)
 
     # transform learned theta to real space potential

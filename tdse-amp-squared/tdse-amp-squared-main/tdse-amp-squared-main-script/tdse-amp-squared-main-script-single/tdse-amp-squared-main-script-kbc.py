@@ -276,7 +276,7 @@ seed = 1234  # set to None for random initialization
 thetarnd = 0.001 * np.random.default_rng(seed).normal(size=thetatrue.shape)
 thetarnd = jnp.array(thetarnd)
 
-# transform init theta (i.e., initvhatmat) to real space potential
+# transform randtheta theta (i.e., initvhatmat) to real space potential
 vtoepinitR = thetarnd[:numtoepelms]
 vtoepinitI = jnp.concatenate((jnp.array([0.0]), thetarnd[numtoepelms:]))
 vtoepinit = vtoepinitR + 1j * vtoepinitI
@@ -416,7 +416,7 @@ adjvlearnrec = adjvlearnfour @ fourtox
 # plot learned potential vs true potential
 plt.plot(xvec, jnp.real(adjvlearnrec), '.-', label='adj')
 plt.plot(xvec, vxvec, label='truth')
-plt.plot(xvec, jnp.real(vinitrec), label='init')
+plt.plot(xvec, jnp.real(vinitrec), label='randtheta')
 plt.xlabel('x')
 plt.title('True Potential vs. Learned Potential')
 plt.legend()
@@ -428,7 +428,7 @@ zeroindex = len(xvec) // 2
 adjdiff = np.abs(vxvec[zeroindex] - jnp.real(adjvlearnrec)[zeroindex])
 plt.plot(xvec, jnp.real(adjvlearnrec) + adjdiff, '.-', label='adj')
 plt.plot(xvec, vxvec, label='truth')
-plt.plot(xvec, jnp.real(vinitrec), label='init')
+plt.plot(xvec, jnp.real(vinitrec), label='randtheta')
 plt.xlabel('x')
 plt.title('True Potential vs. Shifted Learned Potential')
 plt.legend()

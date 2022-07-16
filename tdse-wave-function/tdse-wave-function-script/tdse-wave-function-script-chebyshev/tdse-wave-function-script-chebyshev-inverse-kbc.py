@@ -398,7 +398,7 @@ print('thetahat saved.')
 # results
 ###############################################################
 
-# transform init theta to real space potentials
+# transform randtheta theta to real space potentials
 vinitrec = chebtox @ thetarnd
 
 # transform learned theta to real space potential

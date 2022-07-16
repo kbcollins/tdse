@@ -226,7 +226,7 @@ thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
 2.9680774201673716
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 503, in <module>
     thisvxshifted = thisvxshifted[i]
 NameError: name 'thisvxshifted' is not defined
 2022-07-04 13:38:03.124542: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -457,7 +457,7 @@ thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
 0.5310375066641303
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 503, in <module>
     thisvxshifted = thisvxshifted[i]
 NameError: name 'thisvxshifted' is not defined
 2022-07-04 13:52:34.911274: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -688,7 +688,7 @@ thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
 0.41374439471604635
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 503, in <module>
     thisvxshifted = thisvxshifted[i]
 NameError: name 'thisvxshifted' is not defined
 2022-07-04 14:11:24.260115: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -919,7 +919,7 @@ thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
 0.0005861251969310958
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 503, in <module>
     thisvxshifted = thisvxshifted[i]
 NameError: name 'thisvxshifted' is not defined
 2022-07-04 14:24:04.786169: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -1150,7 +1150,7 @@ thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
 0.004084875661138383
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 503, in <module>
     thisvxshifted = thisvxshifted[i]
 NameError: name 'thisvxshifted' is not defined
 2022-07-04 14:38:39.452232: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -1381,7 +1381,7 @@ thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
 0.05784370148158904
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 503, in <module>
     thisvxshifted = thisvxshifted[i]
 NameError: name 'thisvxshifted' is not defined
 2022-07-04 14:55:02.091623: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -1612,6 +1612,6 @@ thetarndnormalwidescaled - l-inf error of shifted and trimmed potential:
 0.000681529449475079
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 503, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 503, in <module>
     thisvxshifted = thisvxshifted[i]
 NameError: name 'thisvxshifted' is not defined

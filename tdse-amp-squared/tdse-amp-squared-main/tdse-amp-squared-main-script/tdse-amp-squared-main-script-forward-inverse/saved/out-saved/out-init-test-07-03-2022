@@ -193,7 +193,7 @@ thetarndnormalscaledwide - l-inf error of shifted and trimmed potential:
 2.9668305204746743
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 420, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 420, in <module>
     thisthetaname = thetanamevec[i]
 IndexError: list index out of range
 2022-07-03 15:45:24.276117: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -391,7 +391,7 @@ thetarndnormalscaledwide - l-inf error of shifted and trimmed potential:
 0.530731492907493
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 420, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 420, in <module>
     thisthetaname = thetanamevec[i]
 IndexError: list index out of range
 2022-07-03 15:58:54.101303: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -589,7 +589,7 @@ thetarndnormalscaledwide - l-inf error of shifted and trimmed potential:
 0.4100530525528438
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 420, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 420, in <module>
     thisthetaname = thetanamevec[i]
 IndexError: list index out of range
 2022-07-03 16:15:48.883764: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -787,7 +787,7 @@ thetarndnormalscaledwide - l-inf error of shifted and trimmed potential:
 0.0005936183408433872
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 420, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 420, in <module>
     thisthetaname = thetanamevec[i]
 IndexError: list index out of range
 2022-07-03 16:27:49.149790: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -985,7 +985,7 @@ thetarndnormalscaledwide - l-inf error of shifted and trimmed potential:
 0.004085698312488961
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 420, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 420, in <module>
     thisthetaname = thetanamevec[i]
 IndexError: list index out of range
 2022-07-03 16:41:30.924334: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -1183,7 +1183,7 @@ thetarndnormalscaledwide - l-inf error of shifted and trimmed potential:
 0.05784318039463935
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 420, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 420, in <module>
     thisthetaname = thetanamevec[i]
 IndexError: list index out of range
 2022-07-03 16:56:20.580067: W external/org_tensorflow/tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:727] None of the algorithms provided by cuDNN heuristics worked; trying fallback algorithms.  Conv: (f64[1,1,129]{2,1,0}, u8[0]{0}) custom-call(f64[1,1,129]{2,1,0}, f64[1,1,129]{2,1,0}), window={size=129 pad=64_64}, dim_labels=bf0_oi0->bf0, custom_call_target="__cudnn$convForward", backend_config="{\"conv_result_scale\":1,\"activation_mode\":\"0\",\"side_input_scale\":0}"
@@ -1381,6 +1381,6 @@ thetarndnormalscaledwide - l-inf error of shifted and trimmed potential:
 0.0006519461879158007
 
 Traceback (most recent call last):
-  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-init-test-kbc.py", line 420, in <module>
+  File "/data/kcollins9/tdse/tdse-amp-squared/tdse-amp-squared-main/tdse-amp-squared-main-script/tdse-amp-squared-main-script-forward-inverse/tdse-amp-squared-main-script-randtheta-test-kbc.py", line 420, in <module>
     thisthetaname = thetanamevec[i]
 IndexError: list index out of range
