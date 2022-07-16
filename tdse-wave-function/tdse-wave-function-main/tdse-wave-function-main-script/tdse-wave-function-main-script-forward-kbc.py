@@ -11,6 +11,8 @@ config.update("jax_enable_x64", True)
 import os
 os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
+from tdsemodelclass import fourier
+
 
 ###############################################################
 # identify script on stdout
@@ -95,11 +97,29 @@ cmpprm = [L, numx, numfour, dt, numts]  # original cmpprm (what all other script
 np.save(workingdir / 'cmpprm', cmpprm)
 print('Computational parameters saved.')
 
+###############################################################
+# Select the model of the potential and specify the
+# parameters which fully define the model
+###############################################################
+
+# Fourier model
+model = fourier
+modelprms = (L, numx, numfour)
+print('model = fourier')
+
+# Chebyshev model
+# - From experience, I have found that the cheby model
+#   works best when numcheb is an odd numbers
+# model = cheby
+# numcheb = 11
+# modelprms = (L, numx, numfour, numcheb)
+# print('model = cheby')
+
 print('')  # blank line
 
 
 ###############################################################
-# utility variables
+# utilities
 ###############################################################
 
 # vector of Fourier mode indices
@@ -111,6 +131,15 @@ fournvec = np.arange(-numfour, numfour + 1)
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 # np.save(workingdir / 'fourtox', fourtox)
 # print('fourtox saved.')
+
+
+###############################################################
+# Set trim of real space region
+###############################################################
+
+trim = np.where(xvec >= -10)[0][0]  # 125
+print('trim =', trim)
+print('')  # blank line
 
 
 ###############################################################
@@ -165,22 +194,30 @@ vtruexvec = v(xvec)
 np.save(workingdir / 'vtruexvec', vtruexvec)
 print('vtruexvec saved.')
 
-# compute the potential operator matrix, vmat
-vtruetoep = []
-for thisfourn in range(numtoepelms):
-    def intgrnd(x):
-        return v(x) * np.exp(-1j * np.pi * thisfourn * x / L) / (2 * L)
-    def rintgrnd(x):
-        return intgrnd(x).real
-    def iintgrnd(x):
-        return intgrnd(x).imag
-    vtruetoep.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
 
-vtruetoep = jnp.array(vtruetoep)
-np.save(workingdir / 'vtruetoep', vtruetoep)
-print('vtruetoep saved.')
+###############################################################
+# model of true potential
+###############################################################
 
-vtruemat = sl.toeplitz(r=vtruetoep, c=np.conj(vtruetoep))
+# create a model object and save as thetatrue
+# - modelprms is a tuple containing all of the variables the
+#   model needs to be fully defined
+# - the '*' in *modelprms unpacks modelprms then passes
+#   everything as the parameters to the instantiation of a
+#   model object
+thetatrue = model(*modelprms)
+
+# load thetatrue with the true potential represented in
+# terms of the model
+thetatrue.theta = model.fntotheta(v, *modelprms)
+
+print('Shape thetatrue:', thetatrue.theta.shape)
+
+# vtruetoep = jnp.array(vtruetoep)
+# np.save(workingdir / 'vtruetoep', vtruetoep)
+# print('vtruetoep saved.')
+
+# vtruemat = sl.toeplitz(r=vtruetoep, c=np.conj(vtruetoep))
 
 
 ###############################################################
@@ -255,8 +292,8 @@ normpsi0recxvec = []
 for thispsi0fn in psi0fnvec:
     tempa0, tempnormpsi0x = mka0(thispsi0fn)
     a0vec.append(tempa0)
-    normpsi0xvec.append(tempnormpsi0x)
-    normpsi0recxvec.append(tempa0 @ fourtox)
+    # normpsi0xvec.append(tempnormpsi0x)
+    # normpsi0recxvec.append(tempa0 @ fourtox)
 
 
 print('Number of a0 states:', len(a0vec))

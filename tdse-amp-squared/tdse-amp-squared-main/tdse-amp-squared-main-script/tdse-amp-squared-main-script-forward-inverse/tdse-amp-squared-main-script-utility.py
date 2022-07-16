@@ -33,7 +33,7 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
 
 ###############################################################
-# The scripts like tdse-amp-squared-main-script-forward-kbc.py
+# The scripts like tdse-wave-function-main-script-forward-kbc.py
 # generate training data, tests, and display results, the class
 # handles the learning process. So once training has taken place
 # the class object represents the best guess of the potential in

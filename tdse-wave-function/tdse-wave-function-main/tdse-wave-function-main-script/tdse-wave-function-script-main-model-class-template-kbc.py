@@ -1,7 +1,7 @@
 #####################################################
-# This commented out block of code serves as a template
-# for writing new models to use as the potential in
-# the adjoint method
+# This code serves as a template for writing new
+# models to use as the potential in the adjoint
+# method
 #####################################################
 class model:
 

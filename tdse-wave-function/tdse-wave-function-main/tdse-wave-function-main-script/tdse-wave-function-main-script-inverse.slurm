@@ -15,7 +15,7 @@
 
 #for i in {0..6}; do
 ##	echo $i
-#	python tdse-amp-squared-main-script-inverse-kbc.py ./v$i
+#	python tdse-wave-function-main-script-inverse-kbc.py ./v$i
 #done
 
 
@@ -29,6 +29,6 @@ for i in {0..6}; do
     mkdir -p ./"$date"/"$thisfile"/v"$i"/results-"$SLURM_JOB_NAME"
     python tdse-amp-squared-main-script-"$SLURM_JOB_NAME"-kbc.py ./"$date"/"$thisfile"/v"$i"
 #    mkdir -p ./"$date"/"$thisfile"/v"$i"/results-inverse
-#    python tdse-amp-squared-main-script-inverse-kbc.py ./"$date"/"$thisfile"/v"$i"
+#    python tdse-wave-function-main-script-inverse-kbc.py ./"$date"/"$thisfile"/v"$i"
   done
 done

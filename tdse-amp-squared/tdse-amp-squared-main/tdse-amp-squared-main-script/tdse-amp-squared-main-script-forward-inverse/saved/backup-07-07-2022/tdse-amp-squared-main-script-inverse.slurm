@@ -5,7 +5,7 @@
 #SBATCH --output='out-inverse'
 #SBATCH --time=00:35:00
 
-#python tdse-amp-squared-main-script-inverse-kbc.py ./v0
+#python tdse-wave-function-main-script-inverse-kbc.py ./v0
 
 for i in {0..6}
 do

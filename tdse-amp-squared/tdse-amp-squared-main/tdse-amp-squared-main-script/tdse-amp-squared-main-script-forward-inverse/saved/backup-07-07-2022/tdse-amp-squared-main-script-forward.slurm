@@ -6,7 +6,7 @@
 #SBATCH --time=00:35:00
 
 #mkdir -p v0
-#python tdse-amp-squared-main-script-forward-kbc.py 0
+#python tdse-wave-function-main-script-forward-kbc.py 0
 
 for i in {0..6}
 do

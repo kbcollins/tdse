@@ -13,7 +13,7 @@
 #do
 ##	echo $i
 #	mkdir -p ./07-08-2022_numts-20_dt-1e-2/v$i
-#	python tdse-amp-squared-main-script-forward-kbc.py ./07-08-2022_numts-20_dt-1e-2 $i 20 1e-2
+#	python tdse-wave-function-main-script-forward-kbc.py ./07-08-2022_numts-20_dt-1e-2 $i 20 1e-2
 #done
 
 
@@ -44,7 +44,7 @@ done
 #    for k in "${!numtsargs[@]}"; do
 #      thisnumts="${numtsargs[k]}"
 #      mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
-#      python tdse-amp-squared-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
+#      python tdse-wave-function-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
 #    done
 #  done
 #done
