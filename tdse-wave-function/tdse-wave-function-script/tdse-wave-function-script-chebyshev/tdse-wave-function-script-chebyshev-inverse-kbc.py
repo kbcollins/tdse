@@ -218,6 +218,10 @@ def chebwaveobject(theta):
     # construct the vmat from theta
     vhatmat = chebtofour @ theta
 
+    # **************************************************
+    # the code enclosed by ' # ****' is the same regardless
+    # of what model you use
+    # **************************************************
     # Construct Hamiltonian matrix
     hhatmat = kmat + vhatmat
 
@@ -249,6 +253,7 @@ def chebwaveobject(theta):
     # the objective
     rtnobjvec = jnp.real(0.5 * jnp.sum(jnp.conj(resid) * resid, axis=1))
     rtnobj = jnp.sum(rtnobjvec)
+    # **************************************************
 
     return rtnobj
 
@@ -272,6 +277,10 @@ def chebwavegradsadj(theta):
     # construct the vmat from theta
     vhatmat = chebtofour @ theta
 
+    # **************************************************
+    # the code enclosed by ' # ****' is the same regardless
+    # of what model you use
+    # **************************************************
     # Construct Hamiltonian matrix
     hhatmat = kmat + vhatmat
 
@@ -326,6 +335,7 @@ def chebwavegradsadj(theta):
     # make lists into JAX array object
     ahatmatvec = jnp.array(ahatmatvec)
     lammatvec = jnp.array(lammatvec)
+    # **************************************************
 
 
     ####################################################
@@ -333,15 +343,24 @@ def chebwavegradsadj(theta):
     # the gradient of the exponential matrix
     ####################################################
 
+    # **************************************************
+    # the code enclosed by ' # ****' is the same regardless
+    # of what model you use
+    # **************************************************
     offdiagmask = jnp.ones((numtoepelms, numtoepelms)) - jnp.eye(numtoepelms)
     expspec = jnp.exp(-1j * dt * spchat)
     e1, e2 = jnp.meshgrid(expspec, expspec)
     s1, s2 = jnp.meshgrid(spchat, spchat)
     denom = offdiagmask * (-1j * dt) * (s1 - s2) + jnp.eye(numtoepelms)
     mask = offdiagmask * (e1 - e2)/denom + jnp.diag(expspec)
+    # **************************************************
 
     derivamat = jnp.einsum('ij,jkm,kl->ilm', jnp.transpose(jnp.conj(stthat)), chebtofour, stthat) * jnp.expand_dims(mask, 2)
 
+    # **************************************************
+    # the code enclosed by ' # ****' is the same regardless
+    # of what model you use
+    # **************************************************
     # because the Chebyshev coefficients are real valued
     # alldmat is half the size it would be if the coefficients
     # were complex (like with the Fourier basis)
@@ -349,6 +368,7 @@ def chebwavegradsadj(theta):
 
     # compute all entries of the gradient at once
     gradients = jnp.real(jnp.einsum('bij,ajk,bik->a', jnp.conj(lammatvec[:, 1:]), alldmat, ahatmatvec[:, :-1]))
+    # **************************************************
 
     return gradients
 
