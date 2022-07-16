@@ -154,7 +154,7 @@ jitfourwaveobject = jax.jit(fourwaveobject)
 # JAX can only deal with JAX, NumPy, Python or list type objects
 # so to get around this, we are going to pass the data structure which
 # stores the model's representation of the potential, i.e, theta
-# print('jitchebwaveobject(thetatrue) =', fourwaveobject(thetatrue))
+# print('jitchebwaveobject(thetatrue) =', waveobject(thetatrue))
 print('jitchebwaveobject(thetatrue.theta) =', jitfourwaveobject(thetatrue.theta))
 
 

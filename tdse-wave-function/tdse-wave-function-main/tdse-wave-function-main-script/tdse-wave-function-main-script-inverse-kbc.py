@@ -13,6 +13,8 @@ config.update("jax_enable_x64", True)
 import os
 os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
+import tdsemodelclass
+
 
 ###############################################################
 # identify script on stdout
@@ -23,7 +25,9 @@ print('')  # blank line
 
 
 ###############################################################
-# set directories to load from and save to
+# get commandline arguments and use to set directories to load
+# data from and save results to
+# - cmdlineargsavedir: directory to load data files from
 ###############################################################
 
 # get path to directory containing amat from command line
@@ -37,7 +41,7 @@ print('Current working directory:', workingdir)
 # set identifier for saved output
 savename = 'inverse'
 
-# set directory to store results
+# set directory to save results to
 resultsdir = workingdir / f'results-{savename}'
 print('Results directory:', resultsdir)
 
@@ -80,7 +84,28 @@ print('')  # blank line
 
 
 ###############################################################
-# recreate variables from loaded data
+# set what model to use to approximate the potential and
+# specify the parameters which fully define the model
+###############################################################
+
+# Fourier model
+model = tdsemodelclass.fourier
+print('model = fourier')
+modelprms = (L, numx, numfour)
+
+# Chebyshev model
+# - From experience, I have found that the cheby model
+#   works best when numcheb is an odd numbers
+# model = tdsemodelclass.cheby
+# print('model = cheby')
+# numcheb = 11
+# modelprms = (L, numx, numfour, numcheb)
+
+print('')  # blank line
+
+
+###############################################################
+# utilities - created from the loaded computational parameters
 ###############################################################
 
 # real space grid points (for plotting)
@@ -187,28 +212,31 @@ print('thetarnd saved.')
 # objective function
 ###############################################################
 
-def ampsqobject(theta):
+def waveobject(theta):
     #################################################
-    # theta is a vector containing the concatenation
-    # of the real and imaginary parts of vmat
-    # its size should be
-    # 2 * numtoepelms - 1 = 4 * numfour + 1
+    # theta is the data structure given to the
+    # optimizer which contains the potential in terms
+    # of the model
+    # - to use JAX, theta must be a JAX recognized
+    #   object
     #################################################
 
-    # to use theta we need to first recombine the real
-    # and imaginary parts into a vector of complex values
-    vtoephatR = theta[:numtoepelms]
-    vtoephatI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
-    vtoephat = vtoephatR + 1j * vtoephatI
-
-    # construct vmathat from complex toeplitz vector
-    vmathat = jnp.concatenate([jnp.flipud(jnp.conj(vtoephat)), vtoephat[1:]])[toepindxmat]
+    # **************************************************
+    # the following code enclosed by ' # ****' is the
+    # same regardless of the model use
+    # **************************************************
+    # construct vmathat using the model class method
+    # .tovmat(), theta is what ever the model class
+    # uses as the data structure to store the potential
+    # any other arguments are what is required to define
+    # the model
+    vhatmat = model.thetatovmat(theta, *modelprms)
 
     # Construct Hamiltonian matrix
-    hmathat = kmat + vmathat
+    hhatmat = kmat + vhatmat
 
     # eigen-decomposition of the Hamiltonian matrix
-    spchat, stthat = jnl.eigh(hmathat)
+    spchat, stthat = jnl.eigh(hhatmat)
 
     # compute propagator matrix
     propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T

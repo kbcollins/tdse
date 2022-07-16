@@ -11,7 +11,7 @@ config.update("jax_enable_x64", True)
 import os
 os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
-from tdsemodelclass import fourier
+import tdsemodelclass
 
 
 ###############################################################
@@ -30,7 +30,6 @@ print('')  # blank line
 # - cmdlineargnumts: number of times steps of training
 #   trajectories
 # - cmdlineargdt: time-step size
-# time-step size as arguments from command line
 ###############################################################
 
 print('sys.argv =', sys.argv)
@@ -67,14 +66,8 @@ L = 15.0
 # number of real space grid points (for plotting)
 numx = 1025
 
-# real space grid points (for plotting)
-xvec = np.linspace(-L, L, numx)
-
 # number of Fourier basis functions
 numfour = 32  # 64
-
-# number of Toeplitz elements in the Fourier representation
-numtoepelms = 2 * numfour + 1
 
 # set number of time steps
 # trajectory's length = numts + 1
@@ -98,29 +91,32 @@ np.save(workingdir / 'cmpprm', cmpprm)
 print('Computational parameters saved.')
 
 ###############################################################
-# Select the model of the potential and specify the
-# parameters which fully define the model
+# set what model to use to approximate the potential and
+# specify the parameters which fully define the model
 ###############################################################
 
 # Fourier model
-model = fourier
-modelprms = (L, numx, numfour)
+model = tdsemodelclass.fourier
 print('model = fourier')
+modelprms = (L, numx, numfour)
 
 # Chebyshev model
 # - From experience, I have found that the cheby model
 #   works best when numcheb is an odd numbers
-# model = cheby
+# model = tdsemodelclass.cheby
+# print('model = cheby')
 # numcheb = 11
 # modelprms = (L, numx, numfour, numcheb)
-# print('model = cheby')
 
 print('')  # blank line
 
 
 ###############################################################
-# utilities
+# utilities - created from the computational parameters
 ###############################################################
+
+# real space grid points (for plotting)
+xvec = np.linspace(-L, L, numx)
 
 # vector of Fourier mode indices
 # fournvec = -numfour,...,0,...,numfour
@@ -131,6 +127,13 @@ fournvec = np.arange(-numfour, numfour + 1)
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 # np.save(workingdir / 'fourtox', fourtox)
 # print('fourtox saved.')
+
+# number of Toeplitz elements in the Fourier representation
+numtoepelms = 2 * numfour + 1
+
+# make kinetic operator in the Fourier representation
+# (this is constant for a given system)
+kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2))
 
 
 ###############################################################
@@ -210,14 +213,7 @@ thetatrue = model(*modelprms)
 # load thetatrue with the true potential represented in
 # terms of the model
 thetatrue.theta = model.fntotheta(v, *modelprms)
-
 print('Shape thetatrue:', thetatrue.theta.shape)
-
-# vtruetoep = jnp.array(vtruetoep)
-# np.save(workingdir / 'vtruetoep', vtruetoep)
-# print('vtruetoep saved.')
-
-# vtruemat = sl.toeplitz(r=vtruetoep, c=np.conj(vtruetoep))
 
 
 ###############################################################
@@ -306,13 +302,13 @@ print('a0vec saved.')
 # forward propagation - make training data
 ###############################################################
 
-# make kinetic operator in the Fourier representation
-# (this is constant for a given system)
-kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2))
-
+# **************************************************
+# the following code enclosed by ' # ****' is the
+# same regardless of the model use
+# **************************************************
 # Hamiltonian operator with true potential
 # in the Fourier representation
-hmattrue = kmat + vtruemat
+hmattrue = kmat + thetatrue.tovmat()
 
 # eigen-decomposition of the Hamiltonian matrix
 spctrue, stttrue = jnl.eigh(hmattrue)
@@ -339,3 +335,4 @@ print('amattruevec saved.')
 
 print('Done with forward problem.')
 print('')  # blank line
+# **************************************************
