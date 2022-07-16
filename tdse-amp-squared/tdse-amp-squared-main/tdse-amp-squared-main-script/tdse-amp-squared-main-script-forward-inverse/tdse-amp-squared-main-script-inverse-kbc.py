@@ -176,7 +176,7 @@ betamatvec = jnp.array(betamatvec) / jnp.sqrt(2 * L)
 seed = 1234  # set to None for random initialization
 print('seed =', seed)
 thetarnd = 0.02 * np.random.default_rng(seed).random(size=numtoepelms * 2 - 1) - 0.01  # interval=[-0.01, 0.01)
-# thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)  # mean=0, std=1
+# thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)  # mean=0, std=1, scale=0.001
 thetarnd = jnp.array(thetarnd)
 
 np.save(workingdir / 'thetarnd', thetarnd)
@@ -347,32 +347,45 @@ def adjgrads(theta):
     # the gradient of the exponential matrix
     ####################################################
 
+    # **************************************************
     offdiagmask = jnp.ones((numtoepelms, numtoepelms)) - jnp.eye(numtoepelms)
     expspec = jnp.exp(-1j * dt * spchat)
     e1, e2 = jnp.meshgrid(expspec, expspec)
     s1, s2 = jnp.meshgrid(spchat, spchat)
     denom = offdiagmask * (-1j * dt) * (s1 - s2) + jnp.eye(numtoepelms)
     mask = offdiagmask * (e1 - e2)/denom + jnp.diag(expspec)
+    # **************************************************
 
+    # this block of code computes U^\dagger \nabla_\theta H(\theta) U
+    # where we diagonalize the Hamiltonian matrix like H = U D U^\dagger,
     myeye = jnp.eye(numtoepelms)
     wsR = jnp.hstack([jnp.fliplr(myeye), myeye[:,1:]]).T
     ctrmatsR = wsR[toepindxmat]
-    prederivamatR = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsR,stthat)
-    derivamatR = prederivamatR * jnp.expand_dims(mask,2)
-    alldmatreal = -1j * dt * jnp.einsum('ij,jkm,kl->mil',stthat, derivamatR, stthat.conj().T)
+    prederivamatR = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsR, stthat)
 
-    wsI = 1.0j * jnp.hstack([-jnp.fliplr(myeye), myeye[:,1:]])
-    wsI = wsI[1:,:]
+    # this block of code computes U^\dagger \nabla_\theta H(\theta) U
+    # where we diagonalize the Hamiltonian matrix like H = U D U^\dagger,
+    wsI = 1.0j * jnp.hstack([-jnp.fliplr(myeye), myeye[:, 1:]])
+    wsI = wsI[1:, :]
     wsI = wsI.T
     ctrmatsI = wsI[toepindxmat]
-    prederivamatI = jnp.einsum('ij,jkm,kl->ilm',stthat.conj().T, ctrmatsI, stthat)
-    derivamatI = prederivamatI * jnp.expand_dims(mask, 2)
-    alldmatimag = -1j * dt * jnp.einsum('ij,jkm,kl->mil',stthat, derivamatI, stthat.conj().T)
+    prederivamatI = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsI, stthat)
 
-    alldmat = jnp.vstack([alldmatreal, alldmatimag])
+    # concatenate the real and imaginary parts of
+    # U^\dagger \nabla_\theta H(\theta) U together
+    prederivamat = jnp.vstack([prederivamatR, prederivamatI])
+
+    # **************************************************
+    # this line computes
+    # M_{i l} = A_{i l} (exp(D_{i i}) or (exp(D_{i i}) - exp(D_{l l}))/(D_{i i} - D_{l l}))
+    derivamat = prederivamat * jnp.expand_dims(mask, 2)
+
+    # this line computes Q = U M U^\dagger
+    alldmat = -1j * dt * jnp.einsum('ij,jkm,kl->mil', stthat, derivamat, stthat.conj().T)
 
     # compute all entries of the gradient at once
     gradients = jnp.real(jnp.einsum('bij,ajk,bik->a', jnp.conj(lammatvec[:, 1:]), alldmat, ahatmatvec[:, :-1]))
+    # **************************************************
 
     return gradients
 
@@ -457,3 +470,64 @@ plt.savefig(resultsdir / f'graph_{savename}_shifted_true_vs_learned_potential.pd
 plt.close()
 
 print('')  # blank line
+
+######################################################
+# old code. saved so if new method is broken I have
+# a reference of what worked originally
+######################################################
+# ####################################################
+# # the remainder of this function is for computing
+# # the gradient of the exponential matrix
+# ####################################################
+#
+# # **************************************************
+# offdiagmask = jnp.ones((numtoepelms, numtoepelms)) - jnp.eye(numtoepelms)
+# expspec = jnp.exp(-1j * dt * spchat)
+# e1, e2 = jnp.meshgrid(expspec, expspec)
+# s1, s2 = jnp.meshgrid(spchat, spchat)
+# denom = offdiagmask * (-1j * dt) * (s1 - s2) + jnp.eye(numtoepelms)
+# mask = offdiagmask * (e1 - e2) / denom + jnp.diag(expspec)
+# # **************************************************
+#
+# # this block of code computes the Jacobian of vmat
+# # we diagonalize the Hamiltonian matrix like H = U D U^\dagger,
+# # when computing the gradient \nabla_\theta exp(-i H(\theta) \Delta t)
+# # prederivamat = U^\dagger \nabla_\theta H(\theta) U
+# myeye = jnp.eye(numtoepelms)
+# wsR = jnp.hstack([jnp.fliplr(myeye), myeye[:, 1:]]).T
+# ctrmatsR = wsR[toepindxmat]
+# prederivamatR = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsR, stthat)
+#
+# # this line computes
+# # M_{i l} = A_{i l} (exp(D_{i i}) or (exp(D_{i i}) - exp(D_{l l}))/(D_{i i} - D_{l l}))
+# derivamatR = prederivamatR * jnp.expand_dims(mask, 2)
+#
+# # this line computes Q = U M U^\dagger
+# alldmatreal = -1j * dt * jnp.einsum('ij,jkm,kl->mil', stthat, derivamatR, stthat.conj().T)
+#
+# # this block of code computes the Jacobian of vmat
+# # we diagonalize the Hamiltonian matrix like H = U D U^\dagger,
+# # when computing the gradient \nabla_\theta exp(-i H(\theta) \Delta t)
+# # prederivamat = U^\dagger \nabla_\theta H(\theta) U
+# wsI = 1.0j * jnp.hstack([-jnp.fliplr(myeye), myeye[:, 1:]])
+# wsI = wsI[1:, :]
+# wsI = wsI.T
+# ctrmatsI = wsI[toepindxmat]
+# prederivamatI = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsI, stthat)
+#
+# # this line computes
+# # M_{i l} = A_{i l} (exp(D_{i i}) or (exp(D_{i i}) - exp(D_{l l}))/(D_{i i} - D_{l l}))
+# derivamatI = prederivamatI * jnp.expand_dims(mask, 2)
+#
+# # this line computes Q = U M U^\dagger
+# # where M_{i l} = A_{i l} (exp(D_{i i}) or (exp(D_{i i}) - exp(D_{l l}))/(D_{i i} - D_{l l}))
+# alldmatimag = -1j * dt * jnp.einsum('ij,jkm,kl->mil', stthat, derivamatI, stthat.conj().T)
+#
+# # **************************************************
+# alldmat = jnp.vstack([alldmatreal, alldmatimag])
+#
+# # compute all entries of the gradient at once
+# gradients = jnp.real(jnp.einsum('bij,ajk,bik->a', jnp.conj(lammatvec[:, 1:]), alldmat, ahatmatvec[:, :-1]))
+# # **************************************************
+#
+# return gradients
