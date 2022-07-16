@@ -242,81 +242,69 @@ def waveobject(theta):
     propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
 
     # forward propagation loop
-    rtnobj = 0.0
-    # for r in range(len(a0vec)):
-    # for r in range(betamatvec.shape[0]):
-    for r in range(a0vec.shape[0].shape[0]):
-        thisahat = a0vec[r].copy()
-        # thisahat = amattruevec[r, 0].copy()
-        thisbetahatmat = [jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L)]
+    ahatmatvec = []
+    for r in range(a0vec.shape[0]):
+        thisahatmat = [a0vec[r].copy()]
 
         # propagate system starting from initial "a" state
         for _ in range(numts):
-        # for _ in range(betamatvec.shape[1] - 1):
             # propagate the system one time-step
-            thisahat = propahat @ thisahat
-            # calculate the amp^2
-            thisbetahatmat.append(jnp.correlate(thisahat, thisahat, 'same') / jnp.sqrt(2 * L))
+            thisahatmat.append(propahat @ thisahatmat[-1])
 
-        # compute objective functions
-        tempresid = jnp.array(thisbetahatmat) - betamatvec[r]
-        thisobj = 0.5 * jnp.sum(jnp.abs(tempresid)**2)
-        rtnobj += thisobj
+        ahatmatvec.append(thisahatmat)
+
+    # transform python list to a jax.numpy array
+    ahatmatvec = jnp.array(ahatmatvec)
+
+    # compute objective functions
+    resid = ahatmatvec - amattruevec
+
+    # as per our math, we need to take the real part of
+    # the objective
+    rtnobjvec = jnp.real(0.5 * jnp.sum(jnp.conj(resid) * resid, axis=1))
+    rtnobj = jnp.sum(rtnobjvec)
+    # **************************************************
 
     return rtnobj
 
-# jit ampsquaredobjective
-jitampsqobject = jax.jit(ampsqobject)
-# complie and test jitampsquaredobjective
-# print(jitampsquaredobjective(thetatrue))
+# jit wavefnobject()
+jitwaveobject = jax.jit(waveobject)
+
+# precomplie jitfourwaveobject
+print('jitwaveobject(model.randtheta(*modelprms, seed=1234)):', jitwaveobject(model.randtheta(*modelprms, seed=1234)), sep='\n')
 
 
 ###############################################################
-# adjoint method for computing gradient
+# gradient computed using the adjoint method
 ###############################################################
 
-# function for generating M and P matrix (used in adjoint method)
-def mk_M_and_P(avec):
-    halflen = len(avec) // 2
-    padavec = jnp.concatenate((jnp.zeros(halflen), jnp.array(avec), jnp.zeros(halflen)))
-
-    rawmat = []
-    for j in range(2 * halflen + 1):
-        rawmat.append(padavec[2 * halflen - j:4 * halflen + 1 - j])
-
-    Mmat = jnp.conjugate(jnp.array(rawmat))
-    Pmat = jnp.flipud(jnp.array(rawmat))
-
-    return Mmat, Pmat
-
-# jit mk_M_and_P
-jit_mk_M_and_P = jax.jit(mk_M_and_P)
-
-# function for computing gradients using adjoint method
-def adjgrads(theta):
+def wavegradsadj(theta):
     #################################################
-    # theta is a vector containing the concatenation
-    # of the real and imaginary parts of vmat
-    # its size should be
-    # 2 * numtoepelms - 1 = 4 * numfour + 1
+    # theta is the data structure given to the
+    # optimizer which contains the potential in terms
+    # of the model
+    # - to use JAX, theta must be a JAX recognized
+    #   object
     #################################################
 
-    # to use theta we need to first recombine the real
-    # and imaginary parts into a vector of complex values
-    vtoephatR = theta[:numtoepelms]
-    vtoephatI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
-    vtoephat = vtoephatR + 1j * vtoephatI
-
-    # construct vmathat from complex toeplitz vector
-    vmathat = jnp.concatenate([jnp.flipud(jnp.conj(vtoephat)), vtoephat[1:]])[toepindxmat]
+    # **************************************************
+    # the code enclosed by ' # ****' is the same regardless
+    # of what model you use
+    # **************************************************
+    # construct vmathat using the model class method
+    # .tovmat(), theta is what ever the model class
+    # uses as the data structure to store the potential
+    # any other arguments are what is required to define
+    # the model
+    vhatmat = model.thetatovmat(theta, *modelprms)
 
     # Construct Hamiltonian matrix
-    hmathat = kmat + vmathat
+    hhatmat = kmat + vhatmat
 
     # eigen-decomposition of the Hamiltonian matrix
-    spchat, stthat = jnl.eigh(hmathat)
+    spchat, stthat = jnl.eigh(hhatmat)
 
-    # compute propagator matrix
+    # compute propagator matrices
     propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
     proplam = jnp.transpose(jnp.conjugate(propahat))
 
@@ -324,86 +312,73 @@ def adjgrads(theta):
     ahatmatvec = []
     lammatvec = []
     for r in range(a0vec.shape[0]):
-    # for r in range(betamatvec.shape[0]):
-        # propagate system starting from initial "a" state
-        thisahatmat = [a0vec[r].copy()]
-        # thisahatmat = [amattruevec[r, 0].copy()]
-        thisbetahatmat = [jnp.correlate(a0vec[r].copy(), a0vec[r].copy(), 'same') / jnp.sqrt(2 * L)]
-        # thisbetahatmat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
-        # thisrhomat = [jnp.correlate(thisahatmat[0], thisahatmat[0], 'same') / jnp.sqrt(2 * L)]
-        thispartlammat = [jnp.zeros(numtoepelms, dtype=complex)]
+        ####################################################
+        # build ahatmat, i.e., forward propagate of the
+        # system with theta starting from a given initial
+        # state a0
+        ####################################################
 
-        # propagate system starting from thisa0vec state
+        # initialize thisahatmat with given a0 state
+        thisahatmat = [a0vec[r].copy()]
+
+        # forward propagate of the system with theta
         for i in range(numts):
-        # for i in range(betamatvec.shape[1] - 1):
             # propagate the system one time-step and store the result
             thisahatmat.append(propahat @ thisahatmat[-1])
-
-            # calculate the amp^2
-            thisbetahatmat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
-            # thisrhomat.append(jnp.correlate(thisahatmat[-1], thisahatmat[-1], 'same') / jnp.sqrt(2 * L))
-
-            # compute \rho^r - \beta^r
-            # compute \betahat^r - \beta^r
-            thiserr = thisbetahatmat[-1] - betamatvec[r, i+1]
-            # thiserr = thisrhomat[-1] - betamatvec[r, i+1]
-
-            # compute M and P matrix for lambda mat
-            thisMmat, thisPmat = jit_mk_M_and_P(thisahatmat[-1])
-
-            # compute part of lambda mat
-            # ( 1 / \sqrt{2 L} ) * [ ( M^r )^\dagger * ( \rho^r - \beta^r )
-            # + \overline{( P^r )^\dagger * ( \rho^r - \beta^r )} ]
-            thispartlammat.append((thisMmat.conj().T @ thiserr + (thisPmat.conj().T @ thiserr).conj()) / jnp.sqrt(2 * L))
 
         # store compute ahatmat
         ahatmatvec.append(jnp.array(thisahatmat))
 
-        # build lammat backwards then flip at the end
-        thislammat = [thispartlammat[-1]]
-        for i in range(2, numts + 2):
-            thislammat.append(thispartlammat[-i] + proplam @ thislammat[-1])
 
+        ####################################################
+        # build lammat
+        # \lambda_N = (\hat{a}_N - a_N)
+        # \lambda_j = (\hat{a}_j - a_j) + [\nabla_a \phi_{\Delta t} (a_j; \theta)]^\dagger \lambda_{j+1}
+        # [\nabla_a \phi_{\Delta t} (a_j; \theta)]^\dagger = [exp{-i H \Delta t}]^\dagger
+        ####################################################
+
+        # compute the error of ahatmatvec[r] WRT amattruevec[r]
+        thisahatmaterr = ahatmatvec[r] - amattruevec[r]
+
+        # initialize thislammat
+        thislammat = [thisahatmaterr[-1]]
+
+        # build lammat backwards then flip
+        for i in range(2, numts + 2):
+            thislammat.append(thisahatmaterr[-i] + proplam @ thislammat[-1])
+
+        # flip thislammat, make into a jax array, and add to lammatvec
         lammatvec.append(jnp.flipud(jnp.array(thislammat)))
 
     # make lists into JAX array object
     ahatmatvec = jnp.array(ahatmatvec)
     lammatvec = jnp.array(lammatvec)
 
-    ####################################################
-    # the remainder of this function is for computing
-    # the gradient of the exponential matrix
-    ####################################################
 
-    # **************************************************
+    ####################################################
+    # The remainder of this function is for computing
+    # the gradient of the exponential matrix
+    # - Given the diagonalization H = U D U^\dagger
+    # - The final gradient \nabla_\theta \phi(a;\theta)
+    #   is Q = U M U^\dagger, where M = A (*) mask
+    #   and A = U^\dagger [\nabla_\theta H
+    #         = \nabla_\theta model of vhatmat or v(x)] U
+    ####################################################
     offdiagmask = jnp.ones((numtoepelms, numtoepelms)) - jnp.eye(numtoepelms)
     expspec = jnp.exp(-1j * dt * spchat)
     e1, e2 = jnp.meshgrid(expspec, expspec)
     s1, s2 = jnp.meshgrid(spchat, spchat)
     denom = offdiagmask * (-1j * dt) * (s1 - s2) + jnp.eye(numtoepelms)
     mask = offdiagmask * (e1 - e2)/denom + jnp.diag(expspec)
-    # **************************************************
 
-    # this block of code computes U^\dagger \nabla_\theta H(\theta) U
-    # where we diagonalize the Hamiltonian matrix like H = U D U^\dagger,
-    myeye = jnp.eye(numtoepelms)
-    wsR = jnp.hstack([jnp.fliplr(myeye), myeye[:,1:]]).T
-    ctrmatsR = wsR[toepindxmat]
-    prederivamatR = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsR, stthat)
+    # get the gradient of the model, function expects
+    # model.thetatograd(theta, *args), where args is
+    # what ever elements the model needs to be fully defined
+    modelgrad = model.thetatograd(theta, *modelprms)
 
-    # this block of code computes U^\dagger \nabla_\theta H(\theta) U
-    # where we diagonalize the Hamiltonian matrix like H = U D U^\dagger,
-    wsI = 1.0j * jnp.hstack([-jnp.fliplr(myeye), myeye[:, 1:]])
-    wsI = wsI[1:, :]
-    wsI = wsI.T
-    ctrmatsI = wsI[toepindxmat]
-    prederivamatI = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsI, stthat)
+    # this line computes U^\dagger \nabla_\theta H(\theta) U
+    prederivamat = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, modelgrad, stthat)
 
-    # concatenate the real and imaginary parts of
-    # U^\dagger \nabla_\theta H(\theta) U together
-    prederivamat = jnp.vstack([prederivamatR, prederivamatI])
-
-    # **************************************************
     # this line computes
     # M_{i l} = A_{i l} (exp(D_{i i}) or (exp(D_{i i}) - exp(D_{l l}))/(D_{i i} - D_{l l}))
     derivamat = prederivamat * jnp.expand_dims(mask, 2)
@@ -419,20 +394,34 @@ def adjgrads(theta):
 
 
 # jist adjgrads
-jitadjgrads = jax.jit(adjgrads)
-# compile and test jitadjgrads
-# print(nl.norm(jitadjgrads(thetatrue)))
+jitwavegradsadj = jax.jit(wavegradsadj)
+
+# precompile jitwavegradsadj
+print('nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):', nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))), sep='\n')
 
 
 ###############################################################
 # learning
 ###############################################################
 
-# start optimization (i.e., learning theta)
-thetahat = so.minimize(fun=jitampsqobject, x0=thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
-# thetahat = so.minimize(jitampsquaredobjective, thetarnd, jac=jitadjgrads, tol=1e-12, options={'maxiter': 1000, 'disp': True, 'gtol': 1e-15}).x
+# create a model object and initialize it with random values
+thetahat = model(*modelprms, seed=1234)
 
-np.save(workingdir / 'thetahat', thetahat)
+# transform initialized thetahat to real space potential
+# and store
+vinitrec = thetahat.tox()
+
+# start optimization (i.e., learning theta) and store
+# learned result in thetahat
+thetahat.theta = so.minimize(fun=jitwaveobject,
+                       x0=thetahat.theta,
+                       jac=jitwavegradsadj,
+                       tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+
+# save the learned theta
+# COULD I JUST SAVE THE WHOLE OBJECT AND LOAD THAT? WOULD IT LOAD
+# AS THE OBJECT CLASS?
+np.save(workingdir / 'thetahat', thetahat.theta)
 print('thetahat saved.')
 
 
@@ -440,15 +429,12 @@ print('thetahat saved.')
 # results
 ###############################################################
 
-# transform randtheta theta to real space potentials
-vinitrec = thetatoreal(thetarnd)
-
 # transform learned theta to real space potential
-vlearnrec = thetatoreal(thetahat)
+vlearnrec = thetahat.tox()
 
 # learned potential vs initial potential
-plt.plot(xvec, jnp.real(vlearnrec), '.-', label='Learned')
-plt.plot(xvec, jnp.real(vinitrec), label='Initial')
+plt.plot(xvec, vlearnrec, '.-', label='Learned')
+plt.plot(xvec, vinitrec, label='Initial')
 plt.xlabel('x')
 plt.title('Learned vs. Initial Potentials')
 plt.legend()
@@ -457,7 +443,7 @@ plt.savefig(resultsdir / f'graph_{savename}_learned_vs_initial_potential.pdf', f
 plt.close()
 
 # learned potential vs true potential
-plt.plot(xvec, jnp.real(vlearnrec), '.-', label='Learned')
+plt.plot(xvec, vlearnrec, '.-', label='Learned')
 plt.plot(xvec, vtruexvec, label='True')
 plt.xlabel('x')
 plt.title('Learned vs. True Potentials')
@@ -469,26 +455,26 @@ plt.close()
 # shifted learned potential vs true potential
 midpointindex = numx // 2
 print('midpointindex =', midpointindex)
-shift = vtruexvec[midpointindex] - jnp.real(vlearnrec)[midpointindex]
+shift = vtruexvec[midpointindex] - vlearnrec[midpointindex]
 
 # # set trim to L=10
 # trim = np.where(xvec >= -10)[0][0]  # 125
 # print('trim =', trim)
 
 # calculate and return l2 error
-print('l2 error of learned potential:', nl.norm(jnp.real(vlearnrec) - vtruexvec), sep='\n')
-print('l2 error of shifted learned potential:', nl.norm(jnp.real(vlearnrec) + shift - vtruexvec), sep='\n')
-l2errshifttrim = nl.norm(jnp.real(vlearnrec)[trim:-trim] + shift - vtruexvec[trim:-trim])
+print('l2 error of learned potential:', nl.norm(vlearnrec - vtruexvec), sep='\n')
+print('l2 error of shifted learned potential:', nl.norm(vlearnrec + shift - vtruexvec), sep='\n')
+l2errshifttrim = nl.norm(vlearnrec[trim:-trim] + shift - vtruexvec[trim:-trim])
 print('l2 error of shifted and trimmed learned potential:', l2errshifttrim, sep='\n')
 
 # calculate and return l2 error
-print('l-inf error of learned potential:', np.amax(np.abs(jnp.real(vlearnrec) - vtruexvec)), sep='\n')
-print('l-inf error of shifted learned potential:', np.amax(np.abs(jnp.real(vlearnrec) + shift - vtruexvec)), sep='\n')
-linferrshifttrim = np.amax(np.abs(jnp.real(vlearnrec)[trim:-trim] + shift - vtruexvec[trim:-trim]))
+print('l-inf error of learned potential:', np.amax(np.abs(vlearnrec - vtruexvec)), sep='\n')
+print('l-inf error of shifted learned potential:', np.amax(np.abs(vlearnrec + shift - vtruexvec)), sep='\n')
+linferrshifttrim = np.amax(np.abs(vlearnrec[trim:-trim] + shift - vtruexvec[trim:-trim]))
 print('l-inf error of shifted and trimmed learned potential:', linferrshifttrim, sep='\n')
 
 # plot shifted potential
-plt.plot(xvec, jnp.real(vlearnrec) + shift, '.-', label='Learned')
+plt.plot(xvec, vlearnrec + shift, '.-', label='Learned')
 plt.plot(xvec, vtruexvec, label='True')
 plt.xlabel('x')
 plt.title(f'Shifted Learned Potential vs. True Potential\nl2 error (shift/trim) = {l2errshifttrim}\nl-inf error (shift/trim) = {linferrshifttrim}')
@@ -498,64 +484,3 @@ plt.savefig(resultsdir / f'graph_{savename}_shifted_true_vs_learned_potential.pd
 plt.close()
 
 print('')  # blank line
-
-######################################################
-# old code. saved so if new method is broken I have
-# a reference of what worked originally
-######################################################
-# ####################################################
-# # the remainder of this function is for computing
-# # the gradient of the exponential matrix
-# ####################################################
-#
-# # **************************************************
-# offdiagmask = jnp.ones((numtoepelms, numtoepelms)) - jnp.eye(numtoepelms)
-# expspec = jnp.exp(-1j * dt * spchat)
-# e1, e2 = jnp.meshgrid(expspec, expspec)
-# s1, s2 = jnp.meshgrid(spchat, spchat)
-# denom = offdiagmask * (-1j * dt) * (s1 - s2) + jnp.eye(numtoepelms)
-# mask = offdiagmask * (e1 - e2) / denom + jnp.diag(expspec)
-# # **************************************************
-#
-# # this block of code computes the Jacobian of vmat
-# # we diagonalize the Hamiltonian matrix like H = U D U^\dagger,
-# # when computing the gradient \nabla_\theta exp(-i H(\theta) \Delta t)
-# # prederivamat = U^\dagger \nabla_\theta H(\theta) U
-# myeye = jnp.eye(numtoepelms)
-# wsR = jnp.hstack([jnp.fliplr(myeye), myeye[:, 1:]]).T
-# ctrmatsR = wsR[toepindxmat]
-# prederivamatR = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsR, stthat)
-#
-# # this line computes
-# # M_{i l} = A_{i l} (exp(D_{i i}) or (exp(D_{i i}) - exp(D_{l l}))/(D_{i i} - D_{l l}))
-# derivamatR = prederivamatR * jnp.expand_dims(mask, 2)
-#
-# # this line computes Q = U M U^\dagger
-# alldmatreal = -1j * dt * jnp.einsum('ij,jkm,kl->mil', stthat, derivamatR, stthat.conj().T)
-#
-# # this block of code computes the Jacobian of vmat
-# # we diagonalize the Hamiltonian matrix like H = U D U^\dagger,
-# # when computing the gradient \nabla_\theta exp(-i H(\theta) \Delta t)
-# # prederivamat = U^\dagger \nabla_\theta H(\theta) U
-# wsI = 1.0j * jnp.hstack([-jnp.fliplr(myeye), myeye[:, 1:]])
-# wsI = wsI[1:, :]
-# wsI = wsI.T
-# ctrmatsI = wsI[toepindxmat]
-# prederivamatI = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsI, stthat)
-#
-# # this line computes
-# # M_{i l} = A_{i l} (exp(D_{i i}) or (exp(D_{i i}) - exp(D_{l l}))/(D_{i i} - D_{l l}))
-# derivamatI = prederivamatI * jnp.expand_dims(mask, 2)
-#
-# # this line computes Q = U M U^\dagger
-# # where M_{i l} = A_{i l} (exp(D_{i i}) or (exp(D_{i i}) - exp(D_{l l}))/(D_{i i} - D_{l l}))
-# alldmatimag = -1j * dt * jnp.einsum('ij,jkm,kl->mil', stthat, derivamatI, stthat.conj().T)
-#
-# # **************************************************
-# alldmat = jnp.vstack([alldmatreal, alldmatimag])
-#
-# # compute all entries of the gradient at once
-# gradients = jnp.real(jnp.einsum('bij,ajk,bik->a', jnp.conj(lammatvec[:, 1:]), alldmat, ahatmatvec[:, :-1]))
-# # **************************************************
-#
-# return gradients
