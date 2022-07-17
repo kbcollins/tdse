@@ -424,7 +424,7 @@ thetahat.theta = so.minimize(fun=jitwaveobject,
 # save the learned theta
 # COULD I JUST SAVE THE WHOLE OBJECT AND LOAD THAT? WOULD IT LOAD
 # AS THE OBJECT CLASS?
-np.save(workingdir / 'thetahat-' + cmdlineargmodel, thetahat.theta)
+np.save(workingdir / f'thetahat-{cmdlineargmodel}', thetahat.theta)
 print('thetahat saved.')
 
 
