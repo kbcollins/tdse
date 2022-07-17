@@ -50,9 +50,19 @@ print('cmdlineargnumts =', cmdlineargnumts)
 cmdlineargdt = float(sys.argv[4])
 print('cmdlineargdt =', cmdlineargdt)
 
+# time-step size
+cmdlineargdt = float(sys.argv[4])
+print('cmdlineargdt =', cmdlineargdt)
+
+
+###############################################################
+# set output directory
+###############################################################
+
 # file path to output directory
 workingdir = cmdlineargsavedir / f'v{cmdlineargpotential}'
 print('Current working directory:', workingdir)
+
 print('')  # blank line
 
 
@@ -89,24 +99,6 @@ print('dt =', dt)
 cmpprm = [L, numx, numfour, dt, numts]  # original cmpprm (what all other scripts expect)
 np.save(workingdir / 'cmpprm', cmpprm)
 print('Computational parameters saved.')
-
-###############################################################
-# set what model to use to approximate the potential and
-# specify the parameters which fully define the model
-###############################################################
-
-# Fourier model
-model = tdsemodelclass.fourier
-print('model = fourier')
-modelprms = (L, numx, numfour)
-
-# Chebyshev model
-# - From experience, I have found that the cheby model
-#   works best when numcheb is an odd numbers
-# model = tdsemodelclass.cheby
-# print('model = cheby')
-# numcheb = 11
-# modelprms = (L, numx, numfour, numcheb)
 
 print('')  # blank line
 
@@ -190,7 +182,7 @@ elif cmdlineargpotential == 6:
         # soft coulomb potential
         return -1 / np.sqrt(z ** 2 + 0.25)
 else:
-    print(f'Selection of "{cmdlineargpotential}" is not recognized as an available potential.')
+    print(f'Selection of "{cmdlineargpotential}" not recognized as a valid potential selection.')
 
 # true potential on real space grid (for plotting)
 vtruexvec = v(xvec)
@@ -202,17 +194,12 @@ print('vtruexvec saved.')
 # model of true potential
 ###############################################################
 
-# create a model object and save as thetatrue
-# - modelprms is a tuple containing all of the variables the
-#   model needs to be fully defined
-# - the '*' in *modelprms unpacks modelprms then passes
-#   everything as the parameters to the instantiation of a
-#   model object
-thetatrue = model(*modelprms)
+# create a fourier model object and save as thetatrue
+thetatrue = tdsemodelclass.fourier(L, numx, numfour)
 
-# load thetatrue with the true potential represented in
-# terms of the model
-thetatrue.theta = model.fntotheta(v, *modelprms)
+# load thetatrue with the true potential in terms of
+# the Fourier model
+thetatrue.theta = tdsemodelclass.fourier.fntotheta(v, L, numx, numfour)
 print('Shape thetatrue:', thetatrue.theta.shape)
 
 

@@ -9,23 +9,23 @@
 ################## BASH SCRIPT ##################
 
 # Define Bash variables
-date="07-16-2022"
 period="0.2"  # seconds
+parentdir="07-16-2022"
 
 # run pyscript
 for i in {0..6}; do
   for j in {0..9}; do
     thisdt=`echo "scale=10; 0.01-(0.001*"$j")" | bc`
     thisnumts=`echo "scale=0; "$period"/"$thisdt"" | bc`
-    mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
-    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
-#    python tdse-wave-function-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
+    mkdir -p ./"$parentdir"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
+    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py ./"$parentdir"/numts-"$thisnumts"_dt-"$thisdt" "$i" "$thisnumts" "$thisdt"
+#    python tdse-wave-function-main-script-forward-kbc.py ./"$parentdir"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
   done
 done
 
 
 ## Define Bash variables
-#date="07-11-2022"
+#parentdir="07-11-2022"
 #numtsargs=(20 50 80 110 140)
 #dtargs=("1e-2" "1e-3" "1e-4" "1e-5" "1e-6")
 #
@@ -35,8 +35,8 @@ done
 #    thisdt="${dtargs[j]}"
 #    for k in "${!numtsargs[@]}"; do
 #      thisnumts="${numtsargs[k]}"
-#      mkdir -p ./"$date"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
-#      python tdse-wave-function-main-script-forward-kbc.py ./"$date"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
+#      mkdir -p ./"$parentdir"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
+#      python tdse-wave-function-main-script-forward-kbc.py ./"$parentdir"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
 #    done
 #  done
 #done

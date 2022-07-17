@@ -25,21 +25,31 @@ print('')  # blank line
 
 
 ###############################################################
-# get commandline arguments and use to set directories to load
-# data from and save results to
-# - cmdlineargsavedir: directory to load data files from
+# get commandline arguments
+# - cmdlineargmodel: choice of model. Store as a string.
+#   possible selections are {'fourier', 'cheby'}
+# - cmdlineargsavedir: directory to load/save data to
 ###############################################################
 
+# model
+cmdlineargmodel = sys.argv[1]
+print('cmdlineargmodel =', cmdlineargmodel)
+
 # get path to directory containing amat from command line
-cmdlinearg = sys.argv[1]
+cmdlinearg = sys.argv[2]
 print('Command line argument:', cmdlinearg)
+
+
+###############################################################
+# set load and results directory
+###############################################################
 
 # transform commandline argument to path object
 workingdir = pathlib.Path(cmdlinearg)
 print('Current working directory:', workingdir)
 
 # set identifier for saved output
-savename = 'inverse'
+savename = 'inverse-' + cmdlineargmodel
 
 # set directory to save results to
 resultsdir = workingdir / f'results-{savename}'
@@ -86,20 +96,28 @@ print('')  # blank line
 ###############################################################
 # set what model to use to approximate the potential and
 # specify the parameters which fully define the model
+# - modelprms is a tuple containing all of the variables the
+#   model needs to be fully defined
+# - the '*' in *modelprms unpacks modelprms then passes
+#   everything as the parameters to the instantiation of a
+#   model object
 ###############################################################
 
-# Fourier model
-model = tdsemodelclass.fourier
-print('model = fourier')
-modelprms = (L, numx, numfour)
-
-# Chebyshev model
-# - From experience, I have found that the cheby model
-#   works best when numcheb is an odd numbers
-# model = tdsemodelclass.cheby
-# print('model = cheby')
-# numcheb = 11
-# modelprms = (L, numx, numfour, numcheb)
+if cmdlineargmodel == 'fourier':
+    # Fourier model
+    modelprms = (L, numx, numfour)
+    model = tdsemodelclass.fourier
+    print('model = fourier')
+elif cmdlineargmodel == 'cheby':
+    # Chebyshev model
+    # - From experience, I have found that cheby
+    #   works best when numcheb is an odd numbers
+    numcheb = 11
+    modelprms = (L, numx, numfour, numcheb)
+    model = tdsemodelclass.cheby
+    print('model = cheby')
+else:
+    print(f'Model selection "{cmdlineargmodel}" not recognized.')
 
 print('')  # blank line
 
@@ -188,24 +206,6 @@ for thisamattrue in amattruevec:
     betamatvec.append(jnp.array(tempbetamat))
 
 betamatvec = jnp.array(betamatvec) / jnp.sqrt(2 * L)
-
-
-###############################################################
-# theta
-###############################################################
-
-# true potential in the form of theta (for testing purposes)
-# thetatrue = jnp.concatenate((jnp.real(vtruetoep), jnp.imag(vtruetoep[1:])))
-
-# initialize theta with random values
-seed = 1234  # set to None for random initialization
-print('seed =', seed)
-thetarnd = 0.02 * np.random.default_rng(seed).random(size=numtoepelms * 2 - 1) - 0.01  # interval=[-0.01, 0.01)
-# thetarnd = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)  # mean=0, std=1, scale=0.001
-thetarnd = jnp.array(thetarnd)
-
-np.save(workingdir / 'thetarnd', thetarnd)
-print('thetarnd saved.')
 
 
 ###############################################################
@@ -407,9 +407,12 @@ print('nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):', nl.no
 # create a model object and initialize it with random values
 thetahat = model(*modelprms, seed=1234)
 
-# transform initialized thetahat to real space potential
+# transform the initialized thetahat to real space potential
 # and store
 vinitrec = thetahat.tox()
+
+# np.save(workingdir / 'thetarnd', thetarnd)
+# print('thetarnd saved.')
 
 # start optimization (i.e., learning theta) and store
 # learned result in thetahat
@@ -421,7 +424,7 @@ thetahat.theta = so.minimize(fun=jitwaveobject,
 # save the learned theta
 # COULD I JUST SAVE THE WHOLE OBJECT AND LOAD THAT? WOULD IT LOAD
 # AS THE OBJECT CLASS?
-np.save(workingdir / 'thetahat', thetahat.theta)
+np.save(workingdir / 'thetahat-' + cmdlineargmodel, thetahat.theta)
 print('thetahat saved.')
 
 

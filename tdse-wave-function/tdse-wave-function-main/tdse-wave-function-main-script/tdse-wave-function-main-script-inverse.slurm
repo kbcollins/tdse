@@ -13,20 +13,15 @@
 
 ################## BASH SCRIPT ##################
 
-#for i in {0..6}; do
-##	echo $i
-#	python tdse-wave-function-main-script-inverse-kbc.py ./v$i
-#done
-
-
 # define Bash variables
-date="07-16-2022"
-filelist=( $(ls ./"$date") ) # bash array of files in directory ./"$date"
+model="cheby"
+parentdir="07-16-2022"
+filelist=( $(ls ./"$parentdir") ) # bash array of files in directory ./"$parentdir"
 
 # run pyscript
 for i in {0..6}; do
   for thisfile in "${filelist[@]}"; do
-    mkdir -p ./"$date"/"$thisfile"/v"$i"/results-"$SLURM_JOB_NAME"
-    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py ./"$date"/"$thisfile"/v"$i"
+    mkdir -p ./"$parentdir"/"$thisfile"/v"$i"/results-"$SLURM_JOB_NAME"-"$model"
+    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$model" ./"$parentdir"/"$thisfile"/v"$i"
   done
 done
