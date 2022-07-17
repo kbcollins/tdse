@@ -1,0 +1,3150 @@
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-100_dt-.002/v0
+Current working directory: 07-16-2022/numts-100_dt-.002/v0
+Results directory: 07-16-2022/numts-100_dt-.002/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 2.000e-03 1.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 100
+dt = 0.002
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+260.6981132554048
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+29.500976658848774
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.011285
+         Iterations: 1088
+         Function evaluations: 1228
+         Gradient evaluations: 1214
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+827.2711159867101
+l2 error of shifted learned potential:
+820.4165693162911
+l2 error of shifted and trimmed learned potential:
+109.27558041999136
+l-inf error of learned potential:
+203.42086815443372
+l-inf error of shifted learned potential:
+200.35740575491036
+l-inf error of shifted and trimmed learned potential:
+8.870018308120557
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-200_dt-.001/v0
+Current working directory: 07-16-2022/numts-200_dt-.001/v0
+Results directory: 07-16-2022/numts-200_dt-.001/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 200
+dt = 0.001
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+519.742814766246
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+58.72333520063657
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.021532
+         Iterations: 1316
+         Function evaluations: 1401
+         Gradient evaluations: 1394
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+409.83618773658134
+l2 error of shifted learned potential:
+406.41873849272935
+l2 error of shifted and trimmed learned potential:
+52.75744428326837
+l-inf error of learned potential:
+101.43205367643851
+l-inf error of shifted learned potential:
+99.95417317227667
+l-inf error of shifted and trimmed learned potential:
+4.303111594589659
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-20_dt-.010/v0
+Current working directory: 07-16-2022/numts-20_dt-.010/v0
+Results directory: 07-16-2022/numts-20_dt-.010/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+53.464107956660044
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+6.127037019712618
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.002213
+         Iterations: 1481
+         Function evaluations: 1598
+         Gradient evaluations: 1587
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+422.0774510593879
+l2 error of shifted learned potential:
+418.5377274233913
+l2 error of shifted and trimmed learned potential:
+54.7898942239777
+l-inf error of learned potential:
+104.42213504724275
+l-inf error of shifted learned potential:
+102.88677824980678
+l-inf error of shifted and trimmed learned potential:
+4.452622084987219
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-22_dt-.009/v0
+Current working directory: 07-16-2022/numts-22_dt-.009/v0
+Results directory: 07-16-2022/numts-22_dt-.009/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 9.000e-03 2.200e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 22
+dt = 0.009
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+58.48362037307665
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+6.650883209677715
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.002539
+         Iterations: 1225
+         Function evaluations: 1335
+         Gradient evaluations: 1323
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+694.138028281469
+l2 error of shifted learned potential:
+688.3729686954093
+l2 error of shifted and trimmed learned potential:
+91.44035808058224
+l-inf error of learned potential:
+170.89407958801345
+l-inf error of shifted learned potential:
+168.3305756549609
+l-inf error of shifted and trimmed learned potential:
+7.42245543454036
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-25_dt-.008/v0
+Current working directory: 07-16-2022/numts-25_dt-.008/v0
+Results directory: 07-16-2022/numts-25_dt-.008/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 8.000e-03 2.500e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 25
+dt = 0.008
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+66.41586712575835
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+7.587079582566767
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.002816
+         Iterations: 1366
+         Function evaluations: 1495
+         Gradient evaluations: 1484
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1193.4967803406341
+l2 error of shifted learned potential:
+1183.6454163874432
+l2 error of shifted and trimmed learned potential:
+158.36617825414476
+l-inf error of learned potential:
+292.8952903871732
+l-inf error of shifted learned potential:
+288.4557505911945
+l-inf error of shifted and trimmed learned potential:
+12.854842185699539
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-28_dt-.007/v0
+Current working directory: 07-16-2022/numts-28_dt-.007/v0
+Results directory: 07-16-2022/numts-28_dt-.007/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 7.000e-03 2.800e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 28
+dt = 0.007
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+73.77594273346043
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+8.311545924374812
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.003154
+         Iterations: 1265
+         Function evaluations: 1373
+         Gradient evaluations: 1358
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1219.676058912105
+l2 error of shifted learned potential:
+1209.6112978746314
+l2 error of shifted and trimmed learned potential:
+161.8599718281423
+l-inf error of learned potential:
+299.2912542412457
+l-inf error of shifted learned potential:
+294.75379156580357
+l-inf error of shifted and trimmed learned potential:
+13.13840747278904
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-33_dt-.006/v0
+Current working directory: 07-16-2022/numts-33_dt-.006/v0
+Results directory: 07-16-2022/numts-33_dt-.006/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 6.000e-03 3.300e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 33
+dt = 0.006
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+86.8987218808933
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+9.83494017818016
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.009851
+         Iterations: 1336
+         Function evaluations: 1408
+         Gradient evaluations: 1399
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1465.6133932184994
+l2 error of shifted learned potential:
+1452.548362555009
+l2 error of shifted and trimmed learned potential:
+160.5857679723855
+l-inf error of learned potential:
+358.1466191001639
+l-inf error of shifted learned potential:
+353.64421715912937
+l-inf error of shifted and trimmed learned potential:
+12.98845388099371
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-40_dt-.005/v0
+Current working directory: 07-16-2022/numts-40_dt-.005/v0
+Results directory: 07-16-2022/numts-40_dt-.005/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 5.000e-03 4.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 40
+dt = 0.005
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+105.27187731286995
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+11.968870570273152
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.004576
+         Iterations: 1330
+         Function evaluations: 1422
+         Gradient evaluations: 1410
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+694.2370454483789
+l2 error of shifted learned potential:
+688.4711479937885
+l2 error of shifted and trimmed learned potential:
+91.45251780644013
+l-inf error of learned potential:
+170.9182664148175
+l-inf error of shifted learned potential:
+168.35442390777297
+l-inf error of shifted and trimmed learned potential:
+7.423436089231913
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-50_dt-.004/v0
+Current working directory: 07-16-2022/numts-50_dt-.004/v0
+Results directory: 07-16-2022/numts-50_dt-.004/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 4.000e-03 5.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.004
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+131.17612807437382
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+14.890614833287106
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.005731
+         Iterations: 1945
+         Function evaluations: 2058
+         Gradient evaluations: 2047
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+683.6945775934832
+l2 error of shifted learned potential:
+678.0191332681923
+l2 error of shifted and trimmed learned potential:
+90.0500614626009
+l-inf error of learned potential:
+168.34298082637093
+l-inf error of shifted learned potential:
+165.81550350425005
+l-inf error of shifted and trimmed learned potential:
+7.309930239969503
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-66_dt-.003/v0
+Current working directory: 07-16-2022/numts-66_dt-.003/v0
+Results directory: 07-16-2022/numts-66_dt-.003/v0/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 3.000e-03 6.600e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+172.14549268089905
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+19.390421098988217
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.007398
+         Iterations: 1159
+         Function evaluations: 1284
+         Gradient evaluations: 1272
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1090.9521892476419
+l2 error of shifted learned potential:
+1081.9404478454576
+l2 error of shifted and trimmed learned potential:
+144.6065102714172
+l-inf error of learned potential:
+267.8422131507156
+l-inf error of shifted learned potential:
+263.7883906583104
+l-inf error of shifted and trimmed learned potential:
+11.737889671636452
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-100_dt-.002/v1
+Current working directory: 07-16-2022/numts-100_dt-.002/v1
+Results directory: 07-16-2022/numts-100_dt-.002/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 2.000e-03 1.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 100
+dt = 0.002
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+63.35122640551402
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+20.936396724972074
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.008386
+         Iterations: 839
+         Function evaluations: 889
+         Gradient evaluations: 877
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+463.598967888696
+l2 error of shifted learned potential:
+459.7497758730368
+l2 error of shifted and trimmed learned potential:
+59.835159476841
+l-inf error of learned potential:
+115.87460086122202
+l-inf error of shifted learned potential:
+114.19767765435873
+l-inf error of shifted and trimmed learned potential:
+4.860656268758699
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-200_dt-.001/v1
+Current working directory: 07-16-2022/numts-200_dt-.001/v1
+Results directory: 07-16-2022/numts-200_dt-.001/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 200
+dt = 0.001
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+126.11132354060382
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+41.632819301326286
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.016744
+         Iterations: 788
+         Function evaluations: 859
+         Gradient evaluations: 850
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+463.40010777448975
+l2 error of shifted learned potential:
+459.55254365587047
+l2 error of shifted and trimmed learned potential:
+59.81361767115322
+l-inf error of learned potential:
+115.82602387474958
+l-inf error of shifted learned potential:
+114.1497016469558
+l-inf error of shifted and trimmed learned potential:
+4.858696791152926
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-20_dt-.010/v1
+Current working directory: 07-16-2022/numts-20_dt-.010/v1
+Results directory: 07-16-2022/numts-20_dt-.010/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+13.145195403457134
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+4.381240023646245
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.001980
+         Iterations: 876
+         Function evaluations: 966
+         Gradient evaluations: 954
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1170.939231377605
+l2 error of shifted learned potential:
+1161.312850667576
+l2 error of shifted and trimmed learned potential:
+154.9935211366105
+l-inf error of learned potential:
+288.69603122052763
+l-inf error of shifted learned potential:
+284.35154459725817
+l-inf error of shifted and trimmed learned potential:
+12.582496503774422
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-22_dt-.009/v1
+Current working directory: 07-16-2022/numts-22_dt-.009/v1
+Results directory: 07-16-2022/numts-22_dt-.009/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 9.000e-03 2.200e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 22
+dt = 0.009
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+14.274602981029881
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+4.732479793679643
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.002198
+         Iterations: 1212
+         Function evaluations: 1328
+         Gradient evaluations: 1316
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+934.0441755264224
+l2 error of shifted learned potential:
+926.3558522622186
+l2 error of shifted and trimmed learned potential:
+123.23490811828773
+l-inf error of learned potential:
+230.81851131326465
+l-inf error of shifted learned potential:
+227.3645766378778
+l-inf error of shifted and trimmed learned potential:
+10.007411741978682
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-25_dt-.008/v1
+Current working directory: 07-16-2022/numts-25_dt-.008/v1
+Results directory: 07-16-2022/numts-25_dt-.008/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 8.000e-03 2.500e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 25
+dt = 0.008
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+16.282646026118
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+5.4155224628571625
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.002477
+         Iterations: 900
+         Function evaluations: 949
+         Gradient evaluations: 940
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1053.04689875659
+l2 error of shifted learned potential:
+1044.3849064771896
+l2 error of shifted and trimmed learned potential:
+139.19212983870952
+l-inf error of learned potential:
+259.89299860389735
+l-inf error of shifted learned potential:
+255.99151479654793
+l-inf error of shifted and trimmed learned potential:
+11.300182688078959
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-28_dt-.007/v1
+Current working directory: 07-16-2022/numts-28_dt-.007/v1
+Results directory: 07-16-2022/numts-28_dt-.007/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 7.000e-03 2.800e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 28
+dt = 0.007
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+17.846274970372995
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+5.878754508037385
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.002816
+         Iterations: 879
+         Function evaluations: 930
+         Gradient evaluations: 921
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+687.1119768547381
+l2 error of shifted learned potential:
+681.4435029332116
+l2 error of shifted and trimmed learned potential:
+90.1345905890634
+l-inf error of learned potential:
+170.4876185493605
+l-inf error of shifted learned potential:
+167.96179261138008
+l-inf error of shifted and trimmed learned potential:
+7.324045273977745
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-33_dt-.006/v1
+Current working directory: 07-16-2022/numts-33_dt-.006/v1
+Results directory: 07-16-2022/numts-33_dt-.006/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 6.000e-03 3.300e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 33
+dt = 0.006
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+21.11632249474637
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+6.978443839712771
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.003205
+         Iterations: 1030
+         Function evaluations: 1094
+         Gradient evaluations: 1084
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+2217.9587787776672
+l2 error of shifted learned potential:
+2199.76873209965
+l2 error of shifted and trimmed learned potential:
+295.365869806786
+l-inf error of learned potential:
+544.4970447455762
+l-inf error of shifted learned potential:
+536.2174500728879
+l-inf error of shifted and trimmed learned potential:
+23.97627445596534
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-40_dt-.005/v1
+Current working directory: 07-16-2022/numts-40_dt-.005/v1
+Results directory: 07-16-2022/numts-40_dt-.005/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 5.000e-03 4.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 40
+dt = 0.005
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+25.695850440134574
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+8.519201282982607
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.009547
+         Iterations: 965
+         Function evaluations: 1054
+         Gradient evaluations: 1042
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3442.03982643993
+l2 error of shifted learned potential:
+3411.83537864057
+l2 error of shifted and trimmed learned potential:
+397.7354871450241
+l-inf error of learned potential:
+842.0561681461942
+l-inf error of shifted learned potential:
+830.8989557198599
+l-inf error of shifted and trimmed learned potential:
+32.26799809479968
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-50_dt-.004/v1
+Current working directory: 07-16-2022/numts-50_dt-.004/v1
+Results directory: 07-16-2022/numts-50_dt-.004/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 4.000e-03 5.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.004
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+31.97160429194347
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+10.588596462416305
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.014176
+         Iterations: 969
+         Function evaluations: 1073
+         Gradient evaluations: 1060
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3285.4783654538537
+l2 error of shifted learned potential:
+3256.3936375792327
+l2 error of shifted and trimmed learned potential:
+350.40466121974373
+l-inf error of learned potential:
+802.1513334831905
+l-inf error of shifted learned potential:
+792.3230825909601
+l-inf error of shifted and trimmed learned potential:
+28.42823369419434
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-66_dt-.003/v1
+Current working directory: 07-16-2022/numts-66_dt-.003/v1
+Results directory: 07-16-2022/numts-66_dt-.003/v1/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 3.000e-03 6.600e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+41.643209921058165
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+13.71799041571219
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.015688
+         Iterations: 1484
+         Function evaluations: 1627
+         Gradient evaluations: 1617
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+4012.786187825454
+l2 error of shifted learned potential:
+3977.7408316712945
+l2 error of shifted and trimmed learned potential:
+473.7431717599646
+l-inf error of learned potential:
+981.6686282561902
+l-inf error of shifted learned potential:
+968.381023202725
+l-inf error of shifted and trimmed learned potential:
+38.422919687372804
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-100_dt-.002/v2
+Current working directory: 07-16-2022/numts-100_dt-.002/v2
+Results directory: 07-16-2022/numts-100_dt-.002/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 2.000e-03 1.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 100
+dt = 0.002
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+90.56171239705156
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+27.72893730069077
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.217085
+         Iterations: 776
+         Function evaluations: 846
+         Gradient evaluations: 838
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1834.2247331853102
+l2 error of shifted learned potential:
+1833.5847746193645
+l2 error of shifted and trimmed learned potential:
+18.703870959153527
+l-inf error of learned potential:
+340.79121459688196
+l-inf error of shifted learned potential:
+340.7005066852641
+l-inf error of shifted and trimmed learned potential:
+1.7930522952863566
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-200_dt-.001/v2
+Current working directory: 07-16-2022/numts-200_dt-.001/v2
+Results directory: 07-16-2022/numts-200_dt-.001/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 200
+dt = 0.001
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+180.1603790034388
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+55.141311635801735
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.607591
+         Iterations: 627
+         Function evaluations: 668
+         Gradient evaluations: 658
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1594.9723264060308
+l2 error of shifted learned potential:
+1594.8012307369293
+l2 error of shifted and trimmed learned potential:
+36.71260497837024
+l-inf error of learned potential:
+368.7078569467549
+l-inf error of shifted learned potential:
+368.6851068494628
+l-inf error of shifted and trimmed learned potential:
+3.4352982921509216
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-20_dt-.010/v2
+Current working directory: 07-16-2022/numts-20_dt-.010/v2
+Results directory: 07-16-2022/numts-20_dt-.010/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+18.887292874880764
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+5.801244254496258
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.043600
+         Iterations: 1109
+         Function evaluations: 1214
+         Gradient evaluations: 1206
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+2058.8048859022333
+l2 error of shifted learned potential:
+2062.235483416605
+l2 error of shifted and trimmed learned potential:
+22.443179162798568
+l-inf error of learned potential:
+398.84101577086517
+l-inf error of shifted learned potential:
+399.33209006090976
+l-inf error of shifted and trimmed learned potential:
+2.345236746077056
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-22_dt-.009/v2
+Current working directory: 07-16-2022/numts-22_dt-.009/v2
+Results directory: 07-16-2022/numts-22_dt-.009/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 9.000e-03 2.200e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 22
+dt = 0.009
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+20.44473013575442
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+6.26741106969497
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.056030
+         Iterations: 823
+         Function evaluations: 948
+         Gradient evaluations: 935
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1758.34177394533
+l2 error of shifted learned potential:
+1757.1596292490512
+l2 error of shifted and trimmed learned potential:
+32.465432981709164
+l-inf error of learned potential:
+358.9722855007191
+l-inf error of shifted learned potential:
+358.79136515474136
+l-inf error of shifted and trimmed learned potential:
+2.7353099161075267
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-25_dt-.008/v2
+Current working directory: 07-16-2022/numts-25_dt-.008/v2
+Results directory: 07-16-2022/numts-25_dt-.008/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 8.000e-03 2.500e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 25
+dt = 0.008
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+23.366004729082373
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+7.171262442514163
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.054649
+         Iterations: 1051
+         Function evaluations: 1115
+         Gradient evaluations: 1104
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1970.4650420346811
+l2 error of shifted learned potential:
+1969.352476656684
+l2 error of shifted and trimmed learned potential:
+17.429626801795578
+l-inf error of learned potential:
+368.8417192714841
+l-inf error of shifted learned potential:
+368.68148745340835
+l-inf error of shifted and trimmed learned potential:
+1.7363401002106489
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-28_dt-.007/v2
+Current working directory: 07-16-2022/numts-28_dt-.007/v2
+Results directory: 07-16-2022/numts-28_dt-.007/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 7.000e-03 2.800e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 28
+dt = 0.007
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+25.460427165472478
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+7.7865647507208475
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.067989
+         Iterations: 1034
+         Function evaluations: 1122
+         Gradient evaluations: 1113
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1947.865600754843
+l2 error of shifted learned potential:
+1996.2209615605152
+l2 error of shifted and trimmed learned potential:
+216.16822705065618
+l-inf error of learned potential:
+414.6081834189287
+l-inf error of shifted learned potential:
+420.4705385081889
+l-inf error of shifted and trimmed learned potential:
+18.506271959458633
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-33_dt-.006/v2
+Current working directory: 07-16-2022/numts-33_dt-.006/v2
+Results directory: 07-16-2022/numts-33_dt-.006/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 6.000e-03 3.300e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 33
+dt = 0.006
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+30.185566980662966
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+9.242538502075488
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.092580
+         Iterations: 854
+         Function evaluations: 959
+         Gradient evaluations: 947
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1988.577810514506
+l2 error of shifted learned potential:
+1982.135845862795
+l2 error of shifted and trimmed learned potential:
+64.70907444455217
+l-inf error of learned potential:
+410.42326810687064
+l-inf error of shifted learned potential:
+409.467286855975
+l-inf error of shifted and trimmed learned potential:
+5.77874486128907
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-40_dt-.005/v2
+Current working directory: 07-16-2022/numts-40_dt-.005/v2
+Results directory: 07-16-2022/numts-40_dt-.005/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 5.000e-03 4.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 40
+dt = 0.005
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+36.80401798073282
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+11.282244742309322
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.102823
+         Iterations: 820
+         Function evaluations: 953
+         Gradient evaluations: 940
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1805.3162890804679
+l2 error of shifted learned potential:
+1791.8814181280613
+l2 error of shifted and trimmed learned potential:
+110.72309719182371
+l-inf error of learned potential:
+389.4559732553227
+l-inf error of shifted learned potential:
+387.30862365308957
+l-inf error of shifted and trimmed learned potential:
+10.2598673847678
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-50_dt-.004/v2
+Current working directory: 07-16-2022/numts-50_dt-.004/v2
+Results directory: 07-16-2022/numts-50_dt-.004/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 4.000e-03 5.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.004
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+45.7633201376338
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+14.023207219667103
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.131847
+         Iterations: 908
+         Function evaluations: 1023
+         Gradient evaluations: 1011
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+2052.929872508927
+l2 error of shifted learned potential:
+2045.7991093309076
+l2 error of shifted and trimmed learned potential:
+115.64778087027928
+l-inf error of learned potential:
+454.7932864505641
+l-inf error of shifted learned potential:
+453.6837963709488
+l-inf error of shifted and trimmed learned potential:
+10.589443870829054
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-66_dt-.003/v2
+Current working directory: 07-16-2022/numts-66_dt-.003/v2
+Results directory: 07-16-2022/numts-66_dt-.003/v2/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 3.000e-03 6.600e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+59.41184681738761
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+18.16977644318353
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.168644
+         Iterations: 765
+         Function evaluations: 829
+         Gradient evaluations: 818
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+1750.8255751320955
+l2 error of shifted learned potential:
+1740.1594802310692
+l2 error of shifted and trimmed learned potential:
+94.47539376583492
+l-inf error of learned potential:
+386.6086772647714
+l-inf error of shifted learned potential:
+384.9170163288988
+l-inf error of shifted and trimmed learned potential:
+8.688874352080886
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-100_dt-.002/v3
+Current working directory: 07-16-2022/numts-100_dt-.002/v3
+Results directory: 07-16-2022/numts-100_dt-.002/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 2.000e-03 1.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 100
+dt = 0.002
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+1.41196659396688
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+6.31413804084938
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 659
+         Function evaluations: 731
+         Gradient evaluations: 719
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.41242014980583575
+l2 error of shifted learned potential:
+0.41244608421377027
+l2 error of shifted and trimmed learned potential:
+0.035872471590493754
+l-inf error of learned potential:
+0.15977427063813765
+l-inf error of shifted learned potential:
+0.15990998105371346
+l-inf error of shifted and trimmed learned potential:
+0.0030524755133601866
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-200_dt-.001/v3
+Current working directory: 07-16-2022/numts-200_dt-.001/v3
+Results directory: 07-16-2022/numts-200_dt-.001/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 200
+dt = 0.001
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+2.8030017393092495
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+12.534745365492912
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 592
+         Function evaluations: 640
+         Gradient evaluations: 627
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.4124201414555182
+l2 error of shifted learned potential:
+0.4124460901018934
+l2 error of shifted and trimmed learned potential:
+0.03587187864067909
+l-inf error of learned potential:
+0.1597739940997812
+l-inf error of shifted learned potential:
+0.15990974486690346
+l-inf error of shifted and trimmed learned potential:
+0.0030524916973542204
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-20_dt-.010/v3
+Current working directory: 07-16-2022/numts-20_dt-.010/v3
+Results directory: 07-16-2022/numts-20_dt-.010/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.299387362498597
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.338762259342396
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 746
+         Function evaluations: 808
+         Gradient evaluations: 796
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.4124201496395548
+l2 error of shifted learned potential:
+0.41244608434394797
+l2 error of shifted and trimmed learned potential:
+0.03587244315524157
+l-inf error of learned potential:
+0.1597742674556787
+l-inf error of shifted learned potential:
+0.15990997866931234
+l-inf error of shifted and trimmed learned potential:
+0.0030524743203611537
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-22_dt-.009/v3
+Current working directory: 07-16-2022/numts-22_dt-.009/v3
+Results directory: 07-16-2022/numts-22_dt-.009/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 9.000e-03 2.200e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 22
+dt = 0.009
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.3206847261168049
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.4340388844386007
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 684
+         Function evaluations: 716
+         Gradient evaluations: 707
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.4124201586173525
+l2 error of shifted learned potential:
+0.4124460625576974
+l2 error of shifted and trimmed learned potential:
+0.035872197616020535
+l-inf error of learned potential:
+0.15977465366345667
+l-inf error of shifted learned potential:
+0.1599102801398955
+l-inf error of shifted and trimmed learned potential:
+0.003052332034364169
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-25_dt-.008/v3
+Current working directory: 07-16-2022/numts-25_dt-.008/v3
+Results directory: 07-16-2022/numts-25_dt-.008/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 8.000e-03 2.500e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 25
+dt = 0.008
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.36887171335787083
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.6494919775357888
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 738
+         Function evaluations: 768
+         Gradient evaluations: 757
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.41242014966626633
+l2 error of shifted learned potential:
+0.41244608436867575
+l2 error of shifted and trimmed learned potential:
+0.03587245377334927
+l-inf error of learned potential:
+0.15977426725505894
+l-inf error of shifted learned potential:
+0.15990997846961252
+l-inf error of shifted and trimmed learned potential:
+0.003052475191189008
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-28_dt-.007/v3
+Current working directory: 07-16-2022/numts-28_dt-.007/v3
+Results directory: 07-16-2022/numts-28_dt-.007/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 7.000e-03 2.800e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 28
+dt = 0.007
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.3943598106036459
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.7635598353976816
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 684
+         Function evaluations: 713
+         Gradient evaluations: 704
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.4124201572391298
+l2 error of shifted learned potential:
+0.4124460647246822
+l2 error of shifted and trimmed learned potential:
+0.03587218917099857
+l-inf error of learned potential:
+0.15977460109507047
+l-inf error of shifted learned potential:
+0.15991023742941557
+l-inf error of shifted and trimmed learned potential:
+0.003052345535180967
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-33_dt-.006/v3
+Current working directory: 07-16-2022/numts-33_dt-.006/v3
+Results directory: 07-16-2022/numts-33_dt-.006/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 6.000e-03 3.300e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 33
+dt = 0.006
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.47056289768896864
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+2.104299653808594
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 698
+         Function evaluations: 764
+         Gradient evaluations: 752
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.41242014144307965
+l2 error of shifted learned potential:
+0.41244608989818793
+l2 error of shifted and trimmed learned potential:
+0.03587186733047056
+l-inf error of learned potential:
+0.15977399509915224
+l-inf error of shifted learned potential:
+0.159909745359203
+l-inf error of shifted and trimmed learned potential:
+0.003052490220406767
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-40_dt-.005/v3
+Current working directory: 07-16-2022/numts-40_dt-.005/v3
+Results directory: 07-16-2022/numts-40_dt-.005/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 5.000e-03 4.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 40
+dt = 0.005
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.5774284682592692
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+2.582143670158264
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 658
+         Function evaluations: 711
+         Gradient evaluations: 702
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.41242015865380843
+l2 error of shifted learned potential:
+0.4124460624951013
+l2 error of shifted and trimmed learned potential:
+0.03587219723915041
+l-inf error of learned potential:
+0.159774655116105
+l-inf error of shifted learned potential:
+0.15991028131785723
+l-inf error of shifted and trimmed learned potential:
+0.0030523316099940745
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-50_dt-.004/v3
+Current working directory: 07-16-2022/numts-50_dt-.004/v3
+Results directory: 07-16-2022/numts-50_dt-.004/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 4.000e-03 5.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.004
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.7165008722232128
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+3.2040656433773935
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 643
+         Function evaluations: 708
+         Gradient evaluations: 698
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.4124201584310555
+l2 error of shifted learned potential:
+0.4124460628404472
+l2 error of shifted and trimmed learned potential:
+0.03587219516922261
+l-inf error of learned potential:
+0.15977464676063458
+l-inf error of shifted learned potential:
+0.15991027454036666
+l-inf error of shifted and trimmed learned potential:
+0.0030523337110911486
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-66_dt-.003/v3
+Current working directory: 07-16-2022/numts-66_dt-.003/v3
+Results directory: 07-16-2022/numts-66_dt-.003/v3/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 3.000e-03 6.600e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.9204027724125055
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+4.115997988864629
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 685
+         Function evaluations: 738
+         Gradient evaluations: 728
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.4124201498908723
+l2 error of shifted learned potential:
+0.4124460840511058
+l2 error of shifted and trimmed learned potential:
+0.03587247409591643
+l-inf error of learned potential:
+0.159774273683861
+l-inf error of shifted learned potential:
+0.15990998342128138
+l-inf error of shifted and trimmed learned potential:
+0.003052474761272461
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-100_dt-.002/v4
+Current working directory: 07-16-2022/numts-100_dt-.002/v4
+Results directory: 07-16-2022/numts-100_dt-.002/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 2.000e-03 1.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 100
+dt = 0.002
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+1.1825085764560774
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+5.7409751047863145
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 695
+         Function evaluations: 737
+         Gradient evaluations: 727
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3.8666279204892273
+l2 error of shifted learned potential:
+3.954886187737929
+l2 error of shifted and trimmed learned potential:
+0.9835524804286583
+l-inf error of learned potential:
+1.094432307437213
+l-inf error of shifted learned potential:
+1.0673555883863481
+l-inf error of shifted and trimmed learned potential:
+0.08407169923180391
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-200_dt-.001/v4
+Current working directory: 07-16-2022/numts-200_dt-.001/v4
+Results directory: 07-16-2022/numts-200_dt-.001/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 200
+dt = 0.001
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+2.348472915059436
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+11.400237856643123
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 629
+         Function evaluations: 668
+         Gradient evaluations: 658
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3.8666279201798623
+l2 error of shifted learned potential:
+3.9548861872793277
+l2 error of shifted and trimmed learned potential:
+0.9835524796764982
+l-inf error of learned potential:
+1.0944323063781842
+l-inf error of shifted learned potential:
+1.0673555873543847
+l-inf error of shifted and trimmed learned potential:
+0.08407169824781868
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-20_dt-.010/v4
+Current working directory: 07-16-2022/numts-20_dt-.010/v4
+Results directory: 07-16-2022/numts-20_dt-.010/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.24990765515193433
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.2144501703817776
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 879
+         Function evaluations: 953
+         Gradient evaluations: 940
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3.8666279232806593
+l2 error of shifted learned potential:
+3.9548861680780183
+l2 error of shifted and trimmed learned potential:
+0.9835524492537432
+l-inf error of learned potential:
+1.0944323169934576
+l-inf error of shifted learned potential:
+1.0673556012923657
+l-inf error of shifted and trimmed learned potential:
+0.0840716782085843
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-22_dt-.009/v4
+Current working directory: 07-16-2022/numts-22_dt-.009/v4
+Results directory: 07-16-2022/numts-22_dt-.009/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 9.000e-03 2.200e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 22
+dt = 0.009
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.26825187366896164
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.302791474742938
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 875
+         Function evaluations: 916
+         Gradient evaluations: 906
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3.8666279228603733
+l2 error of shifted learned potential:
+3.9548861673003444
+l2 error of shifted and trimmed learned potential:
+0.9835524468274435
+l-inf error of learned potential:
+1.0944323155546907
+l-inf error of shifted learned potential:
+1.067355599915082
+l-inf error of shifted and trimmed learned potential:
+0.08407167709633723
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-25_dt-.008/v4
+Current working directory: 07-16-2022/numts-25_dt-.008/v4
+Results directory: 07-16-2022/numts-25_dt-.008/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 8.000e-03 2.500e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 25
+dt = 0.008
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.30815967954961027
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.4971735024119839
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 865
+         Function evaluations: 900
+         Gradient evaluations: 888
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3.866627923108087
+l2 error of shifted learned potential:
+3.9548861676892324
+l2 error of shifted and trimmed learned potential:
+0.9835524480675589
+l-inf error of learned potential:
+1.0944323164026897
+l-inf error of shifted learned potential:
+1.0673556007373202
+l-inf error of shifted and trimmed learned potential:
+0.08407167778117175
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-28_dt-.007/v4
+Current working directory: 07-16-2022/numts-28_dt-.007/v4
+Results directory: 07-16-2022/numts-28_dt-.007/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 7.000e-03 2.800e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 28
+dt = 0.007
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.330708394514766
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.6049472664776523
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 888
+         Function evaluations: 921
+         Gradient evaluations: 909
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3.8666279255436775
+l2 error of shifted learned potential:
+3.9548861814871463
+l2 error of shifted and trimmed learned potential:
+0.9835524946421252
+l-inf error of learned potential:
+1.0944323247404266
+l-inf error of shifted learned potential:
+1.0673556073298465
+l-inf error of shifted and trimmed learned potential:
+0.08407167574823038
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-33_dt-.006/v4
+Current working directory: 07-16-2022/numts-33_dt-.006/v4
+Results directory: 07-16-2022/numts-33_dt-.006/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 6.000e-03 3.300e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 33
+dt = 0.006
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.3941062078055009
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.9133323899218975
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 814
+         Function evaluations: 861
+         Gradient evaluations: 853
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3.8666279204335896
+l2 error of shifted learned potential:
+3.9548861873564918
+l2 error of shifted and trimmed learned potential:
+0.9835524793084023
+l-inf error of learned potential:
+1.0944323072467532
+l-inf error of shifted learned potential:
+1.0673555882454475
+l-inf error of shifted and trimmed learned potential:
+0.08407169909124868
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-40_dt-.005/v4
+Current working directory: 07-16-2022/numts-40_dt-.005/v4
+Results directory: 07-16-2022/numts-40_dt-.005/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 5.000e-03 4.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 40
+dt = 0.005
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.4829868211733537
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+2.3457124917722427
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 846
+         Function evaluations: 894
+         Gradient evaluations: 882
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3.866627925710098
+l2 error of shifted learned potential:
+3.9548861796519437
+l2 error of shifted and trimmed learned potential:
+0.9835524898752498
+l-inf error of learned potential:
+1.094432325310128
+l-inf error of shifted learned potential:
+1.0673556081974336
+l-inf error of shifted and trimmed learned potential:
+0.0840716767305959
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-50_dt-.004/v4
+Current working directory: 07-16-2022/numts-50_dt-.004/v4
+Results directory: 07-16-2022/numts-50_dt-.004/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 4.000e-03 5.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.004
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.599561936913986
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+2.91152812163797
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 798
+         Function evaluations: 841
+         Gradient evaluations: 829
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3.866627922827155
+l2 error of shifted learned potential:
+3.9548861671787963
+l2 error of shifted and trimmed learned potential:
+0.9835524464868621
+l-inf error of learned potential:
+1.094432315440973
+l-inf error of shifted learned potential:
+1.0673555998153503
+l-inf error of shifted and trimmed learned potential:
+0.08407167690849804
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-66_dt-.003/v4
+Current working directory: 07-16-2022/numts-66_dt-.003/v4
+Results directory: 07-16-2022/numts-66_dt-.003/v4/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 3.000e-03 6.600e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.7718106422643594
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+3.745687998086407
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 775
+         Function evaluations: 838
+         Gradient evaluations: 825
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+3.866627922562471
+l2 error of shifted learned potential:
+3.954886167051972
+l2 error of shifted and trimmed learned potential:
+0.9835524461499326
+l-inf error of learned potential:
+1.0944323145348784
+l-inf error of shifted learned potential:
+1.0673555988935708
+l-inf error of shifted and trimmed learned potential:
+0.08407167598550613
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-100_dt-.002/v5
+Current working directory: 07-16-2022/numts-100_dt-.002/v5
+Results directory: 07-16-2022/numts-100_dt-.002/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 2.000e-03 1.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 100
+dt = 0.002
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+249.98322202558583
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+33.64369608919014
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 16.034692
+         Iterations: 219
+         Function evaluations: 272
+         Gradient evaluations: 261
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+224.54531038055447
+l2 error of shifted learned potential:
+224.52552404960193
+l2 error of shifted and trimmed learned potential:
+216.47692478076695
+l-inf error of learned potential:
+50.87616254799032
+l-inf error of shifted learned potential:
+50.87279146793365
+l-inf error of shifted and trimmed learned potential:
+50.87279146793365
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-200_dt-.001/v5
+Current working directory: 07-16-2022/numts-200_dt-.001/v5
+Results directory: 07-16-2022/numts-200_dt-.001/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 200
+dt = 0.001
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+498.113074560334
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+66.98032447372445
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 31.968374
+         Iterations: 186
+         Function evaluations: 218
+         Gradient evaluations: 207
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+224.75738868204732
+l2 error of shifted learned potential:
+224.7536098415672
+l2 error of shifted and trimmed learned potential:
+216.70753214528344
+l-inf error of learned potential:
+50.94659539937855
+l-inf error of shifted learned potential:
+50.945951954173246
+l-inf error of shifted and trimmed learned potential:
+50.945951954173246
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-20_dt-.010/v5
+Current working directory: 07-16-2022/numts-20_dt-.010/v5
+Results directory: 07-16-2022/numts-20_dt-.010/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+51.473962486770496
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+6.978663100678729
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 3.286047
+         Iterations: 330
+         Function evaluations: 369
+         Gradient evaluations: 357
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+222.71306443855963
+l2 error of shifted learned potential:
+222.5809754528547
+l2 error of shifted and trimmed learned potential:
+214.4999466095513
+l-inf error of learned potential:
+50.29457374887793
+l-inf error of shifted learned potential:
+50.271978485583816
+l-inf error of shifted and trimmed learned potential:
+50.271978485583816
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-22_dt-.009/v5
+Current working directory: 07-16-2022/numts-22_dt-.009/v5
+Results directory: 07-16-2022/numts-22_dt-.009/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 9.000e-03 2.200e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 22
+dt = 0.009
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+56.17093340149138
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+7.580027710224887
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 3.595653
+         Iterations: 315
+         Function evaluations: 361
+         Gradient evaluations: 350
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+223.8909941187719
+l2 error of shifted learned potential:
+223.8241053807317
+l2 error of shifted and trimmed learned potential:
+215.76753839214894
+l-inf error of learned potential:
+50.66196754838806
+l-inf error of shifted learned potential:
+50.65055014686864
+l-inf error of shifted and trimmed learned potential:
+50.65055014686864
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-25_dt-.008/v5
+Current working directory: 07-16-2022/numts-25_dt-.008/v5
+Results directory: 07-16-2022/numts-25_dt-.008/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 8.000e-03 2.500e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 25
+dt = 0.008
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+63.881914370640736
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+8.644344529506645
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 4.083170
+         Iterations: 305
+         Function evaluations: 312
+         Gradient evaluations: 312
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+223.19153323052487
+l2 error of shifted learned potential:
+223.08511137048242
+l2 error of shifted and trimmed learned potential:
+215.0140176699925
+l-inf error of learned potential:
+50.442644246427776
+l-inf error of shifted learned potential:
+50.424456302232514
+l-inf error of shifted and trimmed learned potential:
+50.424456302232514
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-28_dt-.007/v5
+Current working directory: 07-16-2022/numts-28_dt-.007/v5
+Results directory: 07-16-2022/numts-28_dt-.007/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 7.000e-03 2.800e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 28
+dt = 0.007
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+70.63139757881166
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+9.481920999644561
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 4.536731
+         Iterations: 303
+         Function evaluations: 361
+         Gradient evaluations: 349
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+225.17450190894178
+l2 error of shifted learned potential:
+225.20280752426154
+l2 error of shifted and trimmed learned potential:
+217.1620950014648
+l-inf error of learned potential:
+51.086398540365266
+l-inf error of shifted learned potential:
+51.09121340703734
+l-inf error of shifted and trimmed learned potential:
+51.09121340703734
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-33_dt-.006/v5
+Current working directory: 07-16-2022/numts-33_dt-.006/v5
+Results directory: 07-16-2022/numts-33_dt-.006/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 6.000e-03 3.300e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 33
+dt = 0.006
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+83.32972654789612
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+11.214981612930753
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 5.344064
+         Iterations: 285
+         Function evaluations: 365
+         Gradient evaluations: 354
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+224.54915252875026
+l2 error of shifted learned potential:
+224.5283523123838
+l2 error of shifted and trimmed learned potential:
+216.48077370516825
+l-inf error of learned potential:
+50.87652813050415
+l-inf error of shifted learned potential:
+50.87298383558077
+l-inf error of shifted and trimmed learned potential:
+50.87298383558077
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-40_dt-.005/v5
+Current working directory: 07-16-2022/numts-40_dt-.005/v5
+Results directory: 07-16-2022/numts-40_dt-.005/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 5.000e-03 4.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 40
+dt = 0.005
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+101.10352078925226
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+13.643149821863352
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 6.473891
+         Iterations: 263
+         Function evaluations: 303
+         Gradient evaluations: 292
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+223.88484126625147
+l2 error of shifted learned potential:
+223.8198168639588
+l2 error of shifted and trimmed learned potential:
+215.76144894361153
+l-inf error of learned potential:
+50.66158269042272
+l-inf error of shifted learned potential:
+50.650486188353995
+l-inf error of shifted and trimmed learned potential:
+50.650486188353995
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-50_dt-.004/v5
+Current working directory: 07-16-2022/numts-50_dt-.004/v5
+Results directory: 07-16-2022/numts-50_dt-.004/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 4.000e-03 5.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.004
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+125.91717741811247
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+16.976277119204887
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 8.067478
+         Iterations: 249
+         Function evaluations: 299
+         Gradient evaluations: 287
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+224.10886135650125
+l2 error of shifted learned potential:
+224.05846671444039
+l2 error of shifted and trimmed learned potential:
+216.00370382628412
+l-inf error of learned potential:
+50.73362794856857
+l-inf error of shifted learned potential:
+50.72503254494722
+l-inf error of shifted and trimmed learned potential:
+50.72503254494722
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-66_dt-.003/v5
+Current working directory: 07-16-2022/numts-66_dt-.003/v5
+Results directory: 07-16-2022/numts-66_dt-.003/v5/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 3.000e-03 6.600e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+164.80161577055722
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+22.123466503941646
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 10.587839
+         Iterations: 246
+         Function evaluations: 267
+         Gradient evaluations: 257
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+225.16928071893037
+l2 error of shifted learned potential:
+225.19878888112584
+l2 error of shifted and trimmed learned potential:
+217.15681620755177
+l-inf error of learned potential:
+51.0857561082099
+l-inf error of shifted learned potential:
+51.090774717641565
+l-inf error of shifted and trimmed learned potential:
+51.090774717641565
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-100_dt-.002/v6
+Current working directory: 07-16-2022/numts-100_dt-.002/v6
+Results directory: 07-16-2022/numts-100_dt-.002/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 2.000e-03 1.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 100
+dt = 0.002
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.6228605443605271
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+3.4867529255766025
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 701
+         Function evaluations: 752
+         Gradient evaluations: 739
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.13592321494512025
+l2 error of shifted learned potential:
+0.8116790676275852
+l2 error of shifted and trimmed learned potential:
+0.666549268257989
+l-inf error of learned potential:
+0.024992744535868194
+l-inf error of shifted learned potential:
+0.04565012125024848
+l-inf error of shifted and trimmed learned potential:
+0.04565012125024848
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-200_dt-.001/v6
+Current working directory: 07-16-2022/numts-200_dt-.001/v6
+Results directory: 07-16-2022/numts-200_dt-.001/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-03 2.000e+02]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 200
+dt = 0.001
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+1.2365037059369781
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+6.922050083146114
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 612
+         Function evaluations: 691
+         Gradient evaluations: 679
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.13592321472425722
+l2 error of shifted learned potential:
+0.8116792390521641
+l2 error of shifted and trimmed learned potential:
+0.6665494111680139
+l-inf error of learned potential:
+0.024992749920216495
+l-inf error of shifted learned potential:
+0.04565012908034638
+l-inf error of shifted and trimmed learned potential:
+0.04565012908034638
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-20_dt-.010/v6
+Current working directory: 07-16-2022/numts-20_dt-.010/v6
+Results directory: 07-16-2022/numts-20_dt-.010/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 1.000e-02 2.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 20
+dt = 0.01
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.13205521021051445
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+0.7391212004393201
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 749
+         Function evaluations: 776
+         Gradient evaluations: 767
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.13592321478126923
+l2 error of shifted learned potential:
+0.8116792305865248
+l2 error of shifted and trimmed learned potential:
+0.6665494032744201
+l-inf error of learned potential:
+0.024992749668860448
+l-inf error of shifted learned potential:
+0.0456501303754282
+l-inf error of shifted and trimmed learned potential:
+0.0456501303754282
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-22_dt-.009/v6
+Current working directory: 07-16-2022/numts-22_dt-.009/v6
+Results directory: 07-16-2022/numts-22_dt-.009/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 9.000e-03 2.200e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 22
+dt = 0.009
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.1414583787749253
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+0.7918335280080584
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 769
+         Function evaluations: 822
+         Gradient evaluations: 814
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.13592321531429347
+l2 error of shifted learned potential:
+0.8116789641132541
+l2 error of shifted and trimmed learned potential:
+0.6665491766678125
+l-inf error of learned potential:
+0.024992741229505233
+l-inf error of shifted learned potential:
+0.045650121805217436
+l-inf error of shifted and trimmed learned potential:
+0.045650121805217436
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-25_dt-.008/v6
+Current working directory: 07-16-2022/numts-25_dt-.008/v6
+Results directory: 07-16-2022/numts-25_dt-.008/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 8.000e-03 2.500e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 25
+dt = 0.008
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.1627077945450105
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+0.9107219294597035
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 708
+         Function evaluations: 746
+         Gradient evaluations: 738
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.1359232123637875
+l2 error of shifted learned potential:
+0.8116802398677025
+l2 error of shifted and trimmed learned potential:
+0.6665502800431691
+l-inf error of learned potential:
+0.0249927820482867
+l-inf error of shifted learned potential:
+0.04565023584846717
+l-inf error of shifted and trimmed learned potential:
+0.04565023584846717
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-28_dt-.007/v6
+Current working directory: 07-16-2022/numts-28_dt-.007/v6
+Results directory: 07-16-2022/numts-28_dt-.007/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 7.000e-03 2.800e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 28
+dt = 0.007
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.17397097708548565
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+0.9739472941752606
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 734
+         Function evaluations: 768
+         Gradient evaluations: 758
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.1359232147138129
+l2 error of shifted learned potential:
+0.8116792394509525
+l2 error of shifted and trimmed learned potential:
+0.6665494116883485
+l-inf error of learned potential:
+0.024992749930438984
+l-inf error of shifted learned potential:
+0.0456501296919809
+l-inf error of shifted and trimmed learned potential:
+0.0456501296919809
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-33_dt-.006/v6
+Current working directory: 07-16-2022/numts-33_dt-.006/v6
+Results directory: 07-16-2022/numts-33_dt-.006/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 6.000e-03 3.300e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 33
+dt = 0.006
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.2075795418268354
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.1620257720839833
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 724
+         Function evaluations: 758
+         Gradient evaluations: 748
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.13592321472684218
+l2 error of shifted learned potential:
+0.8116792392288974
+l2 error of shifted and trimmed learned potential:
+0.6665494112787546
+l-inf error of learned potential:
+0.024992749928058444
+l-inf error of shifted learned potential:
+0.045650128831701275
+l-inf error of shifted and trimmed learned potential:
+0.045650128831701275
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-40_dt-.005/v6
+Current working directory: 07-16-2022/numts-40_dt-.005/v6
+Results directory: 07-16-2022/numts-40_dt-.005/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 5.000e-03 4.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 40
+dt = 0.005
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.2547110457180703
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.425776627375461
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 714
+         Function evaluations: 751
+         Gradient evaluations: 740
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.13592321474532842
+l2 error of shifted learned potential:
+0.8116792368053494
+l2 error of shifted and trimmed learned potential:
+0.666549408977726
+l-inf error of learned potential:
+0.024992749856503238
+l-inf error of shifted learned potential:
+0.0456501293809739
+l-inf error of shifted and trimmed learned potential:
+0.0456501293809739
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-50_dt-.004/v6
+Current working directory: 07-16-2022/numts-50_dt-.004/v6
+Results directory: 07-16-2022/numts-50_dt-.004/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 4.000e-03 5.000e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 50
+dt = 0.004
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.3160617125063627
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+1.7692305940488826
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 701
+         Function evaluations: 757
+         Gradient evaluations: 746
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.13592321473878227
+l2 error of shifted learned potential:
+0.8116792378173068
+l2 error of shifted and trimmed learned potential:
+0.6665494099179682
+l-inf error of learned potential:
+0.02499274988678435
+l-inf error of shifted learned potential:
+0.04565012918875766
+l-inf error of shifted and trimmed learned potential:
+0.04565012918875766
+
+-------INVERSE-------
+
+Command line argument: ./07-16-2022/numts-66_dt-.003/v6
+Current working directory: 07-16-2022/numts-66_dt-.003/v6
+Results directory: 07-16-2022/numts-66_dt-.003/v6/results-inverse
+cmpprm = [1.500e+01 1.025e+03 3.200e+01 3.000e-03 6.600e+01]
+Computational variables loaded.
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Number of a0 states: 4
+
+model = fourier
+
+trim = 171
+
+Starting inverse problem.
+seed = 1234
+thetarnd saved.
+jitwaveobject(model.randtheta(*modelprms, seed=1234)):
+0.4060331400198939
+nl.norm(jitwavegradsadj(model.randtheta(*modelprms, seed=1234))):
+2.2731027058561253
+Warning: Desired error not necessarily achieved due to precision loss.
+         Current function value: 0.000000
+         Iterations: 674
+         Function evaluations: 731
+         Gradient evaluations: 722
+thetahat saved.
+midpointindex = 512
+l2 error of learned potential:
+0.13592321471354407
+l2 error of shifted learned potential:
+0.8116792397251542
+l2 error of shifted and trimmed learned potential:
+0.6665494119198437
+l-inf error of learned potential:
+0.02499274993941114
+l-inf error of shifted learned potential:
+0.04565012967387938
+l-inf error of shifted and trimmed learned potential:
+0.04565012967387938
+
