@@ -21,6 +21,14 @@ timetotalstart = time_ns()
 
 
 ###############################################################
+# identify script on stdout
+###############################################################
+
+scriptID = 'inverse'
+print(f'-------{scriptID.upper()}-------')
+
+
+###############################################################
 # get commandline arguments
 # - cmdlineargmodel: choice of model. Store as a string.
 #   possible selections are {'fourier', 'cheby'}
@@ -97,14 +105,6 @@ elif cmdlineargmodel == 'cheby':
     model = tdsemodelclass.cheby
 else:
     print(f'Model selection "{cmdlineargmodel}" not recognized.')
-
-
-###############################################################
-# identify script on stdout
-###############################################################
-
-scriptID = 'inverse'
-print(f'-------{scriptID.upper()}-------')
 
 
 ###############################################################

@@ -45,14 +45,11 @@ modellist=("fourier" "cheby")
 # each experiment consists of many trials where one
 # or a few parameters are changed each trial
 
-# define Bash variables
-
-
-
 # run pyscript
 for thisv in {0..6}; do
   # store path for current potential
   thispath=./"$parentdir"/v"$thisv"
+  echo "$thispath"
 
   # store the directory contents of ./"$parentdir"/v"$thisv"
   # as a bash array
@@ -69,6 +66,7 @@ for thisv in {0..6}; do
   for thistrial in "${filelist[@]}"; do
     # ./"$parentdir"/v"$thisv"/"$thistrial"
     thistrialpath="$thispath"/"$thistrial"
+    echo "$thistrialpath"
 
     for thismodel in "${modellist[@]}"; do
       # make the results directory

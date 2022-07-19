@@ -15,6 +15,15 @@ import tdsemodelclass
 
 
 ###############################################################
+# identify script on stdout
+###############################################################
+
+scriptID = 'forward'
+print(f'-------{scriptID.upper()}-------')
+print('')  # blank line
+
+
+###############################################################
 # get commandline arguments
 # - cmdlineargsavedir: directory to save files to
 # - cmdlineargpotential: selection of true potential,
@@ -41,15 +50,6 @@ print('cmdlineargnumts =', cmdlineargnumts)
 # time-step size
 cmdlineargdt = float(sys.argv[4])
 print('cmdlineargdt =', cmdlineargdt)
-
-
-###############################################################
-# identify script on stdout
-###############################################################
-
-scriptID = 'forward'
-print(f'-------{scriptID.upper()}: v{cmdlineargpotential}-------')
-print('')  # blank line
 
 
 ###############################################################
