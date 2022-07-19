@@ -47,7 +47,10 @@ class fourier:
         # real space grid points (for plotting)
         xvec = np.linspace(-L, L, numx)
 
-        # matrix for converting Fourier representation to real space
+        # matrix for converting vector Fourier model
+        # coefficients to real space, that is, given
+        # {\nu_n}_{n=-F}^F = (2L)^{-1/2} \int_{x=-L}^L e^{-i \pi n x / L} fn(x) dx
+        # {fnxvec_m}_{m=0}^N = \sum_{n=-F}^F \nu_n e^{i \pi n m \Delta x / L}
         # used like realspacevec = fourspacevec @ fourtox
         self._fourtoxmat = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 
@@ -87,15 +90,30 @@ class fourier:
     def tox(self):
         ##################################################
         # This method transforms self.theta into a
-        # real space potential
+        # real space potential.
+        # - self.theta is the potential
+        #   operator matrix in Toeplitz form with its real
+        #   and imaginary parts concatenated together.
         ##################################################
+
+        # first we need to transform theta into a complex valued
+        # vector
         thetaR = self.theta[:self._numtoepelms]
         thetaI = jnp.concatenate((jnp.array([0.0]), self.theta[self._numtoepelms:]))
-        thetacomplex = thetaR + 1j * thetaI
+        thetaC = thetaR + 1j * thetaI
 
-        potentialfourier = np.sqrt(2 * self._L) * np.concatenate([np.conjugate(np.flipud(thetacomplex[1:(self._numfour + 1)])), thetacomplex[:(self._numfour + 1)]])
+        # Mathematically,
+        # thetaC_j = (2L)^{-1} \int_{x=-L}^L e^{-i \pi j x / L} fn(x) dx; j = {0, ..., 2F + 1}
+        # but we want it to be
+        # thetaC_n = (2L)^{-1/2} \int_{x=-L}^L e^{-i \pi n x / L} fn(x) dx; n = {-F, ..., F}
+        # so we need to multiply (2L)^{1/2} thetaC
+        scaledthetaC = np.sqrt(2 * self._L) * thetaC
+        # then adjust the elements slightly, because we know the fn we
+        # are trying to approximate with theta is real, the imaginary
+        # part (n < 0) is just the complex conjugate of the real part (n >= 0)
+        recmodelcoeff = np.concatenate([np.conjugate(np.flipud(scaledthetaC[1:(self._numfour + 1)])), scaledthetaC[:(self._numfour + 1)]])
 
-        potentialxvec = jnp.real(potentialfourier @ self._fourtoxmat)
+        potentialxvec = jnp.real(recmodelcoeff @ self._fourtoxmat)
 
         return potentialxvec
 
@@ -232,49 +250,91 @@ class fourier:
         # This method takes a function and returns the
         # model representation of it without using
         # structures internal to the class
+        # - Math:
+        #   - fn = sum_{j=-F}^F fnmodelcoeff_n * e^{i \pi n x / L}
+        #   - fnmodelcoeff_m = <\phi_m, fn>
+        #                    = (2L)^{-1/2} \int_{x=-L}^L e^{-i \pi n x / L} fn(x) dx
+        # - This can be used to transform (un-normalized) wave
+        #   functions to the Fourier representation
+        # - fn is a 1D real- or complex-valued function,
+        #   that is a callable that takes floating point input
+        #   and returns a real- or complex-valued output
+        # - args is a tuple containing the parameters needed
+        #   to fully define the mode
+        #################################################
+        L, numx, numfour = args
+
+        def basisfn(x):
+            return np.exp(1j * np.pi * thisfourn * x / L) / np.sqrt(2 * L)
+
+        # compute the potential operator matrix, vmat
+        fnmodelcoeff = []
+        for thisfourn in range(-numfour, numfour + 1):
+            def intgrnd(x):
+                return np.conj(basisfn(x)) * fn(x)
+            def rintgrnd(x):
+                return intgrnd(x).real
+            def iintgrnd(x):
+                return intgrnd(x).imag
+            fnmodelcoeff.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
+
+        fnmodelcoeff = np.array(fnmodelcoeff)
+
+        return fnmodelcoeff
+
+
+    def fntotheta(fn, *args):
+        #################################################
+        # This method takes a function and returns
+        # the theta, i.e., the structure given to the
+        # optimizer for learning, without using any
+        # structures internal to the class.
+        # - Math:
+        #   - vmat_{m n} = <\phi_m, fn \phi_n>
+        #                = (2L)^{-1} \int_{x=-L}^L e^{i \pi (n-m) x / L} fn(x) dx
+        #           m,n = {-F, ..., 0, ..., F}
+        #   - vmattoepC_{j=m-n} = (2L)^{-1} \int_{x=-L}^L e^{i \pi j x / L} fn(x) dx
+        #           j = {0, ..., 2 * F + 1}
+        #   - vmattoepR = Real(vmattoepC)
+        #   - vmattoepI = Imaginary(vmattoepC)
+        #   - theta = Concatenate([vmattoepR, vmattoepI])
+        # - Theta may be different from the
+        #   model representation of a function.
+        #   - For example, the Fourier model represents a
+        #     function is a set of complex valued
+        #     coefficients, but theta is a vector of the
+        #     real and imaginary parts of the Toeplitz form
+        #     of the potential operator matrix concatenation
+        #     together.
+        # - fn is assumed to be a 1D real-valued function,
+        #   that is a callable that takes a floating point
+        #   value as input and returns a floating point value
+        #   as output
         # - args is a tuple containing the parameters needed
         #   to fully define the mode
         #################################################
         L, numx, numfour = args
         numtoepelms = 2 * numfour + 1
 
-        # compute the potential operator matrix, vmat
-        fntoep = []
+        def innerprodbasis(x):
+            return np.exp(1j * np.pi * thisfourn * x / L) / (2 * L)
+
+        # compute the potential operator matrix, vmat,
+        # in the Toeplitz form
+        fntoepC = []
         for thisfourn in range(numtoepelms):
             def intgrnd(x):
-                return fn(x) * np.exp(-1j * np.pi * thisfourn * x / L) / (2 * L)
+                return np.conj(innerprodbasis(x)) * fn(x)
             def rintgrnd(x):
                 return intgrnd(x).real
             def iintgrnd(x):
                 return intgrnd(x).imag
-            fntoep.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
+            fntoepC.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
 
-        fntoep = jnp.array(fntoep)
+        fntoepC = np.array(fntoepC)
 
-        return fntoep
-
-    def fntotheta(fn, *args):
-        #################################################
-        # This method takes a function and returns
-        # the theta
-        # - theta is the structure given to the optimizer
-        #   for learning and may be different from the
-        #   model representation of a function (e.g.,
-        #   the Fourier model represents a function as
-        #   a set of complex valued coefficients, but we
-        #   give the optimizer a concatenation of the real
-        #   and imaginary parts of the model)
-        # - args is a tuple containing the parameters needed
-        #   to fully define the mode
-        # This method takes a function and returns
-        # the theta used by the Fourier class
-        # - The Fourier model is the Toeplitz representation
-        #   of vmat split into real and imaginary parts
-        #   and concatenated together,
-        #################################################
-        fntoep = fourier.fntomodel(fn, *args)
-
-        theta = jnp.concatenate((fntoep.real, fntoep[1:].imag))
+        # concatenate the real and imaginary parts together
+        theta = jnp.concatenate((fntoepC.real, fntoepC[1:].imag))
 
         return theta
 

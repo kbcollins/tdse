@@ -132,6 +132,9 @@ xvec = np.linspace(-L, L, numx)
 fournvec = np.arange(-numfour, numfour + 1)
 
 # matrix for converting Fourier representation to real space
+# - this converts functions in terms of the Fourier basis,
+#   i.e., fn(x) = \sum_{n=-F}^F c_n \phi_n(x)
+# - this does not convert vmat to real
 # used like realspacevec = fourspacevec @ fourtox
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 

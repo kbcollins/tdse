@@ -15,14 +15,6 @@ import tdsemodelclass
 
 
 ###############################################################
-# identify script on stdout
-###############################################################
-
-print('-------FORWARD-------')
-print('')  # blank line
-
-
-###############################################################
 # get commandline arguments
 # - cmdlineargsavedir: directory to save files to
 # - cmdlineargpotential: selection of true potential,
@@ -53,6 +45,14 @@ print('cmdlineargdt =', cmdlineargdt)
 # time-step size
 cmdlineargdt = float(sys.argv[4])
 print('cmdlineargdt =', cmdlineargdt)
+
+
+###############################################################
+# identify script on stdout
+###############################################################
+
+print(f'-------FORWARD: v{cmdlineargpotential}-------')
+print('')  # blank line
 
 
 ###############################################################
@@ -115,6 +115,9 @@ xvec = np.linspace(-L, L, numx)
 fournvec = np.arange(-numfour, numfour + 1)
 
 # matrix for converting Fourier representation to real space
+# - this converts functions in terms of the Fourier basis,
+#   i.e., fn(x) = \sum_{n=-F}^F c_n \phi_n(x)
+# - this does not convert vmat to real
 # used like realspacevec = fourspacevec @ fourtox
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 # np.save(workingdir / 'fourtox', fourtox)

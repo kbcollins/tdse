@@ -6,11 +6,24 @@
 #SBATCH --time=02:00:00           # set total run time limit for job
 
 
-################## BASH SCRIPT ##################
+################## BASH VARIABLES ##################
+# Define Bash variables used to define where data
+# is stored and saved, as well as, test parameters
 
-# Define Bash variables
-period="0.2"  # seconds
+# directory set up like: ./"$parentdir"/v"$potential"/
+# - Inside v"$potential" is the training data and result folders
+# - Result folders are named like:
+#   ./"$parentdir"/v"$potential"/results-"$SLURM_JOB_NAME"
+# - Result folders contain:
+#   - graphs
+#   - any output that might be used by other scripts
+#     (e.g., results-converge would contain bestthetav.npy
+#     and bestthetaprop.npy which are used by the propagation
+#     test)
 parentdir="07-16-2022"
+potential={0..6}
+
+period="0.2"  # seconds
 
 # run pyscript
 for i in {0..6}; do
