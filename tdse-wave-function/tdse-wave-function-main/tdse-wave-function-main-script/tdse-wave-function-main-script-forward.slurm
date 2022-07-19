@@ -20,18 +20,31 @@
 #     (e.g., results-converge would contain bestthetav.npy
 #     and bestthetaprop.npy which are used by the propagation
 #     test)
-parentdir="07-16-2022"
-potential={0..6}
+parentdir="dt"
 
 period="0.2"  # seconds
 
+
+################## EXPERIMENT SETUP ##################
+# The Bash script that calls the desired Pyscript(s)
+# and feeds it(them) the test parameters (i.e.,
+# the Pyscript defines what test procedure,
+# running the Pyscript is conducting one trial,
+# each experiment consists of many trials where one
+# or a few parameters are changed each trial
+
 # run pyscript
-for i in {0..6}; do
-  for j in {0..9}; do
-    thisdt=`echo "scale=10; 0.01-(0.001*"$j")" | bc`
+for potential in {0..6}; do
+  for j in {0..20}; do
+    # scale tells bc how many decimals it should
+    # return, the '|' is a "pipe" -it directs the
+    # output of the echo command as the input of
+    # the bc command
+    thisdt=`echo "scale=10; 0.001+(0.0001*"$j")" | bc`
     thisnumts=`echo "scale=0; "$period"/"$thisdt"" | bc`
-    mkdir -p ./"$parentdir"/numts-"$thisnumts"_dt-"$thisdt"/v"$i"
-    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py ./"$parentdir"/numts-"$thisnumts"_dt-"$thisdt" "$i" "$thisnumts" "$thisdt"
+    thispath=./"$parentdir"/v"$i"/numts-"$thisnumts"_dt-"$thisdt"
+    mkdir -p "$thispath"
+    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thispath" "$i" "$thisnumts" "$thisdt"
 #    python tdse-wave-function-main-script-forward-kbc.py ./"$parentdir"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
   done
 done
