@@ -338,6 +338,9 @@ amattruevec = jnp.array(amattruevec)
 np.save(savedir / 'amattruevec', amattruevec)
 print('amattruevec saved.')
 
+# start a new so next write to histcsv will continue
+# on the next line
+histcsv.write(newline)
 # close histcsv
 print('histcsv closed =', histcsv.close())
 
