@@ -42,9 +42,9 @@ for thisv in {0..6}; do
     # the bc command
     thisdt=`echo "scale=10; 0.001+(0.0001*"$j")" | bc`
     thisnumts=`echo "scale=0; "$period"/"$thisdt"" | bc`
-    thispath=./"$parentdir"/v"thisv"/numts-"$thisnumts"_dt-"$thisdt"
+    thispath=./"$parentdir"/v"$thisv"/numts-"$thisnumts"_dt-"$thisdt"
     mkdir -p "$thispath"
-    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thispath" "thisv" "$thisnumts" "$thisdt"
+    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thispath" "$thisv" "$thisnumts" "$thisdt"
 #    python tdse-wave-function-main-script-forward-kbc.py ./"$parentdir"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
   done
 done
