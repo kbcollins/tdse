@@ -34,7 +34,7 @@ period="0.2"  # seconds
 # or a few parameters are changed each trial
 
 # run pyscript
-for potential in {0..6}; do
+for thisv in {0..6}; do
   for j in {0..20}; do
     # scale tells bc how many decimals it should
     # return, the '|' is a "pipe" -it directs the
@@ -42,9 +42,9 @@ for potential in {0..6}; do
     # the bc command
     thisdt=`echo "scale=10; 0.001+(0.0001*"$j")" | bc`
     thisnumts=`echo "scale=0; "$period"/"$thisdt"" | bc`
-    thispath=./"$parentdir"/v"$i"/numts-"$thisnumts"_dt-"$thisdt"
+    thispath=./"$parentdir"/v"thisv"/numts-"$thisnumts"_dt-"$thisdt"
     mkdir -p "$thispath"
-    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thispath" "$i" "$thisnumts" "$thisdt"
+    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thispath" "thisv" "$thisnumts" "$thisdt"
 #    python tdse-wave-function-main-script-forward-kbc.py ./"$parentdir"/numts-"$thisnumts"_dt-"$thisdt" "$i" $thisnumts $thisdt
   done
 done
