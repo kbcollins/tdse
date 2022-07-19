@@ -64,8 +64,8 @@ propatrue = np.load(workingdir / 'propatrue.npy')
 amattruevec = np.load(workingdir / 'amattruevec.npy')
 
 # load true potential
-# fourtox = np.load(workingdir / 'fourtox.npy')
-# vtruetoep = np.load(workingdir / 'vtruetoep.npy')
+# fourtox = np.load(savedir / 'fourtox.npy')
+# vtruetoep = np.load(savedir / 'vtruetoep.npy')
 vtruexvec = np.load(workingdir / 'vtruexvec.npy')
 vtruexrange = np.amax(vtruexvec) - np.amin(vtruexvec)
 

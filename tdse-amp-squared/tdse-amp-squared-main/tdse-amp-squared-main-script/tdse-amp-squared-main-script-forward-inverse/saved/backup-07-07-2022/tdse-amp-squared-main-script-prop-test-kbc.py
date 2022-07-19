@@ -46,11 +46,11 @@ numts = int(numts)
 # load state variables
 a0vec = np.load(cwddir / 'a0vec.npy')
 propatrue = np.load(cwddir / 'propatrue.npy')
-# amattruevec = np.load(workingdir / 'amattruevec.npy')
+# amattruevec = np.load(savedir / 'amattruevec.npy')
 
-# fourtox = np.load(workingdir / 'fourtox.npy')
-# vtruetoep = np.load(workingdir / 'vtruetoep.npy')
-# vtruexvec = np.load(workingdir / 'vtruexvec.npy')
+# fourtox = np.load(savedir / 'fourtox.npy')
+# vtruetoep = np.load(savedir / 'vtruetoep.npy')
+# vtruexvec = np.load(savedir / 'vtruexvec.npy')
 
 thetabestv = np.load(cwddir / 'thetabestv.npy')
 thetabestprop = np.load(cwddir / 'thetabestprop.npy')

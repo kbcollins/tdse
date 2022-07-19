@@ -61,11 +61,11 @@ numts = int(cmpprm[4])
 # load state variables
 a0vec = np.load(workingdir / 'a0vec.npy')
 propatrue = np.load(workingdir / 'propatrue.npy')
-# amattruevec = np.load(workingdir / 'amattruevec.npy')
+# amattruevec = np.load(savedir / 'amattruevec.npy')
 
 # load true potential
 vtruetoep = np.load(workingdir / 'vtruetoep.npy')
-# vtruexvec = np.load(workingdir / 'vtruexvec.npy')
+# vtruexvec = np.load(savedir / 'vtruexvec.npy')
 
 # load best learned potentials (i.e., \theta)
 thetabestv = np.load(workingdir / 'thetabestv.npy')

@@ -49,8 +49,8 @@ a0vec = np.load(cwddir / 'a0vec.npy')
 propatrue = np.load(cwddir / 'propatrue.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
 
-# fourtox = np.load(workingdir / 'fourtox.npy')
-# vtruetoep = np.load(workingdir / 'vtruetoep.npy')
+# fourtox = np.load(savedir / 'fourtox.npy')
+# vtruetoep = np.load(savedir / 'vtruetoep.npy')
 vxvec = np.load(cwddir / 'vtruexvec.npy')
 vxrange = np.amax(vxvec) - np.amin(vxvec)
 

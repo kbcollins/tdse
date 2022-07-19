@@ -66,7 +66,7 @@ print('numx =', numx)
 
 # real space grid points (for plotting)
 xvec = np.linspace(-L, L, numx)
-# np.save(workingdir/'xvec', xvec)
+# np.save(savedir/'xvec', xvec)
 # print('xvec saved.')
 
 # number of Fourier basis functions
@@ -107,7 +107,7 @@ fournvec = np.arange(-numfour, numfour + 1)
 # matrix for converting Fourier representation to real space
 # used like realspacevec = fourspacevec @ fourtox
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
-# np.save(workingdir / 'fourtox', fourtox)
+# np.save(savedir / 'fourtox', fourtox)
 # print('fourtox saved.')
 
 

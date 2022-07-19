@@ -31,7 +31,7 @@ print('')  # blank line
 # - cmdlineargsavedir: directory to load/save data to
 ###############################################################
 
-# model
+# select model of potentil
 cmdlineargmodel = sys.argv[1]
 print('cmdlineargmodel =', cmdlineargmodel)
 
@@ -75,11 +75,11 @@ numts = int(cmpprm[4])
 
 # load state variables
 a0vec = np.load(workingdir / 'a0vec.npy')
-# propatrue = np.load(workingdir / 'propatrue.npy')
+# propatrue = np.load(savedir / 'propatrue.npy')
 amattruevec = np.load(workingdir / 'amattruevec.npy')
 
 # load true potential
-# vtruetoep = np.load(workingdir / 'vtruetoep.npy')
+# vtruetoep = np.load(savedir / 'vtruetoep.npy')
 vtruexvec = np.load(workingdir / 'vtruexvec.npy')
 
 # print computational environment variables to stdout
@@ -413,7 +413,7 @@ thetahat = model(*modelprms, seed=1234)
 # and store
 vinitrec = thetahat.tox()
 
-# np.save(workingdir / 'thetarnd', thetarnd)
+# np.save(savedir / 'thetarnd', thetarnd)
 # print('thetarnd saved.')
 
 # start optimization (i.e., learning theta) and store
