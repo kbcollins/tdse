@@ -188,7 +188,7 @@ for thispsi0fn in psi0fnvec:
     # normpsi0xvec.append(tempnormpsi0x)
     # normpsi0recxvec.append(tempa0 @ fourtox)
 
-# np.save(savedir / 'a0vec', a0vec)
+# np.save(workdir / 'a0vec', a0vec)
 # print('a0vec saved.')
 
 # check if reconstructed Fourier representation is close to truth

@@ -59,18 +59,8 @@ print('')  # blank line
 # file path to directory where output (like training data)
 # should be saved. The directory should be set up like:
 # ./<parent>/<potential>/<trial>/
-savedir = cmdlineargsavedir
-print('Save directory:', savedir)
-
-# Open data history file in append mode.
-# Data history files are specific to potentials but shared by
-# all the trials
-histcsv = open(savedir.parent / f'hist-{scriptID}.txt', mode='a')
-
-# set helpful strings to be used when writing to
-# histcsv
-delim=', '
-newline='\n'
+workdir = cmdlineargsavedir
+print('Save directory:', workdir)
 
 print('')  # blank line
 
@@ -99,19 +89,14 @@ dt = cmdlineargdt
 
 # print computational environment variables to stdout
 print('L =', L)
-histcsv.write(str(L) + delim)
 print('numx =', numx)
-histcsv.write(str(numx) + delim)
 print('numfour =', numfour)
-histcsv.write(str(numfour) + delim)
 print('numts =', numts)
-histcsv.write(str(numts) + delim)
 print('dt =', dt)
-histcsv.write(str(dt) + delim)
 
 # save computational parameters to disk
 cmpprm = [L, numx, numfour, dt, numts]  # original cmpprm (what all other scripts expect)
-np.save(savedir / 'cmpprm', cmpprm)
+np.save(workdir / 'cmpprm', cmpprm)
 print('Computational parameters saved.')
 
 print('')  # blank line
@@ -134,7 +119,7 @@ fournvec = np.arange(-numfour, numfour + 1)
 # - this does not convert vmat to real
 # used like realspacevec = fourspacevec @ fourtox
 fourtox = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
-# np.save(savedir / 'fourtox', fourtox)
+# np.save(workdir / 'fourtox', fourtox)
 # print('fourtox saved.')
 
 # number of Toeplitz elements in the Fourier representation
@@ -203,7 +188,7 @@ else:
 
 # true potential on real space grid (for plotting)
 vtruexvec = v(xvec)
-np.save(savedir / 'vtruexvec', vtruexvec)
+np.save(workdir / 'vtruexvec', vtruexvec)
 print('vtruexvec saved.')
 
 
@@ -297,9 +282,8 @@ for thispsi0fn in psi0fnvec:
 
 
 print('Number of a0 states:', len(a0vec))
-histcsv.write(str(len(a0vec)) + delim)
 
-np.save(savedir / 'a0vec', a0vec)
+np.save(workdir / 'a0vec', a0vec)
 print('a0vec saved.')
 
 
@@ -320,7 +304,7 @@ spctrue, stttrue = jnl.eigh(hmattrue)
 
 # compute propagator matrix
 propatrue = stttrue @ jnp.diag(jnp.exp(-1j * spctrue * dt)) @ stttrue.conj().T
-np.save(savedir / 'propatrue', propatrue)
+np.save(workdir / 'propatrue', propatrue)
 print('propatrue saved.')
 
 # propagate system starting from initial "a" state
@@ -335,14 +319,8 @@ for thisa0 in a0vec:
     amattruevec.append(tempamat)
 
 amattruevec = jnp.array(amattruevec)
-np.save(savedir / 'amattruevec', amattruevec)
+np.save(workdir / 'amattruevec', amattruevec)
 print('amattruevec saved.')
-
-# start a new so next write to histcsv will continue
-# on the next line
-histcsv.write(newline)
-# close histcsv
-print('histcsv closed =', histcsv.close())
 
 print('Done with forward problem.')
 print('')  # blank line

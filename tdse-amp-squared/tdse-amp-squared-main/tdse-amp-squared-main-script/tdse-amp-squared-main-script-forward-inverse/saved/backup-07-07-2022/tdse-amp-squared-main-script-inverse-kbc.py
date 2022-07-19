@@ -44,11 +44,11 @@ numfour = int(numfour)
 numts = int(numts)
 
 # load state variables
-# a0vec = np.load(savedir / 'a0vec.npy')
+# a0vec = np.load(workdir / 'a0vec.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
 
-# fourtox = np.load(savedir / 'fourtox.npy')
-# vtruetoep = np.load(savedir / 'vtruetoep.npy')
+# fourtox = np.load(workdir / 'fourtox.npy')
+# vtruetoep = np.load(workdir / 'vtruetoep.npy')
 vxvec = np.load(cwddir / 'vtruexvec.npy')
 
 print('Computational environment loaded.')

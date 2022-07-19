@@ -44,11 +44,11 @@ numfour = int(numfour)
 numts = int(numts)
 
 # load state variables
-# a0vec = np.load(savedir / 'a0vec.npy')
+# a0vec = np.load(workdir / 'a0vec.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
 
-# fourtox = np.load(savedir / 'fourtox.npy')
-# vtruetoep = np.load(savedir / 'vtruetoep.npy')
+# fourtox = np.load(workdir / 'fourtox.npy')
+# vtruetoep = np.load(workdir / 'vtruetoep.npy')
 vxvec = np.load(cwddir / 'vtruexvec.npy')
 
 print('Computational environment loaded.')
@@ -340,53 +340,53 @@ print('seed =', seed)
 
 thetanormal = np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
 # theta = jnp.array(theta)
-# np.save(savedir / 'theta', theta)
+# np.save(workdir / 'theta', theta)
 # print('theta saved.')
 
 thetanormalnarrow = np.random.default_rng(seed).normal(scale=0.5, size=numtoepelms * 2 - 1)
 # theta = jnp.array(theta)
-# np.save(savedir / 'theta', theta)
+# np.save(workdir / 'theta', theta)
 # print('theta saved.')
 
 thetanormalwide = np.random.default_rng(seed).normal(scale=2.0, size=numtoepelms * 2 - 1)
 # theta = jnp.array(theta)
-# np.save(savedir / 'theta', theta)
+# np.save(workdir / 'theta', theta)
 # print('theta saved.')
 
 thetanormalscaled = 0.001 * np.random.default_rng(seed).normal(size=numtoepelms * 2 - 1)
 # theta = jnp.array(theta)
-# np.save(savedir / 'theta', theta)
+# np.save(workdir / 'theta', theta)
 # print('theta saved.')
 
 thetanormalnarrowscaled = 0.001 * np.random.default_rng(seed).normal(scale=0.5, size=numtoepelms * 2 - 1)
 # theta = jnp.array(theta)
-# np.save(savedir / 'theta', theta)
+# np.save(workdir / 'theta', theta)
 # print('theta saved.')
 
 thetanormalwidescaled = 0.001 * np.random.default_rng(seed).normal(scale=2.0, size=numtoepelms * 2 - 1)
 # theta = jnp.array(theta)
-# np.save(savedir / 'theta', theta)
+# np.save(workdir / 'theta', theta)
 # print('theta saved.')
 
 thetauniform = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)
 thetauniform = 2.0 * thetauniform - 1.0  # interval [-1.0, 1.0)
 # theta = jnp.array(theta)
-# np.save(savedir / 'theta', theta)
+# np.save(workdir / 'theta', theta)
 # print('theta saved.')
 
 thetauniformnarrow = 0.02 * thetauniform - 0.01  # interval [-0.01, 0.01)
 # theta = jnp.array(theta)
-# np.save(savedir / 'theta', theta)
+# np.save(workdir / 'theta', theta)
 # print('theta saved.')
 
 thetauniformwide = 10.0 * thetauniform - 5.0  # interval [-5.0, 5.0)
 # theta = jnp.array(theta)
-# np.save(savedir / 'theta', theta)
+# np.save(workdir / 'theta', theta)
 # print('theta saved.')
 
 thetauniformpositive = np.random.default_rng(seed).random(size=numtoepelms * 2 - 1)  # interval [0.0, 1.0)
 # theta = jnp.array(theta)
-# np.save(savedir / 'theta', theta)
+# np.save(workdir / 'theta', theta)
 # print('theta saved.')
 
 thetavec = [thetanormal,
@@ -429,7 +429,7 @@ for i in range(len(thetavec)):
                                    jac=jitadjgrads,
                                    tol=1e-12,options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
 
-    # np.save(savedir / 'rsltadjtheta', rsltadjtheta)
+    # np.save(workdir / 'rsltadjtheta', rsltadjtheta)
     # print('rsltadjtheta saved.')
 
     # transform randtheta theta to real space potentials

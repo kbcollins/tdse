@@ -60,7 +60,7 @@ numfour = int(numfour)
 numts = int(numts)
 
 # load state variables
-# a0vec = np.load(savedir / 'a0vec.npy')
+# a0vec = np.load(workdir / 'a0vec.npy')
 amattruevec = np.load(cwddir / 'amattruevec.npy')
 
 print('Computational environment loaded.')
@@ -462,5 +462,5 @@ for i in range(numsec):
     #     plt.title('Real Part of Final State - Learned vs. Truth')
     #     plt.legend()
     #     # plt.show()
-    #     plt.savefig(savedir / f'graph_real_part_last_state_learned_vs_truth_{i}.pdf', format='pdf')
+    #     plt.savefig(workdir / f'graph_real_part_last_state_learned_vs_truth_{i}.pdf', format='pdf')
     #     plt.close()

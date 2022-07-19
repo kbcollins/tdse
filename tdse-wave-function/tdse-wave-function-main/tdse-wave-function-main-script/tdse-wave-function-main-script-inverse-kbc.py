@@ -1,5 +1,6 @@
 import sys
 import pathlib
+from time import time_ns
 import numpy as np
 import numpy.linalg as nl
 import scipy.optimize as so
@@ -15,47 +16,37 @@ os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
 import tdsemodelclass
 
-
-###############################################################
-# identify script on stdout
-###############################################################
-
-print('-------INVERSE-------')
-print('')  # blank line
+# save initial time of script
+timetotalstart = time_ns()
 
 
 ###############################################################
 # get commandline arguments
 # - cmdlineargmodel: choice of model. Store as a string.
 #   possible selections are {'fourier', 'cheby'}
-# - cmdlineargsavedir: directory to load/save data to
+# - cmdlineargsavedir: directory to load/save data to/from
 ###############################################################
 
-# select model of potentil
+print('sys.argv =', sys.argv)
+
+# model of potentil
 cmdlineargmodel = sys.argv[1]
 print('cmdlineargmodel =', cmdlineargmodel)
 
-# get path to directory containing amat from command line
+# path to directory containing amat from command line
 cmdlinearg = sys.argv[2]
 print('Command line argument:', cmdlinearg)
 
 
 ###############################################################
-# set load and results directory
+# set path to working directory
 ###############################################################
 
-# transform commandline argument to path object
-workingdir = pathlib.Path(cmdlinearg)
-print('Current working directory:', workingdir)
-
-# set identifier for saved output
-savename = 'inverse-' + cmdlineargmodel
-
-# set directory to save results to
-resultsdir = workingdir / f'results-{savename}'
-print('Results directory:', resultsdir)
-
-print('')  # blank line
+# file path to directory where output (like training data)
+# should be saved. The directory should be set up like:
+# ./<parent>/<potential>/<trial>/
+workdir = pathlib.Path(cmdlinearg)
+print('Current working directory:', workdir)
 
 
 ###############################################################
@@ -63,7 +54,7 @@ print('')  # blank line
 ###############################################################
 
 # load saved computational parameters
-cmpprm = np.load(workingdir / 'cmpprm.npy', allow_pickle=True)
+cmpprm = np.load(workdir / 'cmpprm.npy', allow_pickle=True)
 print('cmpprm =', cmpprm)
 
 # store loaded parameters as variables
@@ -74,27 +65,17 @@ dt = float(cmpprm[3])
 numts = int(cmpprm[4])
 
 # load state variables
-a0vec = np.load(workingdir / 'a0vec.npy')
-# propatrue = np.load(savedir / 'propatrue.npy')
-amattruevec = np.load(workingdir / 'amattruevec.npy')
+a0vec = np.load(workdir / 'a0vec.npy')
+# propatrue = np.load(workdir / 'propatrue.npy')
+amattruevec = np.load(workdir / 'amattruevec.npy')
 
 # load true potential
-# vtruetoep = np.load(savedir / 'vtruetoep.npy')
-vtruexvec = np.load(workingdir / 'vtruexvec.npy')
-
-# print computational environment variables to stdout
-print('L =', L)
-print('numx =', numx)
-print('numfour =', numfour)
-print('numts =', numts)
-print('dt =', dt)
-print('Number of a0 states:', a0vec.shape[0])
-
-print('Computational variables loaded.')
+# vtruetoep = np.load(workdir / 'vtruetoep.npy')
+vtruexvec = np.load(workdir / 'vtruexvec.npy')
 
 
 ###############################################################
-# set what model to use to approximate the potential and
+# Identify what model to use to approximate the potential and
 # specify the parameters which fully define the model
 # - modelprms is a tuple containing all of the variables the
 #   model needs to be fully defined
@@ -107,7 +88,6 @@ if cmdlineargmodel == 'fourier':
     # Fourier model
     modelprms = (L, numx, numfour)
     model = tdsemodelclass.fourier
-    print('model = fourier')
 elif cmdlineargmodel == 'cheby':
     # Chebyshev model
     # - From experience, I have found that cheby
@@ -115,9 +95,73 @@ elif cmdlineargmodel == 'cheby':
     numcheb = 11
     modelprms = (L, numx, numfour, numcheb)
     model = tdsemodelclass.cheby
-    print('model = cheby')
 else:
     print(f'Model selection "{cmdlineargmodel}" not recognized.')
+
+
+###############################################################
+# identify script on stdout
+###############################################################
+
+scriptID = 'inverse'
+print(f'-------{scriptID.upper()}-------')
+
+
+###############################################################
+# open agg-results-<scriptID> for writing
+###############################################################
+
+# Open data agg-results-<scriptID> files in append mode.
+# These files collect important results from all the trials
+# of one specific potential. Directroy like:
+# ./"$parentdir"/v"$thisv"/"$thistrial"/f'agg-results-{scriptID}.txt'
+aggresultstxt = open(workdir.parent / f'agg-results-{scriptID}.txt', mode='a')
+
+# set helpful strings to be used when writing to
+# aggresultstxt
+delim=', '
+newline='\n'
+
+
+###############################################################
+# output computational parameters used and add them to
+# the agg results file
+###############################################################
+
+# print computational environment variables to stdout
+print('L =', L)
+aggresultstxt.write(str(L) + delim)
+
+print('numx =', numx)
+aggresultstxt.write(str(numx) + delim)
+
+print('numfour =', numfour)
+aggresultstxt.write(str(numfour) + delim)
+
+print('numts =', numts)
+aggresultstxt.write(str(numts) + delim)
+
+print('dt =', dt)
+aggresultstxt.write(str(dt) + delim)
+
+print('Number of a0 states:', a0vec.shape[0])
+aggresultstxt.write(str(a0vec.shape[0]) + delim)
+
+print('Model:', cmdlineargmodel)
+aggresultstxt.write(cmdlineargmodel + delim)
+
+print('')  # blank line
+
+
+###############################################################
+# set directory to save results
+###############################################################
+
+# results directory
+# workdir = ./"$parentdir"/v"$thisv"/"$thistrial"
+# want: ./"$parentdir"/v"$thisv"/"$thistrial"/"$thismodel"/results-"$SLURM_JOB_NAME"
+resultsdir = workdir / cmdlineargmodel / f'results-{scriptID}'
+print('Results directory:', resultsdir)
 
 
 ###############################################################
@@ -157,56 +201,6 @@ kmat = np.diag(np.arange(-numfour, numfour + 1) ** 2 * np.pi ** 2 / (2 * L ** 2)
 trim = np.where(xvec >= -10)[0][0]  # 125
 print('trim =', trim)
 print('')  # blank line
-
-
-# ###############################################################
-# # Toeplitz indexing matrix
-# ###############################################################
-#
-# # Toeplitz indexing matrix, used for constructing Toeplitz matrix
-# # from a vector setup like:
-# # jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
-# aa = (-1) * np.arange(0, numtoepelms).reshape(numtoepelms, 1)
-# bb = [np.arange(numtoepelms - 1, 2 * numtoepelms - 1)]
-# toepindxmat = np.array(aa + bb)
-# # print(toepindxmat.shape)
-
-
-# ###############################################################
-# # function for transforming theta to a real space potential
-# ###############################################################
-#
-# def thetatoreal(theta):
-#     ##################################################
-#     # this function is used to transform theta, which
-#     # is the Toeplitz representation of vmat that has
-#     # also been split into real and imaginary parts
-#     # and concatenated together, into a real space
-#     # potential
-#     ##################################################
-#     thetaR = theta[:numtoepelms]
-#     thetaI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
-#     thetacomplex = thetaR + 1j * thetaI
-#     potentialfourier = np.sqrt(2 * L) * np.concatenate([np.conjugate(np.flipud(thetacomplex[1:(numfour + 1)])), thetacomplex[:(numfour + 1)]])
-#     potentialreal = potentialfourier @ fourtox
-#     return potentialreal
-
-
-# ###############################################################
-# # make |\psi(t)|^2 training data from amattruevec
-# ###############################################################
-#
-# print('Starting inverse problem.')
-#
-# betamatvec = []
-# for thisamattrue in amattruevec:
-#     tempbetamat = []
-#     for thisavectrue in thisamattrue:
-#         tempbetamat.append(jnp.correlate(thisavectrue, thisavectrue, 'same'))
-#
-#     betamatvec.append(jnp.array(tempbetamat))
-#
-# betamatvec = jnp.array(betamatvec) / jnp.sqrt(2 * L)
 
 
 ###############################################################
@@ -413,25 +407,45 @@ thetahat = model(*modelprms, seed=1234)
 # and store
 vinitrec = thetahat.tox()
 
-# np.save(savedir / 'thetarnd', thetarnd)
-# print('thetarnd saved.')
+# start timing how long it takes to optimize
+timeoptstart = time_ns()
 
 # start optimization (i.e., learning theta) and store
 # learned result in thetahat
-thetahat.theta = so.minimize(fun=jitwaveobject,
-                       x0=thetahat.theta,
-                       jac=jitwavegradsadj,
-                       tol=1e-12, options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+optresults = so.minimize(fun=jitwaveobject,
+                         x0=thetahat.theta,
+                         jac=jitwavegradsadj,
+                         tol=1e-12,
+                         options={'maxiter': 4000, 'gtol': 1e-15})
+                         # options={'maxiter': 4000, 'disp': True, 'gtol': 1e-15}).x
+
+# store learned theta in thetahat
+thetahat.theta = optresults.x
+
+# print results and write to aggresultstxt
+print('Optimization success:', optresults.success)
+aggresultstxt.write(str(optresults.success) + delim)
+
+print('Value of objective:', optresults.fun)
+aggresultstxt.write(str(optresults.fun) + delim)
+
+print('Value of Jacobian:', optresults.jac)
+aggresultstxt.write(str(optresults.jac) + delim)
+
+print('Number of iterations:', optresults.nit)
+aggresultstxt.write(str(optresults.nit) + delim)
+
+timeopt = time_ns() - timeoptstart
+print('Time to optimize (ns):', timeopt)
+aggresultstxt.write(str(timeopt) + delim)
 
 # save the learned theta
-# COULD I JUST SAVE THE WHOLE OBJECT AND LOAD THAT? WOULD IT LOAD
-# AS THE OBJECT CLASS?
-np.save(workingdir / f'thetahat-{cmdlineargmodel}', thetahat.theta)
+np.save(workdir / f'thetahat-{cmdlineargmodel}', thetahat.theta)
 print('thetahat saved.')
 
 
 ###############################################################
-# results
+# compute and graph results
 ###############################################################
 
 # transform learned theta to real space potential
@@ -444,7 +458,7 @@ plt.xlabel('x')
 plt.title('Learned vs. Initial Potentials')
 plt.legend()
 # plt.show()
-plt.savefig(resultsdir / f'graph_{savename}_learned_vs_initial_potential.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{scriptID}_learned_vs_initial_potential.pdf', format='pdf')
 plt.close()
 
 # learned potential vs true potential
@@ -454,7 +468,7 @@ plt.xlabel('x')
 plt.title('Learned vs. True Potentials')
 plt.legend()
 # plt.show()
-plt.savefig(resultsdir / f'graph_{savename}_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{scriptID}_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
 
 # shifted learned potential vs true potential
@@ -462,15 +476,12 @@ midpointindex = numx // 2
 print('midpointindex =', midpointindex)
 shift = vtruexvec[midpointindex] - vlearnrec[midpointindex]
 
-# # set trim to L=10
-# trim = np.where(xvec >= -10)[0][0]  # 125
-# print('trim =', trim)
-
 # calculate and return l2 error
 print('l2 error of learned potential:', nl.norm(vlearnrec - vtruexvec), sep='\n')
 print('l2 error of shifted learned potential:', nl.norm(vlearnrec + shift - vtruexvec), sep='\n')
 l2errshifttrim = nl.norm(vlearnrec[trim:-trim] + shift - vtruexvec[trim:-trim])
 print('l2 error of shifted and trimmed learned potential:', l2errshifttrim, sep='\n')
+aggresultstxt.write(str(l2errshifttrim) + delim)
 
 print('')  # blank line
 
@@ -479,6 +490,7 @@ print('l-inf error of learned potential:', np.amax(np.abs(vlearnrec - vtruexvec)
 print('l-inf error of shifted learned potential:', np.amax(np.abs(vlearnrec + shift - vtruexvec)), sep='\n')
 linferrshifttrim = np.amax(np.abs(vlearnrec[trim:-trim] + shift - vtruexvec[trim:-trim]))
 print('l-inf error of shifted and trimmed learned potential:', linferrshifttrim, sep='\n')
+aggresultstxt.write(str(linferrshifttrim) + delim)
 
 # plot shifted potential
 plt.plot(xvec, vlearnrec + shift, '.-', label='Learned')
@@ -487,7 +499,18 @@ plt.xlabel('x')
 plt.title(f'Shifted Learned Potential vs. True Potential\nl2 error (shift/trim) = {l2errshifttrim}\nl-inf error (shift/trim) = {linferrshifttrim}')
 plt.legend()
 # plt.show()
-plt.savefig(resultsdir / f'graph_{savename}_shifted_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{scriptID}_shifted_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
 
 print('')  # blank line
+
+# time to optimize
+timetotal = time_ns()-timetotalstart
+print('Total time of execution (ns):', timetotal)
+# last item written to aggresultstxt so specify new line,
+# this will insure that the next item added to the list is
+# on its own line
+aggresultstxt.write(str(timetotal) + newline)
+
+# close aggresultstxt
+aggresultstxt.close()

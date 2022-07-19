@@ -59,11 +59,11 @@ numts = int(cmpprm[4])
 
 # load state variables
 a0vec = np.load(workingdir / 'a0vec.npy')
-# propatrue = np.load(savedir / 'propatrue.npy')
+# propatrue = np.load(workdir / 'propatrue.npy')
 amattruevec = np.load(workingdir / 'amattruevec.npy')
 
 # load true potential
-# vtruetoep = np.load(savedir / 'vtruetoep.npy')
+# vtruetoep = np.load(workdir / 'vtruetoep.npy')
 vtruexvec = np.load(workingdir / 'vtruexvec.npy')
 
 print('Computational variables loaded.')
