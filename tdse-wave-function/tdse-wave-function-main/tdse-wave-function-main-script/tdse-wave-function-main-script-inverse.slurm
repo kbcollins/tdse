@@ -62,17 +62,19 @@ for thisv in {0..6}; do
   : > "$thispath"/agg-results-"$SLURM_JOB_NAME".txt
 
   # this loops through all of the files inside of
-  # ./"$parentdir"/v"$thisv"
+  # ./"$parentdir"/v"$thisv"/"$thistrial"
   for thistrial in "${filelist[@]}"; do
-    # ./"$parentdir"/v"$thisv"/"$thistrial"
-    thistrialpath="$thispath"/"$thistrial"
-    echo "$thistrialpath"
+#    # ./"$parentdir"/v"$thisv"/"$thistrial"
+#    thistrialpath="$thispath"/"$thistrial"
+#    echo "$thistrialpath"
 
     for thismodel in "${modellist[@]}"; do
       # make the results directory
       # ./"$parentdir"/v"$thisv"/"$thistrial"/"$thismodel"/results-"$SLURM_JOB_NAME"
-      mkdir -p "$thistrialpath"/"$thismodel"/results-"$SLURM_JOB_NAME"
-    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thismodel" "$thistrialpath"
+      mkdir -p "$thistrial"/"$thismodel"/results-"$SLURM_JOB_NAME"
+#      mkdir -p "$thistrialpath"/"$thismodel"/results-"$SLURM_JOB_NAME"
+    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thismodel" "$thistrial"
+#    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thismodel" "$thistrialpath"
     done
 
   done
