@@ -57,7 +57,7 @@ for thisv in {0..6}; do
   # store the directory contents of ./"$parentdir"/v"$thisv"
   # as a bash array
   # the -d flag tells ls to only give directories
-  filelist=( $(ls -d "$thispath") )
+  filelist=( $(ls "$thispath"/trial*) )
 
   # make/clear the agg-results-"$SLURM_JOB_NAME".txt file (the : is
   # the Bash noop or null command and the > redirects the

@@ -59,7 +59,7 @@ for thisv in {0..6}; do
     thisnumts=`echo "scale=0; "$period"/"$thisdt"" | bc`
 
     # ./parent/potential/trial/
-    thistrialpath=./"$parentdir"/v"$thisv"/numts-"$thisnumts"_dt-"$thisdt"
+    thistrialpath=./"$parentdir"/v"$thisv"/trial_nts-"$thisnumts"_dt-"$thisdt"
     mkdir -p "$thistrialpath"
 
     # run the Python scrip
