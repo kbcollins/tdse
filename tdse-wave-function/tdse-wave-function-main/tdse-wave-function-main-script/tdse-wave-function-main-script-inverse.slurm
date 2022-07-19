@@ -73,7 +73,7 @@ for thisv in {0..6}; do
       # make the results directory
       # ./"$parentdir"/v"$thisv"/"$thistrial"/"$thismodel"/results-"$SLURM_JOB_NAME"
       mkdir -p "$thistrialpath"/"$thismodel"/results-"$SLURM_JOB_NAME"
-    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thistrialpath"
+    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thismodel" "$thistrialpath"
     done
 
   done
