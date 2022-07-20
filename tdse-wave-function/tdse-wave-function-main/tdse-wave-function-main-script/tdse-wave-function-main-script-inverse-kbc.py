@@ -65,6 +65,8 @@ print('Current working directory:', workdir)
 cmpprm = np.load(workdir / 'cmpprm.npy', allow_pickle=True)
 print('cmpprm =', cmpprm)
 
+print('')  # blank line
+
 # store loaded parameters as variables
 L = float(cmpprm[0])
 numx = int(cmpprm[1])
@@ -477,6 +479,8 @@ plt.legend()
 plt.savefig(resultsdir / f'graph_{scriptID}_{cmdlineargmodel}_{nummodel}_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
 
+print('')  # blank line
+
 # shifted learned potential vs true potential
 midpointindex = numx // 2
 print('midpointindex =', midpointindex)
@@ -520,3 +524,5 @@ aggresultstxt.write(str(timetotal) + newline)
 
 # close aggresultstxt
 aggresultstxt.close()
+
+print('')  # blank line
