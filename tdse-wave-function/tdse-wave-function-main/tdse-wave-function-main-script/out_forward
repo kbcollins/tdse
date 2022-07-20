@@ -1,254 +1,11 @@
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-20_dt-.010', '0', '20', '.010']
-cmdlineargsavedir = 07-16-2022/numts-20_dt-.010
-cmdlineargpotential = 0
-cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-16-2022/numts-20_dt-.010/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 20
-dt = 0.01
-Computational parameters saved.
-model = fourier
-
-trim = 171
-
-vtruexvec saved.
-Shape thetatrue: (129,)
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-22_dt-.009', '0', '22', '.009']
-cmdlineargsavedir = 07-16-2022/numts-22_dt-.009
-cmdlineargpotential = 0
-cmdlineargnumts = 22
-cmdlineargdt = 0.009
-Current working directory: 07-16-2022/numts-22_dt-.009/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 22
-dt = 0.009
-Computational parameters saved.
-model = fourier
-
-trim = 171
-
-vtruexvec saved.
-Shape thetatrue: (129,)
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-25_dt-.008', '0', '25', '.008']
-cmdlineargsavedir = 07-16-2022/numts-25_dt-.008
-cmdlineargpotential = 0
-cmdlineargnumts = 25
-cmdlineargdt = 0.008
-Current working directory: 07-16-2022/numts-25_dt-.008/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 25
-dt = 0.008
-Computational parameters saved.
-model = fourier
-
-trim = 171
-
-vtruexvec saved.
-Shape thetatrue: (129,)
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-28_dt-.007', '0', '28', '.007']
-cmdlineargsavedir = 07-16-2022/numts-28_dt-.007
-cmdlineargpotential = 0
-cmdlineargnumts = 28
-cmdlineargdt = 0.007
-Current working directory: 07-16-2022/numts-28_dt-.007/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 28
-dt = 0.007
-Computational parameters saved.
-model = fourier
-
-trim = 171
-
-vtruexvec saved.
-Shape thetatrue: (129,)
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-33_dt-.006', '0', '33', '.006']
-cmdlineargsavedir = 07-16-2022/numts-33_dt-.006
-cmdlineargpotential = 0
-cmdlineargnumts = 33
-cmdlineargdt = 0.006
-Current working directory: 07-16-2022/numts-33_dt-.006/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 33
-dt = 0.006
-Computational parameters saved.
-model = fourier
-
-trim = 171
-
-vtruexvec saved.
-Shape thetatrue: (129,)
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-40_dt-.005', '0', '40', '.005']
-cmdlineargsavedir = 07-16-2022/numts-40_dt-.005
-cmdlineargpotential = 0
-cmdlineargnumts = 40
-cmdlineargdt = 0.005
-Current working directory: 07-16-2022/numts-40_dt-.005/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 40
-dt = 0.005
-Computational parameters saved.
-model = fourier
-
-trim = 171
-
-vtruexvec saved.
-Shape thetatrue: (129,)
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-50_dt-.004', '0', '50', '.004']
-cmdlineargsavedir = 07-16-2022/numts-50_dt-.004
-cmdlineargpotential = 0
-cmdlineargnumts = 50
-cmdlineargdt = 0.004
-Current working directory: 07-16-2022/numts-50_dt-.004/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 50
-dt = 0.004
-Computational parameters saved.
-model = fourier
-
-trim = 171
-
-vtruexvec saved.
-Shape thetatrue: (129,)
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-66_dt-.003', '0', '66', '.003']
-cmdlineargsavedir = 07-16-2022/numts-66_dt-.003
-cmdlineargpotential = 0
-cmdlineargnumts = 66
-cmdlineargdt = 0.003
-Current working directory: 07-16-2022/numts-66_dt-.003/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 66
-dt = 0.003
-Computational parameters saved.
-model = fourier
-
-trim = 171
-
-vtruexvec saved.
-Shape thetatrue: (129,)
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-100_dt-.002', '0', '100', '.002']
-cmdlineargsavedir = 07-16-2022/numts-100_dt-.002
-cmdlineargpotential = 0
-cmdlineargnumts = 100
-cmdlineargdt = 0.002
-Current working directory: 07-16-2022/numts-100_dt-.002/v0
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 100
-dt = 0.002
-Computational parameters saved.
-model = fourier
-
-trim = 171
-
-vtruexvec saved.
-Shape thetatrue: (129,)
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-200_dt-.001', '0', '200', '.001']
-cmdlineargsavedir = 07-16-2022/numts-200_dt-.001
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-200_dt-.0010', '0', '200', '.0010']
+cmdlineargsavedir = dt/v0/trial_nts-200_dt-.0010
 cmdlineargpotential = 0
 cmdlineargnumts = 200
 cmdlineargdt = 0.001
-Current working directory: 07-16-2022/numts-200_dt-.001/v0
+Save directory: dt/v0/trial_nts-200_dt-.0010
 
 L = 15.0
 numx = 1025
@@ -256,7 +13,6 @@ numfour = 32
 numts = 200
 dt = 0.001
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -270,20 +26,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-20_dt-.010', '1', '20', '.010']
-cmdlineargsavedir = 07-16-2022/numts-20_dt-.010
-cmdlineargpotential = 1
-cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-16-2022/numts-20_dt-.010/v1
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-181_dt-.0011', '0', '181', '.0011']
+cmdlineargsavedir = dt/v0/trial_nts-181_dt-.0011
+cmdlineargpotential = 0
+cmdlineargnumts = 181
+cmdlineargdt = 0.0011
+Save directory: dt/v0/trial_nts-181_dt-.0011
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 20
-dt = 0.01
+numts = 181
+dt = 0.0011
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -297,20 +52,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-22_dt-.009', '1', '22', '.009']
-cmdlineargsavedir = 07-16-2022/numts-22_dt-.009
-cmdlineargpotential = 1
-cmdlineargnumts = 22
-cmdlineargdt = 0.009
-Current working directory: 07-16-2022/numts-22_dt-.009/v1
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-166_dt-.0012', '0', '166', '.0012']
+cmdlineargsavedir = dt/v0/trial_nts-166_dt-.0012
+cmdlineargpotential = 0
+cmdlineargnumts = 166
+cmdlineargdt = 0.0012
+Save directory: dt/v0/trial_nts-166_dt-.0012
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 22
-dt = 0.009
+numts = 166
+dt = 0.0012
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -324,20 +78,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-25_dt-.008', '1', '25', '.008']
-cmdlineargsavedir = 07-16-2022/numts-25_dt-.008
-cmdlineargpotential = 1
-cmdlineargnumts = 25
-cmdlineargdt = 0.008
-Current working directory: 07-16-2022/numts-25_dt-.008/v1
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-153_dt-.0013', '0', '153', '.0013']
+cmdlineargsavedir = dt/v0/trial_nts-153_dt-.0013
+cmdlineargpotential = 0
+cmdlineargnumts = 153
+cmdlineargdt = 0.0013
+Save directory: dt/v0/trial_nts-153_dt-.0013
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 25
-dt = 0.008
+numts = 153
+dt = 0.0013
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -351,20 +104,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-28_dt-.007', '1', '28', '.007']
-cmdlineargsavedir = 07-16-2022/numts-28_dt-.007
-cmdlineargpotential = 1
-cmdlineargnumts = 28
-cmdlineargdt = 0.007
-Current working directory: 07-16-2022/numts-28_dt-.007/v1
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-142_dt-.0014', '0', '142', '.0014']
+cmdlineargsavedir = dt/v0/trial_nts-142_dt-.0014
+cmdlineargpotential = 0
+cmdlineargnumts = 142
+cmdlineargdt = 0.0014
+Save directory: dt/v0/trial_nts-142_dt-.0014
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 28
-dt = 0.007
+numts = 142
+dt = 0.0014
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -378,20 +130,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-33_dt-.006', '1', '33', '.006']
-cmdlineargsavedir = 07-16-2022/numts-33_dt-.006
-cmdlineargpotential = 1
-cmdlineargnumts = 33
-cmdlineargdt = 0.006
-Current working directory: 07-16-2022/numts-33_dt-.006/v1
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-133_dt-.0015', '0', '133', '.0015']
+cmdlineargsavedir = dt/v0/trial_nts-133_dt-.0015
+cmdlineargpotential = 0
+cmdlineargnumts = 133
+cmdlineargdt = 0.0015
+Save directory: dt/v0/trial_nts-133_dt-.0015
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 33
-dt = 0.006
+numts = 133
+dt = 0.0015
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -405,20 +156,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-40_dt-.005', '1', '40', '.005']
-cmdlineargsavedir = 07-16-2022/numts-40_dt-.005
-cmdlineargpotential = 1
-cmdlineargnumts = 40
-cmdlineargdt = 0.005
-Current working directory: 07-16-2022/numts-40_dt-.005/v1
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-125_dt-.0016', '0', '125', '.0016']
+cmdlineargsavedir = dt/v0/trial_nts-125_dt-.0016
+cmdlineargpotential = 0
+cmdlineargnumts = 125
+cmdlineargdt = 0.0016
+Save directory: dt/v0/trial_nts-125_dt-.0016
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 40
-dt = 0.005
+numts = 125
+dt = 0.0016
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -432,20 +182,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-50_dt-.004', '1', '50', '.004']
-cmdlineargsavedir = 07-16-2022/numts-50_dt-.004
-cmdlineargpotential = 1
-cmdlineargnumts = 50
-cmdlineargdt = 0.004
-Current working directory: 07-16-2022/numts-50_dt-.004/v1
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-117_dt-.0017', '0', '117', '.0017']
+cmdlineargsavedir = dt/v0/trial_nts-117_dt-.0017
+cmdlineargpotential = 0
+cmdlineargnumts = 117
+cmdlineargdt = 0.0017
+Save directory: dt/v0/trial_nts-117_dt-.0017
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 50
-dt = 0.004
+numts = 117
+dt = 0.0017
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -459,20 +208,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-66_dt-.003', '1', '66', '.003']
-cmdlineargsavedir = 07-16-2022/numts-66_dt-.003
-cmdlineargpotential = 1
-cmdlineargnumts = 66
-cmdlineargdt = 0.003
-Current working directory: 07-16-2022/numts-66_dt-.003/v1
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-111_dt-.0018', '0', '111', '.0018']
+cmdlineargsavedir = dt/v0/trial_nts-111_dt-.0018
+cmdlineargpotential = 0
+cmdlineargnumts = 111
+cmdlineargdt = 0.0018
+Save directory: dt/v0/trial_nts-111_dt-.0018
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 66
-dt = 0.003
+numts = 111
+dt = 0.0018
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -486,12 +234,38 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-100_dt-.002', '1', '100', '.002']
-cmdlineargsavedir = 07-16-2022/numts-100_dt-.002
-cmdlineargpotential = 1
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-105_dt-.0019', '0', '105', '.0019']
+cmdlineargsavedir = dt/v0/trial_nts-105_dt-.0019
+cmdlineargpotential = 0
+cmdlineargnumts = 105
+cmdlineargdt = 0.0019
+Save directory: dt/v0/trial_nts-105_dt-.0019
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 105
+dt = 0.0019
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-100_dt-.0020', '0', '100', '.0020']
+cmdlineargsavedir = dt/v0/trial_nts-100_dt-.0020
+cmdlineargpotential = 0
 cmdlineargnumts = 100
 cmdlineargdt = 0.002
-Current working directory: 07-16-2022/numts-100_dt-.002/v1
+Save directory: dt/v0/trial_nts-100_dt-.0020
 
 L = 15.0
 numx = 1025
@@ -499,7 +273,6 @@ numfour = 32
 numts = 100
 dt = 0.002
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -513,12 +286,272 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-200_dt-.001', '1', '200', '.001']
-cmdlineargsavedir = 07-16-2022/numts-200_dt-.001
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-95_dt-.0021', '0', '95', '.0021']
+cmdlineargsavedir = dt/v0/trial_nts-95_dt-.0021
+cmdlineargpotential = 0
+cmdlineargnumts = 95
+cmdlineargdt = 0.0021
+Save directory: dt/v0/trial_nts-95_dt-.0021
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 95
+dt = 0.0021
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-90_dt-.0022', '0', '90', '.0022']
+cmdlineargsavedir = dt/v0/trial_nts-90_dt-.0022
+cmdlineargpotential = 0
+cmdlineargnumts = 90
+cmdlineargdt = 0.0022
+Save directory: dt/v0/trial_nts-90_dt-.0022
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 90
+dt = 0.0022
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-86_dt-.0023', '0', '86', '.0023']
+cmdlineargsavedir = dt/v0/trial_nts-86_dt-.0023
+cmdlineargpotential = 0
+cmdlineargnumts = 86
+cmdlineargdt = 0.0023
+Save directory: dt/v0/trial_nts-86_dt-.0023
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 86
+dt = 0.0023
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-83_dt-.0024', '0', '83', '.0024']
+cmdlineargsavedir = dt/v0/trial_nts-83_dt-.0024
+cmdlineargpotential = 0
+cmdlineargnumts = 83
+cmdlineargdt = 0.0024
+Save directory: dt/v0/trial_nts-83_dt-.0024
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 83
+dt = 0.0024
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-80_dt-.0025', '0', '80', '.0025']
+cmdlineargsavedir = dt/v0/trial_nts-80_dt-.0025
+cmdlineargpotential = 0
+cmdlineargnumts = 80
+cmdlineargdt = 0.0025
+Save directory: dt/v0/trial_nts-80_dt-.0025
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0025
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-76_dt-.0026', '0', '76', '.0026']
+cmdlineargsavedir = dt/v0/trial_nts-76_dt-.0026
+cmdlineargpotential = 0
+cmdlineargnumts = 76
+cmdlineargdt = 0.0026
+Save directory: dt/v0/trial_nts-76_dt-.0026
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 76
+dt = 0.0026
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-74_dt-.0027', '0', '74', '.0027']
+cmdlineargsavedir = dt/v0/trial_nts-74_dt-.0027
+cmdlineargpotential = 0
+cmdlineargnumts = 74
+cmdlineargdt = 0.0027
+Save directory: dt/v0/trial_nts-74_dt-.0027
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 74
+dt = 0.0027
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-71_dt-.0028', '0', '71', '.0028']
+cmdlineargsavedir = dt/v0/trial_nts-71_dt-.0028
+cmdlineargpotential = 0
+cmdlineargnumts = 71
+cmdlineargdt = 0.0028
+Save directory: dt/v0/trial_nts-71_dt-.0028
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 71
+dt = 0.0028
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-68_dt-.0029', '0', '68', '.0029']
+cmdlineargsavedir = dt/v0/trial_nts-68_dt-.0029
+cmdlineargpotential = 0
+cmdlineargnumts = 68
+cmdlineargdt = 0.0029
+Save directory: dt/v0/trial_nts-68_dt-.0029
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 68
+dt = 0.0029
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v0/trial_nts-66_dt-.0030', '0', '66', '.0030']
+cmdlineargsavedir = dt/v0/trial_nts-66_dt-.0030
+cmdlineargpotential = 0
+cmdlineargnumts = 66
+cmdlineargdt = 0.003
+Save directory: dt/v0/trial_nts-66_dt-.0030
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-200_dt-.0010', '1', '200', '.0010']
+cmdlineargsavedir = dt/v1/trial_nts-200_dt-.0010
 cmdlineargpotential = 1
 cmdlineargnumts = 200
 cmdlineargdt = 0.001
-Current working directory: 07-16-2022/numts-200_dt-.001/v1
+Save directory: dt/v1/trial_nts-200_dt-.0010
 
 L = 15.0
 numx = 1025
@@ -526,7 +559,6 @@ numfour = 32
 numts = 200
 dt = 0.001
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -540,20 +572,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-20_dt-.010', '2', '20', '.010']
-cmdlineargsavedir = 07-16-2022/numts-20_dt-.010
-cmdlineargpotential = 2
-cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-16-2022/numts-20_dt-.010/v2
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-181_dt-.0011', '1', '181', '.0011']
+cmdlineargsavedir = dt/v1/trial_nts-181_dt-.0011
+cmdlineargpotential = 1
+cmdlineargnumts = 181
+cmdlineargdt = 0.0011
+Save directory: dt/v1/trial_nts-181_dt-.0011
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 20
-dt = 0.01
+numts = 181
+dt = 0.0011
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -567,20 +598,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-22_dt-.009', '2', '22', '.009']
-cmdlineargsavedir = 07-16-2022/numts-22_dt-.009
-cmdlineargpotential = 2
-cmdlineargnumts = 22
-cmdlineargdt = 0.009
-Current working directory: 07-16-2022/numts-22_dt-.009/v2
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-166_dt-.0012', '1', '166', '.0012']
+cmdlineargsavedir = dt/v1/trial_nts-166_dt-.0012
+cmdlineargpotential = 1
+cmdlineargnumts = 166
+cmdlineargdt = 0.0012
+Save directory: dt/v1/trial_nts-166_dt-.0012
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 22
-dt = 0.009
+numts = 166
+dt = 0.0012
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -594,20 +624,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-25_dt-.008', '2', '25', '.008']
-cmdlineargsavedir = 07-16-2022/numts-25_dt-.008
-cmdlineargpotential = 2
-cmdlineargnumts = 25
-cmdlineargdt = 0.008
-Current working directory: 07-16-2022/numts-25_dt-.008/v2
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-153_dt-.0013', '1', '153', '.0013']
+cmdlineargsavedir = dt/v1/trial_nts-153_dt-.0013
+cmdlineargpotential = 1
+cmdlineargnumts = 153
+cmdlineargdt = 0.0013
+Save directory: dt/v1/trial_nts-153_dt-.0013
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 25
-dt = 0.008
+numts = 153
+dt = 0.0013
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -621,20 +650,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-28_dt-.007', '2', '28', '.007']
-cmdlineargsavedir = 07-16-2022/numts-28_dt-.007
-cmdlineargpotential = 2
-cmdlineargnumts = 28
-cmdlineargdt = 0.007
-Current working directory: 07-16-2022/numts-28_dt-.007/v2
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-142_dt-.0014', '1', '142', '.0014']
+cmdlineargsavedir = dt/v1/trial_nts-142_dt-.0014
+cmdlineargpotential = 1
+cmdlineargnumts = 142
+cmdlineargdt = 0.0014
+Save directory: dt/v1/trial_nts-142_dt-.0014
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 28
-dt = 0.007
+numts = 142
+dt = 0.0014
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -648,20 +676,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-33_dt-.006', '2', '33', '.006']
-cmdlineargsavedir = 07-16-2022/numts-33_dt-.006
-cmdlineargpotential = 2
-cmdlineargnumts = 33
-cmdlineargdt = 0.006
-Current working directory: 07-16-2022/numts-33_dt-.006/v2
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-133_dt-.0015', '1', '133', '.0015']
+cmdlineargsavedir = dt/v1/trial_nts-133_dt-.0015
+cmdlineargpotential = 1
+cmdlineargnumts = 133
+cmdlineargdt = 0.0015
+Save directory: dt/v1/trial_nts-133_dt-.0015
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 33
-dt = 0.006
+numts = 133
+dt = 0.0015
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -675,20 +702,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-40_dt-.005', '2', '40', '.005']
-cmdlineargsavedir = 07-16-2022/numts-40_dt-.005
-cmdlineargpotential = 2
-cmdlineargnumts = 40
-cmdlineargdt = 0.005
-Current working directory: 07-16-2022/numts-40_dt-.005/v2
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-125_dt-.0016', '1', '125', '.0016']
+cmdlineargsavedir = dt/v1/trial_nts-125_dt-.0016
+cmdlineargpotential = 1
+cmdlineargnumts = 125
+cmdlineargdt = 0.0016
+Save directory: dt/v1/trial_nts-125_dt-.0016
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 40
-dt = 0.005
+numts = 125
+dt = 0.0016
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -702,20 +728,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-50_dt-.004', '2', '50', '.004']
-cmdlineargsavedir = 07-16-2022/numts-50_dt-.004
-cmdlineargpotential = 2
-cmdlineargnumts = 50
-cmdlineargdt = 0.004
-Current working directory: 07-16-2022/numts-50_dt-.004/v2
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-117_dt-.0017', '1', '117', '.0017']
+cmdlineargsavedir = dt/v1/trial_nts-117_dt-.0017
+cmdlineargpotential = 1
+cmdlineargnumts = 117
+cmdlineargdt = 0.0017
+Save directory: dt/v1/trial_nts-117_dt-.0017
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 50
-dt = 0.004
+numts = 117
+dt = 0.0017
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -729,20 +754,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-66_dt-.003', '2', '66', '.003']
-cmdlineargsavedir = 07-16-2022/numts-66_dt-.003
-cmdlineargpotential = 2
-cmdlineargnumts = 66
-cmdlineargdt = 0.003
-Current working directory: 07-16-2022/numts-66_dt-.003/v2
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-111_dt-.0018', '1', '111', '.0018']
+cmdlineargsavedir = dt/v1/trial_nts-111_dt-.0018
+cmdlineargpotential = 1
+cmdlineargnumts = 111
+cmdlineargdt = 0.0018
+Save directory: dt/v1/trial_nts-111_dt-.0018
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 66
-dt = 0.003
+numts = 111
+dt = 0.0018
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -756,12 +780,38 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-100_dt-.002', '2', '100', '.002']
-cmdlineargsavedir = 07-16-2022/numts-100_dt-.002
-cmdlineargpotential = 2
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-105_dt-.0019', '1', '105', '.0019']
+cmdlineargsavedir = dt/v1/trial_nts-105_dt-.0019
+cmdlineargpotential = 1
+cmdlineargnumts = 105
+cmdlineargdt = 0.0019
+Save directory: dt/v1/trial_nts-105_dt-.0019
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 105
+dt = 0.0019
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-100_dt-.0020', '1', '100', '.0020']
+cmdlineargsavedir = dt/v1/trial_nts-100_dt-.0020
+cmdlineargpotential = 1
 cmdlineargnumts = 100
 cmdlineargdt = 0.002
-Current working directory: 07-16-2022/numts-100_dt-.002/v2
+Save directory: dt/v1/trial_nts-100_dt-.0020
 
 L = 15.0
 numx = 1025
@@ -769,7 +819,6 @@ numfour = 32
 numts = 100
 dt = 0.002
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -783,12 +832,272 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-200_dt-.001', '2', '200', '.001']
-cmdlineargsavedir = 07-16-2022/numts-200_dt-.001
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-95_dt-.0021', '1', '95', '.0021']
+cmdlineargsavedir = dt/v1/trial_nts-95_dt-.0021
+cmdlineargpotential = 1
+cmdlineargnumts = 95
+cmdlineargdt = 0.0021
+Save directory: dt/v1/trial_nts-95_dt-.0021
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 95
+dt = 0.0021
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-90_dt-.0022', '1', '90', '.0022']
+cmdlineargsavedir = dt/v1/trial_nts-90_dt-.0022
+cmdlineargpotential = 1
+cmdlineargnumts = 90
+cmdlineargdt = 0.0022
+Save directory: dt/v1/trial_nts-90_dt-.0022
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 90
+dt = 0.0022
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-86_dt-.0023', '1', '86', '.0023']
+cmdlineargsavedir = dt/v1/trial_nts-86_dt-.0023
+cmdlineargpotential = 1
+cmdlineargnumts = 86
+cmdlineargdt = 0.0023
+Save directory: dt/v1/trial_nts-86_dt-.0023
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 86
+dt = 0.0023
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-83_dt-.0024', '1', '83', '.0024']
+cmdlineargsavedir = dt/v1/trial_nts-83_dt-.0024
+cmdlineargpotential = 1
+cmdlineargnumts = 83
+cmdlineargdt = 0.0024
+Save directory: dt/v1/trial_nts-83_dt-.0024
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 83
+dt = 0.0024
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-80_dt-.0025', '1', '80', '.0025']
+cmdlineargsavedir = dt/v1/trial_nts-80_dt-.0025
+cmdlineargpotential = 1
+cmdlineargnumts = 80
+cmdlineargdt = 0.0025
+Save directory: dt/v1/trial_nts-80_dt-.0025
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0025
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-76_dt-.0026', '1', '76', '.0026']
+cmdlineargsavedir = dt/v1/trial_nts-76_dt-.0026
+cmdlineargpotential = 1
+cmdlineargnumts = 76
+cmdlineargdt = 0.0026
+Save directory: dt/v1/trial_nts-76_dt-.0026
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 76
+dt = 0.0026
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-74_dt-.0027', '1', '74', '.0027']
+cmdlineargsavedir = dt/v1/trial_nts-74_dt-.0027
+cmdlineargpotential = 1
+cmdlineargnumts = 74
+cmdlineargdt = 0.0027
+Save directory: dt/v1/trial_nts-74_dt-.0027
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 74
+dt = 0.0027
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-71_dt-.0028', '1', '71', '.0028']
+cmdlineargsavedir = dt/v1/trial_nts-71_dt-.0028
+cmdlineargpotential = 1
+cmdlineargnumts = 71
+cmdlineargdt = 0.0028
+Save directory: dt/v1/trial_nts-71_dt-.0028
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 71
+dt = 0.0028
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-68_dt-.0029', '1', '68', '.0029']
+cmdlineargsavedir = dt/v1/trial_nts-68_dt-.0029
+cmdlineargpotential = 1
+cmdlineargnumts = 68
+cmdlineargdt = 0.0029
+Save directory: dt/v1/trial_nts-68_dt-.0029
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 68
+dt = 0.0029
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v1/trial_nts-66_dt-.0030', '1', '66', '.0030']
+cmdlineargsavedir = dt/v1/trial_nts-66_dt-.0030
+cmdlineargpotential = 1
+cmdlineargnumts = 66
+cmdlineargdt = 0.003
+Save directory: dt/v1/trial_nts-66_dt-.0030
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-200_dt-.0010', '2', '200', '.0010']
+cmdlineargsavedir = dt/v2/trial_nts-200_dt-.0010
 cmdlineargpotential = 2
 cmdlineargnumts = 200
 cmdlineargdt = 0.001
-Current working directory: 07-16-2022/numts-200_dt-.001/v2
+Save directory: dt/v2/trial_nts-200_dt-.0010
 
 L = 15.0
 numx = 1025
@@ -796,7 +1105,6 @@ numfour = 32
 numts = 200
 dt = 0.001
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -810,20 +1118,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-20_dt-.010', '3', '20', '.010']
-cmdlineargsavedir = 07-16-2022/numts-20_dt-.010
-cmdlineargpotential = 3
-cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-16-2022/numts-20_dt-.010/v3
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-181_dt-.0011', '2', '181', '.0011']
+cmdlineargsavedir = dt/v2/trial_nts-181_dt-.0011
+cmdlineargpotential = 2
+cmdlineargnumts = 181
+cmdlineargdt = 0.0011
+Save directory: dt/v2/trial_nts-181_dt-.0011
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 20
-dt = 0.01
+numts = 181
+dt = 0.0011
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -837,20 +1144,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-22_dt-.009', '3', '22', '.009']
-cmdlineargsavedir = 07-16-2022/numts-22_dt-.009
-cmdlineargpotential = 3
-cmdlineargnumts = 22
-cmdlineargdt = 0.009
-Current working directory: 07-16-2022/numts-22_dt-.009/v3
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-166_dt-.0012', '2', '166', '.0012']
+cmdlineargsavedir = dt/v2/trial_nts-166_dt-.0012
+cmdlineargpotential = 2
+cmdlineargnumts = 166
+cmdlineargdt = 0.0012
+Save directory: dt/v2/trial_nts-166_dt-.0012
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 22
-dt = 0.009
+numts = 166
+dt = 0.0012
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -864,20 +1170,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-25_dt-.008', '3', '25', '.008']
-cmdlineargsavedir = 07-16-2022/numts-25_dt-.008
-cmdlineargpotential = 3
-cmdlineargnumts = 25
-cmdlineargdt = 0.008
-Current working directory: 07-16-2022/numts-25_dt-.008/v3
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-153_dt-.0013', '2', '153', '.0013']
+cmdlineargsavedir = dt/v2/trial_nts-153_dt-.0013
+cmdlineargpotential = 2
+cmdlineargnumts = 153
+cmdlineargdt = 0.0013
+Save directory: dt/v2/trial_nts-153_dt-.0013
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 25
-dt = 0.008
+numts = 153
+dt = 0.0013
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -891,20 +1196,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-28_dt-.007', '3', '28', '.007']
-cmdlineargsavedir = 07-16-2022/numts-28_dt-.007
-cmdlineargpotential = 3
-cmdlineargnumts = 28
-cmdlineargdt = 0.007
-Current working directory: 07-16-2022/numts-28_dt-.007/v3
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-142_dt-.0014', '2', '142', '.0014']
+cmdlineargsavedir = dt/v2/trial_nts-142_dt-.0014
+cmdlineargpotential = 2
+cmdlineargnumts = 142
+cmdlineargdt = 0.0014
+Save directory: dt/v2/trial_nts-142_dt-.0014
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 28
-dt = 0.007
+numts = 142
+dt = 0.0014
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -918,20 +1222,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-33_dt-.006', '3', '33', '.006']
-cmdlineargsavedir = 07-16-2022/numts-33_dt-.006
-cmdlineargpotential = 3
-cmdlineargnumts = 33
-cmdlineargdt = 0.006
-Current working directory: 07-16-2022/numts-33_dt-.006/v3
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-133_dt-.0015', '2', '133', '.0015']
+cmdlineargsavedir = dt/v2/trial_nts-133_dt-.0015
+cmdlineargpotential = 2
+cmdlineargnumts = 133
+cmdlineargdt = 0.0015
+Save directory: dt/v2/trial_nts-133_dt-.0015
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 33
-dt = 0.006
+numts = 133
+dt = 0.0015
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -945,20 +1248,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-40_dt-.005', '3', '40', '.005']
-cmdlineargsavedir = 07-16-2022/numts-40_dt-.005
-cmdlineargpotential = 3
-cmdlineargnumts = 40
-cmdlineargdt = 0.005
-Current working directory: 07-16-2022/numts-40_dt-.005/v3
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-125_dt-.0016', '2', '125', '.0016']
+cmdlineargsavedir = dt/v2/trial_nts-125_dt-.0016
+cmdlineargpotential = 2
+cmdlineargnumts = 125
+cmdlineargdt = 0.0016
+Save directory: dt/v2/trial_nts-125_dt-.0016
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 40
-dt = 0.005
+numts = 125
+dt = 0.0016
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -972,20 +1274,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-50_dt-.004', '3', '50', '.004']
-cmdlineargsavedir = 07-16-2022/numts-50_dt-.004
-cmdlineargpotential = 3
-cmdlineargnumts = 50
-cmdlineargdt = 0.004
-Current working directory: 07-16-2022/numts-50_dt-.004/v3
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-117_dt-.0017', '2', '117', '.0017']
+cmdlineargsavedir = dt/v2/trial_nts-117_dt-.0017
+cmdlineargpotential = 2
+cmdlineargnumts = 117
+cmdlineargdt = 0.0017
+Save directory: dt/v2/trial_nts-117_dt-.0017
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 50
-dt = 0.004
+numts = 117
+dt = 0.0017
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -999,20 +1300,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-66_dt-.003', '3', '66', '.003']
-cmdlineargsavedir = 07-16-2022/numts-66_dt-.003
-cmdlineargpotential = 3
-cmdlineargnumts = 66
-cmdlineargdt = 0.003
-Current working directory: 07-16-2022/numts-66_dt-.003/v3
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-111_dt-.0018', '2', '111', '.0018']
+cmdlineargsavedir = dt/v2/trial_nts-111_dt-.0018
+cmdlineargpotential = 2
+cmdlineargnumts = 111
+cmdlineargdt = 0.0018
+Save directory: dt/v2/trial_nts-111_dt-.0018
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 66
-dt = 0.003
+numts = 111
+dt = 0.0018
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1026,12 +1326,38 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-100_dt-.002', '3', '100', '.002']
-cmdlineargsavedir = 07-16-2022/numts-100_dt-.002
-cmdlineargpotential = 3
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-105_dt-.0019', '2', '105', '.0019']
+cmdlineargsavedir = dt/v2/trial_nts-105_dt-.0019
+cmdlineargpotential = 2
+cmdlineargnumts = 105
+cmdlineargdt = 0.0019
+Save directory: dt/v2/trial_nts-105_dt-.0019
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 105
+dt = 0.0019
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-100_dt-.0020', '2', '100', '.0020']
+cmdlineargsavedir = dt/v2/trial_nts-100_dt-.0020
+cmdlineargpotential = 2
 cmdlineargnumts = 100
 cmdlineargdt = 0.002
-Current working directory: 07-16-2022/numts-100_dt-.002/v3
+Save directory: dt/v2/trial_nts-100_dt-.0020
 
 L = 15.0
 numx = 1025
@@ -1039,7 +1365,6 @@ numfour = 32
 numts = 100
 dt = 0.002
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1053,12 +1378,272 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-200_dt-.001', '3', '200', '.001']
-cmdlineargsavedir = 07-16-2022/numts-200_dt-.001
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-95_dt-.0021', '2', '95', '.0021']
+cmdlineargsavedir = dt/v2/trial_nts-95_dt-.0021
+cmdlineargpotential = 2
+cmdlineargnumts = 95
+cmdlineargdt = 0.0021
+Save directory: dt/v2/trial_nts-95_dt-.0021
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 95
+dt = 0.0021
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-90_dt-.0022', '2', '90', '.0022']
+cmdlineargsavedir = dt/v2/trial_nts-90_dt-.0022
+cmdlineargpotential = 2
+cmdlineargnumts = 90
+cmdlineargdt = 0.0022
+Save directory: dt/v2/trial_nts-90_dt-.0022
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 90
+dt = 0.0022
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-86_dt-.0023', '2', '86', '.0023']
+cmdlineargsavedir = dt/v2/trial_nts-86_dt-.0023
+cmdlineargpotential = 2
+cmdlineargnumts = 86
+cmdlineargdt = 0.0023
+Save directory: dt/v2/trial_nts-86_dt-.0023
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 86
+dt = 0.0023
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-83_dt-.0024', '2', '83', '.0024']
+cmdlineargsavedir = dt/v2/trial_nts-83_dt-.0024
+cmdlineargpotential = 2
+cmdlineargnumts = 83
+cmdlineargdt = 0.0024
+Save directory: dt/v2/trial_nts-83_dt-.0024
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 83
+dt = 0.0024
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-80_dt-.0025', '2', '80', '.0025']
+cmdlineargsavedir = dt/v2/trial_nts-80_dt-.0025
+cmdlineargpotential = 2
+cmdlineargnumts = 80
+cmdlineargdt = 0.0025
+Save directory: dt/v2/trial_nts-80_dt-.0025
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0025
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-76_dt-.0026', '2', '76', '.0026']
+cmdlineargsavedir = dt/v2/trial_nts-76_dt-.0026
+cmdlineargpotential = 2
+cmdlineargnumts = 76
+cmdlineargdt = 0.0026
+Save directory: dt/v2/trial_nts-76_dt-.0026
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 76
+dt = 0.0026
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-74_dt-.0027', '2', '74', '.0027']
+cmdlineargsavedir = dt/v2/trial_nts-74_dt-.0027
+cmdlineargpotential = 2
+cmdlineargnumts = 74
+cmdlineargdt = 0.0027
+Save directory: dt/v2/trial_nts-74_dt-.0027
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 74
+dt = 0.0027
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-71_dt-.0028', '2', '71', '.0028']
+cmdlineargsavedir = dt/v2/trial_nts-71_dt-.0028
+cmdlineargpotential = 2
+cmdlineargnumts = 71
+cmdlineargdt = 0.0028
+Save directory: dt/v2/trial_nts-71_dt-.0028
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 71
+dt = 0.0028
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-68_dt-.0029', '2', '68', '.0029']
+cmdlineargsavedir = dt/v2/trial_nts-68_dt-.0029
+cmdlineargpotential = 2
+cmdlineargnumts = 68
+cmdlineargdt = 0.0029
+Save directory: dt/v2/trial_nts-68_dt-.0029
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 68
+dt = 0.0029
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v2/trial_nts-66_dt-.0030', '2', '66', '.0030']
+cmdlineargsavedir = dt/v2/trial_nts-66_dt-.0030
+cmdlineargpotential = 2
+cmdlineargnumts = 66
+cmdlineargdt = 0.003
+Save directory: dt/v2/trial_nts-66_dt-.0030
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-200_dt-.0010', '3', '200', '.0010']
+cmdlineargsavedir = dt/v3/trial_nts-200_dt-.0010
 cmdlineargpotential = 3
 cmdlineargnumts = 200
 cmdlineargdt = 0.001
-Current working directory: 07-16-2022/numts-200_dt-.001/v3
+Save directory: dt/v3/trial_nts-200_dt-.0010
 
 L = 15.0
 numx = 1025
@@ -1066,7 +1651,6 @@ numfour = 32
 numts = 200
 dt = 0.001
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1080,20 +1664,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-20_dt-.010', '4', '20', '.010']
-cmdlineargsavedir = 07-16-2022/numts-20_dt-.010
-cmdlineargpotential = 4
-cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-16-2022/numts-20_dt-.010/v4
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-181_dt-.0011', '3', '181', '.0011']
+cmdlineargsavedir = dt/v3/trial_nts-181_dt-.0011
+cmdlineargpotential = 3
+cmdlineargnumts = 181
+cmdlineargdt = 0.0011
+Save directory: dt/v3/trial_nts-181_dt-.0011
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 20
-dt = 0.01
+numts = 181
+dt = 0.0011
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1107,20 +1690,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-22_dt-.009', '4', '22', '.009']
-cmdlineargsavedir = 07-16-2022/numts-22_dt-.009
-cmdlineargpotential = 4
-cmdlineargnumts = 22
-cmdlineargdt = 0.009
-Current working directory: 07-16-2022/numts-22_dt-.009/v4
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-166_dt-.0012', '3', '166', '.0012']
+cmdlineargsavedir = dt/v3/trial_nts-166_dt-.0012
+cmdlineargpotential = 3
+cmdlineargnumts = 166
+cmdlineargdt = 0.0012
+Save directory: dt/v3/trial_nts-166_dt-.0012
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 22
-dt = 0.009
+numts = 166
+dt = 0.0012
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1134,20 +1716,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-25_dt-.008', '4', '25', '.008']
-cmdlineargsavedir = 07-16-2022/numts-25_dt-.008
-cmdlineargpotential = 4
-cmdlineargnumts = 25
-cmdlineargdt = 0.008
-Current working directory: 07-16-2022/numts-25_dt-.008/v4
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-153_dt-.0013', '3', '153', '.0013']
+cmdlineargsavedir = dt/v3/trial_nts-153_dt-.0013
+cmdlineargpotential = 3
+cmdlineargnumts = 153
+cmdlineargdt = 0.0013
+Save directory: dt/v3/trial_nts-153_dt-.0013
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 25
-dt = 0.008
+numts = 153
+dt = 0.0013
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1161,20 +1742,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-28_dt-.007', '4', '28', '.007']
-cmdlineargsavedir = 07-16-2022/numts-28_dt-.007
-cmdlineargpotential = 4
-cmdlineargnumts = 28
-cmdlineargdt = 0.007
-Current working directory: 07-16-2022/numts-28_dt-.007/v4
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-142_dt-.0014', '3', '142', '.0014']
+cmdlineargsavedir = dt/v3/trial_nts-142_dt-.0014
+cmdlineargpotential = 3
+cmdlineargnumts = 142
+cmdlineargdt = 0.0014
+Save directory: dt/v3/trial_nts-142_dt-.0014
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 28
-dt = 0.007
+numts = 142
+dt = 0.0014
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1188,20 +1768,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-33_dt-.006', '4', '33', '.006']
-cmdlineargsavedir = 07-16-2022/numts-33_dt-.006
-cmdlineargpotential = 4
-cmdlineargnumts = 33
-cmdlineargdt = 0.006
-Current working directory: 07-16-2022/numts-33_dt-.006/v4
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-133_dt-.0015', '3', '133', '.0015']
+cmdlineargsavedir = dt/v3/trial_nts-133_dt-.0015
+cmdlineargpotential = 3
+cmdlineargnumts = 133
+cmdlineargdt = 0.0015
+Save directory: dt/v3/trial_nts-133_dt-.0015
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 33
-dt = 0.006
+numts = 133
+dt = 0.0015
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1215,20 +1794,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-40_dt-.005', '4', '40', '.005']
-cmdlineargsavedir = 07-16-2022/numts-40_dt-.005
-cmdlineargpotential = 4
-cmdlineargnumts = 40
-cmdlineargdt = 0.005
-Current working directory: 07-16-2022/numts-40_dt-.005/v4
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-125_dt-.0016', '3', '125', '.0016']
+cmdlineargsavedir = dt/v3/trial_nts-125_dt-.0016
+cmdlineargpotential = 3
+cmdlineargnumts = 125
+cmdlineargdt = 0.0016
+Save directory: dt/v3/trial_nts-125_dt-.0016
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 40
-dt = 0.005
+numts = 125
+dt = 0.0016
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1242,20 +1820,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-50_dt-.004', '4', '50', '.004']
-cmdlineargsavedir = 07-16-2022/numts-50_dt-.004
-cmdlineargpotential = 4
-cmdlineargnumts = 50
-cmdlineargdt = 0.004
-Current working directory: 07-16-2022/numts-50_dt-.004/v4
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-117_dt-.0017', '3', '117', '.0017']
+cmdlineargsavedir = dt/v3/trial_nts-117_dt-.0017
+cmdlineargpotential = 3
+cmdlineargnumts = 117
+cmdlineargdt = 0.0017
+Save directory: dt/v3/trial_nts-117_dt-.0017
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 50
-dt = 0.004
+numts = 117
+dt = 0.0017
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1269,20 +1846,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-66_dt-.003', '4', '66', '.003']
-cmdlineargsavedir = 07-16-2022/numts-66_dt-.003
-cmdlineargpotential = 4
-cmdlineargnumts = 66
-cmdlineargdt = 0.003
-Current working directory: 07-16-2022/numts-66_dt-.003/v4
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-111_dt-.0018', '3', '111', '.0018']
+cmdlineargsavedir = dt/v3/trial_nts-111_dt-.0018
+cmdlineargpotential = 3
+cmdlineargnumts = 111
+cmdlineargdt = 0.0018
+Save directory: dt/v3/trial_nts-111_dt-.0018
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 66
-dt = 0.003
+numts = 111
+dt = 0.0018
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1296,12 +1872,38 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-100_dt-.002', '4', '100', '.002']
-cmdlineargsavedir = 07-16-2022/numts-100_dt-.002
-cmdlineargpotential = 4
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-105_dt-.0019', '3', '105', '.0019']
+cmdlineargsavedir = dt/v3/trial_nts-105_dt-.0019
+cmdlineargpotential = 3
+cmdlineargnumts = 105
+cmdlineargdt = 0.0019
+Save directory: dt/v3/trial_nts-105_dt-.0019
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 105
+dt = 0.0019
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-100_dt-.0020', '3', '100', '.0020']
+cmdlineargsavedir = dt/v3/trial_nts-100_dt-.0020
+cmdlineargpotential = 3
 cmdlineargnumts = 100
 cmdlineargdt = 0.002
-Current working directory: 07-16-2022/numts-100_dt-.002/v4
+Save directory: dt/v3/trial_nts-100_dt-.0020
 
 L = 15.0
 numx = 1025
@@ -1309,7 +1911,6 @@ numfour = 32
 numts = 100
 dt = 0.002
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1323,12 +1924,272 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-200_dt-.001', '4', '200', '.001']
-cmdlineargsavedir = 07-16-2022/numts-200_dt-.001
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-95_dt-.0021', '3', '95', '.0021']
+cmdlineargsavedir = dt/v3/trial_nts-95_dt-.0021
+cmdlineargpotential = 3
+cmdlineargnumts = 95
+cmdlineargdt = 0.0021
+Save directory: dt/v3/trial_nts-95_dt-.0021
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 95
+dt = 0.0021
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-90_dt-.0022', '3', '90', '.0022']
+cmdlineargsavedir = dt/v3/trial_nts-90_dt-.0022
+cmdlineargpotential = 3
+cmdlineargnumts = 90
+cmdlineargdt = 0.0022
+Save directory: dt/v3/trial_nts-90_dt-.0022
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 90
+dt = 0.0022
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-86_dt-.0023', '3', '86', '.0023']
+cmdlineargsavedir = dt/v3/trial_nts-86_dt-.0023
+cmdlineargpotential = 3
+cmdlineargnumts = 86
+cmdlineargdt = 0.0023
+Save directory: dt/v3/trial_nts-86_dt-.0023
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 86
+dt = 0.0023
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-83_dt-.0024', '3', '83', '.0024']
+cmdlineargsavedir = dt/v3/trial_nts-83_dt-.0024
+cmdlineargpotential = 3
+cmdlineargnumts = 83
+cmdlineargdt = 0.0024
+Save directory: dt/v3/trial_nts-83_dt-.0024
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 83
+dt = 0.0024
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-80_dt-.0025', '3', '80', '.0025']
+cmdlineargsavedir = dt/v3/trial_nts-80_dt-.0025
+cmdlineargpotential = 3
+cmdlineargnumts = 80
+cmdlineargdt = 0.0025
+Save directory: dt/v3/trial_nts-80_dt-.0025
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0025
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-76_dt-.0026', '3', '76', '.0026']
+cmdlineargsavedir = dt/v3/trial_nts-76_dt-.0026
+cmdlineargpotential = 3
+cmdlineargnumts = 76
+cmdlineargdt = 0.0026
+Save directory: dt/v3/trial_nts-76_dt-.0026
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 76
+dt = 0.0026
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-74_dt-.0027', '3', '74', '.0027']
+cmdlineargsavedir = dt/v3/trial_nts-74_dt-.0027
+cmdlineargpotential = 3
+cmdlineargnumts = 74
+cmdlineargdt = 0.0027
+Save directory: dt/v3/trial_nts-74_dt-.0027
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 74
+dt = 0.0027
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-71_dt-.0028', '3', '71', '.0028']
+cmdlineargsavedir = dt/v3/trial_nts-71_dt-.0028
+cmdlineargpotential = 3
+cmdlineargnumts = 71
+cmdlineargdt = 0.0028
+Save directory: dt/v3/trial_nts-71_dt-.0028
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 71
+dt = 0.0028
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-68_dt-.0029', '3', '68', '.0029']
+cmdlineargsavedir = dt/v3/trial_nts-68_dt-.0029
+cmdlineargpotential = 3
+cmdlineargnumts = 68
+cmdlineargdt = 0.0029
+Save directory: dt/v3/trial_nts-68_dt-.0029
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 68
+dt = 0.0029
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v3/trial_nts-66_dt-.0030', '3', '66', '.0030']
+cmdlineargsavedir = dt/v3/trial_nts-66_dt-.0030
+cmdlineargpotential = 3
+cmdlineargnumts = 66
+cmdlineargdt = 0.003
+Save directory: dt/v3/trial_nts-66_dt-.0030
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-200_dt-.0010', '4', '200', '.0010']
+cmdlineargsavedir = dt/v4/trial_nts-200_dt-.0010
 cmdlineargpotential = 4
 cmdlineargnumts = 200
 cmdlineargdt = 0.001
-Current working directory: 07-16-2022/numts-200_dt-.001/v4
+Save directory: dt/v4/trial_nts-200_dt-.0010
 
 L = 15.0
 numx = 1025
@@ -1336,7 +2197,6 @@ numfour = 32
 numts = 200
 dt = 0.001
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1350,20 +2210,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-20_dt-.010', '5', '20', '.010']
-cmdlineargsavedir = 07-16-2022/numts-20_dt-.010
-cmdlineargpotential = 5
-cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-16-2022/numts-20_dt-.010/v5
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-181_dt-.0011', '4', '181', '.0011']
+cmdlineargsavedir = dt/v4/trial_nts-181_dt-.0011
+cmdlineargpotential = 4
+cmdlineargnumts = 181
+cmdlineargdt = 0.0011
+Save directory: dt/v4/trial_nts-181_dt-.0011
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 20
-dt = 0.01
+numts = 181
+dt = 0.0011
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1377,20 +2236,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-22_dt-.009', '5', '22', '.009']
-cmdlineargsavedir = 07-16-2022/numts-22_dt-.009
-cmdlineargpotential = 5
-cmdlineargnumts = 22
-cmdlineargdt = 0.009
-Current working directory: 07-16-2022/numts-22_dt-.009/v5
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-166_dt-.0012', '4', '166', '.0012']
+cmdlineargsavedir = dt/v4/trial_nts-166_dt-.0012
+cmdlineargpotential = 4
+cmdlineargnumts = 166
+cmdlineargdt = 0.0012
+Save directory: dt/v4/trial_nts-166_dt-.0012
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 22
-dt = 0.009
+numts = 166
+dt = 0.0012
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1404,20 +2262,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-25_dt-.008', '5', '25', '.008']
-cmdlineargsavedir = 07-16-2022/numts-25_dt-.008
-cmdlineargpotential = 5
-cmdlineargnumts = 25
-cmdlineargdt = 0.008
-Current working directory: 07-16-2022/numts-25_dt-.008/v5
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-153_dt-.0013', '4', '153', '.0013']
+cmdlineargsavedir = dt/v4/trial_nts-153_dt-.0013
+cmdlineargpotential = 4
+cmdlineargnumts = 153
+cmdlineargdt = 0.0013
+Save directory: dt/v4/trial_nts-153_dt-.0013
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 25
-dt = 0.008
+numts = 153
+dt = 0.0013
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1431,20 +2288,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-28_dt-.007', '5', '28', '.007']
-cmdlineargsavedir = 07-16-2022/numts-28_dt-.007
-cmdlineargpotential = 5
-cmdlineargnumts = 28
-cmdlineargdt = 0.007
-Current working directory: 07-16-2022/numts-28_dt-.007/v5
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-142_dt-.0014', '4', '142', '.0014']
+cmdlineargsavedir = dt/v4/trial_nts-142_dt-.0014
+cmdlineargpotential = 4
+cmdlineargnumts = 142
+cmdlineargdt = 0.0014
+Save directory: dt/v4/trial_nts-142_dt-.0014
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 28
-dt = 0.007
+numts = 142
+dt = 0.0014
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1458,20 +2314,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-33_dt-.006', '5', '33', '.006']
-cmdlineargsavedir = 07-16-2022/numts-33_dt-.006
-cmdlineargpotential = 5
-cmdlineargnumts = 33
-cmdlineargdt = 0.006
-Current working directory: 07-16-2022/numts-33_dt-.006/v5
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-133_dt-.0015', '4', '133', '.0015']
+cmdlineargsavedir = dt/v4/trial_nts-133_dt-.0015
+cmdlineargpotential = 4
+cmdlineargnumts = 133
+cmdlineargdt = 0.0015
+Save directory: dt/v4/trial_nts-133_dt-.0015
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 33
-dt = 0.006
+numts = 133
+dt = 0.0015
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1485,20 +2340,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-40_dt-.005', '5', '40', '.005']
-cmdlineargsavedir = 07-16-2022/numts-40_dt-.005
-cmdlineargpotential = 5
-cmdlineargnumts = 40
-cmdlineargdt = 0.005
-Current working directory: 07-16-2022/numts-40_dt-.005/v5
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-125_dt-.0016', '4', '125', '.0016']
+cmdlineargsavedir = dt/v4/trial_nts-125_dt-.0016
+cmdlineargpotential = 4
+cmdlineargnumts = 125
+cmdlineargdt = 0.0016
+Save directory: dt/v4/trial_nts-125_dt-.0016
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 40
-dt = 0.005
+numts = 125
+dt = 0.0016
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1512,20 +2366,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-50_dt-.004', '5', '50', '.004']
-cmdlineargsavedir = 07-16-2022/numts-50_dt-.004
-cmdlineargpotential = 5
-cmdlineargnumts = 50
-cmdlineargdt = 0.004
-Current working directory: 07-16-2022/numts-50_dt-.004/v5
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-117_dt-.0017', '4', '117', '.0017']
+cmdlineargsavedir = dt/v4/trial_nts-117_dt-.0017
+cmdlineargpotential = 4
+cmdlineargnumts = 117
+cmdlineargdt = 0.0017
+Save directory: dt/v4/trial_nts-117_dt-.0017
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 50
-dt = 0.004
+numts = 117
+dt = 0.0017
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1539,20 +2392,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-66_dt-.003', '5', '66', '.003']
-cmdlineargsavedir = 07-16-2022/numts-66_dt-.003
-cmdlineargpotential = 5
-cmdlineargnumts = 66
-cmdlineargdt = 0.003
-Current working directory: 07-16-2022/numts-66_dt-.003/v5
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-111_dt-.0018', '4', '111', '.0018']
+cmdlineargsavedir = dt/v4/trial_nts-111_dt-.0018
+cmdlineargpotential = 4
+cmdlineargnumts = 111
+cmdlineargdt = 0.0018
+Save directory: dt/v4/trial_nts-111_dt-.0018
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 66
-dt = 0.003
+numts = 111
+dt = 0.0018
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1566,12 +2418,38 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-100_dt-.002', '5', '100', '.002']
-cmdlineargsavedir = 07-16-2022/numts-100_dt-.002
-cmdlineargpotential = 5
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-105_dt-.0019', '4', '105', '.0019']
+cmdlineargsavedir = dt/v4/trial_nts-105_dt-.0019
+cmdlineargpotential = 4
+cmdlineargnumts = 105
+cmdlineargdt = 0.0019
+Save directory: dt/v4/trial_nts-105_dt-.0019
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 105
+dt = 0.0019
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-100_dt-.0020', '4', '100', '.0020']
+cmdlineargsavedir = dt/v4/trial_nts-100_dt-.0020
+cmdlineargpotential = 4
 cmdlineargnumts = 100
 cmdlineargdt = 0.002
-Current working directory: 07-16-2022/numts-100_dt-.002/v5
+Save directory: dt/v4/trial_nts-100_dt-.0020
 
 L = 15.0
 numx = 1025
@@ -1579,7 +2457,6 @@ numfour = 32
 numts = 100
 dt = 0.002
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1593,20 +2470,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-200_dt-.001', '5', '200', '.001']
-cmdlineargsavedir = 07-16-2022/numts-200_dt-.001
-cmdlineargpotential = 5
-cmdlineargnumts = 200
-cmdlineargdt = 0.001
-Current working directory: 07-16-2022/numts-200_dt-.001/v5
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-95_dt-.0021', '4', '95', '.0021']
+cmdlineargsavedir = dt/v4/trial_nts-95_dt-.0021
+cmdlineargpotential = 4
+cmdlineargnumts = 95
+cmdlineargdt = 0.0021
+Save directory: dt/v4/trial_nts-95_dt-.0021
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 200
-dt = 0.001
+numts = 95
+dt = 0.0021
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1620,20 +2496,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-20_dt-.010', '6', '20', '.010']
-cmdlineargsavedir = 07-16-2022/numts-20_dt-.010
-cmdlineargpotential = 6
-cmdlineargnumts = 20
-cmdlineargdt = 0.01
-Current working directory: 07-16-2022/numts-20_dt-.010/v6
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-90_dt-.0022', '4', '90', '.0022']
+cmdlineargsavedir = dt/v4/trial_nts-90_dt-.0022
+cmdlineargpotential = 4
+cmdlineargnumts = 90
+cmdlineargdt = 0.0022
+Save directory: dt/v4/trial_nts-90_dt-.0022
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 20
-dt = 0.01
+numts = 90
+dt = 0.0022
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1647,20 +2522,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-22_dt-.009', '6', '22', '.009']
-cmdlineargsavedir = 07-16-2022/numts-22_dt-.009
-cmdlineargpotential = 6
-cmdlineargnumts = 22
-cmdlineargdt = 0.009
-Current working directory: 07-16-2022/numts-22_dt-.009/v6
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-86_dt-.0023', '4', '86', '.0023']
+cmdlineargsavedir = dt/v4/trial_nts-86_dt-.0023
+cmdlineargpotential = 4
+cmdlineargnumts = 86
+cmdlineargdt = 0.0023
+Save directory: dt/v4/trial_nts-86_dt-.0023
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 22
-dt = 0.009
+numts = 86
+dt = 0.0023
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1674,20 +2548,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-25_dt-.008', '6', '25', '.008']
-cmdlineargsavedir = 07-16-2022/numts-25_dt-.008
-cmdlineargpotential = 6
-cmdlineargnumts = 25
-cmdlineargdt = 0.008
-Current working directory: 07-16-2022/numts-25_dt-.008/v6
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-83_dt-.0024', '4', '83', '.0024']
+cmdlineargsavedir = dt/v4/trial_nts-83_dt-.0024
+cmdlineargpotential = 4
+cmdlineargnumts = 83
+cmdlineargdt = 0.0024
+Save directory: dt/v4/trial_nts-83_dt-.0024
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 25
-dt = 0.008
+numts = 83
+dt = 0.0024
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1701,20 +2574,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-28_dt-.007', '6', '28', '.007']
-cmdlineargsavedir = 07-16-2022/numts-28_dt-.007
-cmdlineargpotential = 6
-cmdlineargnumts = 28
-cmdlineargdt = 0.007
-Current working directory: 07-16-2022/numts-28_dt-.007/v6
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-80_dt-.0025', '4', '80', '.0025']
+cmdlineargsavedir = dt/v4/trial_nts-80_dt-.0025
+cmdlineargpotential = 4
+cmdlineargnumts = 80
+cmdlineargdt = 0.0025
+Save directory: dt/v4/trial_nts-80_dt-.0025
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 28
-dt = 0.007
+numts = 80
+dt = 0.0025
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1728,20 +2600,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-33_dt-.006', '6', '33', '.006']
-cmdlineargsavedir = 07-16-2022/numts-33_dt-.006
-cmdlineargpotential = 6
-cmdlineargnumts = 33
-cmdlineargdt = 0.006
-Current working directory: 07-16-2022/numts-33_dt-.006/v6
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-76_dt-.0026', '4', '76', '.0026']
+cmdlineargsavedir = dt/v4/trial_nts-76_dt-.0026
+cmdlineargpotential = 4
+cmdlineargnumts = 76
+cmdlineargdt = 0.0026
+Save directory: dt/v4/trial_nts-76_dt-.0026
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 33
-dt = 0.006
+numts = 76
+dt = 0.0026
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1755,20 +2626,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-40_dt-.005', '6', '40', '.005']
-cmdlineargsavedir = 07-16-2022/numts-40_dt-.005
-cmdlineargpotential = 6
-cmdlineargnumts = 40
-cmdlineargdt = 0.005
-Current working directory: 07-16-2022/numts-40_dt-.005/v6
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-74_dt-.0027', '4', '74', '.0027']
+cmdlineargsavedir = dt/v4/trial_nts-74_dt-.0027
+cmdlineargpotential = 4
+cmdlineargnumts = 74
+cmdlineargdt = 0.0027
+Save directory: dt/v4/trial_nts-74_dt-.0027
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 40
-dt = 0.005
+numts = 74
+dt = 0.0027
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1782,20 +2652,19 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-50_dt-.004', '6', '50', '.004']
-cmdlineargsavedir = 07-16-2022/numts-50_dt-.004
-cmdlineargpotential = 6
-cmdlineargnumts = 50
-cmdlineargdt = 0.004
-Current working directory: 07-16-2022/numts-50_dt-.004/v6
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-71_dt-.0028', '4', '71', '.0028']
+cmdlineargsavedir = dt/v4/trial_nts-71_dt-.0028
+cmdlineargpotential = 4
+cmdlineargnumts = 71
+cmdlineargdt = 0.0028
+Save directory: dt/v4/trial_nts-71_dt-.0028
 
 L = 15.0
 numx = 1025
 numfour = 32
-numts = 50
-dt = 0.004
+numts = 71
+dt = 0.0028
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1809,12 +2678,38 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-66_dt-.003', '6', '66', '.003']
-cmdlineargsavedir = 07-16-2022/numts-66_dt-.003
-cmdlineargpotential = 6
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-68_dt-.0029', '4', '68', '.0029']
+cmdlineargsavedir = dt/v4/trial_nts-68_dt-.0029
+cmdlineargpotential = 4
+cmdlineargnumts = 68
+cmdlineargdt = 0.0029
+Save directory: dt/v4/trial_nts-68_dt-.0029
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 68
+dt = 0.0029
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v4/trial_nts-66_dt-.0030', '4', '66', '.0030']
+cmdlineargsavedir = dt/v4/trial_nts-66_dt-.0030
+cmdlineargpotential = 4
 cmdlineargnumts = 66
 cmdlineargdt = 0.003
-Current working directory: 07-16-2022/numts-66_dt-.003/v6
+Save directory: dt/v4/trial_nts-66_dt-.0030
 
 L = 15.0
 numx = 1025
@@ -1822,7 +2717,6 @@ numfour = 32
 numts = 66
 dt = 0.003
 Computational parameters saved.
-model = fourier
 
 trim = 171
 
@@ -1836,39 +2730,12 @@ Done with forward problem.
 
 -------FORWARD-------
 
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-100_dt-.002', '6', '100', '.002']
-cmdlineargsavedir = 07-16-2022/numts-100_dt-.002
-cmdlineargpotential = 6
-cmdlineargnumts = 100
-cmdlineargdt = 0.002
-Current working directory: 07-16-2022/numts-100_dt-.002/v6
-
-L = 15.0
-numx = 1025
-numfour = 32
-numts = 100
-dt = 0.002
-Computational parameters saved.
-model = fourier
-
-trim = 171
-
-vtruexvec saved.
-Shape thetatrue: (129,)
-Number of a0 states: 4
-a0vec saved.
-propatrue saved.
-amattruevec saved.
-Done with forward problem.
-
--------FORWARD-------
-
-sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './07-16-2022/numts-200_dt-.001', '6', '200', '.001']
-cmdlineargsavedir = 07-16-2022/numts-200_dt-.001
-cmdlineargpotential = 6
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-200_dt-.0010', '5', '200', '.0010']
+cmdlineargsavedir = dt/v5/trial_nts-200_dt-.0010
+cmdlineargpotential = 5
 cmdlineargnumts = 200
 cmdlineargdt = 0.001
-Current working directory: 07-16-2022/numts-200_dt-.001/v6
+Save directory: dt/v5/trial_nts-200_dt-.0010
 
 L = 15.0
 numx = 1025
@@ -1876,7 +2743,1072 @@ numfour = 32
 numts = 200
 dt = 0.001
 Computational parameters saved.
-model = fourier
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-181_dt-.0011', '5', '181', '.0011']
+cmdlineargsavedir = dt/v5/trial_nts-181_dt-.0011
+cmdlineargpotential = 5
+cmdlineargnumts = 181
+cmdlineargdt = 0.0011
+Save directory: dt/v5/trial_nts-181_dt-.0011
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 181
+dt = 0.0011
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-166_dt-.0012', '5', '166', '.0012']
+cmdlineargsavedir = dt/v5/trial_nts-166_dt-.0012
+cmdlineargpotential = 5
+cmdlineargnumts = 166
+cmdlineargdt = 0.0012
+Save directory: dt/v5/trial_nts-166_dt-.0012
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 166
+dt = 0.0012
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-153_dt-.0013', '5', '153', '.0013']
+cmdlineargsavedir = dt/v5/trial_nts-153_dt-.0013
+cmdlineargpotential = 5
+cmdlineargnumts = 153
+cmdlineargdt = 0.0013
+Save directory: dt/v5/trial_nts-153_dt-.0013
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 153
+dt = 0.0013
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-142_dt-.0014', '5', '142', '.0014']
+cmdlineargsavedir = dt/v5/trial_nts-142_dt-.0014
+cmdlineargpotential = 5
+cmdlineargnumts = 142
+cmdlineargdt = 0.0014
+Save directory: dt/v5/trial_nts-142_dt-.0014
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 142
+dt = 0.0014
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-133_dt-.0015', '5', '133', '.0015']
+cmdlineargsavedir = dt/v5/trial_nts-133_dt-.0015
+cmdlineargpotential = 5
+cmdlineargnumts = 133
+cmdlineargdt = 0.0015
+Save directory: dt/v5/trial_nts-133_dt-.0015
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 133
+dt = 0.0015
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-125_dt-.0016', '5', '125', '.0016']
+cmdlineargsavedir = dt/v5/trial_nts-125_dt-.0016
+cmdlineargpotential = 5
+cmdlineargnumts = 125
+cmdlineargdt = 0.0016
+Save directory: dt/v5/trial_nts-125_dt-.0016
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 125
+dt = 0.0016
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-117_dt-.0017', '5', '117', '.0017']
+cmdlineargsavedir = dt/v5/trial_nts-117_dt-.0017
+cmdlineargpotential = 5
+cmdlineargnumts = 117
+cmdlineargdt = 0.0017
+Save directory: dt/v5/trial_nts-117_dt-.0017
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 117
+dt = 0.0017
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-111_dt-.0018', '5', '111', '.0018']
+cmdlineargsavedir = dt/v5/trial_nts-111_dt-.0018
+cmdlineargpotential = 5
+cmdlineargnumts = 111
+cmdlineargdt = 0.0018
+Save directory: dt/v5/trial_nts-111_dt-.0018
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 111
+dt = 0.0018
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-105_dt-.0019', '5', '105', '.0019']
+cmdlineargsavedir = dt/v5/trial_nts-105_dt-.0019
+cmdlineargpotential = 5
+cmdlineargnumts = 105
+cmdlineargdt = 0.0019
+Save directory: dt/v5/trial_nts-105_dt-.0019
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 105
+dt = 0.0019
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-100_dt-.0020', '5', '100', '.0020']
+cmdlineargsavedir = dt/v5/trial_nts-100_dt-.0020
+cmdlineargpotential = 5
+cmdlineargnumts = 100
+cmdlineargdt = 0.002
+Save directory: dt/v5/trial_nts-100_dt-.0020
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 100
+dt = 0.002
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-95_dt-.0021', '5', '95', '.0021']
+cmdlineargsavedir = dt/v5/trial_nts-95_dt-.0021
+cmdlineargpotential = 5
+cmdlineargnumts = 95
+cmdlineargdt = 0.0021
+Save directory: dt/v5/trial_nts-95_dt-.0021
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 95
+dt = 0.0021
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-90_dt-.0022', '5', '90', '.0022']
+cmdlineargsavedir = dt/v5/trial_nts-90_dt-.0022
+cmdlineargpotential = 5
+cmdlineargnumts = 90
+cmdlineargdt = 0.0022
+Save directory: dt/v5/trial_nts-90_dt-.0022
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 90
+dt = 0.0022
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-86_dt-.0023', '5', '86', '.0023']
+cmdlineargsavedir = dt/v5/trial_nts-86_dt-.0023
+cmdlineargpotential = 5
+cmdlineargnumts = 86
+cmdlineargdt = 0.0023
+Save directory: dt/v5/trial_nts-86_dt-.0023
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 86
+dt = 0.0023
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-83_dt-.0024', '5', '83', '.0024']
+cmdlineargsavedir = dt/v5/trial_nts-83_dt-.0024
+cmdlineargpotential = 5
+cmdlineargnumts = 83
+cmdlineargdt = 0.0024
+Save directory: dt/v5/trial_nts-83_dt-.0024
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 83
+dt = 0.0024
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-80_dt-.0025', '5', '80', '.0025']
+cmdlineargsavedir = dt/v5/trial_nts-80_dt-.0025
+cmdlineargpotential = 5
+cmdlineargnumts = 80
+cmdlineargdt = 0.0025
+Save directory: dt/v5/trial_nts-80_dt-.0025
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0025
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-76_dt-.0026', '5', '76', '.0026']
+cmdlineargsavedir = dt/v5/trial_nts-76_dt-.0026
+cmdlineargpotential = 5
+cmdlineargnumts = 76
+cmdlineargdt = 0.0026
+Save directory: dt/v5/trial_nts-76_dt-.0026
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 76
+dt = 0.0026
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-74_dt-.0027', '5', '74', '.0027']
+cmdlineargsavedir = dt/v5/trial_nts-74_dt-.0027
+cmdlineargpotential = 5
+cmdlineargnumts = 74
+cmdlineargdt = 0.0027
+Save directory: dt/v5/trial_nts-74_dt-.0027
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 74
+dt = 0.0027
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-71_dt-.0028', '5', '71', '.0028']
+cmdlineargsavedir = dt/v5/trial_nts-71_dt-.0028
+cmdlineargpotential = 5
+cmdlineargnumts = 71
+cmdlineargdt = 0.0028
+Save directory: dt/v5/trial_nts-71_dt-.0028
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 71
+dt = 0.0028
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-68_dt-.0029', '5', '68', '.0029']
+cmdlineargsavedir = dt/v5/trial_nts-68_dt-.0029
+cmdlineargpotential = 5
+cmdlineargnumts = 68
+cmdlineargdt = 0.0029
+Save directory: dt/v5/trial_nts-68_dt-.0029
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 68
+dt = 0.0029
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v5/trial_nts-66_dt-.0030', '5', '66', '.0030']
+cmdlineargsavedir = dt/v5/trial_nts-66_dt-.0030
+cmdlineargpotential = 5
+cmdlineargnumts = 66
+cmdlineargdt = 0.003
+Save directory: dt/v5/trial_nts-66_dt-.0030
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-200_dt-.0010', '6', '200', '.0010']
+cmdlineargsavedir = dt/v6/trial_nts-200_dt-.0010
+cmdlineargpotential = 6
+cmdlineargnumts = 200
+cmdlineargdt = 0.001
+Save directory: dt/v6/trial_nts-200_dt-.0010
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 200
+dt = 0.001
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-181_dt-.0011', '6', '181', '.0011']
+cmdlineargsavedir = dt/v6/trial_nts-181_dt-.0011
+cmdlineargpotential = 6
+cmdlineargnumts = 181
+cmdlineargdt = 0.0011
+Save directory: dt/v6/trial_nts-181_dt-.0011
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 181
+dt = 0.0011
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-166_dt-.0012', '6', '166', '.0012']
+cmdlineargsavedir = dt/v6/trial_nts-166_dt-.0012
+cmdlineargpotential = 6
+cmdlineargnumts = 166
+cmdlineargdt = 0.0012
+Save directory: dt/v6/trial_nts-166_dt-.0012
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 166
+dt = 0.0012
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-153_dt-.0013', '6', '153', '.0013']
+cmdlineargsavedir = dt/v6/trial_nts-153_dt-.0013
+cmdlineargpotential = 6
+cmdlineargnumts = 153
+cmdlineargdt = 0.0013
+Save directory: dt/v6/trial_nts-153_dt-.0013
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 153
+dt = 0.0013
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-142_dt-.0014', '6', '142', '.0014']
+cmdlineargsavedir = dt/v6/trial_nts-142_dt-.0014
+cmdlineargpotential = 6
+cmdlineargnumts = 142
+cmdlineargdt = 0.0014
+Save directory: dt/v6/trial_nts-142_dt-.0014
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 142
+dt = 0.0014
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-133_dt-.0015', '6', '133', '.0015']
+cmdlineargsavedir = dt/v6/trial_nts-133_dt-.0015
+cmdlineargpotential = 6
+cmdlineargnumts = 133
+cmdlineargdt = 0.0015
+Save directory: dt/v6/trial_nts-133_dt-.0015
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 133
+dt = 0.0015
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-125_dt-.0016', '6', '125', '.0016']
+cmdlineargsavedir = dt/v6/trial_nts-125_dt-.0016
+cmdlineargpotential = 6
+cmdlineargnumts = 125
+cmdlineargdt = 0.0016
+Save directory: dt/v6/trial_nts-125_dt-.0016
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 125
+dt = 0.0016
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-117_dt-.0017', '6', '117', '.0017']
+cmdlineargsavedir = dt/v6/trial_nts-117_dt-.0017
+cmdlineargpotential = 6
+cmdlineargnumts = 117
+cmdlineargdt = 0.0017
+Save directory: dt/v6/trial_nts-117_dt-.0017
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 117
+dt = 0.0017
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-111_dt-.0018', '6', '111', '.0018']
+cmdlineargsavedir = dt/v6/trial_nts-111_dt-.0018
+cmdlineargpotential = 6
+cmdlineargnumts = 111
+cmdlineargdt = 0.0018
+Save directory: dt/v6/trial_nts-111_dt-.0018
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 111
+dt = 0.0018
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-105_dt-.0019', '6', '105', '.0019']
+cmdlineargsavedir = dt/v6/trial_nts-105_dt-.0019
+cmdlineargpotential = 6
+cmdlineargnumts = 105
+cmdlineargdt = 0.0019
+Save directory: dt/v6/trial_nts-105_dt-.0019
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 105
+dt = 0.0019
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-100_dt-.0020', '6', '100', '.0020']
+cmdlineargsavedir = dt/v6/trial_nts-100_dt-.0020
+cmdlineargpotential = 6
+cmdlineargnumts = 100
+cmdlineargdt = 0.002
+Save directory: dt/v6/trial_nts-100_dt-.0020
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 100
+dt = 0.002
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-95_dt-.0021', '6', '95', '.0021']
+cmdlineargsavedir = dt/v6/trial_nts-95_dt-.0021
+cmdlineargpotential = 6
+cmdlineargnumts = 95
+cmdlineargdt = 0.0021
+Save directory: dt/v6/trial_nts-95_dt-.0021
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 95
+dt = 0.0021
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-90_dt-.0022', '6', '90', '.0022']
+cmdlineargsavedir = dt/v6/trial_nts-90_dt-.0022
+cmdlineargpotential = 6
+cmdlineargnumts = 90
+cmdlineargdt = 0.0022
+Save directory: dt/v6/trial_nts-90_dt-.0022
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 90
+dt = 0.0022
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-86_dt-.0023', '6', '86', '.0023']
+cmdlineargsavedir = dt/v6/trial_nts-86_dt-.0023
+cmdlineargpotential = 6
+cmdlineargnumts = 86
+cmdlineargdt = 0.0023
+Save directory: dt/v6/trial_nts-86_dt-.0023
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 86
+dt = 0.0023
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-83_dt-.0024', '6', '83', '.0024']
+cmdlineargsavedir = dt/v6/trial_nts-83_dt-.0024
+cmdlineargpotential = 6
+cmdlineargnumts = 83
+cmdlineargdt = 0.0024
+Save directory: dt/v6/trial_nts-83_dt-.0024
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 83
+dt = 0.0024
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-80_dt-.0025', '6', '80', '.0025']
+cmdlineargsavedir = dt/v6/trial_nts-80_dt-.0025
+cmdlineargpotential = 6
+cmdlineargnumts = 80
+cmdlineargdt = 0.0025
+Save directory: dt/v6/trial_nts-80_dt-.0025
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 80
+dt = 0.0025
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-76_dt-.0026', '6', '76', '.0026']
+cmdlineargsavedir = dt/v6/trial_nts-76_dt-.0026
+cmdlineargpotential = 6
+cmdlineargnumts = 76
+cmdlineargdt = 0.0026
+Save directory: dt/v6/trial_nts-76_dt-.0026
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 76
+dt = 0.0026
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-74_dt-.0027', '6', '74', '.0027']
+cmdlineargsavedir = dt/v6/trial_nts-74_dt-.0027
+cmdlineargpotential = 6
+cmdlineargnumts = 74
+cmdlineargdt = 0.0027
+Save directory: dt/v6/trial_nts-74_dt-.0027
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 74
+dt = 0.0027
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-71_dt-.0028', '6', '71', '.0028']
+cmdlineargsavedir = dt/v6/trial_nts-71_dt-.0028
+cmdlineargpotential = 6
+cmdlineargnumts = 71
+cmdlineargdt = 0.0028
+Save directory: dt/v6/trial_nts-71_dt-.0028
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 71
+dt = 0.0028
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-68_dt-.0029', '6', '68', '.0029']
+cmdlineargsavedir = dt/v6/trial_nts-68_dt-.0029
+cmdlineargpotential = 6
+cmdlineargnumts = 68
+cmdlineargdt = 0.0029
+Save directory: dt/v6/trial_nts-68_dt-.0029
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 68
+dt = 0.0029
+Computational parameters saved.
+
+trim = 171
+
+vtruexvec saved.
+Shape thetatrue: (129,)
+Number of a0 states: 4
+a0vec saved.
+propatrue saved.
+amattruevec saved.
+Done with forward problem.
+
+-------FORWARD-------
+
+sys.argv = ['tdse-wave-function-main-script-forward-kbc.py', './dt/v6/trial_nts-66_dt-.0030', '6', '66', '.0030']
+cmdlineargsavedir = dt/v6/trial_nts-66_dt-.0030
+cmdlineargpotential = 6
+cmdlineargnumts = 66
+cmdlineargdt = 0.003
+Save directory: dt/v6/trial_nts-66_dt-.0030
+
+L = 15.0
+numx = 1025
+numfour = 32
+numts = 66
+dt = 0.003
+Computational parameters saved.
 
 trim = 171
 
