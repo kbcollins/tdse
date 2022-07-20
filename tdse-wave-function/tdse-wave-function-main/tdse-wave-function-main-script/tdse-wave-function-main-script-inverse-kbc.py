@@ -429,9 +429,6 @@ aggresultstxt.write(str(optresults.success) + delim)
 print('Value of objective:', optresults.fun)
 aggresultstxt.write(str(optresults.fun) + delim)
 
-print('Value of Jacobian:', optresults.jac)
-aggresultstxt.write(str(optresults.jac) + delim)
-
 print('Number of iterations:', optresults.nit)
 aggresultstxt.write(str(optresults.nit) + delim)
 

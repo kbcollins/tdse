@@ -61,13 +61,14 @@ for thisv in {0..6}; do
   # the Bash noop or null command and the > redirects the
   # output of the noop to the file and overwrites its contents)
   : > "$thispath"/agg-results-"$SLURM_JOB_NAME".txt
+  echo "L, numx, numfour, numts, dt, num a0, model, opt success, val obj, num opt itr, opt time, l2 err, l-inf err, tot time\n" > "$thispath"/agg-results-"$SLURM_JOB_NAME".txt
 
   # this loops through all of the files inside of
   # ./"$parentdir"/v"$thisv"/"$thistrial"
   for thistrial in "${filelist[@]}"; do
     # ./"$parentdir"/v"$thisv"/"$thistrial"
     thistrialpath="$thispath"/"$thistrial"
-    echo "$thistrialpath"
+#    echo "$thistrialpath"
 
     for thismodel in "${modellist[@]}"; do
       # make the results directory
