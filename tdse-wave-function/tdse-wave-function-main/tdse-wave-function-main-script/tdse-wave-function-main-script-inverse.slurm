@@ -49,13 +49,13 @@ modellist=("fourier" "cheby")
 for thisv in {0..6}; do
   # store path for current potential
   thispath=./"$parentdir"/v"$thisv"
-  echo "$thispath"
+#  echo "$thispath"
 
   # store the directory contents of ./"$parentdir"/v"$thisv"
   # as a bash array
   # the -d flag tells ls to only give directories
   filelist=( $(ls "$thispath" | grep "trial*") )
-  echo "${filelist[@]}"
+#  echo "${filelist[@]}"
 
   # make/clear the agg-results-"$SLURM_JOB_NAME".txt file (the : is
   # the Bash noop or null command and the > redirects the
@@ -69,14 +69,14 @@ for thisv in {0..6}; do
     thistrialpath="$thispath"/"$thistrial"
     echo "$thistrialpath"
 
-#    for thismodel in "${modellist[@]}"; do
-#      # make the results directory
-#      # ./"$parentdir"/v"$thisv"/"$thistrial"/"$thismodel"/results-"$SLURM_JOB_NAME"
+    for thismodel in "${modellist[@]}"; do
+      # make the results directory
+      # ./"$parentdir"/v"$thisv"/"$thistrial"/"$thismodel"/results-"$SLURM_JOB_NAME"
 #      mkdir -p "$thistrial"/"$thismodel"/results-"$SLURM_JOB_NAME"
-##      mkdir -p "$thistrialpath"/"$thismodel"/results-"$SLURM_JOB_NAME"
+      mkdir -p "$thistrialpath"/"$thismodel"/results-"$SLURM_JOB_NAME"
 #    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thismodel" "$thistrial"
-##    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thismodel" "$thistrialpath"
-#    done
+    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thismodel" "$thistrialpath"
+    done
 
   done
 
