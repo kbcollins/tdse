@@ -65,6 +65,8 @@ print('Current working directory:', workdir)
 cmpprm = np.load(workdir / 'cmpprm.npy', allow_pickle=True)
 print('cmpprm =', cmpprm)
 
+print('')  # blank line
+
 # store loaded parameters as variables
 L = float(cmpprm[0])
 numx = int(cmpprm[1])
@@ -80,31 +82,6 @@ amattruevec = np.load(workdir / 'amattruevec.npy')
 # load true potential
 # vtruetoep = np.load(workdir / 'vtruetoep.npy')
 vtruexvec = np.load(workdir / 'vtruexvec.npy')
-
-
-###############################################################
-# Identify what model to use to approximate the potential and
-# specify the parameters which fully define the model
-# - modelprms is a tuple containing all of the variables the
-#   model needs to be fully defined
-# - the '*' in *modelprms unpacks modelprms then passes
-#   everything as the parameters to the instantiation of a
-#   model object
-###############################################################
-
-if cmdlineargmodel == 'fourier':
-    # Fourier model
-    modelprms = (L, numx, numfour)
-    model = tdsemodelclass.fourier
-elif cmdlineargmodel == 'cheby':
-    # Chebyshev model
-    # - From experience, I have found that cheby
-    #   works best when numcheb is an odd numbers
-    numcheb = 11
-    modelprms = (L, numx, numfour, numcheb)
-    model = tdsemodelclass.cheby
-else:
-    print(f'Model selection "{cmdlineargmodel}" not recognized.')
 
 
 ###############################################################
@@ -149,6 +126,40 @@ aggresultstxt.write(str(a0vec.shape[0]) + delim)
 
 print('Model:', cmdlineargmodel)
 aggresultstxt.write(cmdlineargmodel + delim)
+
+
+###############################################################
+# Identify what model to use to approximate the potential and
+# specify the parameters which fully define the model
+# - modelprms is a tuple containing all of the variables the
+#   model needs to be fully defined
+# - the '*' in *modelprms unpacks modelprms then passes
+#   everything as the parameters to the instantiation of a
+#   model object
+###############################################################
+
+if cmdlineargmodel == 'fourier':
+    # Fourier model
+    modelprms = (L, numx, numfour)
+    model = tdsemodelclass.fourier
+    # set number of basis used for the model (when using the
+    # Fourier model, we use the same number of basis
+    # as was used to discretize)
+    nummodel = numfour
+elif cmdlineargmodel == 'cheby':
+    # Chebyshev basis functions
+    # - From experience, I have found that cheby
+    #   works best when numcheb is an odd numbers
+    numcheb = 61  # 11
+    # set number of basis used for the model
+    nummodel = numcheb
+    modelprms = (L, numx, numfour, numcheb)
+    model = tdsemodelclass.cheby
+else:
+    print(f'Model selection "{cmdlineargmodel}" not recognized.')
+
+# write number of basis used for the model
+aggresultstxt.write(nummodel + delim)
 
 print('')  # blank line
 
@@ -437,7 +448,7 @@ print('Time to optimize (ns):', timeopt)
 aggresultstxt.write(str(timeopt) + delim)
 
 # save the learned theta
-np.save(workdir / f'thetahat-{cmdlineargmodel}', thetahat.theta)
+np.save(workdir / f'thetahat-{cmdlineargmodel}-{nummodel}', thetahat.theta)
 print('thetahat saved.')
 
 
@@ -455,7 +466,7 @@ plt.xlabel('x')
 plt.title('Learned vs. Initial Potentials')
 plt.legend()
 # plt.show()
-plt.savefig(resultsdir / f'graph_{scriptID}_learned_vs_initial_potential.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{scriptID}_{cmdlineargmodel}_{nummodel}_learned_vs_initial_potential.pdf', format='pdf')
 plt.close()
 
 # learned potential vs true potential
@@ -465,8 +476,10 @@ plt.xlabel('x')
 plt.title('Learned vs. True Potentials')
 plt.legend()
 # plt.show()
-plt.savefig(resultsdir / f'graph_{scriptID}_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{scriptID}_{cmdlineargmodel}_{nummodel}_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
+
+print('')  # blank line
 
 # shifted learned potential vs true potential
 midpointindex = numx // 2
@@ -496,7 +509,7 @@ plt.xlabel('x')
 plt.title(f'Shifted Learned Potential vs. True Potential\nl2 error (shift/trim) = {l2errshifttrim}\nl-inf error (shift/trim) = {linferrshifttrim}')
 plt.legend()
 # plt.show()
-plt.savefig(resultsdir / f'graph_{scriptID}_shifted_true_vs_learned_potential.pdf', format='pdf')
+plt.savefig(resultsdir / f'graph_{scriptID}_{cmdlineargmodel}_{nummodel}_shifted_true_vs_learned_potential.pdf', format='pdf')
 plt.close()
 
 print('')  # blank line
@@ -511,3 +524,5 @@ aggresultstxt.write(str(timetotal) + newline)
 
 # close aggresultstxt
 aggresultstxt.close()
+
+print('')  # blank line
