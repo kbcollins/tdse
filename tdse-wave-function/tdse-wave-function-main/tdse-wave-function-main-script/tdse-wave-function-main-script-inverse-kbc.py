@@ -159,7 +159,7 @@ else:
     print(f'Model selection "{cmdlineargmodel}" not recognized.')
 
 # write number of basis used for the model
-aggresultstxt.write(nummodel + delim)
+aggresultstxt.write(str(nummodel) + delim)
 
 print('')  # blank line
 
