@@ -57,18 +57,18 @@ for thisv in {0..6}; do
   filelist=( $(ls "$thispath" | grep "trial*") )
   echo "${filelist[@]}"
 
-#  # make/clear the agg-results-"$SLURM_JOB_NAME".txt file (the : is
-#  # the Bash noop or null command and the > redirects the
-#  # output of the noop to the file and overwrites its contents)
-#  : > "$thispath"/agg-results-"$SLURM_JOB_NAME".txt
-#
-#  # this loops through all of the files inside of
-#  # ./"$parentdir"/v"$thisv"/"$thistrial"
-#  for thistrial in "${filelist[@]}"; do
-##    # ./"$parentdir"/v"$thisv"/"$thistrial"
-##    thistrialpath="$thispath"/"$thistrial"
-##    echo "$thistrialpath"
-#
+  # make/clear the agg-results-"$SLURM_JOB_NAME".txt file (the : is
+  # the Bash noop or null command and the > redirects the
+  # output of the noop to the file and overwrites its contents)
+  : > "$thispath"/agg-results-"$SLURM_JOB_NAME".txt
+
+  # this loops through all of the files inside of
+  # ./"$parentdir"/v"$thisv"/"$thistrial"
+  for thistrial in "${filelist[@]}"; do
+    # ./"$parentdir"/v"$thisv"/"$thistrial"
+    thistrialpath="$thispath"/"$thistrial"
+    echo "$thistrialpath"
+
 #    for thismodel in "${modellist[@]}"; do
 #      # make the results directory
 #      # ./"$parentdir"/v"$thisv"/"$thistrial"/"$thismodel"/results-"$SLURM_JOB_NAME"
@@ -77,7 +77,7 @@ for thisv in {0..6}; do
 #    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thismodel" "$thistrial"
 ##    python tdse-wave-function-main-script-"$SLURM_JOB_NAME"-kbc.py "$thismodel" "$thistrialpath"
 #    done
-#
-#  done
+
+  done
 
 done
