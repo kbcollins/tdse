@@ -65,13 +65,12 @@ for thisv in {0..6}; do
 
   # this loops through all possible models
   for thismodel in "${modellist[@]}"; do
-    # ./"$parentdir"/v"$thisv"/"$thistrial"
-    thistrialpath="$thispath"/"$thistrial"
-#    echo "$thistrialpath"
-
     # this loops through all of the files inside of
     # ./"$parentdir"/v"$thisv"/"$thistrial"
     for thistrial in "${filelist[@]}"; do
+      # ./"$parentdir"/v"$thisv"/"$thistrial"
+      thistrialpath="$thispath"/"$thistrial"
+#      echo "$thistrialpath"
       # make the results directory
       # ./"$parentdir"/v"$thisv"/"$thistrial"/"$thismodel"/results-"$SLURM_JOB_NAME"
       mkdir -p "$thistrialpath"/"$thismodel"/results-"$SLURM_JOB_NAME"
