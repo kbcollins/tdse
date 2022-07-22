@@ -1,0 +1,9 @@
+- lax-ify wave function code with careful tests for
+  -- grad & Hess with Fourier basis functions
+  -- grad & Hess with Chebyshev basis functions
+- lax-ify amp squared code with careful tests for
+  -- grad & Hess with Fourier basis functions
+  -- grad & Hess with Chebyshev basis functions
+
+- integrate Fourier & Cheb classes with wave function & amp squared codes
+- revise Fourier & Cheb classes
