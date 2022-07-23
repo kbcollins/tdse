@@ -2,10 +2,6 @@ import numpy as np
 import scipy.linalg as sl
 import scipy.special as ss
 import scipy.integrate as si
-from jax.config import config
-import jax.numpy as jnp
-config.update("jax_enable_x64", True)
-
 
 class fourier:
 
@@ -46,6 +42,7 @@ class fourier:
 
         # real space grid points (for plotting)
         xvec = np.linspace(-L, L, numx)
+        self.dx = xvec[1] - xvec[0]
 
         # matrix for converting vector Fourier model
         # coefficients to real space, that is, given
@@ -55,17 +52,20 @@ class fourier:
         self.fourtoxmat = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
 
         # Toeplitz indexing matrix, used for constructing
-        # Toeplitz matrix from a vector which as been set up like:
-        # jnp.concatenate([jnp.flipud(row.conj()), row[1:]])
+        # Toeplitz matrix from a vector which has been set up like:
+        # np.concatenate([np.flipud(row.conj()), row[1:]])
         aa = (-1) * np.arange(0, self.numtoepelms).reshape(self.numtoepelms, 1)
         bb = [np.arange(self.numtoepelms - 1, 2 * self.numtoepelms - 1)]
-        self.toepindxmat = np.array(aa + bb)
+        self.toepindxmat = aa + bb
 
     def settheta(self, theta):
         self.theta = theta
 
     def gettheta(self):
-        return jnp.array( self.theta )
+        return self.theta
+
+    def kmat(self):
+        return np.diag( np.arange(-self.numfour,self.numfour+1)**2 * np.pi**2 / (2*self.L**2) )
 
     def randtheta(self, dist='uniform', seed=None):
         #####################################################
@@ -84,7 +84,7 @@ class fourier:
 
         self.theta = theta
 
-    def tox(self):
+    def vx(self):
         ##################################################
         # This method transforms self.theta into a
         # real space potential.
@@ -96,7 +96,7 @@ class fourier:
         # first we need to transform theta into a complex valued
         # vector
         thetaR = self.theta[:self.numtoepelms]
-        thetaI = jnp.concatenate((jnp.array([0.0]), self.theta[self.numtoepelms:]))
+        thetaI = np.concatenate((np.array([0.0]), self.theta[self.numtoepelms:]))
         thetaC = thetaR + 1j * thetaI
 
         # Mathematically,
@@ -109,12 +109,12 @@ class fourier:
         # are trying to approximate with theta is real, the imaginary
         # part (n < 0) is just the complex conjugate of the real part (n >= 0)
         recmodelcoeff = np.concatenate([np.conjugate(np.flipud(scaledthetaC[1:(self.numfour + 1)])), scaledthetaC[:(self.numfour + 1)]])
-        potentialxvec = jnp.real(recmodelcoeff @ self.fourtoxmat)
+        potentialxvec = np.real(recmodelcoeff @ self.fourtoxmat)
 
         return potentialxvec
 
 
-    def tovmat(self):
+    def vmat(self):
         ##################################################
         # This method transforms self.theta into potential
         # operator matrix vmat in terms of w/e orthonormal
@@ -129,11 +129,11 @@ class fourier:
         # to use theta we need to first recombine the real
         # and imaginary parts into a vector of complex values
         vtoephatR = self.theta[:self.numtoepelms]
-        vtoephatI = jnp.concatenate((jnp.array([0.0]), self.theta[self.numtoepelms:]))
+        vtoephatI = np.concatenate((np.array([0.0]), self.theta[self.numtoepelms:]))
         vtoephat = vtoephatR + 1j * vtoephatI
 
         # construct vmathat from complex toeplitz vector
-        vmathat = jnp.concatenate([jnp.flipud(jnp.conj(vtoephat)), vtoephat[1:]])[self.toepindxmat]
+        vmathat = np.concatenate([np.flipud(np.conj(vtoephat)), vtoephat[1:]])[self.toepindxmat]
 
         return vmathat
 
@@ -147,22 +147,22 @@ class fourier:
         ##################################################
 
         # this code computes the real part of \nabla_\theta H(\theta)
-        myeye = jnp.eye(self.numtoepelms)
-        wsR = jnp.hstack([jnp.fliplr(myeye), myeye[:,1:]]).T
+        myeye = np.eye(self.numtoepelms)
+        wsR = np.hstack([np.fliplr(myeye), myeye[:,1:]]).T
         ctrmatsR = wsR[self.toepindxmat]
 
         # this code computes the imaginary part of \nabla_\theta H(\theta)
-        wsI = 1.0j * jnp.hstack([-jnp.fliplr(myeye), myeye[:, 1:]])
+        wsI = 1.0j * np.hstack([-np.fliplr(myeye), myeye[:, 1:]])
         wsI = wsI[1:, :]
         wsI = wsI.T
         ctrmatsI = wsI[self.toepindxmat]
 
         # concatenate the real and imaginary parts of
-        gradmat = jnp.concatenate([ctrmatsR, ctrmatsI], axis=2)
+        gradmat = np.concatenate([ctrmatsR, ctrmatsI], axis=2)
 
         return gradmat
 
-    def fntomodel(self, fn):
+    def represent(self, fn):
         #################################################
         # This method takes a function and returns the
         # model representation of it without using
@@ -196,9 +196,9 @@ class fourier:
         fntoepC = np.array(fnmodelcoeff)
         theta = np.concatenate((fntoepC.real, fntoepC[1:].imag))
         self.theta = theta
-        return jnp.array(fntoepC)
+        return fntoepC
 
-class cheby:
+class chebyshev:
 
     def __init__(self, L, numx, numfour, numcheb, theta=None, seed=None):
         #####################################################
@@ -259,7 +259,7 @@ class cheby:
             chebtofourmat.append(sl.toeplitz(r=temptoeprow, c=np.conj(temptoeprow)))
 
         # used like: self._chebtofourmat @ cheb_cff_vec
-        self.chebtofourmat = jnp.array(np.transpose(np.array(chebtofourmat), [1, 2, 0]))
+        self.chebtofourmat = np.transpose(chebtofourmat, [1, 2, 0])
 
     def settheta(self, theta):
         self.theta = theta
@@ -318,7 +318,7 @@ class cheby:
 
         return gradmat
 
-    def fntomodel(self, fn):
+    def represent(self, fn):
         #################################################
         # This method takes a function and returns
         # the theta
@@ -350,6 +350,3 @@ class cheby:
         chebvec = chebweights * chebvec
 
         self.theta = chebvec
-
-    # alias fntotheta to fntocheby because they are the same thing
-    fntotheta = fntomodel
