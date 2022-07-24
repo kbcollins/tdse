@@ -41,21 +41,21 @@ class fourier:
         fournvec = np.arange(-numfour, numfour + 1)
 
         # real space grid points (for plotting)
-        xvec = np.linspace(-L, L, numx)
-        self.dx = xvec[1] - xvec[0]
+        self.xvec = np.linspace(-L, L, numx)
+        self.dx = self.xvec[1] - self.xvec[0]
 
         # matrix for converting vector Fourier model
         # coefficients to real space, that is, given
         # {\nu_n}_{n=-F}^F = (2L)^{-1/2} \int_{x=-L}^L e^{-i \pi n x / L} fn(x) dx
         # {fnxvec_m}_{m=0}^N = \sum_{n=-F}^F \nu_n e^{i \pi n m \Delta x / L}
         # used like realspacevec = fourspacevec @ fourtox
-        self.fourtoxmat = np.exp(1j * np.pi * np.outer(fournvec, xvec) / L) / np.sqrt(2 * L)
+        self.fourtoxmat = np.exp(1j * np.pi * np.outer(fournvec, self.xvec) / L) / np.sqrt(2 * L)
 
         # Toeplitz indexing matrix, used for constructing
         # Toeplitz matrix from a vector which has been set up like:
         # np.concatenate([np.flipud(row.conj()), row[1:]])
         aa = (-1) * np.arange(0, self.numtoepelms).reshape(self.numtoepelms, 1)
-        bb = [np.arange(self.numtoepelms - 1, 2 * self.numtoepelms - 1)]
+        bb = np.arange(self.numtoepelms - 1, 2 * self.numtoepelms - 1)
         self.toepindxmat = aa + bb
 
     def settheta(self, theta):
@@ -98,20 +98,8 @@ class fourier:
         thetaR = self.theta[:self.numtoepelms]
         thetaI = np.concatenate((np.array([0.0]), self.theta[self.numtoepelms:]))
         thetaC = thetaR + 1j * thetaI
-
-        # Mathematically,
-        # thetaC_j = (2L)^{-1} \int_{x=-L}^L e^{-i \pi j x / L} fn(x) dx; j = {0, ..., 2F + 1}
-        # but we want it to be
-        # thetaC_n = (2L)^{-1/2} \int_{x=-L}^L e^{-i \pi n x / L} fn(x) dx; n = {-F, ..., F}
-        # so we need to multiply (2L)^{1/2} thetaC
-        scaledthetaC = np.sqrt(2 * self.L) * thetaC
-        # then adjust the elements slightly, because we know the fn we
-        # are trying to approximate with theta is real, the imaginary
-        # part (n < 0) is just the complex conjugate of the real part (n >= 0)
-        recmodelcoeff = np.concatenate([np.conjugate(np.flipud(scaledthetaC[1:(self.numfour + 1)])), scaledthetaC[:(self.numfour + 1)]])
-        potentialxvec = np.real(recmodelcoeff @ self.fourtoxmat)
-
-        return potentialxvec
+        potentialxvec = np.real(thetaC @ self.fourtoxmat)
+        return self.xvec, potentialxvec
 
 
     def vmat(self):
@@ -208,9 +196,6 @@ class chebyshev:
         #   to fully define the mode
         #####################################################
 
-        # unpack the model parameters from args
-        L, numx, numfour, numcheb = args
-
         # store model parameters
         self.L = L
         self.numx = numx
@@ -233,14 +218,14 @@ class chebyshev:
         #####################################################
 
         # real space grid points (for plotting)
-        xvec = np.linspace(-L, L, numx)
+        self.xvec = np.linspace(-L, L, numx)
 
-        chebnvec = np.arange(0, self._numcheb + 1)
+        chebnvec = np.arange(0, self.numcheb + 1)
 
         # matrix for transforming Chebyshev coefficients to
         # real space
         # used like: self._chebtox @ cheb_cff_vec
-        self.chebtox = ss.eval_chebyt(np.expand_dims(chebnvec, 0), np.expand_dims(xvec / L, 1))
+        self.chebtox = ss.eval_chebyt(np.expand_dims(chebnvec, 0), np.expand_dims(self.xvec / L, 1))
 
         # matrix for transforming the Chebyshev representation
         # to Fourier representation (this is used in the adjoint
@@ -256,6 +241,7 @@ class chebyshev:
                 def iintgrnd(x):
                     return intgrnd(x).imag
                 temptoeprow.append(si.quad(rintgrnd, -L, L, limit=100)[0] + 1j * si.quad(iintgrnd, -L, L, limit=100)[0])
+            temptoeprow = np.array(temptoeprow)
             chebtofourmat.append(sl.toeplitz(r=temptoeprow, c=np.conj(temptoeprow)))
 
         # used like: self._chebtofourmat @ cheb_cff_vec
@@ -287,15 +273,15 @@ class chebyshev:
 
         self.theta = theta
 
-    def tox(self):
+    def vx(self):
         ##################################################
         # This method transforms self.theta into a
         # real space potential
         ##################################################
 
-        return self.chebtox @ self.theta
+        return self.xvec, self.chebtox @ self.theta
 
-    def tovmat(self):
+    def vmat(self):
         ##################################################
         # This method transforms self.theta into the
         # potential operator matrix vmat in terms of w/e
@@ -315,7 +301,6 @@ class chebyshev:
         ##################################################
 
         gradmat = self.chebtofourmat
-
         return gradmat
 
     def represent(self, fn):
@@ -343,7 +328,7 @@ class chebyshev:
             return (k - 0.5) * np.pi / (self.numcheb + 1)
 
         def g(k):
-            return fn(L * np.cos(chebtheta(k)))
+            return fn(self.L * np.cos(chebtheta(k)))
 
         chebvec = 2 * np.sum(g(kvec) * np.cos(chebnvec[..., np.newaxis] * chebtheta(kvec)), axis=1) / (self.numcheb + 1)
 
