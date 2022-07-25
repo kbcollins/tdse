@@ -127,7 +127,7 @@ def adjgrad(vhatmat, ctrmats):
     alldmat = -1j*dt*jnp.einsum('ij,jkm,kl->mil',hatstates,derivamat,hatstates.conj().T)
     gradients = jnp.real(jnp.einsum('ij,ajk,ik->a', jnp.conj(lambmat[1:,:]), alldmat, ahatmat[:-1,:]))
 
-    return obj, gradients
+    return obj, gradients, jnp.conj(lambmat[0,:])
 
 def adjhess(vhatmat, ctrmats):
     # Hamiltonian matrix 
@@ -198,7 +198,7 @@ def adjhess(vhatmat, ctrmats):
     hesspt3 = jnp.real(jnp.einsum('ci,ij,abjk,lk,cl->ab',jnp.conj(lambmat[1:,:]),hatstates,res,jnp.conj(hatstates),ahatmat[:-1,:],optimize=True))
     hess = hesspt1 + hesspt2 + hesspt3
     
-    return obj, gradients, hess
+    return obj, gradients, jnp.conj(lambmat[0]), hess, jnp.conj(gradlamb[0])
 
 def purejaxhess(dvec, alldmat):
     dvec = lax.stop_gradient(dvec)
@@ -266,7 +266,7 @@ repsize = 4*nmax
 fourtemp = linearbases.fourier(biga, 1025, nmax)
 jrepmat = jnp.array(fourtemp.grad())
 
-def justobj(x):
+def justobj(x, ic):
     # potential matrix
     vhatmat = jrepmat @ x
     
@@ -279,7 +279,7 @@ def justobj(x):
     hatpropH = hatstates @ jnp.diag(jnp.exp(1j*hatspec*dt)) @ jnp.conj(hatstates.T)
     
     #solve *forward* problem
-    ahatmat = jnp.concatenate([jnp.expand_dims(jainit,0), jnp.zeros((nsteps, 2*nmax+1))])
+    ahatmat = jnp.concatenate([jnp.expand_dims(ic,0), jnp.zeros((nsteps, 2*nmax+1))])
     def forstep(j, loopamat):
         return loopamat.at[j+1].set( hatprop @ loopamat[j,:] )
 
@@ -303,23 +303,55 @@ plt.savefig('truepotcomp.pdf')
 plt.close()
 """
 print("justobj at true theta: ")
-print(justobj(fourmodel.gettheta()))
+print(justobj(fourmodel.gettheta(), jainit))
 
 jjustobj = jit(justobj)
 jadjgrad = jit(adjgrad)
 jadjhess = jit(adjhess)
 
-# JAX gradient and Hessian
-jaxgrad = grad(justobj)
+# JAX gradient and Hessian w.r.t. theta
+jaxgrad = grad(justobj, 0)
 jjaxgrad = jit(jaxgrad)
-jaxhess = jacobian(jaxgrad)
+jaxhess = jacobian(jaxgrad, 0)
 jjaxhess = jit(jaxhess)
+
+# JAX gradient w.r.t. initial condition
+jaxdinit = grad(justobj, 1)
+jjaxdinit = jit(jaxdinit)
+
+# JAX mixed hessian w.r.t. initial conditions and theta
+def ridinit(theta, ic):
+    tmp = jaxdinit(theta, ic)
+    return jnp.stack([jnp.real(tmp), jnp.imag(tmp)])
+
+jaxmixed = jacobian(ridinit, 0)
+jjaxmixed = jit(jaxmixed)
+
+# finite-difference Hessian for fun and profit
+def jaxhinit(theta, ic):
+    eps = 1e-10
+    n = ic.shape[0]
+    myhess = []
+    myeye = jnp.eye(n)
+    for j in range(n):
+        icp = ic + eps*myeye[j]
+        icm = ic - eps*myeye[j]
+        tmp = (jaxdinit(theta, icp) - jaxdinit(theta, icm))/(2*eps)
+        myhess.append( tmp )
+
+    return jnp.array(myhess)
+
+jjaxhinit = jit(jaxhinit)
 
 erro1 = 0.0
 errg1 = 0.0
+errd1 = 0.0
+errd2 = 0.0
 erro2 = 0.0
 errg2 = 0.0
 errh2 = 0.0
+errm2 = 0.0
+fderr = 0.0
 numruns = 10
 for i in range(numruns):
     thetarand = jnp.array(np.random.normal(size=repsize+1))
@@ -328,22 +360,39 @@ for i in range(numruns):
     jvhatmat = jnp.array(adjmodel.vmat())
     jctrmats = jnp.array(adjmodel.grad())
     # JAX guys
-    obj = jjustobj(thetarand)
-    grad = jjaxgrad(thetarand)
-    hess = jjaxhess(thetarand)
+    obj = jjustobj(thetarand, jainit)
+    grad = jjaxgrad(thetarand, jainit)
+    hess = jjaxhess(thetarand, jainit)
+    dinit = jjaxdinit(thetarand, jainit)
+    rimixed = jjaxmixed(thetarand, jainit)
+    mixed = rimixed[0] + 1j*rimixed[1]
+    hinit = jjaxhinit(thetarand, jainit)
+    fderr += jnp.mean(jnp.abs(hinit - (nsteps+1)*jnp.eye(jainit.shape[0])))
     # compute and check errors for outputs from jadjgrad
-    obj1, grad1 = jadjgrad(jvhatmat, jctrmats)
+    obj1, grad1, dinit1 = jadjgrad(jvhatmat, jctrmats)
     erro1 += jnp.abs(obj - obj1)
     errg1 += jnp.mean(jnp.abs(grad - grad1))
+    errd1 += jnp.mean(jnp.abs(dinit - dinit1))
     # compute and check errors for outputs from jadjhess
-    obj2, grad2, hess2 = jadjhess(jvhatmat, jctrmats)
+    obj2, grad2, dinit2, hess2, mixed2 = jadjhess(jvhatmat, jctrmats)
     erro2 += jnp.abs(obj - obj2)
     errg2 += jnp.mean(jnp.abs(grad - grad2))
     errh2 += jnp.mean(jnp.abs(hess - hess2))
+    errd2 += jnp.mean(jnp.abs(dinit - dinit2))
+    errm2 += jnp.mean(jnp.abs(mixed - mixed2))
 
 print("mean |justobj - obj from grad function| = {0:.6e}".format(erro1/numruns))
 print("mean |adjgrad - jaxgrad from grad function| = {0:.6e}".format(errg1/numruns))
 print("mean |justobj - obj from hess function| = {0:.6e}".format(erro2/numruns))
 print("mean |adjgrad - jaxgrad from hess function| = {0:.6e}".format(errg2/numruns))
 print("mean |adjhess - jaxhess| = {0:.6e}".format(errh2/numruns))
+
+print("")
+print("mean |adjdinit - jaxdinit from grad function| = {0:.6e}".format(errd1/numruns))
+print("mean |adjdinit - jaxdinit from hess function| = {0:.6e}".format(errd2/numruns))
+print("")
+print("mean |adjmixed - jaxmixed from hess function| = {0:.6e}".format(errm2/numruns))
+print("")
+print("mean |fdIChess - trueIChess| = {0:.6e}".format(fderr/numruns))
+print("")
 
