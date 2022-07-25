@@ -31,8 +31,8 @@ def v(x):
 
 # let's take our new class for a spin
 fourmodel = linearbases.fourier(biga, 1025, nmax)
-# truemodel = linearbases.chebyshev(biga, 1025, nmax, 5)
-truemodel = fourmodel
+# truemodel = fourmodel
+truemodel = linearbases.chebyshev(biga, 1025, nmax, 11)
 truemodel.represent(v)
 xvec, vvec = truemodel.vx()
 
@@ -85,7 +85,7 @@ for j in range(nsteps):
 vcorr = vmap(jnp.correlate, in_axes=(0,0,None))
 
 # compute Fourier coefficients of |amat|^2
-betamat = vcorr(amattrue, amattrue, 'same') / jnp.sqrt(2 * biga)
+betamat = vcorr(amat, amat, 'same') / jnp.sqrt(2 * biga)
 
 # HSB: need to keep track of which data is in JAX and which data isn't
 jainit = jnp.array(ainit)
@@ -108,8 +108,10 @@ def mk_M_and_P(avec):
 
 
 
-jit_mk_M_and_P = jax.jit(mk_M_and_P)
-mkMPs = vmap(mk_M_and_P,in_axes=(1,),out_axes=(2,2,))
+jit_mk_M_and_P = jit(mk_M_and_P)
+mkMPsv1 = vmap(mk_M_and_P,in_axes=(0,),out_axes=(0,0,))
+mkMPsv2 = vmap(mk_M_and_P,in_axes=(1,),out_axes=(2,2,))
+
 
 
 def adjgrad(vhatmat, ctrmats):
@@ -127,16 +129,23 @@ def adjgrad(vhatmat, ctrmats):
         return loopamat.at[j+1].set( hatprop @ loopamat[j,:] )
 
     ahatmat = lax.fori_loop(0, nsteps, forstep, ahatmat)
+    rhomat = vcorr(ahatmat, ahatmat, 'same') / jnp.sqrt(2 * biga)
 
     # compute objective function
-    resid = ahatmat - jamat
+    resid = rhomat - jbetamat
     obj = 0.5*jnp.real(jnp.sum(jnp.conj(resid)*resid))
 
+    # compute all the Ms and Ps
+    Ms, Ps = mkMPsv1(ahatmat)
+
     # solve *adjoint* problem
-    lambmat = jnp.concatenate([jnp.zeros((nsteps, ctrmats.shape[1])), jnp.expand_dims(ahatmat[nsteps,:] - jamat[nsteps,:],0)])
+    resid2 = rhomat - jbetamat
+    fincond = ( Ms[nsteps,:].conj().T @ resid2[nsteps,:] + (Ps[nsteps].conj().T @ resid2[nsteps,:]).conj() ) / jnp.sqrt(2 * biga)
+    lambmat = jnp.concatenate([jnp.zeros((nsteps, ctrmats.shape[1])), jnp.expand_dims(fincond, 0)])
     def adjstep(j, looplamb):
         t = nsteps - j - 1
-        return looplamb.at[t].set( ahatmat[t,:] - jamat[t,:] + hatpropH @ looplamb[t+1,:] )
+        jumpterm = ( Ms[t,:].conj().T @ resid2[t,:] + (Ps[t].conj().T @ resid2[t,:]).conj() ) / jnp.sqrt(2 * biga)
+        return looplamb.at[t].set( jumpterm + hatpropH @ looplamb[t+1,:] )
 
     lambmat = lax.fori_loop(0, nsteps, adjstep, lambmat)
 
@@ -156,90 +165,6 @@ def adjgrad(vhatmat, ctrmats):
     return obj, gradients
 
 
-# from Kevin's code
-def adjgrads(theta):
-    # to use theta we need to first recombine the real
-    # and imaginary parts into a vector of complex values
-    vtoephatR = theta[:numtoepelms]
-    vtoephatI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
-    vtoephat = vtoephatR + 1j * vtoephatI
-    # print('Shape vtoephat:', vtoephat.shape)
-
-    # construct vmathat from complex toeplitz vector
-    vmathat = jnp.concatenate([jnp.flipud(jnp.conj(vtoephat)), vtoephat[1:]])[toepindxmat]
-
-    # Construct Hamiltonian matrix
-    hmathat = kmat + vmathat
-
-    # eigen-decomposition of the Hamiltonian matrix
-    spchat, stthat = jnl.eigh(hmathat)
-
-    # compute propagator matrix
-    propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
-    proplam = jnp.transpose(jnp.conjugate(propahat))
-
-    # propagate system starting from initial "a" state
-    ahatmat =[a0.copy()]
-    rhomat = [jnp.correlate(ahatmat[0], ahatmat[0], 'same') / jnp.sqrt(2 * L)]
-    partlammat = [jnp.zeros(numtoepelms, dtype=complex)]
-
-    for i in range(numts):
-        # propagate the system one time-step
-        ahatmat.append(propahat @ ahatmat[-1])
-
-        # calculate the amp^2
-        rhomat.append(jnp.correlate(ahatmat[-1], ahatmat[-1], 'same') / jnp.sqrt(2 * L))
-
-        # compute error of current time step
-        err = rhomat[-1] - betamat[i+1]
-
-        # compute M and P matrix for lambda mat
-        thisMmat, thisPmat = jit_mk_M_and_P(ahatmat[-1])
-
-        # compute part of lambda mat
-        # ( 1 / \sqrt{2 L} ) * [ ( M^r )^\dagger * ( \rho^r - \beta^r )
-        # + \overline{( P^r )^\dagger * ( \rho^r - \beta^r )} ]
-        partlammat.append((thisMmat.conj().T @ err + (thisPmat.conj().T @ err).conj()) / jnp.sqrt(2 * L))
-
-    ahatmat = jnp.array(ahatmat)
-
-    # build lammat backwards then flip at the end
-    lammat = [partlammat[-1]]
-    for i in range(2, numts + 2):
-        lammat.append(partlammat[-i] + proplam @ lammat[-1])
-
-    lammat = jnp.flipud(jnp.array(lammat))
-
-    offdiagmask = jnp.ones((numtoepelms, numtoepelms)) - jnp.eye(numtoepelms)
-    expspec = jnp.exp(-1j * dt * spchat)
-    e1, e2 = jnp.meshgrid(expspec, expspec)
-    s1, s2 = jnp.meshgrid(spchat, spchat)
-    denom = offdiagmask * (-1j * dt) * (s1 - s2) + jnp.eye(numtoepelms)
-    mask = offdiagmask * (e1 - e2)/denom + jnp.diag(expspec)
-
-    myeye = jnp.eye(numtoepelms)
-    wsR = jnp.hstack([jnp.fliplr(myeye), myeye[:,1:]]).T
-    ctrmatsR = wsR[toepindxmat]
-    prederivamatR = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsR,stthat)
-    derivamatR = prederivamatR * jnp.expand_dims(mask,2)
-    alldmatreal = -1j * dt * jnp.einsum('ij,jkm,kl->mil',stthat, derivamatR, stthat.conj().T)
-
-    wsI = 1.0j * jnp.hstack([-jnp.fliplr(myeye), myeye[:,1:]])
-    wsI = wsI[1:,:]
-    wsI = wsI.T
-    ctrmatsI = wsI[toepindxmat]
-    prederivamatI = jnp.einsum('ij,jkm,kl->ilm',stthat.conj().T, ctrmatsI, stthat)
-    derivamatI = prederivamatI * jnp.expand_dims(mask, 2)
-    alldmatimag = -1j * dt * jnp.einsum('ij,jkm,kl->mil',stthat, derivamatI, stthat.conj().T)
-
-    alldmat = jnp.vstack([alldmatreal, alldmatimag])
-
-    # compute all entries of the gradient at once
-    gradients = jnp.real(jnp.einsum('ij,ajk,ik->a', jnp.conj(lammat[1:,:]), alldmat, ahatmat[:-1,:]))
-
-    return gradients
-
-
 
 def adjhess(vhatmat, ctrmats):
     # Hamiltonian matrix 
@@ -256,16 +181,23 @@ def adjhess(vhatmat, ctrmats):
         return loopamat.at[j+1].set( hatprop @ loopamat[j,:] )
 
     ahatmat = lax.fori_loop(0, nsteps, forstep, ahatmat)
+    rhomat = vcorr(ahatmat, ahatmat, 'same') / jnp.sqrt(2 * biga)
 
     # compute objective function
-    resid = ahatmat - jamat
+    resid = rhomat - jbetamat
     obj = 0.5*jnp.real(jnp.sum(jnp.conj(resid)*resid))
     
+    # compute all the Ms and Ps
+    Ms, Ps = mkMPsv1(ahatmat)
+
     # solve *adjoint* problem
-    lambmat = jnp.concatenate([jnp.zeros((nsteps, ctrmats.shape[1])), jnp.expand_dims(ahatmat[nsteps,:] - jamat[nsteps,:],0)])
+    resid2 = rhomat - jbetamat
+    fincond = ( Ms[nsteps,:].conj().T @ resid2[nsteps,:] + (Ps[nsteps].conj().T @ resid2[nsteps,:]).conj() ) / jnp.sqrt(2 * biga)
+    lambmat = jnp.concatenate([jnp.zeros((nsteps, ctrmats.shape[1])), jnp.expand_dims(fincond, 0)])
     def adjstep(j, looplamb):
         t = nsteps - j - 1
-        return looplamb.at[t].set( ahatmat[t,:] - jamat[t,:] + hatpropH @ looplamb[t+1] )
+        jumpterm = ( Ms[t,:].conj().T @ resid2[t,:] + (Ps[t].conj().T @ resid2[t,:]).conj() ) / jnp.sqrt(2 * biga)
+        return looplamb.at[t].set( jumpterm + hatpropH @ looplamb[t+1,:] )
 
     lambmat = lax.fori_loop(0, nsteps, adjstep, lambmat)
 
@@ -281,11 +213,7 @@ def adjhess(vhatmat, ctrmats):
     derivamat = prederivamat * jnp.expand_dims(mask,2)
     alldmat = -1j*dt*jnp.einsum('ij,jkm,kl->mil',hatstates,derivamat,hatstates.conj().T)
     gradients = jnp.real(jnp.einsum('ij,ajk,ik->a', jnp.conj(lambmat[1:,:]), alldmat, ahatmat[:-1,:]))
-    
-    # propagators
-    # hatprop = hatstates @ jnp.diag(jnp.exp(-1j*hatspec*dt)) @ jnp.conj(hatstates.T)
-    # hatpropH = hatstates @ jnp.diag(jnp.exp(1j*hatspec*dt)) @ jnp.conj(hatstates.T)
-    
+
     # propagate \nabla_{\theta} a
     gradamat = jnp.zeros((nsteps+1, ctrmats.shape[1], ctrmats.shape[2]), dtype=np.complex128)
     def gradastep(j, loopgrada):
@@ -293,14 +221,46 @@ def adjhess(vhatmat, ctrmats):
 
     gradamat = lax.fori_loop(0, nsteps, gradastep, gradamat)
 
+    # nsteps+1 x 2*numfour + 1
+    rhomat = jnp.array(rhomat)
+    
+    # new pieces
+    finGM, finGP = mkMPsv2(gradamat[nsteps,:,:])
+    finMmat, finPmat = jit_mk_M_and_P(ahatmat[nsteps])
+    
+    # term I in notes
+    fincond = 1/jnp.sqrt(2*biga) * jnp.einsum('jki,j->ki',finGP.conj(),rhomat[nsteps]-betamat[nsteps])
+    # term III in notes
+    fincond += 1/jnp.sqrt(2*biga) * jnp.einsum('jki,j->ki',finGM,(rhomat[nsteps]-betamat[nsteps]).conj())
+    # term II in notes
+    fincond += 1/(2*biga) * jnp.einsum('jk,jl,ki->li',finMmat.conj(),finMmat,gradamat[nsteps].conj())
+    fincond += 1/(2*biga) * jnp.einsum('jk,jl,ki->li',finMmat,finPmat.conj(),gradamat[nsteps])
+    # term IV in notes
+    fincond += 1/(2*biga) * jnp.einsum('jk,jl,ki->li',finPmat.conj(),finMmat,gradamat[nsteps])
+    fincond += 1/(2*biga) * jnp.einsum('jk,jl,ki->li',finPmat,finPmat.conj(),gradamat[nsteps].conj())
+
     # propagate \nabla_{\theta} \lambda
-    alldmatH = np.transpose(alldmat.conj(),axes=(2,1,0))
-    gradlamb = jnp.concatenate([jnp.zeros((nsteps, ctrmats.shape[1], ctrmats.shape[2])), jnp.expand_dims(gradamat[nsteps],0)])
+    alldmatH = jnp.transpose(alldmat.conj(),axes=(2,1,0))
+    gradlamb = jnp.concatenate([jnp.zeros((nsteps, ctrmats.shape[1], ctrmats.shape[2]), dtype=jnp.complex128), jnp.expand_dims(fincond.conj(),0)])
     def gradlambstep(j, loopgradlamb):
         t = nsteps - j - 1
         term1 = hatpropH @ loopgradlamb[t+1]
         term2 = jnp.einsum('ijk,j->ik', alldmatH, lambmat[t+1,:])
-        return loopgradlamb.at[t].set( gradamat[t,:,:] + term1 + term2 )
+        # new pieces
+        thisGM, thisGP = mkMPsv2(gradamat[t,:,:])
+        thisMmat, thisPmat = jit_mk_M_and_P(ahatmat[t])
+
+        # term I in notes
+        jumpterm = 1/jnp.sqrt(2*biga) * jnp.einsum('jki,j->ki',thisGP.conj(),rhomat[t]-betamat[t])
+        # term III in notes
+        jumpterm += 1/jnp.sqrt(2*biga) * jnp.einsum('jki,j->ki',thisGM,(rhomat[t]-betamat[t]).conj())
+        # term II in notes
+        jumpterm += 1/(2*biga) * jnp.einsum('jk,jl,ki->li',thisMmat.conj(),thisMmat,gradamat[t].conj())
+        jumpterm += 1/(2*biga) * jnp.einsum('jk,jl,ki->li',thisMmat,thisPmat.conj(),gradamat[t])
+        # term IV in notes
+        jumpterm += 1/(2*biga) * jnp.einsum('jk,jl,ki->li',thisPmat.conj(),thisMmat,gradamat[t])
+        jumpterm += 1/(2*biga) * jnp.einsum('jk,jl,ki->li',thisPmat,thisPmat.conj(),gradamat[t].conj())
+        return loopgradlamb.at[t].set( jumpterm.conj() + term1 + term2 )
 
     gradlamb = lax.fori_loop(0, nsteps, gradlambstep, gradlamb)
 
@@ -311,149 +271,6 @@ def adjhess(vhatmat, ctrmats):
     hess = hesspt1 + hesspt2 + hesspt3
     
     return obj, gradients, hess
-
-
-# from Kevin's notebook, but heavily modified by me
-def adjhesss(theta):
-    # to use theta we need to first recombine the real
-    # and imaginary parts into a vector of complex values
-    vtoephatR = theta[:numtoepelms]
-    vtoephatI = jnp.concatenate((jnp.array([0.0]), theta[numtoepelms:]))
-    vtoephat = vtoephatR + 1j * vtoephatI
-    # print('Shape vtoephat:', vtoephat.shape)
-
-    # construct vmathat from complex toeplitz vector
-    vmathat = jnp.concatenate([jnp.flipud(jnp.conj(vtoephat)), vtoephat[1:]])[toepindxmat]
-
-    # Construct Hamiltonian matrix
-    hmathat = kmat + vmathat
-
-    # eigen-decomposition of the Hamiltonian matrix
-    spchat, stthat = jnl.eigh(hmathat)
-
-    # compute propagator matrix
-    propahat = stthat @ jnp.diag(jnp.exp(-1j * spchat * dt)) @ stthat.conj().T
-    proplam = jnp.transpose(jnp.conjugate(propahat))
-
-    # propagate system starting from initial "a" state
-    ahatmat =[a0.copy()]
-    rhomat = [jnp.correlate(ahatmat[0], ahatmat[0], 'same') / jnp.sqrt(2 * L)]
-    partlammat = [jnp.zeros(numtoepelms, dtype=complex)]
-
-    for i in range(numts):
-        # propagate the system one time-step
-        ahatmat.append(propahat @ ahatmat[-1])
-
-        # calculate the amp^2
-        rhomat.append(jnp.correlate(ahatmat[-1], ahatmat[-1], 'same') / jnp.sqrt(2 * L))
-
-        # compute error of current time step
-        err = rhomat[-1] - betamat[i+1]
-
-        # compute M and P matrix for lambda mat
-        thisMmat, thisPmat = jit_mk_M_and_P(ahatmat[-1])
-
-        # compute part of lambda mat
-        # ( 1 / \sqrt{2 L} ) * [ ( M^r )^\dagger * ( \rho^r - \beta^r )
-        # + \overline{( P^r )^\dagger * ( \rho^r - \beta^r )} ]
-        partlammat.append((thisMmat.conj().T @ err + (thisPmat.conj().T @ err).conj()) / jnp.sqrt(2 * L))
-
-    ahatmat = jnp.array(ahatmat)
-
-    # build lammat backwards then flip at the end
-    lammat = [partlammat[-1]]
-    for i in range(2, numts + 2):
-        lammat.append(partlammat[-i] + proplam @ lammat[-1])
-
-    lammat = jnp.flipud(jnp.array(lammat))
-    
-    offdiagmask = jnp.ones((numtoepelms, numtoepelms)) - jnp.eye(numtoepelms)
-    expspec = jnp.exp(-1j * dt * spchat)
-    e1, e2 = jnp.meshgrid(expspec, expspec)
-    s1, s2 = jnp.meshgrid(spchat, spchat)
-    denom = offdiagmask * (-1j * dt) * (s1 - s2) + jnp.eye(numtoepelms)
-    mask = offdiagmask * (e1 - e2)/denom + jnp.diag(expspec)
-
-    myeye = jnp.eye(numtoepelms)
-    wsR = jnp.hstack([jnp.fliplr(myeye), myeye[:,1:]]).T
-    ctrmatsR = wsR[toepindxmat]
-    prederivamatR = jnp.einsum('ij,jkm,kl->ilm', stthat.conj().T, ctrmatsR,stthat)
-    derivamatR = prederivamatR * jnp.expand_dims(mask,2)
-    alldmatreal = -1j * dt * jnp.einsum('ij,jkm,kl->mil',stthat, derivamatR, stthat.conj().T)
-
-    wsI = 1.0j * jnp.hstack([-jnp.fliplr(myeye), myeye[:,1:]])
-    wsI = wsI[1:,:]
-    wsI = wsI.T
-    ctrmatsI = wsI[toepindxmat]
-    prederivamatI = jnp.einsum('ij,jkm,kl->ilm',stthat.conj().T, ctrmatsI, stthat)
-    derivamatI = prederivamatI * jnp.expand_dims(mask, 2)
-    alldmatimag = -1j * dt * jnp.einsum('ij,jkm,kl->mil',stthat, derivamatI, stthat.conj().T)
-
-    alldmat = jnp.vstack([alldmatreal, alldmatimag])
-    prederivamats = jnp.concatenate([prederivamatR, prederivamatI],axis=2)
-    
-    # compute all entries of the gradient at once
-    gradients = jnp.real(jnp.einsum('ij,ajk,ik->a', jnp.conj(lammat[1:,:]), alldmat, ahatmat[:-1,:]))
-
-    # propagate \nabla_{\theta} a
-    gradamat = jnp.zeros((numts+1, 2*numfour+1, 4*numfour+1), dtype=np.complex128)
-    def gradastep(j, loopgrada):
-        return loopgrada.at[j+1].set( propahat @ loopgrada[j,:,:] + (alldmat @ ahatmat[j,:]).T )
-
-    gradamat = lax.fori_loop(0, numts, gradastep, gradamat)
-
-    # numts+1 x 2*numfour + 1
-    rhomat = jnp.array(rhomat)
-    
-    # new pieces
-    finGM, finGP = mkMPs(gradamat[numts,:,:])
-    finMmat, finPmat = jit_mk_M_and_P(ahatmat[numts])
-    
-    # term I in notes
-    fincond = 1/jnp.sqrt(2*L) * jnp.einsum('jki,j->ki',finGP.conj(),rhomat[numts]-betamat[numts])
-    # term III in notes
-    fincond += 1/jnp.sqrt(2*L) * jnp.einsum('jki,j->ki',finGM,(rhomat[numts]-betamat[numts]).conj())
-    # term II in notes
-    fincond += 1/(2*L) * jnp.einsum('jk,jl,ki->li',finMmat.conj(),finMmat,gradamat[numts].conj())
-    fincond += 1/(2*L) * jnp.einsum('jk,jl,ki->li',finMmat,finPmat.conj(),gradamat[numts])
-    # term IV in notes
-    fincond += 1/(2*L) * jnp.einsum('jk,jl,ki->li',finPmat.conj(),finMmat,gradamat[numts])
-    fincond += 1/(2*L) * jnp.einsum('jk,jl,ki->li',finPmat,finPmat.conj(),gradamat[numts].conj())
-       
-    # propagate \nabla_{\theta} \lambda
-    alldmatH = jnp.transpose(alldmat.conj(),axes=(2,1,0))
-    gradlamb = jnp.concatenate([jnp.zeros((numts, 2*numfour+1, 4*numfour+1), dtype=jnp.complex128),
-                                jnp.expand_dims(fincond.conj(),0)])
-    def gradlambstep(j, loopgradlamb):
-        t = numts - j - 1
-        term1 = proplam @ loopgradlamb[t+1]
-        term2 = jnp.einsum('ijk,j->ik', alldmatH, lammat[t+1,:])
-        # new pieces
-        thisGM, thisGP = mkMPs(gradamat[t,:,:])
-        thisMmat, thisPmat = jit_mk_M_and_P(ahatmat[t])
-
-        # term I in notes
-        jumpterm = 1/jnp.sqrt(2*L) * jnp.einsum('jki,j->ki',thisGP.conj(),rhomat[t]-betamat[t])
-        # term III in notes
-        jumpterm += 1/jnp.sqrt(2*L) * jnp.einsum('jki,j->ki',thisGM,(rhomat[t]-betamat[t]).conj())
-        # term II in notes
-        jumpterm += 1/(2*L) * jnp.einsum('jk,jl,ki->li',thisMmat.conj(),thisMmat,gradamat[t].conj())
-        jumpterm += 1/(2*L) * jnp.einsum('jk,jl,ki->li',thisMmat,thisPmat.conj(),gradamat[t])
-        # term IV in notes
-        jumpterm += 1/(2*L) * jnp.einsum('jk,jl,ki->li',thisPmat.conj(),thisMmat,gradamat[t])
-        jumpterm += 1/(2*L) * jnp.einsum('jk,jl,ki->li',thisPmat,thisPmat.conj(),gradamat[t].conj())
-        return loopgradlamb.at[t].set( jumpterm.conj() + term1 + term2 )
-
-    gradlamb = lax.fori_loop(0, numts, gradlambstep, gradlamb)
-
-    hesspt1 = jnp.real(jnp.einsum('ijl,ajk,ik->al', jnp.conj(gradlamb[1:,:,:]), alldmat, ahatmat[:-1,:]))
-    hesspt2 = jnp.real(jnp.einsum('ij,ajk,ikl->al', jnp.conj(lammat[1:,:]), alldmat, gradamat[:-1,:,:]))
-    res = purejaxhess(spchat, -1j*dt*jnp.transpose(prederivamats,[2,0,1]))
-    hesspt3 = jnp.real(jnp.einsum('ci,ij,abjk,lk,cl->ab',jnp.conj(lammat[1:,:]),stthat,res,stthat.conj(),ahatmat[:-1,:],optimize=True))
-    hess = hesspt1 + hesspt2 + hesspt3
-    
-    return hess
-
 
 
 
@@ -515,13 +332,16 @@ def purejaxhess(dvec, alldmat):
     
     return out+out2+out3
 
-# repsize = 11
-# chebtemp = linearbases.chebyshev(biga, 1025, nmax, repsize)
-# jrepmat = jnp.array(chebtemp.chebtofourmat)
 
-repsize = 4*nmax
-fourtemp = linearbases.fourier(biga, 1025, nmax)
-jrepmat = jnp.array(fourtemp.grad())
+repsize = 11
+chebtemp = linearbases.chebyshev(biga, 1025, nmax, repsize)
+jrepmat = jnp.array(chebtemp.chebtofourmat)
+
+
+# repsize = 4*nmax
+# fourtemp = linearbases.fourier(biga, 1025, nmax)
+# jrepmat = jnp.array(fourtemp.grad())
+
 
 def justobj(x):
     # potential matrix
@@ -561,7 +381,7 @@ plt.savefig('truepotcomp.pdf')
 plt.close()
 """
 print("justobj at true theta: ")
-print(justobj(fourmodel.gettheta()))
+print(justobj(truemodel.gettheta()))
 
 jjustobj = jit(justobj)
 jadjgrad = jit(adjgrad)
@@ -581,8 +401,8 @@ errh2 = 0.0
 numruns = 10
 for i in range(numruns):
     thetarand = jnp.array(np.random.normal(size=repsize+1))
-    # adjmodel = linearbases.chebyshev(biga, 1025, nmax, repsize, theta=thetarand)
-    adjmodel = linearbases.fourier(biga, 1025, nmax, theta=thetarand)
+    adjmodel = linearbases.chebyshev(biga, 1025, nmax, repsize, theta=thetarand)
+    # adjmodel = linearbases.fourier(biga, 1025, nmax, theta=thetarand)
     jvhatmat = jnp.array(adjmodel.vmat())
     jctrmats = jnp.array(adjmodel.grad())
     # JAX guys
