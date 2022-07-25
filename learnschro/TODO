@@ -6,6 +6,19 @@ done - lax-ify amp squared code with careful tests for
 done  -- grad & Hess with Fourier basis functions
 done  -- grad & Hess with Chebyshev basis functions
 
-- integrate Fourier & Cheb classes with wave function & amp squared codes
-
 done - revise Fourier & Cheb classes
+
+New Round of Things To Do:
+
+-- procedural file that we can just import that has all the stuff to:
+   - test procedures
+   - generate data
+   - train
+   - test
+   - make graphs etc
+
+-- new technical functionality:
+   - derivatives of obj w.r.t. initial condition
+   - adding noise to data and then training
+   - learning time-dependent potentials
+
