@@ -65,7 +65,7 @@ ip = ls.learnschro(biga, dt, nmax, obj='A2', ic=ainit, wfdata=amat, kinmat=fourm
 
 # generate a random theta
 repsize = 4
-thetarand = jnp.array(np.random.normal(size=repsize+1))
+thetarand = np.random.normal(size=repsize+1)
 
 # set up a model for learning
 adjmodel = linearbases.chebyshev(biga, 1025, nmax, repsize, theta=thetarand)
