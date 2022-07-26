@@ -10,7 +10,7 @@ done - revise Fourier & Cheb classes
 
 New Round of Things To Do:
 
--- procedural file that we can just import that has all the stuff to:
+-- class (!) that we can just import that has all the stuff to:
    - test procedures
    - generate data
    - train
@@ -18,7 +18,7 @@ New Round of Things To Do:
    - make graphs etc
 
 -- new technical functionality:
-   - derivatives of obj w.r.t. initial condition
+DONE   - derivatives of obj w.r.t. initial condition
    - adding noise to data and then training
    - learning time-dependent potentials
 
