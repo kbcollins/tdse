@@ -20,7 +20,7 @@ import linearbases
 
 
 class learnschro:
-    def __init__(self, biga, dt, nmax,
+    def __init__(self, biga, dt, nmax, nsteps=None,
             obj=None, ic=None, wfdata=None, a2data=None, kinmat=None):
         # spatial domain size
         self.biga = biga
@@ -38,7 +38,7 @@ class learnschro:
         # parallelize the built-in correlate function over first axes
         self.vcorr = vmap(jnp.correlate, in_axes=(0,0,None))
 
-        # there are only two choices for obj at the moment
+        # there are only three choices for obj at the moment
         # if you choose the Wave Function (WF) obj, 
         # then you need training data in wfdata
         if obj=='WF': # wave function objective
@@ -63,6 +63,17 @@ class learnschro:
             self.jobjtraj = jit(self.a2objtraj)
             self.jadjgrad = jit(self.a2adjgrad)
             self.jadjhess = jit(self.a2adjhess)
+        # if you choose no objective function, 
+        # then you can only solve forward problems
+        # in this case, you need to pass in nsteps
+        if obj is None:
+            self.nsteps = nsteps
+            # for convenience, define a zero array for jamat
+            self.jamat = jnp.zeros((nsteps+1, 2*nmax+1))
+            # this will enable you to call jobjtraj and compute WF trajectories,
+            # from which A2 trajectories can easily be computed
+            self.jobjtraj = jit(self.wfobjtraj)
+
 
         self.mkMPsv1 = vmap(self.mk_M_and_P,in_axes=(0,),out_axes=(0,0,))
         self.mkMPsv2 = vmap(self.mk_M_and_P,in_axes=(1,),out_axes=(2,2,))

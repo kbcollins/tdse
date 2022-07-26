@@ -40,7 +40,6 @@ print(jrepmat.shape)
 repsize = jrepmat.shape[2] - 1
 xvec, vvec = truemodel.vx()
 
-
 # Hamiltonian matrix 
 hmat = fourmodel.kmat() + truemodel.vmat()
 
