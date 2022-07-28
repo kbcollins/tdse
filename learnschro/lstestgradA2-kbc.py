@@ -172,7 +172,7 @@ def comphess(x, ic):
 
         arg2 = np.zeros(2 * nmax + 1)
         for k in range(2 * nmax + 1):
-            arg2[k] = (pmat ** j)[k] * eye[k]
+            arg2 = (pmat ** j)[k] * eye[k]
 
         vec1.append(np.correlate(arg1, arg2, mode='same'))
         vec2.append(np.correlate(arg2, arg1, mode='same'))
