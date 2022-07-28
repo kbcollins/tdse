@@ -269,11 +269,14 @@ for i in range(numruns):
 
     ########################################
     # kbc
-    result = comphess(truemodel.gettheta(), jainit)
+    rawresult = comphess(truemodel.gettheta(), jainit)
     # print('-->Shape result:', result.shape)
 
+    result = rawresult[:2 * nmax + 1] + 1j*rawresult[2 * nmax + 1:]
+    print('-->Shape result:', result.shape)
+
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
-    print(hinit)
+    # print(hinit)
     fderr += jnp.mean(jnp.abs(hinit - result))
     # fderr += jnp.mean(jnp.abs(hinit - (nsteps+1)*jnp.eye(jainit.shape[0])))
     ########################################
