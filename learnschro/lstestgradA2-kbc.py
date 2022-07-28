@@ -262,7 +262,7 @@ for i in range(numruns):
 
     ########################################
     # kbc
-    result = comphess
+    result = comphess(truemodel.gettheta(), jainit)
     print('-->Shape result:', result.shape)
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
