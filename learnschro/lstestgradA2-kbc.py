@@ -159,6 +159,8 @@ def comphess(x, ic):
 
     eye = np.eye(2 * nmax + 1)
 
+
+
     # build vecs
     vec1 = []
     vec2 = []
@@ -168,8 +170,9 @@ def comphess(x, ic):
         arg1 = pmat**j @ ainit
         print('-->Shape arg1:', arg1.shape)
 
-        arg2 = pmat ** j @ eye
-        print('-->Shape arg2:', arg2.shape)
+        arg2 = np.zeros(2 * nmax + 1)
+        for k in range(2 * nmax + 1):
+            arg2[k] = (pmat ** j)[k] * eye[k]
 
         vec1.append(np.correlate(arg1, arg2, mode='same'))
         vec2.append(np.correlate(arg2, arg1, mode='same'))
