@@ -165,9 +165,15 @@ def comphess(x, ic):
     vec3 = []
     for j in range(nsteps):
         # pen notes are writen like (v \star a)
-        vec1.append(np.correlate(pmat**j @ ainit, pmat**j @ eye, mode='same'))
-        vec2.append(np.correlate(pmat**j @ eye, pmat**j @ ainit, mode='same'))
-        vec3.append(np.correlate(pmat**j @ eye, pmat**j @ eye, mode='same'))
+        arg1 = pmat**j @ ainit
+        print('-->Shape arg1:', arg1.shape)
+
+        arg2 = pmat ** j @ eye
+        print('-->Shape arg2:', arg2.shape)
+
+        vec1.append(np.correlate(arg1, arg2, mode='same'))
+        vec2.append(np.correlate(arg2, arg1, mode='same'))
+        vec3.append(np.correlate(arg2, arg2, mode='same'))
 
     vec1 = np.array(vec1)
     print('-->Shape vec1:', vec1.shape)
