@@ -157,15 +157,17 @@ def comphess(x, ic):
     pmat = jnp.exp(-1j * hhatmat * dt)
     print('-->Shape pmat:', pmat.shape)
 
+    eye = np.eye(2 * nmax + 1)
+
     # build vecs
     vec1 = []
     vec2 = []
     vec3 = []
     for j in range(nsteps):
         # pen notes are writen like (v \star a)
-        vec1.append(np.correlate(pmat**j @ ainit, pmat**j, mode='same'))
-        vec2.append(np.correlate(pmat**j, pmat**j @ ainit, mode='same'))
-        vec3.append(np.correlate(pmat**j, pmat**j, mode='same'))
+        vec1.append(np.correlate(pmat**j @ ainit, pmat**j @ eye, mode='same'))
+        vec2.append(np.correlate(pmat**j @ eye, pmat**j @ ainit, mode='same'))
+        vec3.append(np.correlate(pmat**j @ eye, pmat**j @ eye, mode='same'))
 
     vec1 = np.array(vec1)
     print('-->Shape vec1:', vec1.shape)
@@ -185,8 +187,6 @@ def comphess(x, ic):
     alpha = np.sqrt(2 * biga)
 
     const = np.sum(alpha**2 * term1 + 2*alpha*term2)
-
-    eye = np.eye(2*nmax + 1)
 
     blockmat = np.block([[eye, 1j*eye], [1j*eye, -eye]])
     print('-->Shape blockmat:', blockmat.shape)
