@@ -273,6 +273,7 @@ for i in range(numruns):
     # print('-->Shape result:', result.shape)
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
+    print(hinit)
     fderr += jnp.mean(jnp.abs(hinit - result))
     # fderr += jnp.mean(jnp.abs(hinit - (nsteps+1)*jnp.eye(jainit.shape[0])))
     ########################################
