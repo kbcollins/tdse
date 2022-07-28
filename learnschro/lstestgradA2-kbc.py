@@ -165,7 +165,7 @@ def comphess(x, ic):
     vec1 = []
     vec2 = []
     vec3 = []
-    for j in range(nsteps):
+    for j in range(nsteps + 1):
         # pen notes are writen like (v \star a)
         arg1 = pmat**j @ ainit
         print('-->Shape arg1:', arg1.shape)
