@@ -151,15 +151,13 @@ def comphess(x, ic):
 
     # compute only the objective function
     resid = rhomat - jbetamat
-    print('-->Shape resid:', resid.shape)
+    # print('-->Shape resid:', resid.shape)
     ########################################
 
     pmat = jnp.exp(-1j * hhatmat * dt)
-    print('-->Shape pmat:', pmat.shape)
+    # print('-->Shape pmat:', pmat.shape)
 
     eye = np.eye(2 * nmax + 1)
-
-
 
     # build vecs
     vec1 = []
@@ -168,7 +166,7 @@ def comphess(x, ic):
     for j in range(nsteps + 1):
         # pen notes are writen like (v \star a)
         arg1 = pmat**j @ ainit
-        print('-->Shape arg1:', arg1.shape)
+        # print('-->Shape arg1:', arg1.shape)
 
         arg2 = np.zeros(2 * nmax + 1)
         for k in range(2 * nmax + 1):
@@ -179,26 +177,26 @@ def comphess(x, ic):
         vec3.append(np.correlate(arg2, arg2, mode='same'))
 
     vec1 = np.array(vec1)
-    print('-->Shape vec1:', vec1.shape)
+    # print('-->Shape vec1:', vec1.shape)
 
     vec2 = np.array(vec2)
-    print('-->Shape vec2:', vec2.shape)
+    # print('-->Shape vec2:', vec2.shape)
 
     vec3 = np.array(vec3)
-    print('-->Shape vec3:', vec3.shape)
+    # print('-->Shape vec3:', vec3.shape)
 
     term1 = np.transpose(np.conj(vec1 + vec2)) @ (vec1 + vec2)
-    print('-->Shape term1:', term1.shape)
+    # print('-->Shape term1:', term1.shape)
 
     term2 = np.transpose(np.conj(resid)) @ vec3
-    print('-->Shape term2:', term2.shape)
+    # print('-->Shape term2:', term2.shape)
 
     alpha = np.sqrt(2 * biga)
 
     const = np.sum(alpha**2 * term1 + 2*alpha*term2)
 
     blockmat = np.block([[eye, 1j*eye], [1j*eye, -eye]])
-    print('-->Shape blockmat:', blockmat.shape)
+    # print('-->Shape blockmat:', blockmat.shape)
 
     return const * blockmat
 ########################################
@@ -272,10 +270,11 @@ for i in range(numruns):
     ########################################
     # kbc
     result = comphess(truemodel.gettheta(), jainit)
-    print('-->Shape result:', result.shape)
+    # print('-->Shape result:', result.shape)
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
-    fderr += jnp.mean(jnp.abs(hinit - (nsteps+1)*jnp.eye(jainit.shape[0])))
+    fderr += jnp.mean(jnp.abs(hinit - result))
+    # fderr += jnp.mean(jnp.abs(hinit - (nsteps+1)*jnp.eye(jainit.shape[0])))
     ########################################
 
     # compute and check errors for outputs from jadjgrad
