@@ -138,7 +138,6 @@ def comphess(x, ic):
     # eigendecomposition and compute propagator
     hatspec, hatstates = jnp.linalg.eigh(hhatmat)
     hatprop = hatstates @ jnp.diag(jnp.exp(-1j * hatspec * dt)) @ jnp.conj(hatstates.T)
-    hatpropH = hatstates @ jnp.diag(jnp.exp(1j * hatspec * dt)) @ jnp.conj(hatstates.T)
 
     # solve *forward* problem
     ahatmat = jnp.concatenate([jnp.expand_dims(ic, 0), jnp.zeros((nsteps, 2 * nmax + 1))])
@@ -193,7 +192,7 @@ def comphess(x, ic):
 
     alpha = np.sqrt(2 * biga)
 
-    const = np.sum(alpha**2 * term1 + 2*alpha*term2)
+    const = np.real(np.sum(alpha**2 * term1 + 2*alpha*term2))
 
     blockmat = np.block([[eye, 1j*eye], [1j*eye, -eye]])
     # print('-->Shape blockmat:', blockmat.shape)
@@ -272,7 +271,7 @@ for i in range(numruns):
     rawresult = comphess(truemodel.gettheta(), jainit)
     # print('-->Shape result:', result.shape)
 
-    result = rawresult[:2 * nmax + 1] + 1j*rawresult[2 * nmax + 1:]
+    result = rawresult[:2 * nmax + 1, :2 * nmax + 1] + 1j*rawresult[:2 * nmax + 1, 2 * nmax + 1:]
     print('-->Shape result:', result.shape)
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
