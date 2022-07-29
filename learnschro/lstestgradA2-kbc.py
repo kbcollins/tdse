@@ -250,7 +250,7 @@ errg2 = 0.0
 errh2 = 0.0
 errm2 = 0.0
 fderr = 0.0
-numruns = 10
+numruns = 1  # 10
 for i in range(numruns):
     thetarand = jnp.array(np.random.normal(size=repsize+1))
     # adjmodel = linearbases.chebyshev(biga, 1025, nmax, repsize, theta=thetarand)
@@ -272,12 +272,14 @@ for i in range(numruns):
     # print('-->Shape result:', result.shape)
 
     result = rawresult[:2 * nmax + 1, :2 * nmax + 1] + 1j*rawresult[:2 * nmax + 1, 2 * nmax + 1:]
-    print('-->Shape result:', result.shape)
+    # print('-->Shape result:', result.shape)
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
     # print(hinit)
     fderr += jnp.mean(jnp.abs(hinit - result))
     # fderr += jnp.mean(jnp.abs(hinit - (nsteps+1)*jnp.eye(jainit.shape[0])))
+
+    print(jnp.abs(hinit - result))
     ########################################
 
     # compute and check errors for outputs from jadjgrad
