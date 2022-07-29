@@ -153,53 +153,46 @@ def comphess(x, ic):
     # print('-->Shape resid:', resid.shape)
     ########################################
 
-    pmat = jnp.exp(-1j * hhatmat * dt)
+    p1mat = jnp.exp(-1j * hhatmat * dt)
     # print('-->Shape pmat:', pmat.shape)
 
-    eye = np.eye(2 * nmax + 1)
+    alpha = np.sqrt(2 * biga)
+    # print(alpha)
 
     # build vecs
     vec1 = []
     vec2 = []
     vec3 = []
     for j in range(nsteps + 1):
-        # pen notes are writen like (v \star a)
-        arg1 = pmat**j @ ainit
-        # print('-->Shape arg1:', arg1.shape)
+        pjmat = p1mat ** j
 
-        arg2 = np.zeros(2 * nmax + 1)
-        for k in range(2 * nmax + 1):
-            arg2 = (pmat ** j)[k] * eye[k]
+        # this essentially is the propagation of a0
+        # again this is just a dirty way to get this term
+        # for now
+        ajvec = pjmat @ ainit
 
-        vec1.append(np.correlate(arg1, arg2, mode='same'))
-        vec2.append(np.correlate(arg2, arg1, mode='same'))
-        vec3.append(np.correlate(arg2, arg2, mode='same'))
+        A = np.zeros((2*nmax + 1, 2*nmax + 1))
+        B = np.zeros((2 * nmax + 1, 2 * nmax + 1))
+        for s in range(2*nmax + 1):
+            psvec = pjmat.T[s]
+            # in notes correlation writen like (v \star a)
+            # numpy.correlate(a, v, mode=)
+            corrpsaj = np.correlate(ajvec, psvec, mode='same')
+            corrajps = np.correlate(ajvec, psvec, mode='same')
+            for r in range(2*nmax + 1):
+                prvec = pjmat.T[r]
+                # in notes correlation writen like (v \star a)
+                # numpy.correlate(a, v, mode=)
+                corrpspr = np.correlate(prvec, psvec, mode='same')
+                corrprps = np.correlate(psvec, prvec, mode='same')
+                A[r, s] += np.real(alpha * np.transpose(np.conj(resid)) @ (corrpspr + corrprps))
+                bterm = corrpsaj + corrajps
+                B[r, s] += np.real(alpha**2 * np.transpose(np.conj(bterm)) @ bterm)
 
-    vec1 = np.array(vec1)
-    # print('-->Shape vec1:', vec1.shape)
-
-    vec2 = np.array(vec2)
-    # print('-->Shape vec2:', vec2.shape)
-
-    vec3 = np.array(vec3)
-    # print('-->Shape vec3:', vec3.shape)
-
-    term1 = np.transpose(np.conj(vec1 + vec2)) @ (vec1 + vec2)
-    # print('-->Shape term1:', term1.shape)
-
-    term2 = np.transpose(np.conj(resid)) @ vec3
-    # print('-->Shape term2:', term2.shape)
-
-    alpha = np.sqrt(2 * biga)
-    print(alpha)
-
-    const = np.sum(alpha**2 * term1 + 2*alpha*term2)
-    print('-->const:', const)
-
-    blockmat = np.block([[eye, 1j*eye], [1j*eye, -eye]])
+    hessJ = np.block([[A + B, 1j*(A + B)], [1j*(A-B), A-B]])
     # print('-->Shape blockmat:', blockmat.shape)
 
-    return np.real(const * blockmat)
+    return hessJ
 ########################################
 
 print("justobj at true theta: ")
@@ -270,12 +263,8 @@ for i in range(numruns):
 
     ########################################
     # kbc
-    rawresult = comphess(truemodel.gettheta(), jainit)
-    # print('-->Shape result:', result.shape)
-    print('-->rawresult:', rawresult)
-
-    result = rawresult[:2 * nmax + 1, :2 * nmax + 1] + 1j*rawresult[:2 * nmax + 1, 2 * nmax + 1:]
-    # print('-->Shape result:', result.shape)
+    result = comphess(truemodel.gettheta(), jainit)
+    print('-->Shape result:', result.shape)
 
     print('-->hinit:', hinit)
     print('-->result:', result)
