@@ -191,14 +191,15 @@ def comphess(x, ic):
     # print('-->Shape term2:', term2.shape)
 
     alpha = np.sqrt(2 * biga)
+    print(alpha)
 
-    const = np.real(np.sum(alpha**2 * term1 + 2*alpha*term2))
-    print(const)
+    const = np.sum(alpha**2 * term1 + 2*alpha*term2)
+    print('-->const:', const)
 
     blockmat = np.block([[eye, 1j*eye], [1j*eye, -eye]])
     # print('-->Shape blockmat:', blockmat.shape)
 
-    return const * blockmat
+    return np.real(const * blockmat)
 ########################################
 
 print("justobj at true theta: ")
@@ -271,12 +272,13 @@ for i in range(numruns):
     # kbc
     rawresult = comphess(truemodel.gettheta(), jainit)
     # print('-->Shape result:', result.shape)
+    print('-->rawresult:', rawresult)
 
     result = rawresult[:2 * nmax + 1, :2 * nmax + 1] + 1j*rawresult[:2 * nmax + 1, 2 * nmax + 1:]
     # print('-->Shape result:', result.shape)
 
-    print(hinit)
-    print(result)
+    print('-->hinit:', hinit)
+    print('-->result:', result)
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
     # print(hinit)
