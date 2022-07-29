@@ -193,6 +193,7 @@ def comphess(x, ic):
     alpha = np.sqrt(2 * biga)
 
     const = np.real(np.sum(alpha**2 * term1 + 2*alpha*term2))
+    print(const)
 
     blockmat = np.block([[eye, 1j*eye], [1j*eye, -eye]])
     # print('-->Shape blockmat:', blockmat.shape)
