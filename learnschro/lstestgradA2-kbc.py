@@ -274,6 +274,9 @@ for i in range(numruns):
     result = rawresult[:2 * nmax + 1, :2 * nmax + 1] + 1j*rawresult[:2 * nmax + 1, 2 * nmax + 1:]
     # print('-->Shape result:', result.shape)
 
+    print(hinit)
+    print(result)
+
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
     # print(hinit)
     fderr += jnp.mean(jnp.abs(hinit - result))
