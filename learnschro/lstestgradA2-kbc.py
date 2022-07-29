@@ -185,7 +185,7 @@ def comphess(x, ic):
                 # numpy.correlate(a, v, mode=)
                 corrpspr = np.correlate(prvec, psvec, mode='same')
                 corrprps = np.correlate(psvec, prvec, mode='same')
-                A[r, s] += np.real(alpha * np.transpose(np.conj(resid)) @ (corrpspr + corrprps))
+                A[r, s] += np.real(alpha * np.transpose(np.conj(resid[j])) @ (corrpspr + corrprps))
                 bterm = corrpsaj + corrajps
                 B[r, s] += np.real(alpha**2 * np.transpose(np.conj(bterm)) @ bterm)
 
