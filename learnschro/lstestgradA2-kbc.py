@@ -226,7 +226,7 @@ def compgradhess(x, ic):
             corrpsaj = np.correlate(ajvec, psvec, mode='same')
             corrajps = np.correlate(psvec, ajvec, mode='same')
             dJ1 += alpha * np.real(np.transpose(np.conj(resid[j])) @ (corrpsaj + corrajps))
-            dJ2 += alpha * np.real(1j * np.transpose(np.conj(resid[j])) @ (-corrpsaj + corrajps))
+            dJ2 += -alpha * np.imag(np.transpose(np.conj(resid[j])) @ (-corrpsaj + corrajps))
             # for r in range(2*nmax + 1):
             #     prvec = pjmat.T[r]
             #     # in notes correlation writen like (v \star a)
