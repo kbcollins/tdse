@@ -173,9 +173,9 @@ def comphess(x, ic):
 
         A = np.zeros((2*nmax + 1, 2*nmax + 1))
         B = np.zeros((2 * nmax + 1, 2 * nmax + 1))
-        C = np.zeros((2 * nmax + 1, 2 * nmax + 1))
-        D = np.zeros((2 * nmax + 1, 2 * nmax + 1))
-        G = np.zeros((2 * nmax + 1, 2 * nmax + 1))
+        C = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
+        D = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
+        G = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
         for s in range(2*nmax + 1):
             psvec = pjmat.T[s]
             # in notes correlation writen like (v \star a)
