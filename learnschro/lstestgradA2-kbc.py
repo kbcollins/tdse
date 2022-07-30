@@ -178,7 +178,7 @@ def comphess(x, ic):
             # in notes correlation writen like (v \star a)
             # numpy.correlate(a, v, mode=)
             corrpsaj = np.correlate(ajvec, psvec, mode='same')
-            corrajps = np.correlate(ajvec, psvec, mode='same')
+            corrajps = np.correlate(psvec, ajvec, mode='same')
             for r in range(2*nmax + 1):
                 prvec = pjmat.T[r]
                 # in notes correlation writen like (v \star a)
