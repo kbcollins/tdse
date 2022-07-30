@@ -186,8 +186,10 @@ def comphess(x, ic):
                 corrpspr = np.correlate(prvec, psvec, mode='same')
                 corrprps = np.correlate(psvec, prvec, mode='same')
                 A[r, s] += np.real(alpha * np.transpose(np.conj(resid[j])) @ (corrpspr + corrprps))
+                print(f'-->A[{r}, {s}]:', A[r, s])
                 bterm = corrpsaj + corrajps
                 B[r, s] += np.real(alpha**2 * np.transpose(np.conj(bterm)) @ bterm)
+                print(f'-->B[{r}, {s}]:', B[r, s])
 
     hessJ = np.block([[A + B, 1j*(A + B)], [1j*(A-B), A-B]])
     # print('-->Shape blockmat:', blockmat.shape)
