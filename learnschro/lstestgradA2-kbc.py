@@ -195,6 +195,7 @@ def compgradhess(x, ic):
     # compute only the objective function
     resid = rhomat - jbetamat
     # print('-->Shape resid:', resid.shape)
+    print('-->resid[50]:', resid[50])
     ########################################
 
     p1mat = jnp.exp(-1j * hhatmat * dt)
@@ -224,9 +225,9 @@ def compgradhess(x, ic):
             # in notes correlation writen like (v \star a)
             # numpy.correlate(a, v, mode=)
             corrpsaj = jnp.correlate(ajvec, psvec, mode='same')
-            print('-->corrpsaj:', corrpsaj)
+            # print('-->corrpsaj:', corrpsaj)
             corrajps = jnp.correlate(psvec, ajvec, mode='same')
-            print('-->corrajps:', corrajps)
+            # print('-->corrajps:', corrajps)
             dJ1 += alpha * np.real(np.transpose(np.conj(resid[j])) @ (corrpsaj + corrajps))
             dJ2 += -alpha * np.imag(np.transpose(np.conj(resid[j])) @ (-corrpsaj + corrajps))
             # for r in range(2*nmax + 1):
