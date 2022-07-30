@@ -335,10 +335,9 @@ for i in range(numruns):
     print('-->Shape dJ:', dJ.shape)
     print('-->dJ:', dJ)
 
-    print('-->Shape hJ:', hJ.shape)
-
-    print('-->hinit:', hinit)
-    print('-->hJ:', hJ)
+    # print('-->Shape hJ:', hJ.shape)
+    # print('-->hinit:', hinit)
+    # print('-->hJ:', hJ)
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
     # print(hinit)
