@@ -130,7 +130,7 @@ realjainit = jnp.concatenate([ainit.real, ainit.imag])
 
 def objrealic(x, realic):
     # recombine real and imaginary parts of ic
-    ic = realic[:2*nmax + 1] + 1j*realic[2*nmax + 1:]
+    ic = realic[:2*nmax + 1] + 1j*realic[2*nmax:]
 
     # potential matrix
     vhatmat = jrepmat @ x
