@@ -173,6 +173,9 @@ def comphess(x, ic):
 
         A = np.zeros((2*nmax + 1, 2*nmax + 1))
         B = np.zeros((2 * nmax + 1, 2 * nmax + 1))
+        C = np.zeros((2 * nmax + 1, 2 * nmax + 1))
+        D = np.zeros((2 * nmax + 1, 2 * nmax + 1))
+        G = np.zeros((2 * nmax + 1, 2 * nmax + 1))
         for s in range(2*nmax + 1):
             psvec = pjmat.T[s]
             # in notes correlation writen like (v \star a)
@@ -183,15 +186,19 @@ def comphess(x, ic):
                 prvec = pjmat.T[r]
                 # in notes correlation writen like (v \star a)
                 # numpy.correlate(a, v, mode=)
+                corrpraj = np.correlate(ajvec, prvec, mode='same')
+                corrajpr = np.correlate(prvec, ajvec, mode='same')
                 corrpspr = np.correlate(prvec, psvec, mode='same')
                 corrprps = np.correlate(psvec, prvec, mode='same')
-                A[r, s] += np.real(alpha * np.transpose(np.conj(resid[j])) @ (corrpspr + corrprps))
-                print(f'-->A[{r}, {s}]:', A[r, s])
-                bterm = corrpsaj + corrajps
-                B[r, s] += np.real(alpha**2 * np.transpose(np.conj(bterm)) @ bterm)
-                print(f'-->B[{r}, {s}]:', B[r, s])
+                A[r, s] += alpha * np.real(np.transpose(np.conj(resid)) @ (corrpspr + corrprps))
+                B[r, s] += alpha * np.real(1j * np.transpose(np.conj(resid)) @ (corrpspr - corrprps))
+                termc1 = np.transpose(np.conj(corrpraj + corrajpr)) @ (-corrpsaj + corrajps)
+                termc2 = np.transpose(np.conj(-corrpraj + corrajpr)) @ (corrpsaj + corrajps)
+                C[r, s] += 1j * alpha**2 * (termc1 - termc2) / 2
+                D[r, s] += alpha**2 * np.transpose(np.conj(corrpraj + corrajpr)) @ (corrpsaj + corrajps)
+                G[r, s] += alpha**2 * np.transpose(np.conj(-corrpraj + corrajpr)) @ (-corrpsaj + corrajps)
 
-    hessJ = np.block([[A + B, 1j*(A + B)], [1j*(A-B), A-B]])
+    hessJ = np.block([[A + D, -B + C], [B + C, A + G]])
     # print('-->Shape blockmat:', blockmat.shape)
 
     return hessJ
