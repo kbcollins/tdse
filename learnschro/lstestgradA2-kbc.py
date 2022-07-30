@@ -159,6 +159,7 @@ def objrealic(x, realic):
     return obj
 
 jitobjrealic = jit(objrealic)
+jgradobjrealic = jit(grad(objrealic))
 
 def comphess(x, ic):
     ########################################
@@ -195,9 +196,6 @@ def comphess(x, ic):
     # print(alpha)
 
     # build vecs
-    vec1 = []
-    vec2 = []
-    vec3 = []
     for j in range(nsteps + 1):
         pjmat = p1mat ** j
 
@@ -297,8 +295,12 @@ for i in range(numruns):
     jvhatmat = jnp.array(adjmodel.vmat())
     jctrmats = jnp.array(adjmodel.grad())
     # JAX guys
+
+    #####################################
     obj = jjustobj(thetarand, jainit)
     objrealic = jitobjrealic(thetarand, realjainit)
+    dobjrealic = jgradobjrealic(thetarand, realjainit)
+    #####################################
 
     grad = jjaxgrad(thetarand, jainit)
     hess = jjaxhess(thetarand, jainit)
@@ -310,7 +312,7 @@ for i in range(numruns):
     ########################################
     # kbc
     print('-->Error objrealic:', np.linalg.norm(obj - objrealic))
-    print('-->dinit:', dinit)
+    print('-->dobjrealic:', dobjrealic)
 
     result = comphess(truemodel.gettheta(), jainit)
     print('-->Shape result:', result.shape)
