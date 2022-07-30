@@ -132,8 +132,9 @@ print('-->Shape realjainit:', realjainit.shape)
 
 def objrealic(x, realic):
     # recombine real and imaginary parts of ic
-    print('-->Shape realic[:2*nmax + 1]:', realic[:2*nmax + 1].shape)
-    print('-->Shape realic[2*nmax + 1:]:', realic[2*nmax + 1:].shape)
+    print('-->realic:', realic)
+    print('-->realic[:2*nmax + 1]:', realic[:2*nmax + 1])
+    print('-->realic[2*nmax + 1:]:', realic[2*nmax + 1:])
     ic = realic[:2*nmax + 1] + 1j*realic[2*nmax + 1:]
 
     # potential matrix
@@ -145,7 +146,6 @@ def objrealic(x, realic):
     # eigendecomposition and compute propagator
     hatspec, hatstates = jnp.linalg.eigh(hhatmat)
     hatprop = hatstates @ jnp.diag(jnp.exp(-1j * hatspec * dt)) @ jnp.conj(hatstates.T)
-    hatpropH = hatstates @ jnp.diag(jnp.exp(1j * hatspec * dt)) @ jnp.conj(hatstates.T)
 
     # solve *forward* problem
     ahatmat = jnp.concatenate([jnp.expand_dims(ic, 0), jnp.zeros((nsteps, 2 * nmax + 1))])
@@ -223,21 +223,21 @@ def compgradhess(x, ic):
             corrajps = np.correlate(psvec, ajvec, mode='same')
             dJ1 += alpha * np.real(np.transpose(np.conj(resid[j])) @ (corrpsaj + corrajps))
             dJ2 += alpha * np.real(1j * np.transpose(np.conj(resid[j])) @ (-corrpsaj + corrajps))
-            for r in range(2*nmax + 1):
-                prvec = pjmat.T[r]
-                # in notes correlation writen like (v \star a)
-                # numpy.correlate(a, v, mode=)
-                corrpraj = np.correlate(ajvec, prvec, mode='same')
-                corrajpr = np.correlate(prvec, ajvec, mode='same')
-                corrpspr = np.correlate(prvec, psvec, mode='same')
-                corrprps = np.correlate(psvec, prvec, mode='same')
-                A[r, s] += alpha * np.real(np.transpose(np.conj(resid[j])) @ (corrpspr + corrprps))
-                B[r, s] += alpha * np.real(1j * np.transpose(np.conj(resid[j])) @ (corrpspr - corrprps))
-                termc1 = np.transpose(np.conj(corrpraj + corrajpr)) @ (-corrpsaj + corrajps)
-                termc2 = np.transpose(np.conj(-corrpraj + corrajpr)) @ (corrpsaj + corrajps)
-                C[r, s] += 1j * alpha**2 * (termc1 - termc2) / 2
-                D[r, s] += alpha**2 * np.transpose(np.conj(corrpraj + corrajpr)) @ (corrpsaj + corrajps)
-                G[r, s] += alpha**2 * np.transpose(np.conj(-corrpraj + corrajpr)) @ (-corrpsaj + corrajps)
+            # for r in range(2*nmax + 1):
+            #     prvec = pjmat.T[r]
+            #     # in notes correlation writen like (v \star a)
+            #     # numpy.correlate(a, v, mode=)
+            #     corrpraj = np.correlate(ajvec, prvec, mode='same')
+            #     corrajpr = np.correlate(prvec, ajvec, mode='same')
+            #     corrpspr = np.correlate(prvec, psvec, mode='same')
+            #     corrprps = np.correlate(psvec, prvec, mode='same')
+            #     A[r, s] += alpha * np.real(np.transpose(np.conj(resid[j])) @ (corrpspr + corrprps))
+            #     B[r, s] += alpha * np.real(1j * np.transpose(np.conj(resid[j])) @ (corrpspr - corrprps))
+            #     termc1 = np.transpose(np.conj(corrpraj + corrajpr)) @ (-corrpsaj + corrajps)
+            #     termc2 = np.transpose(np.conj(-corrpraj + corrajpr)) @ (corrpsaj + corrajps)
+            #     C[r, s] += 1j * alpha**2 * (termc1 - termc2) / 2
+            #     D[r, s] += alpha**2 * np.transpose(np.conj(corrpraj + corrajpr)) @ (corrpsaj + corrajps)
+            #     G[r, s] += alpha**2 * np.transpose(np.conj(-corrpraj + corrajpr)) @ (-corrpsaj + corrajps)
 
     gradJ = np.concatenate([dJ1, dJ2])
     hessJ = np.block([[A + D, -B + C], [B + C, A + G]])
