@@ -125,6 +125,41 @@ def justobj(x, ic):
 
 ########################################
 # kbc
+
+realjainit = jnp.array([ainit.real, ainit.imag])
+
+def objrealic(x, realic):
+    # recombine real and imaginary parts of ic
+    ic = realic[:2*nmax + 1] + 1j*realic[2*nmax + 1:]
+
+    # potential matrix
+    vhatmat = jrepmat @ x
+
+    # Hamiltonian matrix
+    hhatmat = jkmat + vhatmat
+
+    # eigendecomposition and compute propagator
+    hatspec, hatstates = jnp.linalg.eigh(hhatmat)
+    hatprop = hatstates @ jnp.diag(jnp.exp(-1j * hatspec * dt)) @ jnp.conj(hatstates.T)
+    hatpropH = hatstates @ jnp.diag(jnp.exp(1j * hatspec * dt)) @ jnp.conj(hatstates.T)
+
+    # solve *forward* problem
+    ahatmat = jnp.concatenate([jnp.expand_dims(ic, 0), jnp.zeros((nsteps, 2 * nmax + 1))])
+
+    def forstep(j, loopamat):
+        return loopamat.at[j + 1].set(hatprop @ loopamat[j, :])
+
+    ahatmat = lax.fori_loop(0, nsteps, forstep, ahatmat)
+    rhomat = vcorr(ahatmat, ahatmat, 'same') / jnp.sqrt(2 * biga)
+
+    # compute only the objective function
+    resid = rhomat - jbetamat
+    obj = 0.5 * jnp.real(jnp.sum(jnp.conj(resid) * resid))
+
+    return obj
+
+jitobjrealic = jit(objrealic)
+
 def comphess(x, ic):
     ########################################
     # I'm using this code as a quick and dirty way to get
@@ -263,6 +298,8 @@ for i in range(numruns):
     jctrmats = jnp.array(adjmodel.grad())
     # JAX guys
     obj = jjustobj(thetarand, jainit)
+    objrealic = jitobjrealic(thetarand, realjainit)
+
     grad = jjaxgrad(thetarand, jainit)
     hess = jjaxhess(thetarand, jainit)
     dinit = jjaxdinit(thetarand, jainit)
@@ -272,6 +309,7 @@ for i in range(numruns):
 
     ########################################
     # kbc
+    print('-->Error objrealic:', np.linalg.norm(obj - objrealic))
     print('-->dinit:', dinit)
 
     result = comphess(truemodel.gettheta(), jainit)
