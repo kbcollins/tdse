@@ -126,7 +126,7 @@ def justobj(x, ic):
 ########################################
 # kbc
 
-realjainit = jnp.array([ainit.real, ainit.imag])
+realjainit = jnp.concatenate([ainit.real, ainit.imag])
 
 def objrealic(x, realic):
     # recombine real and imaginary parts of ic
