@@ -74,6 +74,10 @@ def psi0(x):
 initcond = linearbases.fourier(biga, 1025, nmax)
 ainit = initcond.represent(psi0)
 
+####################
+print('-->ainit:', ainit)
+####################
+
 # set the time step and compute the propagator matrix
 # note that we are reusing the spec, states eigendecomposition of hmat computed above
 dt = 0.001
