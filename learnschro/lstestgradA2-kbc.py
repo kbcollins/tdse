@@ -162,8 +162,8 @@ def objrealic(x, realic):
 
     return obj
 
-jitobjrealic = jit(objrealic)
-jgradobjrealic = jit(grad(objrealic))
+jitobjrealic = jit(objRic)
+jgradobjrealic = jit(grad(objRic))
 
 def compgradhess(x, ic):
     ########################################
@@ -307,7 +307,7 @@ for i in range(numruns):
 
     #####################################
     obj = jjustobj(thetarand, jainit)
-    objrealic = jitobjrealic(thetarand, realjainit)
+    objRic = jitobjrealic(thetarand, realjainit)
     dobjrealic = jgradobjrealic(thetarand, realjainit)
     #####################################
 
@@ -320,7 +320,8 @@ for i in range(numruns):
 
     ########################################
     # kbc
-    print('-->Error objrealic:', np.linalg.norm(obj - objrealic))
+    print('-->objRic:', objrealic(thetarand, realjainit))
+    print('-->Error objRic:', np.linalg.norm(obj - objRic))
     print('-->Shape dobjrealic:', dobjrealic.shape)
     print('-->dobjrealic:', dobjrealic)
 
