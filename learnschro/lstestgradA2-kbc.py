@@ -165,7 +165,7 @@ def objrealic(x, realic):
 jitobjrealic = jit(objrealic)
 jgradobjrealic = jit(grad(objrealic))
 
-def comphess(x, ic):
+def compgradhess(x, ic):
     ########################################
     # I'm using this code as a quick and dirty way to get
     # the propagator matrix and resid. If my Hessian works
@@ -208,6 +208,8 @@ def comphess(x, ic):
         # for now
         ajvec = pjmat @ ainit
 
+        dJ1 = np.zeros(2*nmax + 1)
+        dJ2 = np.zeros(2 * nmax + 1)
         A = np.zeros((2*nmax + 1, 2*nmax + 1))
         B = np.zeros((2 * nmax + 1, 2 * nmax + 1))
         C = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
@@ -219,6 +221,8 @@ def comphess(x, ic):
             # numpy.correlate(a, v, mode=)
             corrpsaj = np.correlate(ajvec, psvec, mode='same')
             corrajps = np.correlate(psvec, ajvec, mode='same')
+            dJ1 += alpha * np.real(np.transpose(np.conj(resid[j])) @ (corrpsaj + corrajps))
+            dJ2 += alpha * np.real(1j * np.transpose(np.conj(resid[j])) @ (-corrpsaj + corrajps))
             for r in range(2*nmax + 1):
                 prvec = pjmat.T[r]
                 # in notes correlation writen like (v \star a)
@@ -235,10 +239,11 @@ def comphess(x, ic):
                 D[r, s] += alpha**2 * np.transpose(np.conj(corrpraj + corrajpr)) @ (corrpsaj + corrajps)
                 G[r, s] += alpha**2 * np.transpose(np.conj(-corrpraj + corrajpr)) @ (-corrpsaj + corrajps)
 
+    gradJ = np.concatenate([dJ1, dJ2])
     hessJ = np.block([[A + D, -B + C], [B + C, A + G]])
     # print('-->Shape blockmat:', blockmat.shape)
 
-    return hessJ
+    return gradJ, hessJ
 ########################################
 
 print("justobj at true theta: ")
@@ -319,18 +324,21 @@ for i in range(numruns):
     print('-->Shape dobjrealic:', dobjrealic.shape)
     print('-->dobjrealic:', dobjrealic)
 
-    result = comphess(truemodel.gettheta(), jainit)
-    print('-->Shape result:', result.shape)
+    dJ, hJ = compgradhess(truemodel.gettheta(), jainit)
+    print('-->Shape dJ:', dJ.shape)
+    print('-->dJ:', dJ)
+
+    print('-->Shape hJ:', hJ.shape)
 
     print('-->hinit:', hinit)
-    print('-->result:', result)
+    print('-->hJ:', hJ)
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
     # print(hinit)
-    fderr += jnp.mean(jnp.abs(hinit - result))
+    fderr += jnp.mean(jnp.abs(hinit - hJ))
     # fderr += jnp.mean(jnp.abs(hinit - (nsteps+1)*jnp.eye(jainit.shape[0])))
 
-    print(jnp.abs(hinit - result))
+    print(jnp.abs(hinit - hJ))
     ########################################
 
     # compute and check errors for outputs from jadjgrad
