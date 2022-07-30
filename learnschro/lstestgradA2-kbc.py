@@ -314,6 +314,7 @@ for i in range(numruns):
     ########################################
     # kbc
     print('-->Error objrealic:', np.linalg.norm(obj - objrealic))
+    print('-->Shape dobjrealic:', dobjrealic.shape)
     print('-->dobjrealic:', dobjrealic)
 
     result = comphess(truemodel.gettheta(), jainit)
