@@ -127,10 +127,12 @@ def justobj(x, ic):
 # kbc
 
 realjainit = jnp.concatenate([ainit.real, ainit.imag])
+print('-->Shape realjainit:', realjainit.shape)
+
 
 def objrealic(x, realic):
     # recombine real and imaginary parts of ic
-    ic = realic[:2*nmax + 1] + 1j*realic[2*nmax:]
+    ic = realic[:2*nmax + 1] + 1j*realic[2*nmax + 1:]
 
     # potential matrix
     vhatmat = jrepmat @ x
