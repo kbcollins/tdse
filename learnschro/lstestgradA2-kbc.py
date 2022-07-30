@@ -156,7 +156,7 @@ def comphess(x, ic):
     p1mat = jnp.exp(-1j * hhatmat * dt)
     # print('-->Shape pmat:', pmat.shape)
 
-    alpha = np.sqrt(2 * biga)
+    alpha = 1 / np.sqrt(2 * biga)
     # print(alpha)
 
     # build vecs
