@@ -272,6 +272,8 @@ for i in range(numruns):
 
     ########################################
     # kbc
+    print('-->dinit:', dinit)
+
     result = comphess(truemodel.gettheta(), jainit)
     print('-->Shape result:', result.shape)
 
