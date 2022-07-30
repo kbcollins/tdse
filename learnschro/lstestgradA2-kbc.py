@@ -167,7 +167,7 @@ def objrealic(x, realic):
     return obj
 
 jitobjrealic = jit(objrealic)
-jgradobjrealic = jit(grad(objrealic))
+jgradobjrealic = jit(grad(objrealic, argnums=1))
 
 def compgradhess(x, ic):
     ########################################
