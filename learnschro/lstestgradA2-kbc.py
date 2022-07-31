@@ -216,7 +216,7 @@ def compgradhess(x, realic):
             dJreal.at[s].set(jnp.real(tp @ residj))
             djimag.at[s].set(jnp.imag(tm @ residj))
 
-    gradJ = alpha * jnp.array([dJreal, djimag])
+    gradJ = alpha * jnp.concatenate([dJreal, djimag])
 
     return gradJ
 ########################################
