@@ -136,9 +136,9 @@ print('-->Shape realjainit:', realjainit.shape)
 
 def objrealic(x, realic):
     # recombine real and imaginary parts of ic
-    print('-->realic:', realic)
-    print('-->realic[:2*nmax + 1]:', realic[:2*nmax + 1])
-    print('-->realic[2*nmax + 1:]:', realic[2*nmax + 1:])
+    # print('-->realic:', realic)
+    # print('-->realic[:2*nmax + 1]:', realic[:2*nmax + 1])
+    # print('-->realic[2*nmax + 1:]:', realic[2*nmax + 1:])
     ic = realic[:2*nmax + 1] + 1j*realic[2*nmax + 1:]
 
     # potential matrix
