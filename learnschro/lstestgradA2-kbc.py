@@ -75,10 +75,6 @@ def psi0(x):
 initcond = linearbases.fourier(biga, 1025, nmax)
 ainit = initcond.represent(psi0)
 
-####################
-print('-->ainit:', ainit)
-####################
-
 # set the time step and compute the propagator matrix
 # note that we are reusing the spec, states eigendecomposition of hmat computed above
 dt = 0.001
@@ -164,6 +160,7 @@ def objrealic(x, realic):
 
 jitobjrealic = jit(objrealic)
 jgradobjrealic = jit(grad(objrealic, argnums=1))
+jhessobjrealic = jit(grad(grad(objrealic, argnums=1), argnums=1))
 
 def compgradhess(x, realic):
     # recombine real and imaginary parts of ic
@@ -192,7 +189,6 @@ def compgradhess(x, realic):
 
     # compute only the objective function
     resid = rhomat - jbetamat
-    print('-->resid:', resid)
     ########################################
 
     alpha = 1 / np.sqrt(2 * biga)
@@ -215,10 +211,6 @@ def compgradhess(x, realic):
             dJreal[s] += jnp.real(tp @ residj)
             dJimag[s] += jnp.imag(tm @ residj)
 
-    print('-->corrpsaj:', corrpsaj)
-    print('-->corrajps:', corrajps)
-    print('-->(corrpsaj + corrajps):', corrpsaj + corrajps)
-    print('-->(corrpsaj - corrajps):', corrpsaj - corrajps)
     gradJ = alpha * jnp.concatenate([dJreal, dJimag])
 
     return gradJ
@@ -294,6 +286,7 @@ for i in range(numruns):
     objRic = jitobjrealic(thetarand, realainit)
     jaxdJ = jgradobjrealic(thetarand, realainit)
     gradJ = compgradhess(thetarand, realainit)
+    hessJ = jhessobjrealic(thetarand, realainit)
 
     print('-->obj:', obj)
     print('-->objRic:', objRic)
@@ -304,6 +297,9 @@ for i in range(numruns):
     print('-->Shape gradJ:', gradJ.shape)
     print('-->gradJ:', gradJ)
     print('-->Error gradJ:', jnp.linalg.norm(jaxdJ - gradJ))
+
+    print('-->Shape hessJ:', hessJ.shape)
+    print('-->hessJ:', hessJ)
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
     # print(hinit)
