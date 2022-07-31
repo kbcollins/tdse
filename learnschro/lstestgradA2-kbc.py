@@ -226,8 +226,8 @@ def compgradhess(x, ic):
             # print('-->corrpsaj:', corrpsaj)
             corrajps = jnp.correlate(psvec, ajvec, mode='same')
             # print('-->corrajps:', corrajps)
-            dJ1 += alpha * np.real(np.transpose(np.conj(resid[j])) @ (corrpsaj + corrajps))
-            dJ2 += -alpha * np.imag(np.transpose(np.conj(resid[j])) @ (-corrpsaj + corrajps))
+            dJ1 += np.transpose(np.conj(corrpsaj + corrajps)) @ resid[j] + np.transpose(np.conj(resid[j])) @ (corrpsaj + corrajps)
+            dJ2 += -np.transpose(np.conj(-corrpsaj + corrajps)) @ resid[j] + np.transpose(np.conj(resid[j])) @ (-corrpsaj + corrajps)
             # for r in range(2*nmax + 1):
             #     prvec = pjmat.T[r]
             #     # in notes correlation writen like (v \star a)
@@ -244,7 +244,7 @@ def compgradhess(x, ic):
             #     D[r, s] += alpha**2 * np.transpose(np.conj(corrpraj + corrajpr)) @ (corrpsaj + corrajps)
             #     G[r, s] += alpha**2 * np.transpose(np.conj(-corrpraj + corrajpr)) @ (-corrpsaj + corrajps)
 
-    gradJ = np.concatenate([dJ1, dJ2])
+    gradJ = (alpha / 2) * np.concatenate([dJ1, 1j*dJ2])
     hessJ = np.block([[A + D, -B + C], [B + C, A + G]])
     # print('-->Shape blockmat:', blockmat.shape)
 
