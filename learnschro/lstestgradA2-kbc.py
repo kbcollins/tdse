@@ -202,9 +202,14 @@ def compgradhess(x, ic):
     # print('-->Shape pmat:', pmat.shape)
 
     alpha = 1 / np.sqrt(2 * biga)
-    # print(alpha)
 
-    # build vecs
+    dJ1 = np.zeros(2 * nmax + 1)
+    dJ2 = np.zeros(2 * nmax + 1)
+    A = np.zeros((2 * nmax + 1, 2 * nmax + 1))
+    B = np.zeros((2 * nmax + 1, 2 * nmax + 1))
+    C = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
+    D = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
+    G = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
     for j in range(nsteps + 1):
         pjmat = p1mat ** j
 
@@ -213,13 +218,6 @@ def compgradhess(x, ic):
         # for now
         ajvec = pjmat @ ainit
 
-        dJ1 = np.zeros(2*nmax + 1)
-        dJ2 = np.zeros(2 * nmax + 1)
-        A = np.zeros((2*nmax + 1, 2*nmax + 1))
-        B = np.zeros((2 * nmax + 1, 2 * nmax + 1))
-        C = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
-        D = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
-        G = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
         for s in range(2*nmax + 1):
             psvec = pjmat.T[s]
             # in notes correlation writen like (v \star a)
