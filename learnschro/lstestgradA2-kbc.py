@@ -201,9 +201,13 @@ def compgradhess(x, realic):
     alpha = 1 / np.sqrt(2 * biga)
 
     dJreal = np.zeros(2*nmax + 1, dtype=float)
-    djimag = np.zeros(2*nmax + 1, dtype=float)
+    dJimag = np.zeros(2 * nmax + 1, dtype=float)
+
     for j in range(nsteps + 1):
-        pjmat = hatprop**j
+        testpjmat = hatprop**j
+        pjmat = np.linalg.matrix_power(hatprop, j)
+        print('-->Error pjmat:', np.linalg.norm(pjmat - testpjmat))
+
         aj = ahatmat[j]
         residj = resid[j]
 
@@ -214,9 +218,9 @@ def compgradhess(x, realic):
             tp = jnp.transpose(jnp.conj(corrpsaj + corrajps))
             tm = jnp.transpose(jnp.conj(corrpsaj - corrajps))
             dJreal[s] += jnp.real(tp @ residj)
-            djimag[s] += jnp.imag(tm @ residj)
+            dJimag[s] += jnp.imag(tm @ residj)
 
-    gradJ = alpha * jnp.concatenate([dJreal, djimag])
+    gradJ = alpha * jnp.concatenate([dJreal, dJimag])
 
     return gradJ
 ########################################
