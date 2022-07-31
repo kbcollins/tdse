@@ -219,7 +219,7 @@ def compgradhess(x, realic):
         # this essentially is the propagation of a0
         # again this is just a dirty way to get this term
         # for now
-        ajvec = pjmat @ realic
+        ajvec = pjmat @ ic
 
         for s in range(2*nmax + 1):
             psvec = pjmat.T[s]
