@@ -205,9 +205,7 @@ def compgradhess(x, realic):
     dJimag = np.zeros(2 * nmax + 1, dtype=float)
 
     for j in range(nsteps + 1):
-        testpjmat = sl.expm(-1j * hhatmat * j * dt)
         pjmat = np.linalg.matrix_power(hatprop, j)
-        print('-->Error pjmat:', jnp.linalg.norm(pjmat - testpjmat))
 
         aj = ahatmat[j]
         residj = resid[j]
