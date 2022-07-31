@@ -197,6 +197,7 @@ def compgradhess(x, realic):
 
     # compute only the objective function
     resid = rhomat - jbetamat
+    print('-->resid:', resid)
     ########################################
 
     alpha = 1 / np.sqrt(2 * biga)
