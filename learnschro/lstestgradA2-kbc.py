@@ -13,6 +13,7 @@ import scipy.optimize as so
 import time
 
 import numpy as np
+import scipy as sp
 
 import linearbases 
 import learnschro as ls
@@ -204,9 +205,9 @@ def compgradhess(x, realic):
     dJimag = np.zeros(2 * nmax + 1, dtype=float)
 
     for j in range(nsteps + 1):
-        testpjmat = hatprop**j
+        testpjmat = sp.linalg.expm(1j * hhatmat * j * dt)
         pjmat = np.linalg.matrix_power(hatprop, j)
-        print('-->Error pjmat:', np.linalg.norm(pjmat - testpjmat))
+        print('-->Error pjmat:', jnp.linalg.norm(pjmat - testpjmat))
 
         aj = ahatmat[j]
         residj = resid[j]
