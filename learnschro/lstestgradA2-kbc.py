@@ -5,7 +5,7 @@ import os
 os.environ['XLA_PYTHON_CLIENT_PREALLOCATE']='false'
 
 import jax.numpy as jnp
-from jax import grad, jit, jacobian, vmap, lax
+from jax import grad, jit, jacobian, vmap, lax, hessian
 
 import scipy.linalg as sl
 import scipy.integrate as si
@@ -160,7 +160,7 @@ def objrealic(x, realic):
 
 jitobjrealic = jit(objrealic)
 jgradobjrealic = jit(grad(objrealic, argnums=1))
-jhessobjrealic = jit(grad(grad(objrealic, argnums=1), argnums=1))
+jhessobjrealic = jit(hessian(objrealic, argnums=1))
 
 def compgradhess(x, realic):
     # recombine real and imaginary parts of ic
