@@ -174,10 +174,8 @@ def compgradhess(x, realic):
     ic = realic[:2*nmax + 1] + 1j*realic[2*nmax + 1:]
 
     ########################################
-    # I'm using this code as a quick and dirty way to get
-    # the propagator matrix and resid. If my Hessian works
-    # there are better ways to do this.
-    # potential matrix
+    # I'm reusing this code as a quick and dirty way to get
+    # the propagator matrix, avec_j, and resid.
     vhatmat = jrepmat @ x
     # Hamiltonian matrix
     hhatmat = jkmat + vhatmat
@@ -186,9 +184,10 @@ def compgradhess(x, realic):
     hatspec, hatstates = jnp.linalg.eigh(hhatmat)
     hatprop = hatstates @ jnp.diag(jnp.exp(-1j * hatspec * dt)) @ jnp.conj(hatstates.T)
 
-    # solve *forward* problem
+    # initialize ahatmat
     ahatmat = jnp.concatenate([jnp.expand_dims(ic, 0), jnp.zeros((nsteps, 2 * nmax + 1))])
 
+    # solve *forward* problem
     def forstep(j, loopamat):
         return loopamat.at[j + 1].set(hatprop @ loopamat[j, :])
 
@@ -197,61 +196,29 @@ def compgradhess(x, realic):
 
     # compute only the objective function
     resid = rhomat - jbetamat
-    # print('-->Shape resid:', resid.shape)
-    print('-->resid[50]:', resid[50])
     ########################################
-
-    p1mat = jnp.exp(-1j * hhatmat * dt)
-    # print('-->Shape pmat:', pmat.shape)
 
     alpha = 1 / np.sqrt(2 * biga)
 
-    dJ1 = np.zeros(2 * nmax + 1)
-    dJ2 = np.zeros(2 * nmax + 1)
-    A = np.zeros((2 * nmax + 1, 2 * nmax + 1))
-    B = np.zeros((2 * nmax + 1, 2 * nmax + 1))
-    C = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
-    D = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
-    G = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=complex)
+    dJreal = jnp.zeros(2*nmax + 1, dtype=float)
+    djimag = jnp.zeros(2*nmax + 1, dtype=float)
     for j in range(nsteps + 1):
-        pjmat = p1mat ** j
-
-        # this essentially is the propagation of a0
-        # again this is just a dirty way to get this term
-        # for now
-        ajvec = pjmat @ ic
+        pjmat = hatprop**j
+        aj = ahatmat[j]
+        residj = resid[j]
 
         for s in range(2*nmax + 1):
-            psvec = pjmat.T[s]
-            # in notes correlation writen like (v \star a)
-            # numpy.correlate(a, v, mode=)
-            corrpsaj = jnp.correlate(ajvec, psvec, mode='same')
-            # print('-->corrpsaj:', corrpsaj)
-            corrajps = jnp.correlate(psvec, ajvec, mode='same')
-            # print('-->corrajps:', corrajps)
-            dJ1 += np.transpose(np.conj(corrpsaj + corrajps)) @ resid[j] + np.transpose(np.conj(resid[j])) @ (corrpsaj + corrajps)
-            dJ2 += -np.transpose(np.conj(-corrpsaj + corrajps)) @ resid[j] + np.transpose(np.conj(resid[j])) @ (-corrpsaj + corrajps)
-            # for r in range(2*nmax + 1):
-            #     prvec = pjmat.T[r]
-            #     # in notes correlation writen like (v \star a)
-            #     # numpy.correlate(a, v, mode=)
-            #     corrpraj = np.correlate(ajvec, prvec, mode='same')
-            #     corrajpr = np.correlate(prvec, ajvec, mode='same')
-            #     corrpspr = np.correlate(prvec, psvec, mode='same')
-            #     corrprps = np.correlate(psvec, prvec, mode='same')
-            #     A[r, s] += alpha * np.real(np.transpose(np.conj(resid[j])) @ (corrpspr + corrprps))
-            #     B[r, s] += alpha * np.real(1j * np.transpose(np.conj(resid[j])) @ (corrpspr - corrprps))
-            #     termc1 = np.transpose(np.conj(corrpraj + corrajpr)) @ (-corrpsaj + corrajps)
-            #     termc2 = np.transpose(np.conj(-corrpraj + corrajpr)) @ (corrpsaj + corrajps)
-            #     C[r, s] += 1j * alpha**2 * (termc1 - termc2) / 2
-            #     D[r, s] += alpha**2 * np.transpose(np.conj(corrpraj + corrajpr)) @ (corrpsaj + corrajps)
-            #     G[r, s] += alpha**2 * np.transpose(np.conj(-corrpraj + corrajpr)) @ (-corrpsaj + corrajps)
+            ps = pjmat.T[s]
+            corrpsaj = jnp.correlate(ps, aj, mode='same')
+            corrajps = jnp.correlate(aj, ps, mode='same')
+            tp = jnp.transpose(jnp.conj(corrpsaj + corrajps))
+            tm = jnp.transpose(jnp.conj(corrpsaj - corrajps))
+            dJreal[s] += jnp.real(tp @ residj)
+            djimag[s] += jnp.imag(tm @ residj)
 
-    gradJ = (alpha / 2) * np.concatenate([dJ1, 1j*dJ2])
-    hessJ = np.block([[A + D, -B + C], [B + C, A + G]])
-    # print('-->Shape blockmat:', blockmat.shape)
+    gradJ = alpha * jnp.array([dJreal, djimag])
 
-    return gradJ, hessJ
+    return gradJ
 ########################################
 
 print("justobj at true theta: ")
@@ -312,13 +279,7 @@ for i in range(numruns):
     jvhatmat = jnp.array(adjmodel.vmat())
     jctrmats = jnp.array(adjmodel.grad())
     # JAX guys
-
-    #####################################
     obj = jjustobj(thetarand, jainit)
-    objRic = jitobjrealic(thetarand, realjainit)
-    dobjrealic = jgradobjrealic(thetarand, realjainit)
-    #####################################
-
     grad = jjaxgrad(thetarand, jainit)
     hess = jjaxhess(thetarand, jainit)
     dinit = jjaxdinit(thetarand, jainit)
@@ -327,26 +288,25 @@ for i in range(numruns):
     hinit = jjaxhinit(thetarand, jainit)
 
     ########################################
-    # kbc
-    print('-->objRic:', objrealic(thetarand, realjainit))
-    print('-->Error objRic:', np.linalg.norm(obj - objRic))
-    print('-->Shape dobjrealic:', dobjrealic.shape)
-    print('-->dobjrealic:', dobjrealic)
+    objRic = jitobjrealic(thetarand, realjainit)
+    jaxdJ = jgradobjrealic(thetarand, realjainit)
+    gradJ = compgradhess(truemodel.gettheta(), realjainit)
 
-    dJ, hJ = compgradhess(truemodel.gettheta(), realjainit)
-    print('-->Shape dJ:', dJ.shape)
-    print('-->dJ:', dJ)
+    print('-->obj:', obj)
+    print('-->objRic:', objRic)
+    print('-->Error objRic:', jnp.linalg.norm(obj - objRic))
 
-    # print('-->Shape hJ:', hJ.shape)
-    # print('-->hinit:', hinit)
-    # print('-->hJ:', hJ)
+    print('-->Shape jaxdJ:', jaxdJ.shape)
+    print('-->jaxdJ:', jaxdJ)
+    print('-->Shape gradJ:', gradJ.shape)
+    print('-->gradJ:', gradJ)
+    print('-->Error gradJ:', jnp.linalg.norm(jaxdJ - gradJ))
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
     # print(hinit)
-    fderr += jnp.mean(jnp.abs(hinit - hJ))
+    # fderr += jnp.mean(jnp.abs(hinit - hJ))
     # fderr += jnp.mean(jnp.abs(hinit - (nsteps+1)*jnp.eye(jainit.shape[0])))
-
-    print(jnp.abs(hinit - hJ))
+    # print(jnp.abs(hinit - hJ))
     ########################################
 
     # compute and check errors for outputs from jadjgrad
