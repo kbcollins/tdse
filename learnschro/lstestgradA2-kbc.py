@@ -293,7 +293,7 @@ for i in range(numruns):
     ########################################
     objRic = jitobjrealic(thetarand, realainit)
     jaxdJ = jgradobjrealic(thetarand, realainit)
-    gradJ = compgradhess(truemodel.gettheta(), realainit)
+    gradJ = compgradhess(thetarand, realainit)
 
     print('-->obj:', obj)
     print('-->objRic:', objRic)
