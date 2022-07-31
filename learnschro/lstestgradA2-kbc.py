@@ -129,17 +129,12 @@ def justobj(x, ic):
     return obj
 
 ########################################
-# kbc
-
-realjainit = jnp.concatenate([ainit.real, ainit.imag])
-print('-->Shape realjainit:', realjainit.shape)
+realainit = jnp.concatenate([ainit.real, ainit.imag])
+print('-->Shape realainit:', realainit.shape)
 
 
 def objrealic(x, realic):
     # recombine real and imaginary parts of ic
-    # print('-->realic:', realic)
-    # print('-->realic[:2*nmax + 1]:', realic[:2*nmax + 1])
-    # print('-->realic[2*nmax + 1:]:', realic[2*nmax + 1:])
     ic = realic[:2*nmax + 1] + 1j*realic[2*nmax + 1:]
 
     # potential matrix
@@ -220,6 +215,10 @@ def compgradhess(x, realic):
             dJreal[s] += jnp.real(tp @ residj)
             dJimag[s] += jnp.imag(tm @ residj)
 
+    print('-->corrpsaj:', corrpsaj)
+    print('-->corrajps:', corrajps)
+    print('-->(corrpsaj + corrajps):', corrpsaj + corrajps)
+    print('-->(corrpsaj - corrajps):', corrpsaj - corrajps)
     gradJ = alpha * jnp.concatenate([dJreal, dJimag])
 
     return gradJ
@@ -292,9 +291,9 @@ for i in range(numruns):
     hinit = jjaxhinit(thetarand, jainit)
 
     ########################################
-    objRic = jitobjrealic(thetarand, realjainit)
-    jaxdJ = jgradobjrealic(thetarand, realjainit)
-    gradJ = compgradhess(truemodel.gettheta(), realjainit)
+    objRic = jitobjrealic(thetarand, realainit)
+    jaxdJ = jgradobjrealic(thetarand, realainit)
+    gradJ = compgradhess(truemodel.gettheta(), realainit)
 
     print('-->obj:', obj)
     print('-->objRic:', objRic)
