@@ -333,7 +333,7 @@ for i in range(numruns):
     print('-->Shape dobjrealic:', dobjrealic.shape)
     print('-->dobjrealic:', dobjrealic)
 
-    dJ, hJ = compgradhess(truemodel.gettheta(), jainit)
+    dJ, hJ = compgradhess(truemodel.gettheta(), realjainit)
     print('-->Shape dJ:', dJ.shape)
     print('-->dJ:', dJ)
 
