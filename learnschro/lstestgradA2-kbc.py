@@ -169,7 +169,10 @@ def objrealic(x, realic):
 jitobjrealic = jit(objrealic)
 jgradobjrealic = jit(grad(objrealic, argnums=1))
 
-def compgradhess(x, ic):
+def compgradhess(x, realic):
+    # recombine real and imaginary parts of ic
+    ic = realic[:2*nmax + 1] + 1j*realic[2*nmax + 1:]
+
     ########################################
     # I'm using this code as a quick and dirty way to get
     # the propagator matrix and resid. If my Hessian works
@@ -216,7 +219,7 @@ def compgradhess(x, ic):
         # this essentially is the propagation of a0
         # again this is just a dirty way to get this term
         # for now
-        ajvec = pjmat @ ainit
+        ajvec = pjmat @ realic
 
         for s in range(2*nmax + 1):
             psvec = pjmat.T[s]
