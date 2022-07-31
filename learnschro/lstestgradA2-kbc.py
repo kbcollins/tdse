@@ -213,8 +213,8 @@ def compgradhess(x, realic):
             corrajps = jnp.correlate(aj, ps, mode='same')
             tp = jnp.transpose(jnp.conj(corrpsaj + corrajps))
             tm = jnp.transpose(jnp.conj(corrpsaj - corrajps))
-            dJreal[s] += jnp.real(tp @ residj)
-            djimag[s] += jnp.imag(tm @ residj)
+            dJreal.at[s].set(jnp.real(tp @ residj))
+            djimag.at[s].set(jnp.imag(tm @ residj))
 
     gradJ = alpha * jnp.array([dJreal, djimag])
 
