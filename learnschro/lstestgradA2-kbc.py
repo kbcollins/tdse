@@ -229,7 +229,7 @@ def compgradhess(x, realic):
                 ddJimagimag += jnp.imag(t1 + alpha * tm @ ttm)
 
     rtngradJ = alpha * jnp.concatenate([dJreal, dJimag])
-    rtnhessJ = jnp.block([[ddJrealreal, ddJrealimag], [ddJimagreal, ddJimagimag]])
+    rtnhessJ = alpha * jnp.block([[ddJrealreal, ddJrealimag], [ddJimagreal, ddJimagimag]])
 
     return rtngradJ, rtnhessJ
 ########################################
