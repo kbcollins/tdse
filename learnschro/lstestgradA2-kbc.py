@@ -215,7 +215,7 @@ def compgradhess(x, realic):
             dJimag[s] += jnp.imag(tm @ residj)
 
             for r in range(2 * nmax + 1):
-                pr = pjmat.T[s]
+                pr = pjmat.T[r]
                 corrpspr = jnp.correlate(ps, pr, mode='same')
                 corrprps = jnp.correlate(pr, ps, mode='same')
                 corrpraj = jnp.correlate(pr, aj, mode='same')
