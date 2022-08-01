@@ -320,6 +320,7 @@ for i in range(numruns):
     print('-->jaxHJ:', jaxHJ)
     print('-->Shape HJ:', HJ.shape)
     print('-->HJ:', HJ)
+    print('-->Diff HJ:', HJ - jaxHJ)
     print('-->Error HJ:', jnp.linalg.norm(HJ - jaxHJ))
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
