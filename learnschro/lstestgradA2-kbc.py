@@ -220,17 +220,17 @@ def compgradhess(x, realic):
                 corrprps = jnp.correlate(pr, ps, mode='same')
                 corrpraj = jnp.correlate(pr, aj, mode='same')
                 corrajpr = jnp.correlate(aj, pr, mode='same')
-                # t1 = jnp.transpose(jnp.conj(corrpspr + corrprps)) @ residj
+                t1 = jnp.transpose(jnp.conj(corrpspr + corrprps)) @ residj
                 t2 = jnp.transpose(jnp.conj(corrpspr - corrprps)) @ residj
-                # ttp = corrpraj + corrajpr
+                ttp = corrpraj + corrajpr
                 ttm = corrpraj - corrajpr
                 # ddJrealreal[r, s] += jnp.real(t1 + alpha * tp @ ttp)
-                ddJrealimag[r, s] += -jnp.imag(t2 + alpha * tp @ ttm)
-                # ddJimagreal[r, s] += jnp.real(t1 + alpha * tm @ ttp)
-                # ddJimagimag[r, s] += jnp.imag(t2 + alpha * tm @ ttm)
+                # ddJrealimag[r, s] += jnp.imag(t2 + alpha * tp @ ttm)
+                ddJimagreal[r, s] += jnp.imag(t1 + alpha * tm @ ttp)
+                ddJimagimag[r, s] += jnp.real(t2 + alpha * tm @ ttm)
 
     rtngradJ = alpha * jnp.concatenate([dJreal, dJimag])
-    rtnhessJ = alpha * jnp.block([[ddJrealreal, ddJrealimag], [ddJimagreal, ddJimagimag]])
+    rtnhessJ = alpha * jnp.block([[ddJrealreal, -ddJrealimag], [ddJimagreal, ddJimagimag]])
 
     return rtngradJ, rtnhessJ
 ########################################
@@ -318,9 +318,11 @@ for i in range(numruns):
     print('-->Error gradJ:', jnp.linalg.norm(jaxdJ - gradJ))
 
     print('-->Shape jaxHJ:', jaxHJ.shape)
-    print('-->jaxHJ[:2*nmax+1, 2*nmax+1:]:', jaxHJ[:2*nmax+1, 2*nmax+1:])
     print('-->Shape HJ:', HJ.shape)
-    print('-->HJ[:2*nmax+1, 2*nmax+1:]:', HJ[:2*nmax+1, 2*nmax+1:])
+    print('-->jaxHJ[2*nmax+1:, :2*nmax+1]:', jaxHJ[2*nmax+1:, :2*nmax+1])
+    print('-->HJ[2*nmax+1:, :2*nmax+1]:', HJ[2*nmax+1:, :2*nmax+1])
+    print('-->jaxHJ[2*nmax+1:, 2*nmax+1:]:', jaxHJ[2*nmax+1:, 2*nmax+1:])
+    print('-->HJ[2*nmax+1:, 2*nmax+1:]:', HJ[2*nmax+1:, 2*nmax+1:])
     print('-->Diff HJ:', HJ - jaxHJ)
     print('-->Error HJ:', jnp.linalg.norm(HJ - jaxHJ))
 
