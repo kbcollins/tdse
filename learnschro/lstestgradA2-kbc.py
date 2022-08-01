@@ -195,7 +195,10 @@ def compgradhess(x, realic):
 
     dJreal = np.zeros(2*nmax + 1, dtype=float)
     dJimag = np.zeros(2 * nmax + 1, dtype=float)
-
+    ddJrealreal = np.zeros(2*nmax + 1, 2 * nmax + 1, dtype=float)
+    ddJrealimag = np.zeros(2 * nmax + 1, 2 * nmax + 1, dtype=float)
+    ddJimagreal = np.zeros(2 * nmax + 1, 2 * nmax + 1, dtype=float)
+    ddJimagimag = np.zeros(2 * nmax + 1, 2 * nmax + 1, dtype=float)
     for j in range(nsteps + 1):
         pjmat = np.linalg.matrix_power(hatprop, j)
 
@@ -211,9 +214,24 @@ def compgradhess(x, realic):
             dJreal[s] += jnp.real(tp @ residj)
             dJimag[s] += jnp.imag(tm @ residj)
 
-    gradJ = alpha * jnp.concatenate([dJreal, dJimag])
+            for r in range(2 * nmax + 1):
+                pr = pjmat.T[s]
+                corrpspr = jnp.correlate(ps, pr, mode='same')
+                corrprps = jnp.correlate(pr, ps, mode='same')
+                corrpraj = jnp.correlate(pr, aj, mode='same')
+                corrajps = jnp.correlate(aj, pr, mode='same')
+                t1 = jnp.transpose(jnp.conj(corrpspr + corrprps)) @ residj
+                ttp = corrpraj + corrajps
+                ttm = corrpraj - corrajps
+                ddJrealreal += jnp.real(t1 + alpha * tp @ ttp)
+                ddJrealimag += jnp.real(t1 + alpha * tp @ ttm)
+                ddJimagreal += jnp.real(t1 + alpha * tm @ ttp)
+                ddJimagimag += jnp.real(t1 + alpha * tm @ ttm)
 
-    return gradJ
+    rtngradJ = alpha * jnp.concatenate([dJreal, dJimag])
+    rtnhessJ = jnp.block([[ddJrealreal, ddJrealimag], [ddJimagreal, ddJimagimag]])
+
+    return rtngradJ, rtnhessJ
 ########################################
 
 print("justobj at true theta: ")
@@ -285,8 +303,8 @@ for i in range(numruns):
     ########################################
     objRic = jitobjrealic(thetarand, realainit)
     jaxdJ = jgradobjrealic(thetarand, realainit)
-    gradJ = compgradhess(thetarand, realainit)
-    hessJ = jhessobjrealic(thetarand, realainit)
+    gradJ, HJ = compgradhess(thetarand, realainit)
+    jaxHJ = jhessobjrealic(thetarand, realainit)
 
     print('-->obj:', obj)
     print('-->objRic:', objRic)
@@ -298,8 +316,11 @@ for i in range(numruns):
     print('-->gradJ:', gradJ)
     print('-->Error gradJ:', jnp.linalg.norm(jaxdJ - gradJ))
 
-    print('-->Shape hessJ:', hessJ.shape)
-    print('-->hessJ:', hessJ)
+    print('-->Shape jaxHJ:', jaxHJ.shape)
+    print('-->jaxHJ:', jaxHJ)
+    print('-->Shape HJ:', HJ.shape)
+    print('-->HJ:', HJ)
+    print('-->Error HJ:', jnp.linalg.norm(HJ - jaxHJ))
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
     # print(hinit)
