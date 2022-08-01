@@ -219,14 +219,14 @@ def compgradhess(x, realic):
                 corrpspr = jnp.correlate(ps, pr, mode='same')
                 corrprps = jnp.correlate(pr, ps, mode='same')
                 corrpraj = jnp.correlate(pr, aj, mode='same')
-                corrajps = jnp.correlate(aj, pr, mode='same')
+                corrajpr = jnp.correlate(aj, pr, mode='same')
                 t1 = jnp.transpose(jnp.conj(corrpspr + corrprps)) @ residj
-                ttp = corrpraj + corrajps
-                ttm = corrpraj - corrajps
-                ddJrealreal += jnp.real(t1 + alpha * jnp.transpose(jnp.conj(tp)) @ ttp)
-                ddJrealimag += jnp.imag(t1 + alpha * jnp.transpose(jnp.conj(tp)) @ ttm)
-                ddJimagreal += jnp.real(t1 + alpha * jnp.transpose(jnp.conj(tm)) @ ttp)
-                ddJimagimag += jnp.imag(t1 + alpha * jnp.transpose(jnp.conj(tm)) @ ttm)
+                ttp = corrpraj + corrajpr
+                ttm = corrpraj - corrajpr
+                ddJrealreal += jnp.real(t1 + alpha * tp @ ttp)
+                ddJrealimag += jnp.imag(t1 + alpha * tp @ ttm)
+                ddJimagreal += jnp.real(t1 + alpha * tm @ ttp)
+                ddJimagimag += jnp.imag(t1 + alpha * tm @ ttm)
 
     rtngradJ = alpha * jnp.concatenate([dJreal, dJimag])
     rtnhessJ = alpha * jnp.block([[ddJrealreal, ddJrealimag], [ddJimagreal, ddJimagimag]])
