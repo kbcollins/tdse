@@ -226,8 +226,8 @@ def compgradhess(x, realic):
                 ttm = corrpraj - corrajpr
                 ddJrealreal[r, s] += jnp.real(t1 + alpha * tp @ ttp)
                 ddJrealimag[r, s] += jnp.imag(t2 + alpha * tp @ ttm)
-                ddJimagreal[r, s] += jnp.real(t1 + alpha * tm @ ttp)
-                ddJimagimag[r, s] += jnp.imag(t2 + alpha * tm @ ttm)
+                # ddJimagreal[r, s] += jnp.real(t1 + alpha * tm @ ttp)
+                # ddJimagimag[r, s] += jnp.imag(t2 + alpha * tm @ ttm)
 
     rtngradJ = alpha * jnp.concatenate([dJreal, dJimag])
     rtnhessJ = alpha * jnp.block([[ddJrealreal, ddJrealimag], [ddJimagreal, ddJimagimag]])
@@ -318,9 +318,9 @@ for i in range(numruns):
     print('-->Error gradJ:', jnp.linalg.norm(jaxdJ - gradJ))
 
     print('-->Shape jaxHJ:', jaxHJ.shape)
-    print('-->jaxHJ:', jaxHJ)
+    print('-->jaxHJ[2*nmax +1:, 2*nmax +1:]:', jaxHJ[2*nmax +1:, 2*nmax +1:])
     print('-->Shape HJ:', HJ.shape)
-    print('-->HJ:', HJ)
+    print('-->HJ[2*nmax +1:, 2*nmax +1:]:', HJ[2*nmax +1:, 2*nmax +1:])
     print('-->Diff HJ:', HJ - jaxHJ)
     print('-->Error HJ:', jnp.linalg.norm(HJ - jaxHJ))
 
