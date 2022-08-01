@@ -319,12 +319,17 @@ for i in range(numruns):
 
     print('-->Shape jaxHJ:', jaxHJ.shape)
     print('-->Shape HJ:', HJ.shape)
-    print('-->jaxHJ[2*nmax+1:, :2*nmax+1]:', jaxHJ[2*nmax+1:, :2*nmax+1])
-    print('-->HJ[2*nmax+1:, :2*nmax+1]:', HJ[2*nmax+1:, :2*nmax+1])
-    print('-->jaxHJ[2*nmax+1:, 2*nmax+1:]:', jaxHJ[2*nmax+1:, 2*nmax+1:])
-    print('-->HJ[2*nmax+1:, 2*nmax+1:]:', HJ[2*nmax+1:, 2*nmax+1:])
+    # print('-->jaxHJ[2*nmax+1:, :2*nmax+1]:', jaxHJ[2*nmax+1:, :2*nmax+1])
+    # print('-->HJ[2*nmax+1:, :2*nmax+1]:', HJ[2*nmax+1:, :2*nmax+1])
     print('-->Diff HJ:', HJ - jaxHJ)
-    print('-->Error HJ:', jnp.linalg.norm(HJ - jaxHJ))
+    print('-->Error HJ Block1:', jnp.linalg.norm(HJ[2*nmax+1:, 2*nmax+1:] - jaxHJ[2*nmax+1:, 2*nmax+1:]))
+    print('-->Error HJ Block2:',
+          jnp.linalg.norm(HJ[2 * nmax + 1:, :2 * nmax + 1] - jaxHJ[2 * nmax + 1:, :2 * nmax + 1]))
+    print('-->Error HJ Block3:',
+          jnp.linalg.norm(HJ[:2 * nmax + 1, 2 * nmax + 1:] - jaxHJ[:2 * nmax + 1, 2 * nmax + 1:]))
+    print('-->Error HJ Block4:',
+          jnp.linalg.norm(HJ[:2 * nmax + 1, :2 * nmax + 1] - jaxHJ[:2 * nmax + 1, :2 * nmax + 1]))
+    print('-->Total Error HJ:', jnp.linalg.norm(HJ - jaxHJ))
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
     # print(hinit)
