@@ -193,12 +193,12 @@ def compgradhess(x, realic):
 
     alpha = 1 / np.sqrt(2 * biga)
 
-    dJreal = np.zeros(2*nmax + 1, dtype=float)
+    dJreal = np.zeros(2 * nmax + 1, dtype=float)
     dJimag = np.zeros(2 * nmax + 1, dtype=float)
-    ddJrealreal = np.zeros(2*nmax + 1, 2 * nmax + 1, dtype=float)
-    ddJrealimag = np.zeros(2 * nmax + 1, 2 * nmax + 1, dtype=float)
-    ddJimagreal = np.zeros(2 * nmax + 1, 2 * nmax + 1, dtype=float)
-    ddJimagimag = np.zeros(2 * nmax + 1, 2 * nmax + 1, dtype=float)
+    ddJrealreal = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=float)
+    ddJrealimag = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=float)
+    ddJimagreal = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=float)
+    ddJimagimag = np.zeros((2 * nmax + 1, 2 * nmax + 1), dtype=float)
     for j in range(nsteps + 1):
         pjmat = np.linalg.matrix_power(hatprop, j)
 
