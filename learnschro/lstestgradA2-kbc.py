@@ -223,7 +223,7 @@ def compgradhess(x, realic):
                 t1 = jnp.transpose(jnp.conj(corrpspr + corrprps)) @ residj
                 ttp = corrpraj + corrajpr
                 # ttm = corrpraj - corrajpr
-                ddJrealreal += jnp.real(t1 + alpha * tp @ ttp)
+                ddJrealreal[r, s] += jnp.real(t1 + alpha * tp @ ttp)
                 # ddJrealimag += jnp.imag(t1 + alpha * tp @ ttm)
                 # ddJimagreal += jnp.real(t1 + alpha * tm @ ttp)
                 # ddJimagimag += jnp.imag(t1 + alpha * tm @ ttm)
