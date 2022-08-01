@@ -216,16 +216,14 @@ def compgradhess(x, realic):
 
             for r in range(2 * nmax + 1):
                 pr = pjmat.T[r]
-                print('-->ps-pr:', ps-pr)
                 corrpspr = jnp.correlate(ps, pr, mode='same')
                 corrprps = jnp.correlate(pr, ps, mode='same')
-                print('-->corrpspr-corrprps:', corrpspr - corrprps)
-                # corrpraj = jnp.correlate(pr, aj, mode='same')
-                # corrajpr = jnp.correlate(aj, pr, mode='same')
-                # t1 = jnp.transpose(jnp.conj(corrpspr + corrprps)) @ residj
-                # ttp = corrpraj + corrajpr
+                corrpraj = jnp.correlate(pr, aj, mode='same')
+                corrajpr = jnp.correlate(aj, pr, mode='same')
+                t1 = jnp.transpose(jnp.conj(corrpspr + corrprps)) @ residj
+                ttp = corrpraj + corrajpr
                 # ttm = corrpraj - corrajpr
-                # ddJrealreal += jnp.real(t1 + alpha * tp @ ttp)
+                ddJrealreal += jnp.real(t1 + alpha * tp @ ttp)
                 # ddJrealimag += jnp.imag(t1 + alpha * tp @ ttm)
                 # ddJimagreal += jnp.real(t1 + alpha * tm @ ttp)
                 # ddJimagimag += jnp.imag(t1 + alpha * tm @ ttm)
