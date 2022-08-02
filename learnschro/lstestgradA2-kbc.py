@@ -206,7 +206,7 @@ def compgradhess(x, realic):
         residj = resid[j]
 
         for s in range(2*nmax + 1):
-            ps = pjmat.T[s]
+            ps = pjmat[:, s]
             corrpsaj = jnp.correlate(ps, aj, mode='same')
             corrajps = jnp.correlate(aj, ps, mode='same')
             tp = jnp.transpose(jnp.conj(corrpsaj + corrajps))
