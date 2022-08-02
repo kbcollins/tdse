@@ -230,7 +230,7 @@ def compgradhess(x, realic):
                 # ddJimagimag[r, s] += jnp.real(t2 + alpha * tm @ ttm)
 
     rtngradJ = alpha * jnp.concatenate([dJreal, dJimag])
-    rtnhessJ = alpha * jnp.block([[ddJrealreal, -ddJrealimag], [ddJimagreal, ddJimagimag]])
+    rtnhessJ = alpha * jnp.block([[ddJrealreal, ddJrealimag], [ddJimagreal, ddJimagimag]])
 
     return rtngradJ, rtnhessJ
 ########################################
@@ -321,15 +321,30 @@ for i in range(numruns):
     print('-->Shape HJ:', HJ.shape)
     # print('-->jaxHJ[2*nmax+1:, :2*nmax+1]:', jaxHJ[2*nmax+1:, :2*nmax+1])
     # print('-->HJ[2*nmax+1:, :2*nmax+1]:', HJ[2*nmax+1:, :2*nmax+1])
-    print('-->Diff HJ:', HJ - jaxHJ)
+    print('-->jaxHJ Block1:', jaxHJ[:2 * nmax + 1, :2 * nmax + 1])
+    print('-->HJ Block1:', HJ[:2 * nmax + 1, :2 * nmax + 1])
+    print('-->Diff HJ Block1:', HJ[:2 * nmax + 1, :2 * nmax + 1] - jaxHJ[:2 * nmax + 1, :2 * nmax + 1])
     print('-->Error HJ Block1:',
           jnp.linalg.norm(HJ[:2 * nmax + 1, :2 * nmax + 1] - jaxHJ[:2 * nmax + 1, :2 * nmax + 1]))
+
+    print('-->jaxHJ Block2:', jaxHJ[:2 * nmax + 1, 2 * nmax + 1:])
+    print('-->HJ Block2:', HJ[:2 * nmax + 1, 2 * nmax + 1:])
+    print('-->Diff HJ Block2:', HJ[:2 * nmax + 1, 2 * nmax + 1:] - jaxHJ[:2 * nmax + 1, 2 * nmax + 1:])
     print('-->Error HJ Block2:',
           jnp.linalg.norm(HJ[:2 * nmax + 1, 2 * nmax + 1:] - jaxHJ[:2 * nmax + 1, 2 * nmax + 1:]))
+
+    print('-->jaxHJ Block3:', jaxHJ[2 * nmax + 1:, :2 * nmax + 1])
+    print('-->HJ Block3:', HJ[2 * nmax + 1:, :2 * nmax + 1])
+    print('-->Diff HJ Block3:', HJ[2 * nmax + 1:, :2 * nmax + 1] - jaxHJ[2 * nmax + 1:, :2 * nmax + 1])
     print('-->Error HJ Block3:',
           jnp.linalg.norm(HJ[2 * nmax + 1:, :2 * nmax + 1] - jaxHJ[2 * nmax + 1:, :2 * nmax + 1:]))
+
+    print('-->jaxHJ Block4:', jaxHJ[2 * nmax + 1:, 2 * nmax + 1:])
+    print('-->HJ Block4:', HJ[2 * nmax + 1:, 2 * nmax + 1:])
+    print('-->Diff HJ Block4:', HJ[2 * nmax + 1:, 2 * nmax + 1:] - jaxHJ[2 * nmax + 1:, 2 * nmax + 1:])
     print('-->Error HJ Block4:',
           jnp.linalg.norm(HJ[2 * nmax + 1:, 2 * nmax + 1:] - jaxHJ[2 * nmax + 1:, 2 * nmax + 1:]))
+
     print('-->Total Error HJ:', jnp.linalg.norm(HJ - jaxHJ))
 
     # replace (nsteps+1)*jnp.eye(jainit.shape[0]) with Hessian
