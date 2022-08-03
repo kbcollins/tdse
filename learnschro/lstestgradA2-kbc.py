@@ -227,7 +227,7 @@ def compgradhess(x, realic):
                 ddJrealreal[r, s] += jnp.real(t1 + alpha * tp @ ttp)
                 ddJimagreal[r, s] += jnp.imag(t2 + alpha * ttm @ (corrpsaj + corrajps))
                 # ddJrealimag[r, s] += jnp.imag(t2 + alpha * tp @ ttm)
-                # ddJimagimag[r, s] += jnp.real(t2 + alpha * tm @ ttm)
+                ddJimagimag[r, s] += jnp.real(t1 + alpha * ttm @ (corrpsaj - corrajps))
 
     rtngradJ = alpha * jnp.concatenate([dJreal, dJimag])
     rtnhessJ = alpha * jnp.block([[ddJrealreal, ddJrealimag], [ddJimagreal, ddJimagimag]])
