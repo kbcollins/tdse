@@ -221,11 +221,11 @@ def compgradhess(x, realic):
                 corrpraj = jnp.correlate(pr, aj, mode='same')
                 corrajpr = jnp.correlate(aj, pr, mode='same')
                 t1 = jnp.transpose(jnp.conj(corrpspr + corrprps)) @ residj
-                t2 = jnp.transpose(jnp.conj(residj)) @ (corrpspr + corrprps)
+                t2 = jnp.transpose(jnp.conj(residj)) @ (corrpspr - corrprps)
                 ttp = corrpraj + corrajpr
-                ttm = corrpraj - corrajpr
+                ttm = jnp.transpose(jnp.conj(corrpraj - corrajpr))
                 ddJrealreal[r, s] += jnp.real(t1 + alpha * tp @ ttp)
-                ddJimagreal[r, s] += jnp.imag(t2 + alpha * tm @ ttp)
+                ddJimagreal[r, s] += jnp.imag(t2 + alpha * ttm @ (corrpsaj + corrajps))
                 # ddJrealimag[r, s] += jnp.imag(t2 + alpha * tp @ ttm)
                 # ddJimagimag[r, s] += jnp.real(t2 + alpha * tm @ ttm)
 
